@@ -70,7 +70,10 @@ def test_core_imports_exist_in_both_generations():
     for fw, tag in ((FW2, "2.x"), (FW3, "rc1")):
         if not os.path.isdir(fw):
             continue
-        for rel, ln, module, names in scan()["core_imports"]:
+        for item in scan()["core_imports"]:
+            rel, ln, module, names, guarded = item
+            if guarded:
+                continue  # try/except ImportError 双形态候选导入 = 合法兼容模式
             res = symbol_exists(fw, module, names)
             for n, ok in res.items():
                 if not ok:

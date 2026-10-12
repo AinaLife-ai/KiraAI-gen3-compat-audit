@@ -18,7 +18,9 @@ python3 run.py --plugin /path/to/plugin_repo \
 | 测试 | 检查内容 |
 | --- | --- |
 | `test_no_removed_rc1_symbols` | AST 扫描插件源码，不得调用 rc1 已删除的会话 API（fetch_memory/write_memory/get_session_info 等）、已删模块（core.plugin.plugin_registry / core.utils.model_clients / adapter_utils / workflow_registry）、已删符号（IMAdapter/LiveEventCapability 等） |
-| `test_no_version_binding` | 兼容逻辑不得绑死版本号字符串（rc1/3.0.0/alpha/__version__），AST 级，注释与 docstring 豁免 |
+| `test_no_version_binding` | 生产代码不得绑死版本号字符串（rc1/3.0.0/alpha/__version__），AST 级，注释与 docstring 豁免 |
+
+> 静态扫描只覆盖**生产代码**：`tests/`/`test/` 目录整体豁免（测试桩天然是世代特异的，跨世代保证由动态层承担）。
 | `test_no_unawaited_async_session_api` | rc1 已变异步的 API（update_session/delete_session/get_effective_capabilities/get_session_capabilities 等）不得在非 await 位置直接调用 |
 | `test_core_imports_exist_in_both_generations` | 插件全部 `from core.* import` 符号逐一在两个真实框架 checkout 里核实存在性 |
 

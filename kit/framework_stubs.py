@@ -29,10 +29,24 @@ class Session3x:  # rc.1 形态：content 分块 + data + internal_id
 
 # ---------- 2.x 同步 SessionManager ----------
 class SessionManager2x:
+    """2.x 形态：常驻 chat_memory dict（{sid: {memory, title, description, timestamp}}）。"""
     def __init__(self):
         self._sessions = {}
         self._memory = {}
         self.deleted = []
+
+    @property
+    def chat_memory(self):
+        # 真实 2.x 的常驻缓存形态：dict[sid, dict]，含 memory/title/description/timestamp
+        return {
+            sid: {
+                "memory": self._memory.get(sid, []),
+                "title": getattr(self._sessions.get(sid), "session_title", ""),
+                "description": getattr(self._sessions.get(sid), "session_description", ""),
+                "timestamp": 0,
+            }
+            for sid in set(self._sessions) | set(self._memory)
+        }
 
     def _ensure(self, sid):
         self._sessions.setdefault(sid, Session2x(sid))

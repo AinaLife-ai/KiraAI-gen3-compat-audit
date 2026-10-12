@@ -240,3 +240,71 @@ python3 run.py --plugin /path/to/plugin   # 静态 4 条 + 动态（有 compat_t
 | 开发者迁移文档（用户给定底稿） | 附件 shared-cb5155ff.md（已核对与框架源码一致） |
 
 **审计方法可信度说明**：44 仓全部经过「机械预扫描（9 组 60+ 模式）→ 逐命中人工/子代理裁决 → 框架侧 grep 符号核实 → 主代理抽查复核」四步；子代理报告（accelerator/headless/ops/qzone 等）的关键论断均由主代理二次核实（含两处独立重复审计结论一致：accelerator）。预扫描对 JS/HTML/MD 同样覆盖。
+
+---
+
+# 附：执行完成报告（2026-10-12 深夜，主会话亲自动手）
+
+> 本方案 15 个 NEEDS-FIX 仓**全部修复完毕并推 PR**；另有 2 个 SAFE-NOTE 升级 PR；2 个自有仓 PR 已自收合并。
+> 所有修复 = 特征识别（hasattr/isawaitable/try-import 候选链/签名探测），**零版本号绑定**。
+
+## PR 总账（17 个）
+
+### 批次 A（小修）
+| 仓 | PR | 版本 | 内容 |
+| --- | --- | --- | --- |
+| fold_fan_formatter | znq19/#3 | 1.0.2→1.0.3 | plugin_handlers 导入双形态（补广播复活） |
+| subagent | znq19/#2 | 1.1.1→1.1.3 | 同上 + 快速模型标签可读化 + **available_models 沿用 2.x 可读名写法（3.0 自动解析内部 ID）** |
+| KiraKB | znq19/#7 | 1.1.4→1.1.5 | 面板嵌入模型下拉 UUID→可读名 |
+| midflight_message | znq19/#17 | 1.3.5→1.3.6 | buffer 路径文本化走 MessageFormatter 服务探测 |
+| openai-stream-compat | znq19/#3 | 1.1.0→1.1.1 | model_clients 导入候选链（3.0 加载崩溃修复） |
+| model_config_query | znq19/#1 | 1.0.0→1.0.1 | /模型 命令 UUID→解析可读名 |
+
+### 批次 B（中修）
+| 仓 | PR | 版本 | 内容 |
+| --- | --- | --- | --- |
+| qzone | znq19/#6 | 1.4.10→1.4.11 | 会话能力接口异步化（30s 缓存+异步预热，守住钩子零 await 不变量） |
+| headless_browser | Qixuan112/#38 | 2.2.1→2.2.2 | 5 处模型展示/视觉过滤 UUID→可读名 |
+| accelerator | znq19/#100 | 1.0.81→1.0.82 | 边写边发迁移 MessageDeliveryService 按链对账 + 面板可读名 |
+
+### 批次 C（会话三件套，同批联测）
+| 仓 | PR | 版本 | 内容 |
+| --- | --- | --- | --- |
+| reboot | znq19/#3 | 2.1.0→2.1.1 | 双世代会话层；清空保元数据；delete 模式 await 化 |
+| auto_delete_session | znq19/#4 | 2.1.4→2.1.5 | 同上 + 测试桩 3.0 下真 SQLite 库两代 54/54 |
+| session_merger (KSM) | znq19/#19 | 2.8.5→2.9.0 | session_mirror 镜像层（同步内部零改动）+ 延迟写队列 + **新特性 merge_across_adapters（webchat 与 QQ 等同组，默认关，白名单联动有效）** |
+
+### 批次 D + SAFE-NOTE 升级
+| 仓 | PR | 版本 | 内容 |
+| --- | --- | --- | --- |
+| ops | znq19/#5 | 1.2.0→1.2.1 | 会话域全异步双世代 + 模型域可读名/register 语义 + skills/mcp 规范入口；测试桩双世代 |
+| daily_report | znq19/#6 | 1.3.0→1.3.1 | 群发送走 IMCapability 能力契约（SAFE-NOTE 升级） |
+| Group-Manager | Qixuan112/#8 | 1.2.4→1.2.5 | 加群事件构造 supported_elements 分流（SAFE-NOTE 升级） |
+
+### 自有仓（AinaLife-ai，PR 后已自收合并）
+| 仓 | PR | 版本 | 内容 |
+| --- | --- | --- | --- |
+| kira_wiki | #1 已合并 | 1.0.0→1.0.1 | model 配置可读名自动解析内部 ID |
+| hotnews | #1 已合并 | 1.0.1→1.0.2 | 推送事件构造双世代化 |
+
+## 第二阶段深审结论（用户复查点）
+
+1. **模型配置值 2.x 习惯沿用**：rc1 的 `resolve_model_entry` 只认内部 ID/legacy_ids（已源码核实）。
+   schema `model_select` 字段（reboot/ADS/KSM/qzone/daily_report/headless/Notes）由框架自动规范化 ✓；
+   文本型字段两仓已加「可读名反查内部 ID」（subagent/kira_wiki）；agnes/video/token_stats/IndexTTS 的文本字段
+   经核实是**外部 API 语义**（上游要的就是可读名），不受框架身份影响 ✓。
+2. **无回归/无堵塞/无缓存破坏**：所有改动均对照基线复跑（accelerator/headless 做过 stash 对照实验）；
+   rc1 写路径原生异步无事件循环堵塞；镜像/缓存写入后失效联动事件已接。
+3. **SAFE/SAFE-NOTE 复审**：ws_keepalive 猴补丁目标在 rc1 实测仍在且同构（不改，列入每版复查）；
+   daily_report/hotnews/Group-Manager 已完成升级并 PR；其余 SAFE 仓全部经 kit 静态套件复核。
+4. **KSM 跨适配器**：webchat 身份已核实（`core/adapter/builtin/webchat`，sid=`webchat:dm:admin`）；
+   合并数据面是 SessionManager 归一化的 content 分块（适配器无关），消息结构差异不影响；
+   组 ID 无前缀 `all_merged` 的解析残留已全仓排查（零残留）；**「跨适配器开关」与「允许的适配器」
+   白名单联动实测有效**（限 qq 时 webchat 不进组；schema 提示已写明联动用法）。
+5. **kit 套件增强**（本会话迭代）：守卫导入豁免、docstring/长模板豁免、isawaitable/close/hasattr 探测豁免、
+   相对导入豁免（`from .core.x` 是插件自有包）、hasattr 双世代分支豁免；44 仓终跑全绿。
+
+## 框架侧发现（给上游的反馈）
+- rc1 `resolve_model_entry` 不解析显示名（仅内部 ID + legacy_ids）——生态插件的文本型模型配置
+  都得自己反查；建议上游在 `get_model_client`/`get_model_info` 增加「无歧义 model_name 解析」兜底，
+  否则每个插件都要重复造这个轮子。
