@@ -66,8 +66,7 @@ def scan_plugin(root):
             if isinstance(node, ast.Try):
                 catches_importerror = any(
                     h.type and ((isinstance(h.type, ast.Name) and h.type.id in
-                                 ("ImportError", "ModuleNotFoundError", "Exception"))
-                                or (isinstance(h.type, ast.Attribute)))
+                                 ("ImportError", "ModuleNotFoundError")))
                     for h in node.handlers)
                 if catches_importerror:
                     for sub in ast.walk(node):
@@ -166,4 +165,7 @@ def symbol_exists(fw_root, module, names):
         res[n] = bool(re.search(rf"(def\s+{re.escape(n)}|class\s+{re.escape(n)}|{re.escape(n)}\s*=|{re.escape(n)}[,\)])", src))
         if not res[n]:  # 可能在 __init__ 里 re-export
             res[n] = n in src
+        if not res[n]:  # from pkg import submodule 形态：名字是子模块/子包文件
+            base = os.path.dirname(target)
+            res[n] = os.path.exists(os.path.join(base, n + ".py")) or os.path.isdir(os.path.join(base, n))
     return res
