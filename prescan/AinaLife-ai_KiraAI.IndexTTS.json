@@ -1,0 +1,7 @@
+{
+ "_meta": {
+  "repo": "AinaLife-ai_KiraAI.IndexTTS",
+  "head": "8201ce1 2026-08-12 11:56:48 +0800 chore: LICENSE 更换为 AGPL-3.0",
+  "core_version": ">=2.29.0"
+ }
+}

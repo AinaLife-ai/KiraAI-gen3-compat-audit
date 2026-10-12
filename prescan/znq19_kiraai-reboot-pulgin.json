@@ -1,0 +1,801 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 3,
+   "label": "clear/reset会话语义",
+   "text": "KiraAI 的会话上下文重置插件。支持**只清空上下文、不删会话**，可选在重开时生成**累积摘要**，并提供指令与 LLM 工具两种入口。"
+  },
+  {
+   "file": "README.md",
+   "line": 5,
+   "label": "clear/reset会话语义",
+   "text": "- 指令触发：`/reboot`（清空）、`/resume`（清空 + 强制摘要）"
+  },
+  {
+   "file": "README.md",
+   "line": 15,
+   "label": "delete_session",
+   "text": "| 🧹 **只清空上下文，不删会话** | 保留会话标题、会话描述、**会话级能力开关**（图像识别 / TTS / STT / 生图 / 转发解析）与时间戳。旧版本用 `delete_session()` 会把这些一起删掉。 |"
+  },
+  {
+   "file": "README.md",
+   "line": 15,
+   "label": "clear/reset会话语义",
+   "text": "| 🧹 **只清空上下文，不删会话** | 保留会话标题、会话描述、**会话级能力开关**（图像识别 / TTS / STT / 生图 / 转发解析）与时间戳。旧版本用 `delete_session()` 会把这些一起删掉。 |"
+  },
+  {
+   "file": "README.md",
+   "line": 16,
+   "label": "clear/reset会话语义",
+   "text": "| 📝 **重开摘要（默认关）** | 重置前把即将被清空的历史压缩成摘要写回新上下文，避免彻底失忆。 |"
+  },
+  {
+   "file": "README.md",
+   "line": 49,
+   "label": "clear/reset会话语义",
+   "text": "| 重开指令 | `/reboot` | 清空当前会话上下文 | **是**：开关开则附带摘要 |"
+  },
+  {
+   "file": "README.md",
+   "line": 50,
+   "label": "clear/reset会话语义",
+   "text": "| 摘要重开指令 | `/resume` | 清空上下文 **+ 强制生成累积摘要** | **否**：永远摘要 |"
+  },
+  {
+   "file": "README.md",
+   "line": 80,
+   "label": "clear/reset会话语义",
+   "text": "### 清空方式"
+  },
+  {
+   "file": "README.md",
+   "line": 84,
+   "label": "clear/reset会话语义",
+   "text": "| 清空方式 | `memory_only` | `memory_only`=只清空记忆，保留会话标题/描述/能力开关；`delete_session`=删除会话再重建（旧行为，元信息会丢失） |"
+  },
+  {
+   "file": "README.md",
+   "line": 85,
+   "label": "clear/reset会话语义",
+   "text": "| 丢弃待处理缓冲消息 | 开 | 清空前丢弃尚未进入上下文的缓冲消息 |"
+  },
+  {
+   "file": "README.md",
+   "line": 147,
+   "label": "clear/reset会话语义",
+   "text": "| 行为 | 清空上下文 | 清空 + 强制摘要 | 压缩重开，**保留最近 N 轮** + 摘要 |"
+  },
+  {
+   "file": "README.md",
+   "line": 152,
+   "label": "clear/reset会话语义",
+   "text": "1. **摘要头互相认领。** 两个插件都把摘要写在记忆的第一块，并共用同一个标记前缀。这样 ADS 不会在自己运行时把它的旧摘要「桥回」刚被本插件清空的上下文；反之亦然。**同一时刻上下文里始终只有一份摘要。**"
+  },
+  {
+   "file": "README.md",
+   "line": 155,
+   "label": "clear/reset会话语义",
+   "text": "> ⚠️ `/resume` 与 `/resum` 只差一个字母，请注意区分：前者是本插件的「清空+摘要」，后者是 ADS 的「保留最近若干轮的压缩重开」。打错的话指令不会生效。"
+  },
+  {
+   "file": "README.md",
+   "line": 179,
+   "label": "clear/reset会话语义",
+   "text": "3. **行为变化**：不再删除会话，只清空上下文 —— 会话标题、描述、会话级能力开关都会保留。想退回旧行为可把「清空方式」改成 `delete_session`。"
+  },
+  {
+   "file": "README.md",
+   "line": 207,
+   "label": "delete_session",
+   "text": "- **修复**：重置上下文不再删除会话（`memory_only`），会话标题、会话描述、会话级能力开关与时间戳全部保留。修复前使用 `delete_session()`，上述字段会被一并清空，且能力开关不会随会话重建恢复。"
+  },
+  {
+   "file": "README.md",
+   "line": 207,
+   "label": "clear/reset会话语义",
+   "text": "- **修复**：重置上下文不再删除会话（`memory_only`），会话标题、会话描述、会话级能力开关与时间戳全部保留。修复前使用 `delete_session()`，上述字段会被一并清空，且能力开关不会随会话重建恢复。"
+  },
+  {
+   "file": "README.md",
+   "line": 210,
+   "label": "clear/reset会话语义",
+   "text": "- **新增**：`/resume` 指令（清空 + 强制摘要），与 `/reboot` 默认关键词刻意错开。"
+  },
+  {
+   "file": "README.md",
+   "line": 212,
+   "label": "clear/reset会话语义",
+   "text": "- **新增**：`section_reset.drop_pending_buffer`，清空前丢弃尚未进入上下文的缓冲消息。"
+  },
+  {
+   "file": "README.md",
+   "line": 214,
+   "label": "clear/reset会话语义",
+   "text": "- **新增**：订阅 `session_memory_written` / `session_deleted`，用户清空或删除会话时同步丢弃累积摘要。"
+  },
+  {
+   "file": "README.md",
+   "line": 223,
+   "label": "clear/reset会话语义",
+   "text": "- 清空上下文与丢弃待处理缓冲改为**同一个同步段**完成，消除「摘要在生成中、缓冲又被 debounce 灌回」的窗口。"
+  },
+  {
+   "file": "compat.py",
+   "line": 241,
+   "label": "clear/reset会话语义",
+   "text": "\"本插件重置时会清空上下文，请确认它们的行为符合预期。\","
+  },
+  {
+   "file": "main.py",
+   "line": 12,
+   "label": "delete_session",
+   "text": "Clearing never deletes the session. ``SessionManager.delete_session()`` pops the"
+  },
+  {
+   "file": "main.py",
+   "line": 14,
+   "label": "write_memory",
+   "text": "per-session capability overrides; ``write_memory()`` only replaces the ``memory``"
+  },
+  {
+   "file": "main.py",
+   "line": 547,
+   "label": "fetch_memory",
+   "text": "\"fetch_memory\","
+  },
+  {
+   "file": "main.py",
+   "line": 551,
+   "label": "get_session_info",
+   "text": "\"get_session_info\","
+  },
+  {
+   "file": "main.py",
+   "line": 552,
+   "label": "get_memory_count",
+   "text": "\"get_memory_count\","
+  },
+  {
+   "file": "main.py",
+   "line": 812,
+   "label": "clear/reset会话语义",
+   "text": "\"清除记忆时调用。调用后本会话之前的聊天记录会被清空。\""
+  },
+  {
+   "file": "main.py",
+   "line": 1004,
+   "label": "delete_session",
+   "text": "sm.delete_session(sid)"
+  },
+  {
+   "file": "main.py",
+   "line": 1005,
+   "label": "get_session_info",
+   "text": "sm.get_session_info(sid)  # recreate an empty shell"
+  },
+  {
+   "file": "main.py",
+   "line": 1006,
+   "label": "write_memory",
+   "text": "sm.write_memory(sid, chunks)"
+  },
+  {
+   "file": "main.py",
+   "line": 1009,
+   "label": "write_memory",
+   "text": "sm.write_memory(sid, chunks)"
+  },
+  {
+   "file": "main.py",
+   "line": 1036,
+   "label": "fetch_memory",
+   "text": "old_flat = list(sm.fetch_memory(sid) or [])"
+  },
+  {
+   "file": "main.py",
+   "line": 1211,
+   "label": "read_memory",
+   "text": "chunks = sm.read_memory(sid) or []"
+  },
+  {
+   "file": "main.py",
+   "line": 1225,
+   "label": "write_memory",
+   "text": "sm.write_memory(sid, chunks)"
+  },
+  {
+   "file": "schema.json",
+   "line": 4,
+   "label": "clear/reset会话语义",
+   "text": "\"name\": \"清空方式\","
+  },
+  {
+   "file": "schema.json",
+   "line": 9,
+   "label": "clear/reset会话语义",
+   "text": "\"name\": \"清空方式\","
+  },
+  {
+   "file": "schema.json",
+   "line": 12,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"memory_only=只清空上下文记忆，完整保留会话标题、会话描述与会话级能力开关（推荐）；delete_session=删除整个会话再重建，标题、描述、能力开关都会丢失。\""
+  },
+  {
+   "file": "schema.json",
+   "line": 18,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"清空前丢弃本会话尚未进入上下文的缓冲消息，避免清空后它们又被写进上下文。\""
+  },
+  {
+   "file": "schema.json",
+   "line": 111,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"开启后，重置上下文前会先把被清空的历史压缩成摘要写回新上下文，避免彻底失忆。默认关闭。\""
+  },
+  {
+   "file": "schema.json",
+   "line": 159,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"开启后摘要会合并旧摘要与本次被清空的历史，长期重置信息损耗更小；关闭则每次只摘要本次部分，旧摘要会丢失。\""
+  },
+  {
+   "file": "tests/README.md",
+   "line": 25,
+   "label": "clear/reset会话语义",
+   "text": "| 清空方式默认改回 `delete_session` | `test_reset_keeps_title_description_timestamp_and_capabilities` |"
+  },
+  {
+   "file": "tests/README.md",
+   "line": 35,
+   "label": "clear/reset会话语义",
+   "text": "| 缓冲清空提前到摘要调用之前 | `test_buffer_is_dropped_at_write_time_not_before_the_summary_call` |"
+  },
+  {
+   "file": "tests/README.md",
+   "line": 45,
+   "label": "clear/reset会话语义",
+   "text": "| `test_reset.py` | 17 | 清空语义（元信息保留 / 删除模式对照 / 反向验证旧实现）、空历史、**缓冲丢弃时机**、并发锁、冷却、事件订阅、生命周期 |"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 75,
+   "label": "memory_json路径",
+   "text": "for sub in (\"data/memory\", \"data/config\", \"data/plugin_data\"):"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 256,
+   "label": "get_session_capabilities",
+   "text": "def get_session_capabilities(self, sid: str) -> dict:"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 317,
+   "label": "chat_memory直改",
+   "text": "sm.chat_memory = {}"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 353,
+   "label": "get_session_info",
+   "text": "self.sm.get_session_info(sid)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 354,
+   "label": "update_session_info",
+   "text": "self.sm.update_session_info(sid, title=title, description=description)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 356,
+   "label": "update_session_capabilities",
+   "text": "self.sm.update_session_capabilities(sid, capabilities)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 363,
+   "label": "write_memory",
+   "text": "self.sm.write_memory(sid, chunks)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 364,
+   "label": "chat_memory直改",
+   "text": "self.sm.chat_memory[sid][\"timestamp\"] = 1700000000"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 368,
+   "label": "read_memory",
+   "text": "return self.sm.read_memory(sid)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 371,
+   "label": "chat_memory直改",
+   "text": "return dict(self.sm.chat_memory.get(sid) or {})"
+  },
+  {
+   "file": "tests/reverse_check.py",
+   "line": 66,
+   "label": "read_memory",
+   "text": "\"        chunks = sm.read_memory(sid) or []\\n        chunks = [list(chunk) for chunk in chunks]\","
+  },
+  {
+   "file": "tests/reverse_check.py",
+   "line": 67,
+   "label": "read_memory",
+   "text": "\"        chunks = sm.read_memory(sid) or []\\n        await asyncio.sleep(0)  # MUTATION\\n        chunks = [list(chunk) for chunk in chunks]\","
+  },
+  {
+   "file": "tests/test_config_migration.py",
+   "line": 453,
+   "label": "get_session_info",
+   "text": "plugin.session_mgr.get_session_info(SID)"
+  },
+  {
+   "file": "tests/test_config_migration.py",
+   "line": 454,
+   "label": "write_memory",
+   "text": "plugin.session_mgr.write_memory(SID, [[{\"role\": \"user\", \"content\": \"hi\"},"
+  },
+  {
+   "file": "tests/test_config_migration.py",
+   "line": 458,
+   "label": "read_memory",
+   "text": "check_eq(plugin.session_mgr.read_memory(SID), [], \"context cleared\")"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 29,
+   "label": "fetch_memory",
+   "text": "req = LLMRequest(messages=sm.fetch_memory(sid))"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 121,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"turn-B\"},"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 135,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"turn-D\"},"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 148,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"fresh\"},"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 171,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(SID, [build_summary_chunk(\"STORED\")] + f.sm.read_memory(SID))"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 171,
+   "label": "read_memory",
+   "text": "f.sm.write_memory(SID, [build_summary_chunk(\"STORED\")] + f.sm.read_memory(SID))"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 175,
+   "label": "read_memory",
+   "text": "chunks = f.sm.read_memory(SID)"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 176,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(SID, chunks[1:])"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 178,
+   "label": "fetch_memory",
+   "text": "req = make_llm_request(messages=[m for m in f.sm.fetch_memory(SID)])"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 198,
+   "label": "read_memory",
+   "text": "before = f.sm.read_memory(SID)"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 203,
+   "label": "read_memory",
+   "text": "check_eq(f.sm.read_memory(SID), before, \"the bridge must never write to memory\")"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 24,
+   "label": "update_session_capabilities",
+   "text": "f.sm.update_session_capabilities(s, {\"tts\": {\"enabled\": False},"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 51,
+   "label": "update_session_capabilities",
+   "text": "f.sm.update_session_capabilities(s, {\"tts\": {\"enabled\": False}})"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 55,
+   "label": "delete_session",
+   "text": "f.sm.delete_session(s)"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 56,
+   "label": "get_session_info",
+   "text": "f.sm.get_session_info(s)  # rebuild the empty shell"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 84,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(s, [])"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 169,
+   "label": "delete_session",
+   "text": "f.sm.delete_session(SID)"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 178,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(s, [])"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 189,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(s, [[{\"role\": \"user\", \"content\": \"[前情摘要|系统注入] x\\ny\"}]])"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 224,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(SID, [])  # somebody else clears the session"
+  },
+  {
+   "file": "tests/test_reset.py",
+   "line": 248,
+   "label": "write_memory",
+   "text": "def write_memory(self, sid, chunks):"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 43,
+   "label": "read_memory",
+   "text": "\"\"\"read_memory() returns chunks; flatten them for content assertions.\"\"\""
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 141,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"later\"},"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 166,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"later\"},"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 301,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"later\"},"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 324,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(SID, [{\"role\": \"user\", \"content\": \"meanwhile\"},"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 349,
+   "label": "read_memory",
+   "text": "chunks = [list(c) for c in (f.sm.read_memory(s) or [])]"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 352,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(s, chunks)"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 356,
+   "label": "update_memory",
+   "text": "f.sm.update_memory(s, [{\"role\": \"user\", \"content\": \"meanwhile\"}])"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 111,
+   "label": "write_memory",
+   "text": "f.sm.write_memory(SID, [])"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 1097,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "main.py",
+   "line": 1120,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "main.py",
+   "line": 1141,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 188,
+   "label": "model_id使用",
+   "text": "def _resolve_client(ctx, model_id: str, logger=None):"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 190,
+   "label": "model_id使用",
+   "text": "model_id = (model_id or \"\").strip()"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 191,
+   "label": "model_id使用",
+   "text": "if model_id:"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 193,
+   "label": "model_id使用",
+   "text": "client = ctx.get_llm_client(model_id)"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 198,
+   "label": "model_id使用",
+   "text": "logger.warning(f\"[reboot] get_llm_client({model_id}) failed: {e}, fallback\")"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 199,
+   "label": "默认模型读取",
+   "text": "for getter in (\"get_default_fast_llm_client\", \"get_default_llm_client\"):"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 244,
+   "label": "model_id使用",
+   "text": "model_id: str = \"\","
+  },
+  {
+   "file": "summarizer.py",
+   "line": 258,
+   "label": "model_id使用",
+   "text": "client = _resolve_client(ctx, model_id, logger=logger)"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 302,
+   "label": "model_id使用",
+   "text": "model_id: str = \"\","
+  },
+  {
+   "file": "summarizer.py",
+   "line": 315,
+   "label": "model_id使用",
+   "text": "client = _resolve_client(ctx, model_id, logger=logger)"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 337,
+   "label": "model_id使用",
+   "text": "model_id: str = \"\","
+  },
+  {
+   "file": "summarizer.py",
+   "line": 347,
+   "label": "model_id使用",
+   "text": "client = _resolve_client(ctx, model_id, logger=logger)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 243,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "tests/harness.py",
+   "line": 60,
+   "label": "旧plugin_registry",
+   "text": "if candidate and (Path(candidate) / \"core\" / \"plugin\" / \"plugin_registry.py\").is_file():"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 19,
+   "label": "旧plugin_registry",
+   "text": "from core.plugin.plugin_registry import _plugin_components"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 38,
+   "label": "旧plugin_registry",
+   "text": "from core.plugin.plugin_registry import _plugin_manifests"
+  }
+ ],
+ "E_工作流与消息处理": [
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 24,
+   "label": "MessageProcessor",
+   "text": "\"\"\"Mirror of MessageProcessor.handle_im_batch_message's request construction.\"\"\""
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "tests/harness.py",
+   "line": 417,
+   "label": "message_types",
+   "text": "message_types=[\"gm\", \"dm\"],"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 440,
+   "label": "message_types",
+   "text": "message_types=[\"dm\"],"
+  },
+  {
+   "file": "tests/test_commands.py",
+   "line": 101,
+   "label": "message_types",
+   "text": "message_types=[\"dm\"], timestamp=0, adapter=adapter,"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 143,
+   "label": "message_types",
+   "text": "event = KiraMessageBatchEvent(message_types=[\"dm\"], timestamp=0, session=None)"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 869,
+   "label": "on_llm_request",
+   "text": "async def on_llm_request(self, event, req: LLMRequest, tag_set, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 873,
+   "label": "on_llm_request",
+   "text": "# (message_manager.py: ON_LLM_REQUEST -> request.tool_set.to_list())."
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 179,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), req, None)"
+  },
+  {
+   "file": "tests/test_prompt_layout.py",
+   "line": 200,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID),"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 388,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), req, None)"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 403,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), req, None)"
+  },
+  {
+   "file": "tests/test_summary.py",
+   "line": 413,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), req, None)"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 51,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), req, None)"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 60,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), req, None)"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 68,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), first, None)"
+  },
+  {
+   "file": "tests/test_tool_gate.py",
+   "line": 71,
+   "label": "on_llm_request",
+   "text": "await f.plugin.on_llm_request(make_batch_event(SID), second, None)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "tests/harness.py",
+   "line": 22,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 85,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(src, plugin_dir / name)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 298,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(\"reboot_plugin\")"
+  },
+  {
+   "file": "tests/reverse_check.py",
+   "line": 226,
+   "label": "替换框架文件",
+   "text": "shutil.copytree(REPO, root, ignore=shutil.ignore_patterns(\".git\", \"__pycache__\", \"tests\"))"
+  },
+  {
+   "file": "tests/reverse_check.py",
+   "line": 227,
+   "label": "替换框架文件",
+   "text": "shutil.copytree(REPO / \"tests\", root / \"tests\","
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 16,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 79,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(module_name)"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_kiraai-reboot-pulgin",
+  "head": "3821721 2026-10-04 01:24:11 +0800 Merge pull request #2 from AinaLife-ai/feat/config-migration-2.1.0",
+  "core_version": ">=2.33"
+ }
+}

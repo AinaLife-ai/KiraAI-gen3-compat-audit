@@ -1,0 +1,121 @@
+{
+ "E_工作流与消息处理": [
+  {
+   "file": "tests/baseline_v1_5_6.py",
+   "line": 11,
+   "label": "send_xml_messages",
+   "text": "# send_xml_messages / send_message_chain). Only these two session types exist."
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 248,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  },
+  {
+   "file": "tests/baseline_v1_5_6.py",
+   "line": 200,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  },
+  {
+   "file": "tests/demo_reply_semantics.py",
+   "line": 67,
+   "label": "adapter_mgr",
+   "text": "ctx.adapter_mgr.adapters[\"qq\"] = mockenv.FakeAdapter(\"qq\", \"QQ\", client)"
+  },
+  {
+   "file": "tests/mockenv.py",
+   "line": 138,
+   "label": "adapter_mgr",
+   "text": "self.adapter_mgr = _AdapterMgr()"
+  },
+  {
+   "file": "tests/test_matrix.py",
+   "line": 28,
+   "label": "adapter_mgr",
+   "text": "ctx.adapter_mgr.adapters[\"qq\"] = mockenv.FakeAdapter(\"qq\", \"QQ\", client)"
+  },
+  {
+   "file": "tests/test_matrix.py",
+   "line": 58,
+   "label": "adapter_mgr",
+   "text": "ctx.adapter_mgr.adapters[\"qq\"] = mockenv.FakeAdapter(\"qq\", \"QQ\", client)"
+  },
+  {
+   "file": "tests/test_matrix.py",
+   "line": 387,
+   "label": "adapter_mgr",
+   "text": "ctx.adapter_mgr.adapters[\"qq\"] = mockenv.FakeAdapter(\"qq\", \"QQ\", c)"
+  },
+  {
+   "file": "tests/test_superset.py",
+   "line": 92,
+   "label": "adapter_mgr",
+   "text": "ctx.adapter_mgr.adapters[\"qq\"] = mockenv.FakeAdapter(\"qq\", \"QQ\", client)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "tests/demo_reply_semantics.py",
+   "line": 14,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/demo_reply_semantics.py",
+   "line": 27,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(name, path)"
+  },
+  {
+   "file": "tests/demo_reply_semantics.py",
+   "line": 28,
+   "label": "读框架文件",
+   "text": "module = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_matrix.py",
+   "line": 3,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_matrix.py",
+   "line": 12,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"forward_fix_main\", MAIN)"
+  },
+  {
+   "file": "tests/test_matrix.py",
+   "line": 13,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_superset.py",
+   "line": 10,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_superset.py",
+   "line": 23,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(name, path)"
+  },
+  {
+   "file": "tests/test_superset.py",
+   "line": 24,
+   "label": "读框架文件",
+   "text": "module = importlib.util.module_from_spec(spec)"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_forward_fix_plugin",
+  "head": "fbb3003 2026-09-08 19:38:09 +0800 Merge pull request #16 from AinaLife-ai/v2.0.0-three-impl-real-forward",
+  "core_version": ">=2.33.1"
+ }
+}

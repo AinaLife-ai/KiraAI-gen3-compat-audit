@@ -1,0 +1,41 @@
+{
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 45,
+   "label": "model_id使用",
+   "text": "provider_id, model_id = value.split(\":\", 1)"
+  },
+  {
+   "file": "main.py",
+   "line": 49,
+   "label": "model_id使用",
+   "text": "return f\"{provider_name}:{model_id}\""
+  },
+  {
+   "file": "main.py",
+   "line": 52,
+   "label": "model_id使用",
+   "text": "return model_id"
+  },
+  {
+   "file": "main.py",
+   "line": 57,
+   "label": "默认模型读取",
+   "text": "\"default_llm\","
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 89,
+   "label": "on_im_message",
+   "text": "async def on_im_message(self, event: KiraMessageEvent):"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_model_config_query_plugin",
+  "head": "f96a824 2026-07-14 16:10:47 +0800 docs: add DeepWiki badge for auto-updating docs",
+  "core_version": null
+ }
+}

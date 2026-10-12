@@ -1,0 +1,385 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 440,
+   "label": "clear/reset会话语义",
+   "text": "- **旧版默认话语自动迁移**：v1.4.2 前默认模板（\"⚠️ xxx预警：xxx 已达 xxx\"）被手动保存过的自动清空，让新版默认生效（step 带「每新增 N 提醒一次」、llm 带「请告知用户情况」）；自定义话语保留"
+  },
+  {
+   "file": "README.md",
+   "line": 595,
+   "label": "clear/reset会话语义",
+   "text": "- **余额可视化编辑器数据源修复**：`/balance` 接口返回完整配置字段（url/api_key/api_user/quota_conversion/daily_quota/anchor_balance/refresh_time 等）且**包含禁用源**——编辑已有源时输入框正确回填、保存不再清空配置；保存不"
+  },
+  {
+   "file": "main.py",
+   "line": 728,
+   "label": "clear/reset会话语义",
+   "text": "# 被用户手动保存过的话，清空让新版默认生效（step 带「每新增 N 提醒一次」、llm 带「请告知用户情况」）；"
+  },
+  {
+   "file": "main.py",
+   "line": 2311,
+   "label": "clear/reset会话语义",
+   "text": "# 缓存上限防膨胀：超过 64 条清空重建"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 790,
+   "label": "模型选择引用",
+   "text": "self._since_cost_cache = {}   # (url,name,model_ref,since_iso) → (fingerprint, cny, pts, matched)"
+  },
+  {
+   "file": "main.py",
+   "line": 1106,
+   "label": "model_id使用",
+   "text": "世代差异：2.x 的 ModelInfo.model_id 就是可读模型名；3.0 起 model_id 改为"
+  },
+  {
+   "file": "main.py",
+   "line": 1107,
+   "label": "model_id使用",
+   "text": "内部稳定 UUID（uuid4().hex），可读名挪到 model_name（上游模型标识，空则= model_id）。"
+  },
+  {
+   "file": "main.py",
+   "line": 1107,
+   "label": "model_name使用",
+   "text": "内部稳定 UUID（uuid4().hex），可读名挪到 model_name（上游模型标识，空则= model_id）。"
+  },
+  {
+   "file": "main.py",
+   "line": 1108,
+   "label": "model_id使用",
+   "text": "故优先 model_name，回退 model_id——2.x 无 model_name 属性自动回退，行为不变。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1108,
+   "label": "model_name使用",
+   "text": "故优先 model_name，回退 model_id——2.x 无 model_name 属性自动回退，行为不变。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1111,
+   "label": "默认模型读取",
+   "text": "client = self.ctx.get_default_llm_client()"
+  },
+  {
+   "file": "main.py",
+   "line": 1114,
+   "label": "model_id使用",
+   "text": "model = (getattr(mi, \"model_name\", None) or getattr(mi, \"model_id\", None)) or \"未知\""
+  },
+  {
+   "file": "main.py",
+   "line": 1114,
+   "label": "model_name使用",
+   "text": "model = (getattr(mi, \"model_name\", None) or getattr(mi, \"model_id\", None)) or \"未知\""
+  },
+  {
+   "file": "main.py",
+   "line": 1128,
+   "label": "model_id使用",
+   "text": "# 兜底：直接属性（同样 model_name 优先：3.0 的 model_id 是 UUID）"
+  },
+  {
+   "file": "main.py",
+   "line": 1128,
+   "label": "model_name使用",
+   "text": "# 兜底：直接属性（同样 model_name 优先：3.0 的 model_id 是 UUID）"
+  },
+  {
+   "file": "main.py",
+   "line": 1129,
+   "label": "model_name使用",
+   "text": "model = (getattr(client, \"model_name\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 1130,
+   "label": "model_id使用",
+   "text": "or getattr(client, \"model_id\", None) or \"未知\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1484,
+   "label": "模型选择引用",
+   "text": "def _channel_cost_ex(self, url: str, name: str, model_ref: str = \"\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 1486,
+   "label": "模型选择引用",
+   "text": "model_ref 非空时只统计关联模型（provider:model）的用量。"
+  },
+  {
+   "file": "main.py",
+   "line": 1489,
+   "label": "模型选择引用",
+   "text": "ckey = (\"all\", url, name, model_ref)"
+  },
+  {
+   "file": "main.py",
+   "line": 1502,
+   "label": "模型选择引用",
+   "text": "if not self._model_ref_hit(parts[0] if len(parts) > 0 else \"\", channel, host, model_ref):"
+  },
+  {
+   "file": "main.py",
+   "line": 1520,
+   "label": "模型选择引用",
+   "text": "def _channel_cost_since_ex(self, url: str, name: str, since: datetime, model_ref: str = \"\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 1526,
+   "label": "模型选择引用",
+   "text": "ckey = (\"since\", url, name, model_ref, since.isoformat())"
+  },
+  {
+   "file": "main.py",
+   "line": 1545,
+   "label": "模型选择引用",
+   "text": "if not self._model_ref_hit(r.get(\"m\", \"\"), r.get(\"ch\", \"\"), r.get(\"h\", \"\"), model_ref):"
+  },
+  {
+   "file": "main.py",
+   "line": 1568,
+   "label": "模型选择引用",
+   "text": "def _model_ref_hit(model: str, channel: str, host: str, model_ref: str) -> bool:"
+  },
+  {
+   "file": "main.py",
+   "line": 1569,
+   "label": "模型选择引用",
+   "text": "\"\"\"估算型余额源「关联模型」过滤：model_ref 格式 provider:model（或仅模型名）。"
+  },
+  {
+   "file": "main.py",
+   "line": 1571,
+   "label": "模型选择引用",
+   "text": "ref = (model_ref or \"\").strip()"
+  },
+  {
+   "file": "main.py",
+   "line": 1614,
+   "label": "模型选择引用",
+   "text": "model_ref = src.get(\"model_ref\", \"\") or \"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1645,
+   "label": "模型选择引用",
+   "text": "cny, pts, matched = self._channel_cost_since_ex(src.get(\"url\", \"\"), name, anchor_dt, model_ref)"
+  },
+  {
+   "file": "main.py",
+   "line": 1649,
+   "label": "模型选择引用",
+   "text": "cost2 = self._channel_cost_since_ex(src.get(\"url\", \"\"), name, _last_refresh(now, refresh), model_ref)"
+  },
+  {
+   "file": "main.py",
+   "line": 1670,
+   "label": "模型选择引用",
+   "text": "cny, pts, matched = self._channel_cost_since_ex(src.get(\"url\", \"\"), name, _last_refresh(now, refresh), model_ref)"
+  },
+  {
+   "file": "main.py",
+   "line": 1685,
+   "label": "模型选择引用",
+   "text": "cny, pts, matched = self._channel_cost_ex(src.get(\"url\", \"\"), name, model_ref)"
+  },
+  {
+   "file": "main.py",
+   "line": 4052,
+   "label": "模型选择引用",
+   "text": "\"\"\"KiraAI 已配置的全部 LLM 模型列表（provider:model），供估算型余额源「关联模型」下拉选择\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 4069,
+   "label": "model_id使用",
+   "text": "# model_name 优先：3.0 的 model_id 是内部 UUID（不可读），"
+  },
+  {
+   "file": "main.py",
+   "line": 4069,
+   "label": "model_name使用",
+   "text": "# model_name 优先：3.0 的 model_id 是内部 UUID（不可读），"
+  },
+  {
+   "file": "main.py",
+   "line": 4071,
+   "label": "model_id使用",
+   "text": "mid = (getattr(info, \"model_name\", None) or getattr(info, \"model_id\", \"\") or \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 4071,
+   "label": "model_name使用",
+   "text": "mid = (getattr(info, \"model_name\", None) or getattr(info, \"model_id\", \"\") or \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 4110,
+   "label": "模型选择引用",
+   "text": "\"daily_quota\", \"anchor_balance\", \"refresh_time\", \"anchor_at\", \"model_ref\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 4165,
+   "label": "模型选择引用",
+   "text": "for k in (\"url\", \"api_key\", \"api_user\", \"json_path\", \"currency\", \"model_ref\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 5418,
+   "label": "模型选择引用",
+   "text": "preset: [['anchor_balance','当前余额(对表)',''],['model_ref','关联模型(可选)',''],['currency','币种(CNY/积分)','CNY'],['unit','显示单位(留空=无单位)','元']],"
+  },
+  {
+   "file": "main.py",
+   "line": 5419,
+   "label": "模型选择引用",
+   "text": "daily: [['daily_quota','每日额度','1000'],['refresh_time','刷新时刻 HH:mm','00:00'],['anchor_balance','当前余额(对表,可选)',''],['model_ref','关联模型(可选)',''],['currency','币种','积分"
+  },
+  {
+   "file": "main.py",
+   "line": 5420,
+   "label": "模型选择引用",
+   "text": "rolling: [['daily_quota','每日额度','1000'],['refresh_time','刷新时刻 HH:mm','00:00'],['anchor_balance','当前余额(对表)',''],['model_ref','关联模型(可选)',''],['currency','币种','积分'"
+  },
+  {
+   "file": "main.py",
+   "line": 5442,
+   "label": "模型选择引用",
+   "text": "if(f[0]==='model_ref') return '<div style=\"margin-bottom:10px\"><label style=\"display:block;font-size:12px;color:var(--dim);margin-bottom:4px\">'+esc(f[1])+'</lab"
+  },
+  {
+   "file": "main.py",
+   "line": 5448,
+   "label": "模型选择引用",
+   "text": "if(f[0]==='model_ref') $('#bf_model_ref').value = v;"
+  },
+  {
+   "file": "main.py",
+   "line": 5454,
+   "label": "模型选择引用",
+   "text": "const sel = $('#bf_model_ref');"
+  },
+  {
+   "file": "main.py",
+   "line": 5461,
+   "label": "模型选择引用",
+   "text": "if(src.model_ref) sel.value = src.model_ref;"
+  },
+  {
+   "file": "schema.json",
+   "line": 213,
+   "label": "模型选择引用",
+   "text": "\"hint\": \"推荐在 WebUI 侧边栏「Token 用量 → 余额监测」页可视化编辑（添加/编辑/删除），无需手写 JSON。类型怎么选：auto=自动探测（填官方或中转站地址+Key 即可，最省事）；custom=自定义接口（填接口地址，可选 json_path 指定余额字段）；newapi=New-API 站"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 4055,
+   "label": "provider_mgr",
+   "text": "pm = self.ctx.provider_mgr"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 3715,
+   "label": "adapter_mgr",
+   "text": "if hasattr(self.ctx.adapter_mgr, 'get_adapters'):"
+  },
+  {
+   "file": "main.py",
+   "line": 3716,
+   "label": "adapter_mgr",
+   "text": "for name, ada in self.ctx.adapter_mgr.get_adapters().items():"
+  },
+  {
+   "file": "main.py",
+   "line": 3720,
+   "label": "adapter_mgr",
+   "text": "if hasattr(self.ctx.adapter_mgr, '_adapters'):"
+  },
+  {
+   "file": "main.py",
+   "line": 3721,
+   "label": "adapter_mgr",
+   "text": "for name, ada in self.ctx.adapter_mgr._adapters.items():"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 850,
+   "label": "on_llm_response",
+   "text": "# 预警提醒后台任务（余额类规则随轮询检查；token/cost 类在 on_llm_response 实时检查）"
+  },
+  {
+   "file": "main.py",
+   "line": 1175,
+   "label": "on_im_message",
+   "text": "async def on_im_message(self, event: KiraMessageEvent, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 1223,
+   "label": "on_llm_request",
+   "text": "async def on_llm_request(self, event, req, tag_set, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 1235,
+   "label": "on_llm_response",
+   "text": "async def on_llm_response(self, event, resp: LLMResponse, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 1270,
+   "label": "on_im_message",
+   "text": "# 新用户消息到达（on_im_message 置位）：重置步数重新判定——"
+  },
+  {
+   "file": "main.py",
+   "line": 2389,
+   "label": "on_llm_response",
+   "text": "\"\"\"后台预警循环：balance 类规则随轮询检查（token/cost 类在 on_llm_response 实时检查）\"\"\""
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 108,
+   "label": "替换框架文件",
+   "text": "# \"如果响应超时/查询失败会怎样\"等说明文字会误判；框架失败已由 JSON 覆盖。"
+  },
+  {
+   "file": "main.py",
+   "line": 4186,
+   "label": "替换框架文件",
+   "text": "# api_key 未改动（值等于掩码）时保留原值，防掩码覆盖真 key"
+  },
+  {
+   "file": "schema.json",
+   "line": 29,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"格式 {\\\"关键词\\\": \\\"来源名\\\"}。用户消息文本包含关键词时，该轮用量归入对应来源（覆盖自动判定）。空对象时自动判定：群聊=gm、私聊=dm、系统/工具续轮=继承上一轮（默认system）\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_token_stats_plugin",
+  "head": "acd92fc 2026-10-08 17:46:06 +0800 Merge pull request #35 from AinaLife-ai/fix/3.0-model-name-1.4.10",
+  "core_version": ">=2.29.7"
+ }
+}

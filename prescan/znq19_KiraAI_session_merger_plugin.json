@@ -1,0 +1,939 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 52,
+   "label": "clear/reset会话语义",
+   "text": "| **命令** | `/reboota` 清空所有会话记忆；`/resum` 压缩当前记忆 |"
+  },
+  {
+   "file": "README.md",
+   "line": 334,
+   "label": "clear/reset会话语义",
+   "text": "| `/reboota` | 清空所有合并会话记忆 | 关 |"
+  },
+  {
+   "file": "README.md",
+   "line": 396,
+   "label": "clear/reset会话语义",
+   "text": "现会话仍继续时保留，下次重开随合并结果写回（会话清空/删除才丢弃）。"
+  },
+  {
+   "file": "README.md",
+   "line": 402,
+   "label": "clear/reset会话语义",
+   "text": "- **🟡 会话清空/删除的精确清理**：监听 `session_memory_written`（写空）/`session_deleted`，"
+  },
+  {
+   "file": "README.md",
+   "line": 515,
+   "label": "_save_memory",
+   "text": "`session_manager.update_memory` 内部先写入内存再 `_save_memory` 同步写盘，返回时已落盘），"
+  },
+  {
+   "file": "README.md",
+   "line": 583,
+   "label": "fetch_memory",
+   "text": "落盘后释放组锁的逻辑依然有效；`write_memory` / `fetch_memory` 也不受影响。"
+  },
+  {
+   "file": "README.md",
+   "line": 707,
+   "label": "clear/reset会话语义",
+   "text": "- `hard_reset.py`：`hard_reset_session` / `hard_reset_members` 支持 `summary_chunk` 参数；新增 `compute_dropped_flat` 只读计算待丢弃消息（供 async 模式提前捕获）"
+  },
+  {
+   "file": "cross_session.py",
+   "line": 182,
+   "label": "get_session_info",
+   "text": "for info in sm.get_session_info() or []:"
+  },
+  {
+   "file": "group_agent_queue.py",
+   "line": 69,
+   "label": "update_memory",
+   "text": "2. 当前 agent 的 update_memory(sid) 后 → on_memory_written(sid) → 调度队列"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 99,
+   "label": "fetch_memory",
+   "text": "# 只读内存，避免 fetch_memory 的 _ensure_session_data 写盘"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 100,
+   "label": "chat_memory直改",
+   "text": "data = getattr(session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 135,
+   "label": "clear/reset会话语义",
+   "text": "def hard_reset_session("
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 153,
+   "label": "fetch_memory",
+   "text": "old_flat = _norm_messages(session_mgr.fetch_memory(sid) or [])"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 166,
+   "label": "chat_memory直改",
+   "text": "data = getattr(session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 170,
+   "label": "get_session_info",
+   "text": "session_mgr.get_session_info(sid)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 173,
+   "label": "write_memory",
+   "text": "session_mgr.write_memory(sid, to_write)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 175,
+   "label": "delete_session",
+   "text": "session_mgr.delete_session(sid)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 177,
+   "label": "get_session_info",
+   "text": "session_mgr.get_session_info(sid)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 180,
+   "label": "write_memory",
+   "text": "session_mgr.write_memory(sid, to_write)"
+  },
+  {
+   "file": "hard_reset.py",
+   "line": 209,
+   "label": "clear/reset会话语义",
+   "text": "results[sid] = hard_reset_session("
+  },
+  {
+   "file": "main.py",
+   "line": 747,
+   "label": "clear/reset会话语义",
+   "text": "# 会话生命周期事件：用户清空/删除会话时同步丢弃累计摘要与暂存，"
+  },
+  {
+   "file": "main.py",
+   "line": 748,
+   "label": "clear/reset会话语义",
+   "text": "# 防止旧摘要污染同一 sid 上的新会话（旧框架无此事件时自动跳过）"
+  },
+  {
+   "file": "main.py",
+   "line": 1168,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"框架会话记忆被写入：写入为空（用户清空会话）时丢弃该会话的摘要状态。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1409,
+   "label": "clear/reset会话语义",
+   "text": "def _clear_session_context(self, sid: str) -> bool:"
+  },
+  {
+   "file": "main.py",
+   "line": 1414,
+   "label": "delete_session",
+   "text": "sm.delete_session(sid)"
+  },
+  {
+   "file": "main.py",
+   "line": 1683,
+   "label": "clear/reset会话语义",
+   "text": "if self._clear_session_context(target_sid):"
+  },
+  {
+   "file": "main.py",
+   "line": 1707,
+   "label": "clear/reset会话语义",
+   "text": "# 预热暂存/后台任务一并复位（防止旧谱系 pending 在清空后仍被收割）"
+  },
+  {
+   "file": "main.py",
+   "line": 1713,
+   "label": "clear/reset会话语义",
+   "text": "# 累计摘要存储一并清掉（防止旧摘要污染新会话）"
+  },
+  {
+   "file": "main.py",
+   "line": 1722,
+   "label": "clear/reset会话语义",
+   "text": "# 观察池一并清空（未点名缓存）"
+  },
+  {
+   "file": "memory_access.py",
+   "line": 16,
+   "label": "chat_memory直改",
+   "text": "data = getattr(session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "memory_access.py",
+   "line": 26,
+   "label": "chat_memory直改",
+   "text": "data = getattr(session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "memory_access.py",
+   "line": 52,
+   "label": "chat_memory直改",
+   "text": "data = getattr(session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "memory_access.py",
+   "line": 82,
+   "label": "chat_memory直改",
+   "text": "data = getattr(session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 962,
+   "label": "read_memory",
+   "text": "chunks = self.session_mgr.read_memory(sid) or []"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1263,
+   "label": "read_memory",
+   "text": "chunks = self.session_mgr.read_memory(sid) or []"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1354,
+   "label": "chat_memory直改",
+   "text": "data = getattr(self.session_mgr, \"chat_memory\", None)"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1559,
+   "label": "read_memory",
+   "text": "chunks = self.session_mgr.read_memory(sid) or []"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1621,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"会话被清空/删除：丢弃该 sid 的累计摘要与全部暂存/后台任务。\"\"\""
+  },
+  {
+   "file": "observe_pool.py",
+   "line": 74,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"清空观察池内存并落盘。\"\"\""
+  },
+  {
+   "file": "schema.json",
+   "line": 852,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"发送关键词后对当前合并组执行压缩重开：先为被清理历史生成摘要，再硬重开并保留「超限保留轮数」。不同于 reboot 的全清空，会保留摘要与最近对话。默认关闭。\""
+  },
+  {
+   "file": "summarizer.py",
+   "line": 154,
+   "label": "clear/reset会话语义",
+   "text": "sync_with_head 负责在校验失败时以记忆为准（防止旧摘要污染新会话）。"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 391,
+   "label": "clear/reset会话语义",
+   "text": "# 防御：极端长输出截断，避免摘要本身撑大新会话（<=0 表示不截断）"
+  },
+  {
+   "file": "timeline.py",
+   "line": 44,
+   "label": "get_session_info",
+   "text": "# 单次 build 内会话标题缓存，避免重复 get_session_info"
+  },
+  {
+   "file": "timeline.py",
+   "line": 111,
+   "label": "fetch_memory",
+   "text": "# 关键：禁止 session_mgr.fetch_memory / get_session_info(sid)"
+  },
+  {
+   "file": "timeline.py",
+   "line": 111,
+   "label": "get_session_info",
+   "text": "# 关键：禁止 session_mgr.fetch_memory / get_session_info(sid)"
+  },
+  {
+   "file": "timeline.py",
+   "line": 348,
+   "label": "get_session_info",
+   "text": "# 只读内存，绝不 get_session_info（会写盘）"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 10,
+   "label": "clear/reset会话语义",
+   "text": "C  累计摘要保活：会话继续时保留 store；会话清空才丢弃"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 11,
+   "label": "clear/reset会话语义",
+   "text": "E  会话清空/删除事件精确清理；terminate 反订阅"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 204,
+   "label": "clear/reset会话语义",
+   "text": "check(\"E1 清空事件丢弃累计摘要与暂存\","
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 230,
+   "label": "clear/reset会话语义",
+   "text": "from plugins.ksm_it.hard_reset import hard_reset_session"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 238,
+   "label": "update_memory",
+   "text": "sess.update_memory(sid, ["
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 331,
+   "label": "update_memory",
+   "text": "sess.update_memory(sid_s, ["
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 363,
+   "label": "fetch_memory",
+   "text": "head1 = str(sess.fetch_memory(sid3)[0].get(\"content\", \"\"))"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 369,
+   "label": "fetch_memory",
+   "text": "flat3 = sess.fetch_memory(sid3)"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 384,
+   "label": "clear/reset会话语义",
+   "text": "check(\"C1★ 会话继续时保留 store；清空才丢弃\","
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 419,
+   "label": "fetch_memory",
+   "text": "flat_t = sess.fetch_memory(sid_t)"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 424,
+   "label": "get_memory_count",
+   "text": "ok_t is False and sess.get_memory_count(sid_t) <= 3"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 426,
+   "label": "get_memory_count",
+   "text": "f\"ok={ok_t} chunks={sess.get_memory_count(sid_t)} store==head={store_val == head_text_t}\")"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 440,
+   "label": "fetch_memory",
+   "text": "head_d1 = str(sess.fetch_memory(sid_d1)[0].get(\"content\", \"\"))"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 463,
+   "label": "fetch_memory",
+   "text": "head_d2 = str(sess.fetch_memory(sid_d2)[0].get(\"content\", \"\"))"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 480,
+   "label": "fetch_memory",
+   "text": "head_r = str(sess.fetch_memory(sid_r)[0].get(\"content\", \"\"))"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 553,
+   "label": "clear/reset会话语义",
+   "text": "# E4：/reboota 复位引擎暂存（P1 新增接线）——放在最后（会清空测试会话）"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 567,
+   "label": "get_memory_count",
+   "text": "and sess.get_memory_count(sid_z) == 0)"
+  },
+  {
+   "file": "tests/test_replay_stop_release.py",
+   "line": 174,
+   "label": "clear/reset会话语义",
+   "text": "check(\"T6 clear_all 取消并清空监听任务\", not q._watch_tasks)"
+  },
+  {
+   "file": "tests/test_replay_stop_release.py",
+   "line": 175,
+   "label": "clear/reset会话语义",
+   "text": "check(\"T6 clear_all 后授权/状态一并清空\","
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 811,
+   "label": "默认模型读取",
+   "text": "client = self.ctx.provider_mgr.get_default_llm()"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 823,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 914,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1024,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1106,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1394,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1424,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1484,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1540,
+   "label": "model_id使用",
+   "text": "model_id=self.summarize_model,"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 272,
+   "label": "model_id使用",
+   "text": "def _resolve_client(ctx, model_id: str, logger=None):"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 273,
+   "label": "model_id使用",
+   "text": "\"\"\"model_id 优先；失败回退快速模型 → 默认模型；全失败 None。\"\"\""
+  },
+  {
+   "file": "summarizer.py",
+   "line": 274,
+   "label": "model_id使用",
+   "text": "if model_id:"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 276,
+   "label": "model_id使用",
+   "text": "client = ctx.get_llm_client(model_id)"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 282,
+   "label": "model_id使用",
+   "text": "\"[summarizer] get_llm_client(%s) failed: %s, fallback\", model_id, e"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 284,
+   "label": "默认模型读取",
+   "text": "for getter in (\"get_default_fast_llm_client\", \"get_default_llm_client\"):"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 329,
+   "label": "model_id使用",
+   "text": "model_id: str = \"\","
+  },
+  {
+   "file": "summarizer.py",
+   "line": 350,
+   "label": "model_id使用",
+   "text": "client = _resolve_client(ctx, (model_id or \"\").strip(), logger=logger)"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 406,
+   "label": "model_id使用",
+   "text": "model_id: str = \"\","
+  },
+  {
+   "file": "summarizer.py",
+   "line": 419,
+   "label": "model_id使用",
+   "text": "client = _resolve_client(ctx, (model_id or \"\").strip(), logger=logger)"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 441,
+   "label": "model_id使用",
+   "text": "model_id: str = \"\","
+  },
+  {
+   "file": "summarizer.py",
+   "line": 451,
+   "label": "model_id使用",
+   "text": "client = _resolve_client(ctx, (model_id or \"\").strip(), logger=logger)"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 141,
+   "label": "默认模型读取",
+   "text": "def get_default_llm(self): return None"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 163,
+   "label": "默认模型读取",
+   "text": "ctx.get_default_llm_client = lambda: client"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 811,
+   "label": "provider_mgr",
+   "text": "client = self.ctx.provider_mgr.get_default_llm()"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 156,
+   "label": "provider_mgr",
+   "text": "ctx.provider_mgr = FakeProvider()"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 167,
+   "label": "旧plugin_registry",
+   "text": "from core.plugin.plugin_registry import PluginManager"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 168,
+   "label": "旧plugin_handlers",
+   "text": "from core.plugin.plugin_handlers import event_handler_reg, EventType"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "cross_session.py",
+   "line": 126,
+   "label": "adapter_mgr",
+   "text": "mgr = getattr(ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "cross_session.py",
+   "line": 165,
+   "label": "adapter_mgr",
+   "text": "mgr = getattr(ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "cross_session.py",
+   "line": 230,
+   "label": "adapter_mgr",
+   "text": "mgr = getattr(ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "group_agent_queue.py",
+   "line": 24,
+   "label": "message_types",
+   "text": "message_types: list"
+  },
+  {
+   "file": "group_agent_queue.py",
+   "line": 243,
+   "label": "message_types",
+   "text": "message_types=list(getattr(event, \"message_types\", None) or []),"
+  },
+  {
+   "file": "history_tool.py",
+   "line": 442,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(name)"
+  },
+  {
+   "file": "main.py",
+   "line": 1227,
+   "label": "message_types",
+   "text": "message_types=pending.message_types or [],"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 157,
+   "label": "adapter_mgr",
+   "text": "ctx.adapter_mgr = FakeAdapterMgr()"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 273,
+   "label": "message_types",
+   "text": "message_types=[\"dm\"], timestamp=0,"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 104,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = None"
+  },
+  {
+   "file": "tests/test_replay_stop_release.py",
+   "line": 55,
+   "label": "message_types",
+   "text": "self.message_types = []"
+  },
+  {
+   "file": "tests/test_replay_stop_release.py",
+   "line": 68,
+   "label": "message_types",
+   "text": "self.message_types = []"
+  },
+  {
+   "file": "tests/test_route_hop.py",
+   "line": 73,
+   "label": "adapter_mgr",
+   "text": "self.adapter_mgr = None"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 846,
+   "label": "on_llm_request",
+   "text": "关键：core 在 ON_LLM_REQUEST 之前就 build_tool_set()，"
+  },
+  {
+   "file": "main.py",
+   "line": 1471,
+   "label": "on_im_message",
+   "text": "async def on_im_message_observe(self, event: KiraMessageEvent):"
+  },
+  {
+   "file": "main.py",
+   "line": 1541,
+   "label": "on_im_message",
+   "text": "async def on_im_message_commands(self, event: KiraMessageEvent):"
+  },
+  {
+   "file": "main.py",
+   "line": 1864,
+   "label": "on_llm_request",
+   "text": "async def on_llm_request(self, event: KiraMessageBatchEvent, req: LLMRequest, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 1997,
+   "label": "on_llm_request",
+   "text": "\"[MERGER] on_llm_request sid=%s merged=%s\","
+  },
+  {
+   "file": "observe_pool.py",
+   "line": 43,
+   "label": "on_im_message",
+   "text": "# 节流触发的异步落盘任务（避免 ON_IM_MESSAGE 链路同步写盘）"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 187,
+   "label": "on_im_message",
+   "text": "for et in (EventType.ON_IM_MESSAGE, EventType.ON_LLM_REQUEST,"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 187,
+   "label": "on_llm_request",
+   "text": "for et in (EventType.ON_IM_MESSAGE, EventType.ON_LLM_REQUEST,"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "cross_session.py",
+   "line": 198,
+   "label": "替换框架文件",
+   "text": "# 3) 启用 adapter 唯一 → 直改前缀（覆盖首次触达、会话列表无记录的场景）"
+  },
+  {
+   "file": "locate.py",
+   "line": 398,
+   "label": "替换框架文件",
+   "text": "bits.append(\"覆盖=%s ~ %s\" % (fmt_ts(self.oldest_ts), fmt_ts(self.newest_ts)))"
+  },
+  {
+   "file": "main.py",
+   "line": 234,
+   "label": "替换框架文件",
+   "text": "# 这样旧 section_context 里的残留值不会覆盖用户在新分组里设置的值。"
+  },
+  {
+   "file": "main.py",
+   "line": 1976,
+   "label": "替换框架文件",
+   "text": "\"返回头有「命中/扫描/覆盖/到最早」，未命中只能说\""
+  },
+  {
+   "file": "main.py",
+   "line": 1982,
+   "label": "替换框架文件",
+   "text": "# 覆盖旧 tip 片段，避免重复堆叠"
+  },
+  {
+   "file": "main.py",
+   "line": 2157,
+   "label": "替换框架文件",
+   "text": "\"定位是从最新消息向更早翻页再本地过滤，返回头会给出「命中/扫描/覆盖/到最早」，\""
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 687,
+   "label": "替换框架文件",
+   "text": "\"\"\"定位旧覆盖终点在 msgs 中的下标；找不到返回 -1。"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 707,
+   "label": "替换框架文件",
+   "text": "\"\"\"旧覆盖锚点之后、尚未覆盖的 dropped 部分（dropped 为记忆前缀）。"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 711,
+   "label": "替换框架文件",
+   "text": "- 锚点位于 dropped 尾部之后（覆盖已越过 dropped）→ delta 为空；"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 712,
+   "label": "替换框架文件",
+   "text": "- 提供 rest（含保留区的完整记忆）时能正确区分“覆盖越过 dropped”"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 804,
+   "label": "替换框架文件",
+   "text": "# 判断能否增量：base 一致且旧覆盖锚点仍可定位。"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 814,
+   "label": "替换框架文件",
+   "text": "return  # 已覆盖到 dropped 尾部，无新增内容"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1175,
+   "label": "替换框架文件",
+   "text": "- 覆盖校验：按内容锚点定位旧覆盖终点，锚点之后、已进入 dropped 的"
+  },
+  {
+   "file": "merge_engine.py",
+   "line": 1692,
+   "label": "替换框架文件",
+   "text": "# 未覆盖部分走 async 补写（避免手动命令也阻塞 LLM）："
+  },
+  {
+   "file": "schema.json",
+   "line": 639,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"在结果最前面加上「命中/扫描/覆盖/到最早/耗时」。强烈建议保持开启：没有它，模型会把「没扫到」说成「群里没人说过」。\""
+  },
+  {
+   "file": "summarizer.py",
+   "line": 137,
+   "label": "替换框架文件",
+   "text": "\"\"\"已覆盖范围的尾部锚点：最后两条消息的指纹（不足两条时单条）。"
+  },
+  {
+   "file": "summarizer.py",
+   "line": 140,
+   "label": "替换框架文件",
+   "text": "先按锚点在当前记忆中定位\"旧覆盖终点\"，其后才是未覆盖的新增部分。"
+  },
+  {
+   "file": "timeline.py",
+   "line": 103,
+   "label": "替换框架文件",
+   "text": "# time_order=None 用构造默认；显式 True/False 覆盖（session_blocks"
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 12,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 37,
+   "label": "读框架文件",
+   "text": "_s = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 39,
+   "label": "读框架文件",
+   "text": "_m = importlib.util.module_from_spec(_s)"
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 43,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 45,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 4,
+   "label": "替换框架文件",
+   "text": "覆盖："
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 26,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 174,
+   "label": "替换框架文件",
+   "text": "shutil.copy(f, plugin_dir / f.name)"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 222,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"plugins.ksm_it.merge_engine\", Path(ROOT) / \"merge_engine.py\")"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 223,
+   "label": "读框架文件",
+   "text": "me = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 447,
+   "label": "替换框架文件",
+   "text": "check(\"D1★ sync+append：收割后 delta 补写（旧覆盖+新增均入摘要，store 一致）\","
+  },
+  {
+   "file": "tests/test_integration_framework.py",
+   "line": 495,
+   "label": "读框架文件",
+   "text": "prep_mod = importlib.import_module(\"plugins.ksm_it.preprocessor\")"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 10,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 35,
+   "label": "读框架文件",
+   "text": "_s = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 37,
+   "label": "读框架文件",
+   "text": "_m = importlib.util.module_from_spec(_s)"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 41,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{pkg_name}.history_tool\","
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 43,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_replay_stop_release.py",
+   "line": 12,
+   "label": "替换框架文件",
+   "text": "v2.1.0 的\"组锁补充释放\"覆盖了 LLM 请求阶段 stop 与走到 update_memory 的路径，"
+  },
+  {
+   "file": "tests/test_route_hop.py",
+   "line": 4,
+   "label": "替换框架文件",
+   "text": "覆盖："
+  },
+  {
+   "file": "tests/test_route_hop.py",
+   "line": 15,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_route_hop.py",
+   "line": 52,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_route_hop.py",
+   "line": 54,
+   "label": "读框架文件",
+   "text": "m = importlib.util.module_from_spec(spec)"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_session_merger_plugin",
+  "head": "6d3d5c6 2026-10-05 19:42:02 +0800 Merge pull request #18 from AinaLife-ai/feat/route-passive-window-hint",
+  "core_version": ">=2.29.6"
+ }
+}

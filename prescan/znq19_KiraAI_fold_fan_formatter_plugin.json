@@ -1,0 +1,55 @@
+{
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 39,
+   "label": "旧plugin_handlers",
+   "text": "from core.plugin.plugin_handlers import event_handler_reg, EventType"
+  },
+  {
+   "file": "tests/test_no_duplicate.py",
+   "line": 32,
+   "label": "旧plugin_handlers",
+   "text": "ph_mod = types.ModuleType(\"core.plugin.plugin_handlers\"); sys.modules[\"core.plugin.plugin_handlers\"] = ph_mod"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 108,
+   "label": "adapter_mgr",
+   "text": "adapter_inst = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  },
+  {
+   "file": "tests/test_no_duplicate.py",
+   "line": 158,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr=types.SimpleNamespace(get_adapter=lambda name: adapter))"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "tests/test_no_duplicate.py",
+   "line": 19,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_no_duplicate.py",
+   "line": 103,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"foldfan_main\", ROOT / \"main.py\")"
+  },
+  {
+   "file": "tests/test_no_duplicate.py",
+   "line": 104,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_fold_fan_formatter_plugin",
+  "head": "62d2544 2026-10-06 19:07:56 +0800 Merge pull request #2 from AinaLife-ai/chore/update-icon",
+  "core_version": ">=2.33.1"
+ }
+}

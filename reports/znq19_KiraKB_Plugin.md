@@ -1,0 +1,11 @@
+# znq19_KiraKB_Plugin
+- 总级: NEEDS-FIX（minor）
+- 版本: core_version >=2.33.1
+- 规模: 11 py（知识库 + web 面板）
+- 命中裁决:
+  - [B] main.py:192 面板嵌入模型下拉 `label = f"{info.provider_name} / {info.model_id}"` → rc1 的 get_model_infos 返回 ModelInfo.model_id=内部UUID → **面板显示 UUID 乱码**（命中用户关注点1）。uuid 字段本身（provider:model_id 引用值）rc1 语义正确不用动
+  - [C] get_default_vlm/get_default_rerank/get_all_providers/get_model_infos → rc1 provider_manager.py:207/277/785/406 全在 → SAFE
+  - [B] kb_manager 的 model_name 字段是知识库自有嵌入版本元数据，与框架模型身份无关 → 不动
+  - [I] 命中全在 tests——误报
+- 修复方案: main.py:192 一行：`label = f"{info.provider_name} / {getattr(info,'model_name',None) or info.model_id}"`（2.x 无 model_name 自动回退，行为不变）。
+- 备注: **本会话可直接修**。

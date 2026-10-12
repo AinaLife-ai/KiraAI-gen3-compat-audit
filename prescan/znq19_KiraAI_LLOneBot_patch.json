@@ -1,0 +1,403 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "llbot.js",
+   "line": 44339,
+   "label": "send_direct_message",
+   "text": "}).describe(\"send_group_message 请求参数\");"
+  },
+  {
+   "file": "llbot.js",
+   "line": 44343,
+   "label": "send_direct_message",
+   "text": "}).describe(\"send_group_message 响应数据\");"
+  },
+  {
+   "file": "llbot.js",
+   "line": 44481,
+   "label": "send_direct_message",
+   "text": "}).describe(\"send_group_message_reaction 请求参数\");"
+  },
+  {
+   "file": "llbot.js",
+   "line": 49123,
+   "label": "send_direct_message",
+   "text": "var SendGroupMessage = defineApi(\"send_group_message\", SendGroupMessageInput, SendGroupMessageOutput, async (ctx, payload) => {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 49521,
+   "label": "send_direct_message",
+   "text": "defineApi(\"send_group_message_reaction\", SendGroupMessageReactionInput, zod_default.object({}), async (ctx, payload) => {"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "llbot.js",
+   "line": 5784,
+   "label": "comment钩子",
+   "text": "\"comment\","
+  },
+  {
+   "file": "llbot.js",
+   "line": 10699,
+   "label": "comment钩子",
+   "text": "comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 10702,
+   "label": "comment钩子",
+   "text": "constructor(groupId, userId, flag, comment, invitor_id = 0) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 10706,
+   "label": "comment钩子",
+   "text": "this.comment = comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 10718,
+   "label": "comment钩子",
+   "text": "comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 10721,
+   "label": "comment钩子",
+   "text": "constructor(groupId, userId, flag, comment, sourceGroupId) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 10725,
+   "label": "comment钩子",
+   "text": "this.comment = comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 11336,
+   "label": "comment钩子",
+   "text": "comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 11339,
+   "label": "comment钩子",
+   "text": "constructor(userId, comment, flag, via) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 11342,
+   "label": "comment钩子",
+   "text": "this.comment = comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 28642,
+   "label": "comment钩子",
+   "text": "const tagRegExp1 = /(?<comment><!--[\\s\\S]*?-->)|(?<tag><(\\/?)([^!\\s>/]*)([^>]*?)\\s*(\\/?)>)/;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 28643,
+   "label": "comment钩子",
+   "text": "const tagRegExp2 = /(?<comment><!--[\\s\\S]*?-->)|(?<tag><(\\/?)([^!\\s>/]*)([^>]*?)\\s*(\\/?)>)|(?<curly>\\{(?<derivative>[@:/#][^\\s}]*)?[\\s\\S]*?\\})/;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 28663,
+   "label": "comment钩子",
+   "text": "const { curly, comment, derivative } = tagCap.groups;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 28669,
+   "label": "comment钩子",
+   "text": "if (comment) continue;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 28973,
+   "label": "comment钩子",
+   "text": "\"comment\""
+  },
+  {
+   "file": "llbot.js",
+   "line": 28978,
+   "label": "comment钩子",
+   "text": "\"comment\""
+  },
+  {
+   "file": "llbot.js",
+   "line": 28983,
+   "label": "comment钩子",
+   "text": "\"comment\""
+  },
+  {
+   "file": "llbot.js",
+   "line": 29351,
+   "label": "comment钩子",
+   "text": "const res = await ctx.ntGroupApi.handleGroupRequest(payload.message_id, payload.approve ? GroupRequestOperateTypes.Approve : GroupRequestOperateTypes.Reject, pa"
+  },
+  {
+   "file": "llbot.js",
+   "line": 29425,
+   "label": "comment钩子",
+   "text": "const res = await ctx.ntGroupApi.handleGroupRequest(payload.message_id, payload.approve ? GroupRequestOperateTypes.Approve : GroupRequestOperateTypes.Reject, pa"
+  },
+  {
+   "file": "llbot.js",
+   "line": 42701,
+   "label": "comment钩子",
+   "text": "\"$comment\","
+  },
+  {
+   "file": "llbot.js",
+   "line": 42983,
+   "label": "comment钩子",
+   "text": "\"$comment\","
+  },
+  {
+   "file": "llbot.js",
+   "line": 43632,
+   "label": "comment钩子",
+   "text": "comment: string$1().describe(\"申请附加信息\"),"
+  },
+  {
+   "file": "llbot.js",
+   "line": 43640,
+   "label": "comment钩子",
+   "text": "comment: string$1().describe(\"申请附加信息\")"
+  },
+  {
+   "file": "llbot.js",
+   "line": 43943,
+   "label": "comment钩子",
+   "text": "comment: string$1().describe(\"申请附加信息\"),"
+  },
+  {
+   "file": "llbot.js",
+   "line": 43961,
+   "label": "comment钩子",
+   "text": "comment: string$1().describe(\"入群请求附加信息\")"
+  },
+  {
+   "file": "llbot.js",
+   "line": 46949,
+   "label": "comment钩子",
+   "text": "commentPropName: false,"
+  },
+  {
+   "file": "llbot.js",
+   "line": 47029,
+   "label": "comment钩子",
+   "text": "value: built.commentPropName,"
+  },
+  {
+   "file": "llbot.js",
+   "line": 47030,
+   "label": "comment钩子",
+   "text": "name: \"commentPropName\""
+  },
+  {
+   "file": "llbot.js",
+   "line": 47085,
+   "label": "comment钩子",
+   "text": "let hasBody = false, comment = false;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 47087,
+   "label": "comment钩子",
+   "text": "for (; i < xmlData.length; i++) if (xmlData[i] === \"<\" && !comment) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 47106,
+   "label": "comment钩子",
+   "text": "} else if (hasSeq(xmlData, \"!--\", i)) comment = true;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 47111,
+   "label": "comment钩子",
+   "text": "if (comment) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 47113,
+   "label": "comment钩子",
+   "text": "comment = false;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 48386,
+   "label": "comment钩子",
+   "text": "if (options.commentPropName) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 48387,
+   "label": "comment钩子",
+   "text": "const comment = xmlData.substring(i + 4, endIndex - 2);"
+  },
+  {
+   "file": "llbot.js",
+   "line": 48389,
+   "label": "comment钩子",
+   "text": "currentNode.add(options.commentPropName, [{ [options.textNodeName]: comment }]);"
+  },
+  {
+   "file": "llbot.js",
+   "line": 48417,
+   "label": "comment钩子",
+   "text": "if (options.strictReservedNames && (tagName === options.commentPropName || tagName === options.cdataPropName || tagName === options.textNodeName || tagName === "
+  },
+  {
+   "file": "llbot.js",
+   "line": 49322,
+   "label": "comment钩子",
+   "text": "comment: e.msg,"
+  },
+  {
+   "file": "llbot.js",
+   "line": 49347,
+   "label": "comment钩子",
+   "text": "comment: e.extWords,"
+  },
+  {
+   "file": "llbot.js",
+   "line": 49557,
+   "label": "comment钩子",
+   "text": "comment: notify.postscript"
+  },
+  {
+   "file": "llbot.js",
+   "line": 49857,
+   "label": "comment钩子",
+   "text": "comment: request.extWords,"
+  },
+  {
+   "file": "llbot.js",
+   "line": 49877,
+   "label": "comment钩子",
+   "text": "comment: notify.postscript"
+  },
+  {
+   "file": "llbot.js",
+   "line": 56293,
+   "label": "comment钩子",
+   "text": "lexState = \"comment\";"
+  },
+  {
+   "file": "llbot.js",
+   "line": 56305,
+   "label": "comment钩子",
+   "text": "comment: function comment() {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63519,
+   "label": "comment钩子",
+   "text": "comment: [],"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63534,
+   "label": "comment钩子",
+   "text": "state = \"comment\";"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63562,
+   "label": "comment钩子",
+   "text": "if (!data.text.length && data.comment.length) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63563,
+   "label": "comment钩子",
+   "text": "data.text = data.comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63564,
+   "label": "comment钩子",
+   "text": "data.comment = [];"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63599,
+   "label": "comment钩子",
+   "text": "if (!data.text.length && data.comment.length) {"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63600,
+   "label": "comment钩子",
+   "text": "data.text = data.comment;"
+  },
+  {
+   "file": "llbot.js",
+   "line": 63601,
+   "label": "comment钩子",
+   "text": "data.comment = [];"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65860,
+   "label": "comment钩子",
+   "text": "let comment = value.comment || \"\";"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65861,
+   "label": "comment钩子",
+   "text": "if (mimeFuncs.isPlainText(comment)) comment = \"\\\"\" + comment + \"\\\"\";"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65862,
+   "label": "comment钩子",
+   "text": "else comment = mimeFuncs.encodeWord(comment);"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65863,
+   "label": "comment钩子",
+   "text": "return (value.comment ? comment + \" \" : \"\") + this._formatListUrl(value.url).replace(/^<[^:]+\\/{,2}/, \"\");"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65865,
+   "label": "comment钩子",
+   "text": "let comment = value.comment || \"\";"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65866,
+   "label": "comment钩子",
+   "text": "if (!mimeFuncs.isPlainText(comment)) comment = mimeFuncs.encodeWord(comment);"
+  },
+  {
+   "file": "llbot.js",
+   "line": 65867,
+   "label": "comment钩子",
+   "text": "return this._formatListUrl(value.url) + (value.comment ? \" (\" + comment + \")\" : \"\");"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "llbot.js",
+   "line": 25365,
+   "label": "替换框架文件",
+   "text": "// 仅使用上方 llbot.js 常量，不读 config_*.json，避免 JSON 覆盖导致「改了 js 不生效」"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_LLOneBot_patch",
+  "head": "0b8ae6f 2026-07-17 03:48:24 +0800 Update README.md",
+  "core_version": null
+ }
+}

@@ -1,0 +1,282 @@
+{
+ "AinaLife-ai_KiraAI.AinaLife.Notes": {
+  "A_会话API_rc1破坏": 8,
+  "B_模型名展示_uuid风险": 1,
+  "I_直读框架文件": 2,
+  "core_version": ">=2.29.7"
+ },
+ "AinaLife-ai_KiraAI.IndexTTS": {
+  "core_version": ">=2.29.0"
+ },
+ "AinaLife-ai_KiraAI_com3d2-mod-search_plugin": {
+  "A_会话API_rc1破坏": 2,
+  "F_适配器与能力": 3,
+  "I_直读框架文件": 2,
+  "core_version": ">=2.29.7"
+ },
+ "AinaLife-ai_KiraAI_fortune_plugin": {
+  "core_version": null
+ },
+ "AinaLife-ai_KiraAI_github_tool_plugin": {
+  "D_插件模块路径": 1,
+  "G_事件与钩子": 15,
+  "I_直读框架文件": 2,
+  "core_version": null
+ },
+ "AinaLife-ai_KiraAI_hotnews_plugin": {
+  "F_适配器与能力": 2,
+  "core_version": null
+ },
+ "AinaLife-ai_KiraAI_kira_wiki_plugin": {
+  "B_模型名展示_uuid风险": 1,
+  "core_version": ">=2.33.1"
+ },
+ "Qixuan112_KiraAI_Group-Manager-Plugin": {
+  "F_适配器与能力": 7,
+  "G_事件与钩子": 6,
+  "I_直读框架文件": 5,
+  "core_version": null
+ },
+ "Qixuan112_Kira_headless_browser": {
+  "A_会话API_rc1破坏": 12,
+  "B_模型名展示_uuid风险": 20,
+  "C_Provider客户端": 7,
+  "D_插件模块路径": 1,
+  "F_适配器与能力": 4,
+  "G_事件与钩子": 30,
+  "I_直读框架文件": 153,
+  "core_version": ">=2.30.0"
+ },
+ "znq19_KiraAI-anti-harass-plugin": {
+  "A_会话API_rc1破坏": 2,
+  "G_事件与钩子": 6,
+  "I_直读框架文件": 6,
+  "core_version": ">=2.29.6"
+ },
+ "znq19_KiraAI-openai-stream-compat": {
+  "B_模型名展示_uuid风险": 4,
+  "C_Provider客户端": 16,
+  "I_直读框架文件": 3,
+  "core_version": ">=2.29.7"
+ },
+ "znq19_KiraAI-subagent-plugin": {
+  "B_模型名展示_uuid风险": 13,
+  "D_插件模块路径": 1,
+  "F_适配器与能力": 1,
+  "G_事件与钩子": 1,
+  "H_人设与自拍": 14,
+  "I_直读框架文件": 10,
+  "core_version": null
+ },
+ "znq19_KiraAI_LLOneBot_patch": {
+  "F_适配器与能力": 5,
+  "G_事件与钩子": 59,
+  "I_直读框架文件": 1,
+  "core_version": null
+ },
+ "znq19_KiraAI_accelerator_plugin": {
+  "A_会话API_rc1破坏": 68,
+  "B_模型名展示_uuid风险": 45,
+  "C_Provider客户端": 87,
+  "D_插件模块路径": 19,
+  "E_工作流与消息处理": 119,
+  "F_适配器与能力": 6,
+  "G_事件与钩子": 20,
+  "H_人设与自拍": 1,
+  "I_直读框架文件": 150,
+  "core_version": ">=2.33.1"
+ },
+ "znq19_KiraAI_agnes_image_gen_plugin": {
+  "A_会话API_rc1破坏": 1,
+  "F_适配器与能力": 1,
+  "H_人设与自拍": 30,
+  "core_version": ">=2.6.1"
+ },
+ "znq19_KiraAI_auto_delete_session_plugin": {
+  "A_会话API_rc1破坏": 67,
+  "B_模型名展示_uuid风险": 19,
+  "F_适配器与能力": 6,
+  "G_事件与钩子": 5,
+  "I_直读框架文件": 16,
+  "core_version": ">=2.33"
+ },
+ "znq19_KiraAI_bili_audio_sender_plugin": {
+  "A_会话API_rc1破坏": 1,
+  "core_version": ">=2.6.1"
+ },
+ "znq19_KiraAI_daily_report_plugin": {
+  "A_会话API_rc1破坏": 3,
+  "F_适配器与能力": 6,
+  "G_事件与钩子": 57,
+  "H_人设与自拍": 4,
+  "I_直读框架文件": 2,
+  "core_version": null
+ },
+ "znq19_KiraAI_deepwiki_plugin": {
+  "A_会话API_rc1破坏": 15,
+  "F_适配器与能力": 1,
+  "I_直读框架文件": 2,
+  "core_version": null
+ },
+ "znq19_KiraAI_fold_fan_formatter_plugin": {
+  "D_插件模块路径": 2,
+  "F_适配器与能力": 2,
+  "I_直读框架文件": 3,
+  "core_version": ">=2.33.1"
+ },
+ "znq19_KiraAI_forward_fix_plugin": {
+  "E_工作流与消息处理": 1,
+  "F_适配器与能力": 8,
+  "I_直读框架文件": 9,
+  "core_version": ">=2.33.1"
+ },
+ "znq19_KiraAI_group_member_viewer_plugin": {
+  "F_适配器与能力": 1,
+  "core_version": null
+ },
+ "znq19_KiraAI_history_plugin": {
+  "F_适配器与能力": 3,
+  "I_直读框架文件": 14,
+  "core_version": null
+ },
+ "znq19_KiraAI_logic_helper_plugin": {
+  "core_version": null
+ },
+ "znq19_KiraAI_midflight_message_plugin": {
+  "A_会话API_rc1破坏": 7,
+  "B_模型名展示_uuid风险": 6,
+  "D_插件模块路径": 16,
+  "E_工作流与消息处理": 9,
+  "F_适配器与能力": 57,
+  "G_事件与钩子": 39,
+  "I_直读框架文件": 23,
+  "core_version": ">=2.29.7"
+ },
+ "znq19_KiraAI_midi_play_sender_plugin": {
+  "A_会话API_rc1破坏": 1,
+  "I_直读框架文件": 3,
+  "core_version": ">=2.6.1"
+ },
+ "znq19_KiraAI_model_config_query_plugin": {
+  "B_模型名展示_uuid风险": 4,
+  "G_事件与钩子": 1,
+  "core_version": null
+ },
+ "znq19_KiraAI_ops_plugin": {
+  "A_会话API_rc1破坏": 66,
+  "B_模型名展示_uuid风险": 36,
+  "C_Provider客户端": 13,
+  "D_插件模块路径": 16,
+  "E_工作流与消息处理": 6,
+  "F_适配器与能力": 23,
+  "H_人设与自拍": 8,
+  "I_直读框架文件": 19,
+  "core_version": ">=2.34.6"
+ },
+ "znq19_KiraAI_output_word_replacer_plugin": {
+  "core_version": null
+ },
+ "znq19_KiraAI_payload_defense_plugin": {
+  "G_事件与钩子": 2,
+  "core_version": null
+ },
+ "znq19_KiraAI_pixiv_image_searcher_plugin": {
+  "F_适配器与能力": 2,
+  "I_直读框架文件": 1,
+  "core_version": null
+ },
+ "znq19_KiraAI_qzone_plugin": {
+  "A_会话API_rc1破坏": 7,
+  "C_Provider客户端": 2,
+  "E_工作流与消息处理": 14,
+  "F_适配器与能力": 16,
+  "G_事件与钩子": 305,
+  "H_人设与自拍": 5,
+  "I_直读框架文件": 11,
+  "core_version": null
+ },
+ "znq19_KiraAI_session_merger_plugin": {
+  "A_会话API_rc1破坏": 65,
+  "B_模型名展示_uuid风险": 23,
+  "C_Provider客户端": 2,
+  "D_插件模块路径": 2,
+  "F_适配器与能力": 13,
+  "G_事件与钩子": 8,
+  "I_直读框架文件": 40,
+  "core_version": ">=2.29.6"
+ },
+ "znq19_KiraAI_speaker_identity_plugin": {
+  "E_工作流与消息处理": 1,
+  "G_事件与钩子": 2,
+  "core_version": null
+ },
+ "znq19_KiraAI_sticker_control_plugin": {
+  "core_version": null
+ },
+ "znq19_KiraAI_sysinfo_plugin": {
+  "core_version": null
+ },
+ "znq19_KiraAI_token_stats_plugin": {
+  "A_会话API_rc1破坏": 4,
+  "B_模型名展示_uuid风险": 43,
+  "C_Provider客户端": 1,
+  "F_适配器与能力": 4,
+  "G_事件与钩子": 6,
+  "I_直读框架文件": 3,
+  "core_version": ">=2.29.7"
+ },
+ "znq19_KiraAI_typing_indicator_plugin": {
+  "F_适配器与能力": 3,
+  "G_事件与钩子": 1,
+  "core_version": null
+ },
+ "znq19_KiraAI_video_comprehension_plugin": {
+  "A_会话API_rc1破坏": 6,
+  "B_模型名展示_uuid风险": 5,
+  "C_Provider客户端": 3,
+  "D_插件模块路径": 1,
+  "F_适配器与能力": 3,
+  "G_事件与钩子": 4,
+  "I_直读框架文件": 23,
+  "core_version": ">=2.33.1"
+ },
+ "znq19_KiraAI_ws_keepalive_plugin": {
+  "F_适配器与能力": 5,
+  "I_直读框架文件": 11,
+  "core_version": ">=2.29.6"
+ },
+ "znq19_KiraAI_xml_tag_fixer_plugin": {
+  "A_会话API_rc1破坏": 1,
+  "D_插件模块路径": 2,
+  "E_工作流与消息处理": 3,
+  "G_事件与钩子": 2,
+  "H_人设与自拍": 1,
+  "I_直读框架文件": 9,
+  "core_version": null
+ },
+ "znq19_KiraKB_Plugin": {
+  "B_模型名展示_uuid风险": 24,
+  "C_Provider客户端": 4,
+  "I_直读框架文件": 7,
+  "core_version": ">=2.33.1"
+ },
+ "znq19_kira-ai-plugin-mimo-tts": {
+  "A_会话API_rc1破坏": 1,
+  "D_插件模块路径": 3,
+  "E_工作流与消息处理": 6,
+  "F_适配器与能力": 2,
+  "G_事件与钩子": 1,
+  "I_直读框架文件": 7,
+  "core_version": null
+ },
+ "znq19_kiraai-reboot-pulgin": {
+  "A_会话API_rc1破坏": 88,
+  "B_模型名展示_uuid风险": 16,
+  "D_插件模块路径": 3,
+  "E_工作流与消息处理": 1,
+  "F_适配器与能力": 4,
+  "G_事件与钩子": 11,
+  "I_直读框架文件": 7,
+  "core_version": ">=2.33"
+ }
+}

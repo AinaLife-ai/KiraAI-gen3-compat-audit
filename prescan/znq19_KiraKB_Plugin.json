@@ -1,0 +1,223 @@
+{
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "api_handlers.py",
+   "line": 203,
+   "label": "model_name使用",
+   "text": "\"model_name\": ver.model_name,"
+  },
+  {
+   "file": "api_handlers.py",
+   "line": 281,
+   "label": "model_name使用",
+   "text": "model_name = body.get(\"model_name\")"
+  },
+  {
+   "file": "api_handlers.py",
+   "line": 289,
+   "label": "model_name使用",
+   "text": "if not model_name:"
+  },
+  {
+   "file": "api_handlers.py",
+   "line": 291,
+   "label": "model_name使用",
+   "text": "return {\"error\": \"model_name required\"}, 400"
+  },
+  {
+   "file": "api_handlers.py",
+   "line": 309,
+   "label": "model_name使用",
+   "text": "label = f\"创建版本 {model_name}\""
+  },
+  {
+   "file": "api_handlers.py",
+   "line": 319,
+   "label": "model_name使用",
+   "text": "model_name, dimension, doc_ids, progress_callback, model_uuid"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 29,
+   "label": "model_name使用",
+   "text": "model_name: str, dimension: int, created_at: float,"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 37,
+   "label": "model_name使用",
+   "text": "self.model_name = model_name"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 188,
+   "label": "get_model_info",
+   "text": "def get_model_info(self) -> dict:"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 190,
+   "label": "model_name使用",
+   "text": "\"model_name\": self.model_name,"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 298,
+   "label": "model_name使用",
+   "text": "model_name=model_info.get(\"model_name\", \"unknown\"),"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 360,
+   "label": "model_name使用",
+   "text": "async def create_version(self, model_name: str, dimension: int, doc_ids: Optional[List[str]] = None,"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 363,
+   "label": "model_name使用",
+   "text": "version_id = f\"{model_name.replace('/', '_')}_{int(time.time())}\""
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 376,
+   "label": "model_name使用",
+   "text": "model_name=model_name,"
+  },
+  {
+   "file": "kb_manager.py",
+   "line": 438,
+   "label": "model_name使用",
+   "text": "\"model_name\": model_name,"
+  },
+  {
+   "file": "main.py",
+   "line": 188,
+   "label": "model_id使用",
+   "text": "\"uuid\": f\"{provider_id}:{info.model_id}\","
+  },
+  {
+   "file": "main.py",
+   "line": 189,
+   "label": "model_id使用",
+   "text": "\"model_id\": info.model_id,"
+  },
+  {
+   "file": "main.py",
+   "line": 192,
+   "label": "model_id使用",
+   "text": "\"label\": f\"{info.provider_name} / {info.model_id}\","
+  },
+  {
+   "file": "main.py",
+   "line": 315,
+   "label": "model_name使用",
+   "text": "ver_info = f\"激活版本: {active_ver.model_name if active_ver else '无'}\""
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 198,
+   "label": "model_name使用",
+   "text": "{\"model_name\": \"doubao\", \"dimension\": 2560, \"created_at\": 123}))"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 225,
+   "label": "model_name使用",
+   "text": "{\"model_name\": \"bad\", \"dimension\": 8, \"created_at\": 1}))"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 348,
+   "label": "model_id使用",
+   "text": "models = [{\"uuid\": \"prov_a:m1\", \"model_id\": \"m1\", \"provider_id\": \"prov_a\","
+  },
+  {
+   "file": "web/index.html",
+   "line": 568,
+   "label": "model_name使用",
+   "text": "<strong>${escapeHtml(v.model_name)}</strong> (${v.dimension}维)"
+  },
+  {
+   "file": "web/index.html",
+   "line": 757,
+   "label": "model_name使用",
+   "text": "const payload = { model_name: modelName, dimension: dimension };"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 156,
+   "label": "provider_mgr",
+   "text": "vlm_client = self.ctx.provider_mgr.get_default_vlm()"
+  },
+  {
+   "file": "main.py",
+   "line": 166,
+   "label": "provider_mgr",
+   "text": "rerank_client = self.ctx.provider_mgr.get_default_rerank()"
+  },
+  {
+   "file": "main.py",
+   "line": 179,
+   "label": "provider_mgr",
+   "text": "for provider_id, provider in self.ctx.provider_mgr.get_all_providers().items():"
+  },
+  {
+   "file": "main.py",
+   "line": 181,
+   "label": "provider_mgr",
+   "text": "infos = self.ctx.provider_mgr.get_model_infos(provider_id)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "tests/reverse_validation.py",
+   "line": 32,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/reverse_validation.py",
+   "line": 33,
+   "label": "读框架文件",
+   "text": "kb_manager = importlib.import_module(\"kbp.kb_manager\")"
+  },
+  {
+   "file": "tests/reverse_validation.py",
+   "line": 34,
+   "label": "读框架文件",
+   "text": "task_manager = importlib.import_module(\"kbp.task_manager\")"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 59,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 61,
+   "label": "读框架文件",
+   "text": "kb_manager = importlib.import_module(\"kbp.kb_manager\")"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 62,
+   "label": "读框架文件",
+   "text": "task_manager = importlib.import_module(\"kbp.task_manager\")"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 63,
+   "label": "读框架文件",
+   "text": "api = importlib.import_module(\"kbp.api_handlers\")"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraKB_Plugin",
+  "head": "a52a80f 2026-09-25 23:34:01 +0800 Merge pull request #6 from AinaLife-ai/fix/dimension-guard-and-model-picker",
+  "core_version": ">=2.33.1"
+ }
+}

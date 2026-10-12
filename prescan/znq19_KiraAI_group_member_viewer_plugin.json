@@ -1,0 +1,15 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 91,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_group_member_viewer_plugin",
+  "head": "02beef9 2026-08-23 12:00:06 +0800 Merge pull request #2 from AinaLife-ai/feat/member-detail-keyword",
+  "core_version": null
+ }
+}

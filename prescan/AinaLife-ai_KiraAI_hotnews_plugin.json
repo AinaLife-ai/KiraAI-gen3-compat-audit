@@ -1,0 +1,21 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 86,
+   "label": "adapter_mgr",
+   "text": "ada = self.ctx.adapter_mgr.get_adapter(ada_name)"
+  },
+  {
+   "file": "main.py",
+   "line": 116,
+   "label": "message_types",
+   "text": "message_types=ada.message_types,"
+  }
+ ],
+ "_meta": {
+  "repo": "AinaLife-ai_KiraAI_hotnews_plugin",
+  "head": "48eb932 2026-06-25 21:08:26 +0800 Update main.py",
+  "core_version": null
+ }
+}

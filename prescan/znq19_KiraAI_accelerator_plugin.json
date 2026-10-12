@@ -1,0 +1,3115 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 201,
+   "label": "clear/reset会话语义",
+   "text": "| 黑名单 | **已预填 27 条** | 内置默认值**直接写在列表里**，你在这基础上增删即可，不用手抄。（清空 = 没有黑名单，全部放行） |"
+  },
+  {
+   "file": "README.md",
+   "line": 437,
+   "label": "clear/reset会话语义",
+   "text": "- **接管识别**：广播前有可发内容、广播后列表被清空 ⇒ 视为「插件接管了投递」，"
+  },
+  {
+   "file": "README.md",
+   "line": 512,
+   "label": "clear/reset会话语义",
+   "text": "清空会抹掉 `wpLoad` 立的层级保证（那是上一轮的教训）；"
+  },
+  {
+   "file": "README.md",
+   "line": 686,
+   "label": "clear/reset会话语义",
+   "text": "- `fxInk` 不再清空两个图层的 inline z-index（同一个原因）"
+  },
+  {
+   "file": "README.md",
+   "line": 708,
+   "label": "clear/reset会话语义",
+   "text": "`wpCleanup` 必须早于摘 `.on`、不得清空 z-index、TO_Z > FROM_Z"
+  },
+  {
+   "file": "README.md",
+   "line": 825,
+   "label": "clear/reset会话语义",
+   "text": "**只要分叉发生在轮次中途**，同一段就会进旧会话、而框架又把它发进新会话。"
+  },
+  {
+   "file": "README.md",
+   "line": 1839,
+   "label": "clear/reset会话语义",
+   "text": "会清空 inline `opacity` ⇒ 在\"清空\"到\"摘 `.on`\"之间，CSS `.wp-stage.on .wp-img`"
+  },
+  {
+   "file": "README.md",
+   "line": 1898,
+   "label": "clear/reset会话语义",
+   "text": "后 `remove(\"on\")`，而 `wpNormalize` 会清空 inline `opacity`"
+  },
+  {
+   "file": "README.md",
+   "line": 1899,
+   "label": "clear/reset会话语义",
+   "text": "⇒ 在\"清空\"到\"摘 `.on`\"之间旧层仍可见。改为**先摘旧层 `.on`、再归一化**；"
+  },
+  {
+   "file": "main.py",
+   "line": 51,
+   "label": "clear/reset会话语义",
+   "text": "#: \"上次发送时刻\"这张表最多记多少个会话（超出整体清空，防长期运行内存累积）"
+  },
+  {
+   "file": "main.py",
+   "line": 697,
+   "label": "clear/reset会话语义",
+   "text": "#   id 复用会造成脏命中）。超过上限就整体清空重建 —— 代价只是下次多包一层。"
+  },
+  {
+   "file": "main.py",
+   "line": 944,
+   "label": "clear/reset会话语义",
+   "text": "#   而框架随后把同一段再发进**新会话** ⇒ 用户看到\"消息发错会话\"。"
+  },
+  {
+   "file": "main.py",
+   "line": 1112,
+   "label": "clear/reset会话语义",
+   "text": "logger.info(\"[accel] 本段已被 AFTER_XML_PARSE 插件接管（待发列表被清空）\""
+  },
+  {
+   "file": "main.py",
+   "line": 1451,
+   "label": "chat_memory直改",
+   "text": "所以默认**关**（保住 chat_memory.json 的可读性），"
+  },
+  {
+   "file": "main.py",
+   "line": 1451,
+   "label": "memory_json路径",
+   "text": "所以默认**关**（保住 chat_memory.json 的可读性），"
+  },
+  {
+   "file": "main.py",
+   "line": 1462,
+   "label": "get_existing_memory_snapshot",
+   "text": "· WebUI 的会话历史走 `get_existing_memory_snapshot`（**内存快照**，"
+  },
+  {
+   "file": "main.py",
+   "line": 1481,
+   "label": "_save_memory",
+   "text": "def _save_memory(self, memory=None, path=None):"
+  },
+  {
+   "file": "main.py",
+   "line": 1483,
+   "label": "chat_memory直改",
+   "text": "memory = self.chat_memory"
+  },
+  {
+   "file": "main.py",
+   "line": 1497,
+   "label": "_save_memory",
+   "text": "return _save_memory"
+  },
+  {
+   "file": "main.py",
+   "line": 1500,
+   "label": "_save_memory",
+   "text": "if install(h, SessionManager, \"_save_memory\", factory) is not None:"
+  },
+  {
+   "file": "main.py",
+   "line": 1609,
+   "label": "clear/reset会话语义",
+   "text": "#   而记录集从不清空 ⇒ 从第二条消息起每条都命中\"重复\"。"
+  },
+  {
+   "file": "patches.py",
+   "line": 17,
+   "label": "_save_memory",
+   "text": "- `SessionManager._save_memory`               → **同步**"
+  },
+  {
+   "file": "request_compat.py",
+   "line": 44,
+   "label": "chat_memory直改",
+   "text": "`request.messages` 与 `self.chat_memory` 里的对象保持原样"
+  },
+  {
+   "file": "schema.json",
+   "line": 374,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"名单里的工具一律串行。**内置默认值已经预填在列表里**，你直接在它基础上增删即可，不用手抄一遍。（清空列表 = 没有黑名单，全部放行，不推荐。）\""
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 321,
+   "label": "clear/reset会话语义",
+   "text": "check(\"★ 分叉后也没发到新会话（交回框架 = 它自己会发）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 82,
+   "label": "clear/reset会话语义",
+   "text": "check(\"★ wpNormalize 只做 cssText 清空，不写 opacity\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 810,
+   "label": "clear/reset会话语义",
+   "text": "f\"模式数={len(_nmodes)}；用展开清空={'classList.remove(...NEON_MODES)' in js}\")"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1212,
+   "label": "clear/reset会话语义",
+   "text": "#  ⇒ 新契约：**任何地方都不许把壁纸层的 z-index 清空**，否则层级保证就没了。"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1213,
+   "label": "clear/reset会话语义",
+   "text": "check(\"★★★ 不得清空壁纸层的 inline z-index（否则 wpLoad 立的层级保证被抹掉）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1454,
+   "label": "clear/reset会话语义",
+   "text": "#   层级现在由 wpLoad 的 wpSetLayerOrder 统一保证，\"清空\"等于把它抹掉"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1462,
+   "label": "clear/reset会话语义",
+   "text": "check(\"★★★ 燃纸异常路径不得清空 stage 的 z-index（清空 = 抹掉层级保证）\","
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 176,
+   "label": "chat_memory直改",
+   "text": "self.chat_memory = {\"s\": []}"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 179,
+   "label": "_save_memory",
+   "text": "def _save_memory(self, memory=None, path=None):"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 284,
+   "label": "_save_memory",
+   "text": "orig_save = SM._save_memory"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 292,
+   "label": "_save_memory",
+   "text": "check(\"★ 待验证功能被锁死：配置 true 也不接管 _save_memory\","
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 293,
+   "label": "_save_memory",
+   "text": "SM._save_memory is orig_save)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 315,
+   "label": "_save_memory",
+   "text": "check(\"terminate 后 _save_memory 仍是框架原实现\", SM._save_memory is orig_save)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 408,
+   "label": "_save_memory",
+   "text": "check(\"_save_memory 保持原样\", SM._save_memory is orig_save)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 409,
+   "label": "clear/reset会话语义",
+   "text": "check(\"patches 注册表已清空\", plugin.patches.health() == [])"
+  },
+  {
+   "file": "tests/test_log_behaviour.py",
+   "line": 15,
+   "label": "clear/reset会话语义",
+   "text": "⇒ 旧的检测用 **sid** 且**从不清空** ⇒ 同一会话的下一轮就命中，"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 55,
+   "label": "chat_memory直改",
+   "text": "\"\"\"冒充 SessionManager 实例（只要 chat_memory / chat_memory_path 两个属性）。\"\"\""
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 67,
+   "label": "_save_memory",
+   "text": "check(\"补丁已安装\", getattr(SessionManager._save_memory, \"__kira_accel__\", False) is True)"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 70,
+   "label": "chat_memory直改",
+   "text": "h.chat_memory = mem"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 71,
+   "label": "chat_memory直改",
+   "text": "h.chat_memory_path = os.path.join(tempfile.mkdtemp(), \"chat_memory.json\")"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 71,
+   "label": "memory_json路径",
+   "text": "h.chat_memory_path = os.path.join(tempfile.mkdtemp(), \"chat_memory.json\")"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 75,
+   "label": "_save_memory",
+   "text": "ok = SessionManager._save_memory(h)"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 106,
+   "label": "chat_memory直改",
+   "text": "h2.chat_memory = {}"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 108,
+   "label": "_save_memory",
+   "text": "check(\"空记忆落盘正常\", SessionManager._save_memory(h2) is True)"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 114,
+   "label": "get_existing_memory_snapshot",
+   "text": "#   session_manager.get_existing_memory_snapshot(session_id)  → **内存快照**"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 118,
+   "label": "chat_memory直改",
+   "text": "sm.chat_memory = SessionManager._load_memory(h.chat_memory_path)   # 从紧凑文件加载"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 120,
+   "label": "chat_memory直改",
+   "text": "check(\"★ 框架自己的 _load_memory 能读紧凑文件\", sm.chat_memory == mem,"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 122,
+   "label": "get_existing_memory_snapshot",
+   "text": "snap = SessionManager.get_existing_memory_snapshot(sm, \"adapter:group:g0\")"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 131,
+   "label": "chat_memory直改",
+   "text": "sm2.chat_memory = SessionManager._load_memory(orig_path)           # 旧格式"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 132,
+   "label": "chat_memory直改",
+   "text": "check(\"★ 新旧格式读回的对象完全相同\", sm2.chat_memory == sm.chat_memory)"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 134,
+   "label": "chat_memory直改",
+   "text": "print(\"\\n6) ★ 默认必须是【关】（保住 chat_memory.json 的可读性）\")"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 134,
+   "label": "memory_json路径",
+   "text": "print(\"\\n6) ★ 默认必须是【关】（保住 chat_memory.json 的可读性）\")"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 150,
+   "label": "_save_memory",
+   "text": "getattr(SessionManager._save_memory, \"__kira_accel__\", False) is False)"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 152,
+   "label": "_save_memory",
+   "text": "_orig = _SM._save_memory"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 156,
+   "label": "_save_memory",
+   "text": "getattr(_SM._save_memory, \"__kira_accel__\", False) is False)"
+  },
+  {
+   "file": "tests/test_memory_dump.py",
+   "line": 175,
+   "label": "_save_memory",
+   "text": "not getattr(SessionManager._save_memory, \"__kira_accel__\", False))"
+  },
+  {
+   "file": "tests/test_plugin_takeover.py",
+   "line": 14,
+   "label": "clear/reset会话语义",
+   "text": "`_emit_segment` 识别「广播前有可发链、广播后列表被清空」= **插件接管了投递**："
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 129,
+   "label": "clear/reset会话语义",
+   "text": "#     特效（含燃纸）**一律不许**碰 stage 的 z-index，也不能在收尾把它清空。"
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 139,
+   "label": "clear/reset会话语义",
+   "text": "check(\"★★★ fxBurn 收尾还原层级为**常量**（不是清空）\","
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 207,
+   "label": "clear/reset会话语义",
+   "text": "#        ⇒ 清空 inline opacity 到摘 .on 之间，`.wp-stage.on` 仍让它可见 ⇒ 同症状"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3415,
+   "label": "clear/reset会话语义",
+   "text": "· 这里做的是\"**还原成 wpSetLayerOrder 立的那个值**\"（用常量，不是清空），"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3585,
+   "label": "clear/reset会话语义",
+   "text": "· 真正的问题恰恰是**清空**：清了之后层级退回 `auto` + DOM 顺序，"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3594,
+   "label": "clear/reset会话语义",
+   "text": "if (false) { /* 保留结构，防止有人再加回\"清空 z-index\" */ }"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3880,
+   "label": "clear/reset会话语义",
+   "text": "统一保证，\"清空\"等于把它抹掉 ⇒ 本次切换与**之后每一次**切换都退回"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 701,
+   "label": "model_id使用",
+   "text": "def get_model_client(self, provider_id, model_id, model_type=None):"
+  },
+  {
+   "file": "main.py",
+   "line": 702,
+   "label": "model_id使用",
+   "text": "client = original(self, provider_id, model_id, model_type)"
+  },
+  {
+   "file": "main.py",
+   "line": 722,
+   "label": "model_id使用",
+   "text": "mid = getattr(m0, \"model_id\", \"\") or \"\""
+  },
+  {
+   "file": "main.py",
+   "line": 726,
+   "label": "model_id使用",
+   "text": "# 用 (provider_id, model_id) 而非 id(client) 做键："
+  },
+  {
+   "file": "main.py",
+   "line": 729,
+   "label": "model_id使用",
+   "text": "key = (getattr(m, \"provider_id\", \"\"), getattr(m, \"model_id\", \"\"))"
+  },
+  {
+   "file": "main.py",
+   "line": 739,
+   "label": "model_id使用",
+   "text": "getattr(m, \"provider_name\", \"?\"), getattr(m, \"model_id\", \"?\"))"
+  },
+  {
+   "file": "main.py",
+   "line": 1256,
+   "label": "模型选择引用",
+   "text": "if self.thinking_follow_provider:"
+  },
+  {
+   "file": "main.py",
+   "line": 1829,
+   "label": "模型选择引用",
+   "text": "# 用框架已有的枚举方法（同步，返回 {provider_id: BaseProvider}）"
+  },
+  {
+   "file": "main.py",
+   "line": 1851,
+   "label": "get_models",
+   "text": "# 模型列表：优先 get_models()（框架的权威来源），退回对象属性"
+  },
+  {
+   "file": "main.py",
+   "line": 1868,
+   "label": "model_id使用",
+   "text": "\"model_id\": mid})"
+  },
+  {
+   "file": "main.py",
+   "line": 1873,
+   "label": "model_id使用",
+   "text": "\"model_id\": \"\"})"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 65,
+   "label": "默认模型读取",
+   "text": "#   而 get_default_llm / get_default_fast_llm / get_default_vlm 内部都调 get_model_client"
+  },
+  {
+   "file": "tests/test_client_cache.py",
+   "line": 44,
+   "label": "model_id使用",
+   "text": "info = ModelInfo(model_type=ModelType.LLM, model_id=\"m\", provider_id=\"p\","
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 8,
+   "label": "model_id使用",
+   "text": "- xxynet/kira-ai-plugin-model-fallback      v1.1.0   读 model.provider_id / model_id"
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 101,
+   "label": "model_id使用",
+   "text": "\"model_config\", \"provider_id\", \"provider_name\", \"model_id\"):"
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 184,
+   "label": "model_id使用",
+   "text": "model_id = \"m1\""
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 197,
+   "label": "model_id使用",
+   "text": "check(\"proxy.model.model_id 可读\", proxy.model.model_id == \"m1\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 165,
+   "label": "model_id使用",
+   "text": "def get_model_client(self, provider_id, model_id, model_type=None):"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 167,
+   "label": "model_id使用",
+   "text": "types.SimpleNamespace(provider_id=provider_id, model_id=model_id,"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 358,
+   "label": "model_id使用",
+   "text": "check(\"缓存键不是 id()（用 provider_id+model_id）\","
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 7,
+   "label": "默认模型读取",
+   "text": "def get_default_llm(self):"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 8,
+   "label": "默认模型读取",
+   "text": "model_info = self.get_default_model_info(\"default_llm\")"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 15,
+   "label": "默认模型读取",
+   "text": "default_llm = self.provider_mgr.get_default_llm()"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 22,
+   "label": "默认模型读取",
+   "text": "本测试**复用框架真的 get_default_llm 实现**（不复制逻辑），"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 64,
+   "label": "model_id使用",
+   "text": "return FakeLLM(ModelInfo(model_type=ModelType.LLM, model_id=\"m1\","
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 69,
+   "label": "默认模型读取",
+   "text": "\"\"\"只提供 get_default_llm 需要的东西；该方法本身是框架的真实现。\"\"\""
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 71,
+   "label": "默认模型读取",
+   "text": "def get_default_model_info(self, key):"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 72,
+   "label": "model_id使用",
+   "text": "return ModelInfo(model_type=ModelType.LLM, model_id=\"m1\","
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 75,
+   "label": "model_id使用",
+   "text": "def get_model_client(self, provider_id, model_id, model_type=None):"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 79,
+   "label": "默认模型读取",
+   "text": "get_default_llm = ProviderManager.get_default_llm"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 91,
+   "label": "默认模型读取",
+   "text": "print(\"\\n2) 真跑框架的 get_default_llm\")"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 94,
+   "label": "默认模型读取",
+   "text": "got = pm.get_default_llm()"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 107,
+   "label": "默认模型读取",
+   "text": "got2 = pm2.get_default_llm()"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 108,
+   "label": "默认模型读取",
+   "text": "check(\"★ 打补丁后 get_default_llm 仍能返回\", isinstance(got2, LLMModelClient),"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 111,
+   "label": "默认模型读取",
+   "text": "check(\"★ 打补丁后 get_default_llm 仍能返回\", False, f\"{type(e).__name__}: {e}\")"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 115,
+   "label": "默认模型读取",
+   "text": "FakePM().get_default_llm()"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 116,
+   "label": "默认模型读取",
+   "text": "print(\"     get_default_llm 正常返回 ⇒ 不会触发该日志\")"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 119,
+   "label": "默认模型读取",
+   "text": "print(f\"     get_default_llm 抛了 {type(e).__name__}\")"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 127,
+   "label": "默认模型读取",
+   "text": "print(\"\\n4) 覆盖框架里所有这类检查（不止 get_default_llm）\")"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 152,
+   "label": "默认模型读取",
+   "text": "client = pm.get_default_llm()"
+  },
+  {
+   "file": "tests/test_stream_engine.py",
+   "line": 96,
+   "label": "model_id使用",
+   "text": "provider_id=\"p\", provider_name=\"prov\", model_id=\"m\", model_config={})"
+  },
+  {
+   "file": "tests/test_stream_real.py",
+   "line": 142,
+   "label": "model_id使用",
+   "text": "model_type=ModelType.LLM, model_id=\"fake\", provider_id=\"p1\","
+  },
+  {
+   "file": "tests/test_thinking_conflict.py",
+   "line": 68,
+   "label": "model_id使用",
+   "text": "return ModelInfo(model_type=ModelType.LLM, model_id=\"m1\", provider_id=\"p1\","
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 46,
+   "label": "model_id使用",
+   "text": "return ModelInfo(model_type=ModelType.LLM, model_id=\"m1\", provider_id=\"p1\","
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 213,
+   "label": "模型选择引用",
+   "text": "\"if self.thinking_follow_provider:\" in src_main"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "auto_thinking.py",
+   "line": 36,
+   "label": "OpenAICompatible",
+   "text": "KiraAI 的 `OpenAICompatibleLLMClient._build_request_kwargs()` 会读取："
+  },
+  {
+   "file": "core_compat.py",
+   "line": 133,
+   "label": "旧客户端路径",
+   "text": "\"core.utils.model_clients\",          # KiraAI 2.x"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 141,
+   "label": "OpenAICompatible",
+   "text": "\"\"\"返回 `OpenAICompatibleLLMClient` 类；两代都找不到时返回 `None`。"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 167,
+   "label": "OpenAICompatible",
+   "text": "cls = getattr(module, \"OpenAICompatibleLLMClient\", None)"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 173,
+   "label": "OpenAICompatible",
+   "text": "\"[accel] 未找到 OpenAICompatibleLLMClient（试过 %s）—— \""
+  },
+  {
+   "file": "main.py",
+   "line": 678,
+   "label": "get_model_client",
+   "text": "\"\"\"patch `ProviderManager.get_model_client`，把返回的 client 包一层代理。"
+  },
+  {
+   "file": "main.py",
+   "line": 687,
+   "label": "provider_mgr",
+   "text": "from core.provider.provider_manager import ProviderManager"
+  },
+  {
+   "file": "main.py",
+   "line": 689,
+   "label": "provider_mgr",
+   "text": "logger.exception(\"[accel] 导入 provider_manager 失败\")"
+  },
+  {
+   "file": "main.py",
+   "line": 701,
+   "label": "get_model_client",
+   "text": "def get_model_client(self, provider_id, model_id, model_type=None):"
+  },
+  {
+   "file": "main.py",
+   "line": 741,
+   "label": "get_model_client",
+   "text": "return get_model_client"
+  },
+  {
+   "file": "main.py",
+   "line": 744,
+   "label": "get_model_client",
+   "text": "if install(h, ProviderManager, \"get_model_client\", factory) is not None:"
+  },
+  {
+   "file": "main.py",
+   "line": 1160,
+   "label": "OpenAICompatible",
+   "text": "OpenAICompatibleLLMClient._build_request_kwargs"
+  },
+  {
+   "file": "main.py",
+   "line": 1567,
+   "label": "get_model_client",
+   "text": "#   `ProviderManager.get_model_client` 上（见 `_install_stream_engine`），"
+  },
+  {
+   "file": "main.py",
+   "line": 1810,
+   "label": "provider_mgr",
+   "text": "★★ 必须用 `self.ctx.provider_mgr` —— **不要自己 new ProviderManager**。"
+  },
+  {
+   "file": "main.py",
+   "line": 1820,
+   "label": "provider_mgr",
+   "text": "mgr = getattr(self.ctx, \"provider_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 1824,
+   "label": "provider_mgr",
+   "text": "mgr = getattr(self.ctx, \"provider_manager\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 1826,
+   "label": "provider_mgr",
+   "text": "logger.warning(\"[accel] 上下文里拿不到 provider_mgr ⇒ 面板退化为可手填\")"
+  },
+  {
+   "file": "patches.py",
+   "line": 14,
+   "label": "OpenAICompatible",
+   "text": "- `OpenAICompatibleLLMClient.chat`            → async"
+  },
+  {
+   "file": "patches.py",
+   "line": 15,
+   "label": "OpenAICompatible",
+   "text": "- `OpenAICompatibleLLMClient._build_client`   → **同步**"
+  },
+  {
+   "file": "patches.py",
+   "line": 16,
+   "label": "get_model_client",
+   "text": "- `ProviderManager.get_model_client`          → **同步**"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 62,
+   "label": "provider_mgr",
+   "text": "#       core/provider/provider_manager.py:151"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 65,
+   "label": "get_model_client",
+   "text": "#   而 get_default_llm / get_default_fast_llm / get_default_vlm 内部都调 get_model_client"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 85,
+   "label": "OpenAICompatible",
+   "text": "\"OpenAICompatibleLLMClient\": ("
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 86,
+   "label": "OpenAICompatible",
+   "text": "(\"core.provider.openai_compatible\", \"OpenAICompatibleLLMClient\"),   # 3.0"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 87,
+   "label": "旧客户端路径",
+   "text": "(\"core.utils.model_clients\", \"OpenAICompatibleLLMClient\"),           # 2.x"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 87,
+   "label": "OpenAICompatible",
+   "text": "(\"core.utils.model_clients\", \"OpenAICompatibleLLMClient\"),           # 2.x"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 91,
+   "label": "旧客户端路径",
+   "text": "(\"core.utils.model_clients\",),                                       # 2.x"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 114,
+   "label": "OpenAICompatible",
+   "text": "cls = env.resolve(\"OpenAICompatibleLLMClient\")  # → (类,)"
+  },
+  {
+   "file": "tests/test_client_cache.py",
+   "line": 29,
+   "label": "OpenAICompatible",
+   "text": "(OpenAICompatibleLLMClient,) = _env.resolve(\"OpenAICompatibleLLMClient\")   # ★ 跨世代（3.0 在 core.provider.openai_compatible）"
+  },
+  {
+   "file": "tests/test_client_cache.py",
+   "line": 46,
+   "label": "OpenAICompatible",
+   "text": "return OpenAICompatibleLLMClient(info)"
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 219,
+   "label": "get_model_client",
+   "text": "print(\"       （本项目未使用代理替换 —— 改为 patch get_model_client 返回代理，\")"
+  },
+  {
+   "file": "tests/test_dup_across_turns.py",
+   "line": 54,
+   "label": "get_model_client",
+   "text": "#   · 流式引擎 patch 在 `ProviderManager.get_model_client` 上"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 12,
+   "label": "get_model_client",
+   "text": "① 流式引擎 patch 在 `ProviderManager.get_model_client` 上"
+  },
+  {
+   "file": "tests/test_dup_send_multistep.py",
+   "line": 13,
+   "label": "get_model_client",
+   "text": "① `_install_stream_engine` patch 的是 `ProviderManager.get_model_client`"
+  },
+  {
+   "file": "tests/test_failover_no_dup.py",
+   "line": 11,
+   "label": "ProviderAPIError",
+   "text": "except (APIStatusError, APITimeoutError, APIConnectionError, ProviderAPIError):"
+  },
+  {
+   "file": "tests/test_failover_no_dup.py",
+   "line": 15,
+   "label": "get_model_client",
+   "text": "而我们的引擎 patch 在 `ProviderManager.get_model_client` 上 ——"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 132,
+   "label": "旧客户端路径",
+   "text": "# --- core.utils.model_clients（真类，供 patch 用）---"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 133,
+   "label": "OpenAICompatible",
+   "text": "class OpenAICompatibleLLMClient:"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 153,
+   "label": "OpenAICompatible",
+   "text": "mod(\"core.provider.openai_compatible\", OpenAICompatibleLLMClient=OpenAICompatibleLLMClient)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 154,
+   "label": "旧客户端路径",
+   "text": "mod(\"core.utils.model_clients\", OpenAICompatibleLLMClient=OpenAICompatibleLLMClient)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 154,
+   "label": "OpenAICompatible",
+   "text": "mod(\"core.utils.model_clients\", OpenAICompatibleLLMClient=OpenAICompatibleLLMClient)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 158,
+   "label": "provider_mgr",
+   "text": "# --- core.provider.provider_manager（真类）---"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 165,
+   "label": "get_model_client",
+   "text": "def get_model_client(self, provider_id, model_id, model_type=None):"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 166,
+   "label": "OpenAICompatible",
+   "text": "return OpenAICompatibleLLMClient("
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 171,
+   "label": "provider_mgr",
+   "text": "mod(\"core.provider.provider_manager\", ProviderManager=ProviderManager)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 217,
+   "label": "OpenAICompatible",
+   "text": "created[\"ClientCls\"] = OpenAICompatibleLLMClient"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 232,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = None"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 283,
+   "label": "get_model_client",
+   "text": "orig_get = PM.get_model_client"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 289,
+   "label": "get_model_client",
+   "text": "check(\"get_model_client 已被包装\", PM.get_model_client is not orig_get)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 321,
+   "label": "get_model_client",
+   "text": "client = pm.get_model_client(\"p1\", \"m1\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 353,
+   "label": "get_model_client",
+   "text": "c_a = pm2.get_model_client(\"prov1\", \"modelA\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 354,
+   "label": "get_model_client",
+   "text": "c_a2 = pm2.get_model_client(\"prov1\", \"modelA\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 355,
+   "label": "get_model_client",
+   "text": "c_b = pm2.get_model_client(\"prov1\", \"modelB\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 363,
+   "label": "get_model_client",
+   "text": "pm2.get_model_client(\"p\", f\"m{i}\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 406,
+   "label": "get_model_client",
+   "text": "check(\"get_model_client 已还原\", PM.get_model_client is orig_get)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 432,
+   "label": "get_model_client",
+   "text": "check(\"三次热重载后仍干净还原\", PM.get_model_client is orig_get and CC._build_client is orig_build,"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 434,
+   "label": "get_model_client",
+   "text": "check(\"无标记残留\", not getattr(PM.get_model_client, \"__kira_accel__\", False))"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 9,
+   "label": "OpenAICompatible",
+   "text": "reuse_http_client      OpenAICompatibleLLMClient._build_client"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 10,
+   "label": "get_model_client",
+   "text": "stream_engine          ProviderManager.get_model_client"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 11,
+   "label": "OpenAICompatible",
+   "text": "auto_thinking:openai   OpenAICompatibleLLMClient._build_request_kwargs"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 35,
+   "label": "provider_mgr",
+   "text": "from core.provider.provider_manager import ProviderManager     # noqa: E402"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 49,
+   "label": "OpenAICompatible",
+   "text": "(\"reuse_http_client\", mc.OpenAICompatibleLLMClient, \"_build_client\"),"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 50,
+   "label": "get_model_client",
+   "text": "(\"stream_engine\", ProviderManager, \"get_model_client\"),"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 51,
+   "label": "OpenAICompatible",
+   "text": "(\"auto_thinking:openai\", mc.OpenAICompatibleLLMClient, \"_build_request_kwargs\"),"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 170,
+   "label": "OpenAICompatible",
+   "text": "key = (\"reuse_http_client\", id(mc.OpenAICompatibleLLMClient), \"_build_client\")"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 172,
+   "label": "OpenAICompatible",
+   "text": "setattr(mc.OpenAICompatibleLLMClient, \"_build_client\", orig0)   # 从干净状态开始"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 178,
+   "label": "OpenAICompatible",
+   "text": "check(\"A 装上补丁\", mc.OpenAICompatibleLLMClient._build_client is not orig0)"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 189,
+   "label": "OpenAICompatible",
+   "text": "mc.OpenAICompatibleLLMClient._build_client is orig0,"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 190,
+   "label": "OpenAICompatible",
+   "text": "f\"当前={'已还原' if mc.OpenAICompatibleLLMClient._build_client is orig0 else '仍是补丁'}\")"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 191,
+   "label": "OpenAICompatible",
+   "text": "check(\"现场干净\", not getattr(mc.OpenAICompatibleLLMClient._build_client, \"__kira_accel__\", False))"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 6,
+   "label": "provider_mgr",
+   "text": "框架真实链路（core/provider/provider_manager.py:146）："
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 9,
+   "label": "get_model_client",
+   "text": "model_client = self.get_model_client(...)      # ← 我们的补丁在这"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 15,
+   "label": "provider_mgr",
+   "text": "default_llm = self.provider_mgr.get_default_llm()"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 39,
+   "label": "provider_mgr",
+   "text": "from core.provider.provider_manager import ProviderManager          # noqa: E402"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 75,
+   "label": "get_model_client",
+   "text": "def get_model_client(self, provider_id, model_id, model_type=None):"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 101,
+   "label": "get_model_client",
+   "text": "install(h, FakePM, \"get_model_client\","
+  },
+  {
+   "file": "tests/test_stream_real.py",
+   "line": 4,
+   "label": "OpenAICompatible",
+   "text": "（OpenAICompatibleLLMClient，各国产 provider 都继承它），再套**我插件的代理**，"
+  },
+  {
+   "file": "tests/test_stream_real.py",
+   "line": 34,
+   "label": "OpenAICompatible",
+   "text": "(OpenAICompatibleLLMClient,) = _env.resolve(\"OpenAICompatibleLLMClient\")   # ★ 跨世代（3.0 在 core.provider.openai_compatible）"
+  },
+  {
+   "file": "tests/test_stream_real.py",
+   "line": 147,
+   "label": "OpenAICompatible",
+   "text": "return OpenAICompatibleLLMClient(info)"
+  },
+  {
+   "file": "tests/test_stream_real.py",
+   "line": 156,
+   "label": "OpenAICompatible",
+   "text": "check(\"真框架的 OpenAICompatibleLLMClient 已构造\", c0 is not None, type(c0).__name__)"
+  },
+  {
+   "file": "tests/test_thinking_conflict.py",
+   "line": 53,
+   "label": "OpenAICompatible",
+   "text": "(OpenAICompatibleLLMClient,) = _env.resolve(\"OpenAICompatibleLLMClient\")   # ★ 跨世代（3.0 在 core.provider.openai_compatible）"
+  },
+  {
+   "file": "tests/test_thinking_conflict.py",
+   "line": 116,
+   "label": "OpenAICompatible",
+   "text": "return OpenAICompatibleLLMClient(info(\"custom-openai\", cfg))"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 5,
+   "label": "OpenAICompatible",
+   "text": "我的注入挂点：`install(h, OpenAICompatibleLLMClient, \"_build_request_kwargs\", ...)`"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 6,
+   "label": "OpenAICompatible",
+   "text": "—— **只覆盖 OpenAICompatibleLLMClient 及其子类**。"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 11,
+   "label": "OpenAICompatible",
+   "text": "两者都**不是** OpenAICompatibleLLMClient 的子类 ⇒ 注入根本到不了。"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 33,
+   "label": "OpenAICompatible",
+   "text": "(OpenAICompatibleLLMClient,) = _env.resolve(\"OpenAICompatibleLLMClient\")   # ★ 跨世代（3.0 在 core.provider.openai_compatible）"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 86,
+   "label": "OpenAICompatible",
+   "text": "\"openai兼容(阿里/硅基/火山)\": OpenAICompatibleLLMClient(info(\"ali\")),"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "config_migrations.py",
+   "line": 16,
+   "label": "旧plugin_registry",
+   "text": "（core/plugin/plugin_registry.py）——老用户的配置文件里早就写着 `false`，"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 12,
+   "label": "旧plugin_handlers",
+   "text": "| 2.x  | `core.plugin.plugin_handlers` |"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 16,
+   "label": "旧plugin_registry",
+   "text": "内部把 `plugin_registry` 改名成 `registry`）⇒ 属**纯位置迁移**，符号名与语义一致。"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 20,
+   "label": "旧plugin_handlers",
+   "text": "ModuleNotFoundError: No module named 'core.plugin.plugin_handlers'"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 57,
+   "label": "旧plugin_handlers",
+   "text": "\"core.plugin.plugin_handlers\",   # KiraAI 2.x"
+  },
+  {
+   "file": "patches.py",
+   "line": 191,
+   "label": "旧plugin_registry",
+   "text": "#   为什么必须认领：框架重载时一般会先 terminate（plugin_registry.py:1900），"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 83,
+   "label": "旧plugin_handlers",
+   "text": "(\"core.plugin.plugin_handlers\", \"event_handler_reg\", \"EventType\"),  # 2.x"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 93,
+   "label": "旧plugin_registry",
+   "text": "\"plugin_registry\": ("
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 95,
+   "label": "旧plugin_registry",
+   "text": "(\"core.plugin.plugin_registry\",),                                    # 2.x"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 99,
+   "label": "旧plugin_registry",
+   "text": "(\"core.plugin.plugin_registry\", \"PluginManager\"),                    # 2.x"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 103,
+   "label": "旧plugin_registry",
+   "text": "(\"core.plugin.plugin_registry\", \"get_obj_plugin_id\"),                # 2.x"
+  },
+  {
+   "file": "tests/test_broadcast_e2e.py",
+   "line": 8,
+   "label": "旧plugin_handlers",
+   "text": "ModuleNotFoundError: No module named 'core.plugin.plugin_handlers'"
+  },
+  {
+   "file": "tests/test_broadcast_e2e.py",
+   "line": 10,
+   "label": "旧plugin_handlers",
+   "text": "ModuleNotFoundError: No module named 'core.plugin.plugin_handlers'"
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 37,
+   "label": "旧plugin_handlers",
+   "text": "# 数值越大越先执行（plugin_handlers.py:88-89 是 sort(reverse=True)）"
+  },
+  {
+   "file": "tests/test_dup_across_turns.py",
+   "line": 42,
+   "label": "旧plugin_handlers",
+   "text": "# plugin_handlers.py 的注释：DO NOT use SYS_LOW or SYS_HIGH in user plugins"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 195,
+   "label": "旧plugin_handlers",
+   "text": "# --- core.plugin.plugin_handlers ---"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 206,
+   "label": "旧plugin_handlers",
+   "text": "mod(\"core.plugin.plugin_handlers\","
+  },
+  {
+   "file": "tests/test_real_api.py",
+   "line": 43,
+   "label": "旧plugin_registry",
+   "text": "pr = _il2.import_module(_env.resolve_module(\"plugin_registry\"))"
+  },
+  {
+   "file": "web/index.html",
+   "line": 1812,
+   "label": "旧plugin_registry",
+   "text": "//   框架源码 core/plugin/plugin_registry.py:_register_plugin_apis_for"
+  }
+ ],
+ "E_工作流与消息处理": [
+  {
+   "file": "auto_thinking.py",
+   "line": 404,
+   "label": "message_format_to_text",
+   "text": "#: 框架在 message_format_to_text 里给媒体元素加的**固定前缀**。"
+  },
+  {
+   "file": "main.py",
+   "line": 181,
+   "label": "send_xml_messages",
+   "text": "#   每一次 send_xml_messages 对应多步 loop 的一步，台账按步消费即可，"
+  },
+  {
+   "file": "main.py",
+   "line": 430,
+   "label": "send_xml_messages",
+   "text": "⚠️ 这里**不是**剥离能否生效的前提 —— 台账在每次 `send_xml_messages`"
+  },
+  {
+   "file": "main.py",
+   "line": 441,
+   "label": "send_xml_messages",
+   "text": "第 1 轮这才走到 send_xml_messages ⇒ n=0 ⇒ 不剥离 ⇒ **框架把 A 再发一次** ✗"
+  },
+  {
+   "file": "main.py",
+   "line": 769,
+   "label": "send_xml_messages",
+   "text": "# 记录本轮响应，供发送层（send_xml_messages）读取标记做剥离。"
+  },
+  {
+   "file": "main.py",
+   "line": 845,
+   "label": "send_xml_messages",
+   "text": "为什么必须有：抢先发送绕过了框架的 send_xml_messages，而那个函数里"
+  },
+  {
+   "file": "main.py",
+   "line": 877,
+   "label": "send_xml_messages",
+   "text": "即第 1 轮\"已经抢发、但还没走到 send_xml_messages\"时，第 2 轮就开始了。"
+  },
+  {
+   "file": "main.py",
+   "line": 939,
+   "label": "send_xml_messages",
+   "text": "#     · 框架：`send_xml_messages(event, ...)` 里取 **事件当前** 的 `event.sid`"
+  },
+  {
+   "file": "main.py",
+   "line": 985,
+   "label": "_parse_xml_msg",
+   "text": "actions = await mp._parse_xml_msg(seg, ctx.tag_set)"
+  },
+  {
+   "file": "main.py",
+   "line": 1016,
+   "label": "_parse_xml_msg",
+   "text": "#       actions = await self._parse_xml_msg(...)"
+  },
+  {
+   "file": "main.py",
+   "line": 1020,
+   "label": "send_xml_messages",
+   "text": "#   我们抢先发送时绕过了 send_xml_messages，如果只补 ON_MESSAGE_SENT、"
+  },
+  {
+   "file": "main.py",
+   "line": 1032,
+   "label": "send_xml_messages",
+   "text": "#   框架 send_xml_messages 此时直接 `return None`（一条都不发）；"
+  },
+  {
+   "file": "main.py",
+   "line": 1064,
+   "label": "_parse_xml_msg",
+   "text": "#   而框架的 _add_message_ids 是**按位置**把 message_results 贴到 <msg> 上的。"
+  },
+  {
+   "file": "main.py",
+   "line": 1116,
+   "label": "_parse_xml_msg",
+   "text": "# 占位结果：框架 _add_message_ids 按位置贴 ID，message_id=None"
+  },
+  {
+   "file": "main.py",
+   "line": 1425,
+   "label": "MessageProcessor",
+   "text": "框架在 MessageProcessor.__init__ 里一次性读取："
+  },
+  {
+   "file": "main.py",
+   "line": 1516,
+   "label": "MessageProcessor",
+   "text": "插在 `MessageProcessor.send_xml_messages` 上（它是类方法，可干净 patch）："
+  },
+  {
+   "file": "main.py",
+   "line": 1516,
+   "label": "send_xml_messages",
+   "text": "插在 `MessageProcessor.send_xml_messages` 上（它是类方法，可干净 patch）："
+  },
+  {
+   "file": "main.py",
+   "line": 1521,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor"
+  },
+  {
+   "file": "main.py",
+   "line": 1524,
+   "label": "MessageProcessor",
+   "text": "logger.exception(\"[accel] 导入 MessageProcessor 失败，跳过发送层剥离\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1530,
+   "label": "send_xml_messages",
+   "text": "async def send_xml_messages(self, event, xml_data, tag_set):"
+  },
+  {
+   "file": "main.py",
+   "line": 1580,
+   "label": "send_xml_messages",
+   "text": "#   ⇒ 正确模型：**每一次 send_xml_messages 对应一步，"
+  },
+  {
+   "file": "main.py",
+   "line": 1663,
+   "label": "_parse_xml_msg",
+   "text": "#   框架随后用 _add_message_ids 按位置给 <msg> 贴 ID，"
+  },
+  {
+   "file": "main.py",
+   "line": 1679,
+   "label": "send_xml_messages",
+   "text": "#   每次 `send_xml_messages` 对应多步 loop 的**一步**，"
+  },
+  {
+   "file": "main.py",
+   "line": 1695,
+   "label": "send_xml_messages",
+   "text": "return mark_side_effects(send_xml_messages)"
+  },
+  {
+   "file": "main.py",
+   "line": 1698,
+   "label": "MessageProcessor",
+   "text": "if install(h, MessageProcessor, \"send_xml_messages\", factory) is not None:"
+  },
+  {
+   "file": "main.py",
+   "line": 1698,
+   "label": "send_xml_messages",
+   "text": "if install(h, MessageProcessor, \"send_xml_messages\", factory) is not None:"
+  },
+  {
+   "file": "tests/measure_lock_hold.py",
+   "line": 5,
+   "label": "send_xml_messages",
+   "text": "core/message_manager.py:766      `await self.send_xml_messages(...)`"
+  },
+  {
+   "file": "tests/measure_lock_hold.py",
+   "line": 6,
+   "label": "send_xml_messages",
+   "text": "而 send_xml_messages 的循环里（:930）**每段之后无条件 sleep**："
+  },
+  {
+   "file": "tests/measure_lock_hold.py",
+   "line": 38,
+   "label": "send_xml_messages",
+   "text": "\"\"\"复刻 send_xml_messages 的骨架：解析 → 逐段发 → 每段后 sleep。\"\"\""
+  },
+  {
+   "file": "tests/measure_lock_hold.py",
+   "line": 44,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/measure_lock_hold.py",
+   "line": 63,
+   "label": "_parse_xml_msg",
+   "text": "actions = await mp._parse_xml_msg(xml, None)"
+  },
+  {
+   "file": "tests/test_after_xml_parse.py",
+   "line": 16,
+   "label": "_parse_xml_msg",
+   "text": "actions = await self._parse_xml_msg(...)"
+  },
+  {
+   "file": "tests/test_after_xml_parse.py",
+   "line": 20,
+   "label": "send_xml_messages",
+   "text": "而抢先发送绕过了 `send_xml_messages`，原来只补广播 `ON_MESSAGE_SENT`"
+  },
+  {
+   "file": "tests/test_after_xml_parse.py",
+   "line": 102,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_after_xml_parse.py",
+   "line": 169,
+   "label": "_parse_xml_msg",
+   "text": "actions0 = asyncio.run(mp0._parse_xml_msg('<msg><text>嗨</text><sticker id=\"7\"/></msg>', None))"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 70,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 21,
+   "label": "send_xml_messages",
+   "text": "第 1 轮这才走到 send_xml_messages ⇒ n=0 ⇒ 不剥离"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 55,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor               # noqa: E402"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 75,
+   "label": "MessageProcessor",
+   "text": "\"\"\"站在 MessageProcessor 的位置（只实现被用到的两个方法）。\"\"\""
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 83,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 113,
+   "label": "send_xml_messages",
+   "text": "# ── 搭台：把**框架的** send_xml_messages 换成桩，再让插件去包它 ──"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 117,
+   "label": "send_xml_messages",
+   "text": "async def stub_send_xml_messages(self, event, xml_data, tag_set):"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 133,
+   "label": "MessageProcessor",
+   "text": "MessageProcessor.send_xml_messages = stub_send_xml_messages"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 133,
+   "label": "send_xml_messages",
+   "text": "MessageProcessor.send_xml_messages = stub_send_xml_messages"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 135,
+   "label": "send_xml_messages",
+   "text": "delattr(stub_send_xml_messages, \"__kira_accel__\")"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 155,
+   "label": "MessageProcessor",
+   "text": "inst = object.__new__(MessageProcessor)"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 156,
+   "label": "MessageProcessor",
+   "text": "return asyncio.run(MessageProcessor.send_xml_messages(inst, ev, text, object()))"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 156,
+   "label": "send_xml_messages",
+   "text": "return asyncio.run(MessageProcessor.send_xml_messages(inst, ev, text, object()))"
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 180,
+   "label": "send_xml_messages",
+   "text": "# 第 1 轮这才走到 send_xml_messages"
+  },
+  {
+   "file": "tests/test_dup_across_turns.py",
+   "line": 62,
+   "label": "send_xml_messages",
+   "text": "# 正确契约：每一次 send_xml_messages 对应一步，剥的就是**本步**抢发的段；"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 23,
+   "label": "send_xml_messages",
+   "text": "1. **每一次 `send_xml_messages` 对应一步**，要剥的就是\"上一次发送之后、"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 51,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor                # noqa: E402"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 84,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 105,
+   "label": "send_xml_messages",
+   "text": "# ── 搭台：把**框架的** send_xml_messages 换成桩，再让插件去包它 ──────────"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 109,
+   "label": "send_xml_messages",
+   "text": "async def stub_send_xml_messages(self, event, xml_data, tag_set):"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 115,
+   "label": "MessageProcessor",
+   "text": "MessageProcessor.send_xml_messages = stub_send_xml_messages"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 115,
+   "label": "send_xml_messages",
+   "text": "MessageProcessor.send_xml_messages = stub_send_xml_messages"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 167,
+   "label": "MessageProcessor",
+   "text": "inst = object.__new__(MessageProcessor)"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 169,
+   "label": "MessageProcessor",
+   "text": "MessageProcessor.send_xml_messages(inst, ev, text, object()))"
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 169,
+   "label": "send_xml_messages",
+   "text": "MessageProcessor.send_xml_messages(inst, ev, text, object()))"
+  },
+  {
+   "file": "tests/test_dup_send_e2e.py",
+   "line": 33,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor               # noqa: E402"
+  },
+  {
+   "file": "tests/test_dup_send_e2e.py",
+   "line": 62,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_dup_send_e2e.py",
+   "line": 148,
+   "label": "_parse_xml_msg",
+   "text": "mp2._parse_xml_msg = _parse_boom"
+  },
+  {
+   "file": "tests/test_dup_send_multistep.py",
+   "line": 26,
+   "label": "send_xml_messages",
+   "text": "· 每次 `send_xml_messages` 对应一步，**按步消费**台账（调用后清）；"
+  },
+  {
+   "file": "tests/test_dup_send_multistep.py",
+   "line": 80,
+   "label": "send_xml_messages",
+   "text": "check(\"★ 定位到了 send_xml_messages 的接管函数（不是别的 finally）\","
+  },
+  {
+   "file": "tests/test_dup_send_multistep.py",
+   "line": 81,
+   "label": "send_xml_messages",
+   "text": "\"send_xml_messages\" in BODY and len(BODY) > 3000, f\"函数体 {len(BODY)} 字符\")"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 7,
+   "label": "_parse_xml_msg",
+   "text": "raw_output = self._add_message_ids(text, message_results)"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 23,
+   "label": "_parse_xml_msg",
+   "text": "本测试用**框架自己的** `_add_message_ids` 验证：每个 <msg> 拿到的是自己的 ID。"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 42,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor               # noqa: E402"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 62,
+   "label": "MessageProcessor",
+   "text": "\"\"\"站在 MessageProcessor 的位置：只实现被用到的两个方法。\"\"\""
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 73,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 89,
+   "label": "send_xml_messages",
+   "text": "# 直接用框架的 _add_message_ids / send_xml_messages（不复制逻辑）"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 89,
+   "label": "_parse_xml_msg",
+   "text": "# 直接用框架的 _add_message_ids / send_xml_messages（不复制逻辑）"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 90,
+   "label": "MessageProcessor",
+   "text": "_add_ids = MessageProcessor._add_message_ids"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 90,
+   "label": "_parse_xml_msg",
+   "text": "_add_ids = MessageProcessor._add_message_ids"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 105,
+   "label": "MessageProcessor",
+   "text": "check(\"补丁已安装\", getattr(MessageProcessor.send_xml_messages,"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 105,
+   "label": "send_xml_messages",
+   "text": "check(\"补丁已安装\", getattr(MessageProcessor.send_xml_messages,"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 128,
+   "label": "MessageProcessor",
+   "text": "results = await MessageProcessor.send_xml_messages(mp, _ev, full, None)"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 128,
+   "label": "send_xml_messages",
+   "text": "results = await MessageProcessor.send_xml_messages(mp, _ev, full, None)"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 136,
+   "label": "_parse_xml_msg",
+   "text": "print(\"\\n3) 用框架自己的 _add_message_ids 贴 ID，逐个核对\")"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 171,
+   "label": "MessageProcessor",
+   "text": "not getattr(MessageProcessor.send_xml_messages, \"__kira_accel__\", False))"
+  },
+  {
+   "file": "tests/test_early_sent_alignment.py",
+   "line": 171,
+   "label": "send_xml_messages",
+   "text": "not getattr(MessageProcessor.send_xml_messages, \"__kira_accel__\", False))"
+  },
+  {
+   "file": "tests/test_failover_no_dup.py",
+   "line": 83,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_handback_guards.py",
+   "line": 15,
+   "label": "send_xml_messages",
+   "text": "框架的 send_xml_messages 本来会执行它（message_manager.py:931）。"
+  },
+  {
+   "file": "tests/test_handback_guards.py",
+   "line": 99,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_handback_guards.py",
+   "line": 209,
+   "label": "_parse_xml_msg",
+   "text": "actions = await mp._parse_xml_msg(seg, ctx.tag_set)"
+  },
+  {
+   "file": "tests/test_ledger_lifecycle.py",
+   "line": 7,
+   "label": "send_xml_messages",
+   "text": "同一轮内 `send_xml_messages` 被调用**第二次**（多步 agent loop / 框架其它调用点），"
+  },
+  {
+   "file": "tests/test_ledger_lifecycle.py",
+   "line": 30,
+   "label": "send_xml_messages",
+   "text": "print(\"═══ 1) 台账的生命周期：**按步消费**（每次 send_xml_messages 之后清）\")"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 184,
+   "label": "MessageProcessor",
+   "text": "# --- core.message_manager（真身：MessageProcessor.send_xml_messages 是我们接管的点）---"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 184,
+   "label": "send_xml_messages",
+   "text": "# --- core.message_manager（真身：MessageProcessor.send_xml_messages 是我们接管的点）---"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 185,
+   "label": "MessageProcessor",
+   "text": "class MessageProcessor:"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 190,
+   "label": "send_xml_messages",
+   "text": "async def send_xml_messages(self, event, xml_data, tag_set):"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 193,
+   "label": "MessageProcessor",
+   "text": "mod(\"core.message_manager\", MessageProcessor=MessageProcessor)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 368,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor as _MP"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 371,
+   "label": "send_xml_messages",
+   "text": "check(\"send_xml_messages 已被包装\","
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 372,
+   "label": "send_xml_messages",
+   "text": "getattr(_MP.send_xml_messages, \"__kira_accel__\", False) is True)"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 395,
+   "label": "send_xml_messages",
+   "text": "wrapped = _MP.send_xml_messages"
+  },
+  {
+   "file": "tests/test_message_pacing.py",
+   "line": 6,
+   "label": "send_xml_messages",
+   "text": "在 send_xml_messages 的循环里，**每发一条之后**"
+  },
+  {
+   "file": "tests/test_message_pacing.py",
+   "line": 52,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, seg, tag_set):"
+  },
+  {
+   "file": "tests/test_pacing_handoff.py",
+   "line": 63,
+   "label": "send_xml_messages",
+   "text": "\"\"\"复刻 send_xml_messages 的骨架：解析 → 逐段发 → 每段后 sleep。\"\"\""
+  },
+  {
+   "file": "tests/test_pacing_handoff.py",
+   "line": 71,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_pacing_handoff.py",
+   "line": 133,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor"
+  },
+  {
+   "file": "tests/test_pacing_handoff.py",
+   "line": 135,
+   "label": "MessageProcessor",
+   "text": "results = await MessageProcessor.send_xml_messages(mp, Ev(), full, None)"
+  },
+  {
+   "file": "tests/test_pacing_handoff.py",
+   "line": 135,
+   "label": "send_xml_messages",
+   "text": "results = await MessageProcessor.send_xml_messages(mp, Ev(), full, None)"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 15,
+   "label": "MessageProcessor",
+   "text": "early_sent_strip       MessageProcessor.send_xml_messages"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 15,
+   "label": "send_xml_messages",
+   "text": "early_sent_strip       MessageProcessor.send_xml_messages"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 36,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor              # noqa: E402"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 52,
+   "label": "MessageProcessor",
+   "text": "(\"early_sent_strip\", MessageProcessor, \"send_xml_messages\"),"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 52,
+   "label": "send_xml_messages",
+   "text": "(\"early_sent_strip\", MessageProcessor, \"send_xml_messages\"),"
+  },
+  {
+   "file": "tests/test_plugin_takeover.py",
+   "line": 87,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_plugin_takeover.py",
+   "line": 170,
+   "label": "_parse_xml_msg",
+   "text": "actions2 = asyncio.run(mp._parse_xml_msg(remaining, None))"
+  },
+  {
+   "file": "tests/test_plugin_takeover.py",
+   "line": 200,
+   "label": "_parse_xml_msg",
+   "text": "actions = await p2.ctx.message_processor._parse_xml_msg(seg, ctx.tag_set)"
+  },
+  {
+   "file": "tests/test_plugin_takeover.py",
+   "line": 219,
+   "label": "_parse_xml_msg",
+   "text": "actions2 = asyncio.run(mp._parse_xml_msg(FULL, None))"
+  },
+  {
+   "file": "tests/test_production_emit_contract.py",
+   "line": 91,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  },
+  {
+   "file": "tests/test_session_routing.py",
+   "line": 60,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, seg, tag_set):"
+  },
+  {
+   "file": "tests/test_thinking_media.py",
+   "line": 9,
+   "label": "message_format_to_text",
+   "text": "`core/message_manager.py:message_format_to_text` 把媒体元素拼成固定前缀："
+  },
+  {
+   "file": "tests/test_unparsable_handback.py",
+   "line": 9,
+   "label": "_parse_xml_msg",
+   "text": "actions = await mp._parse_xml_msg(seg, ctx.tag_set)"
+  },
+  {
+   "file": "tests/test_unparsable_handback.py",
+   "line": 10,
+   "label": "_parse_xml_msg",
+   "text": "File \".../core/message_manager.py\", line 969, in _parse_xml_msg"
+  },
+  {
+   "file": "tests/test_unparsable_handback.py",
+   "line": 92,
+   "label": "_parse_xml_msg",
+   "text": "async def _parse_xml_msg(self, xml, tag_set):"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 97,
+   "label": "message_types",
+   "text": "message_types=[\"text\"],"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 194,
+   "label": "message_types",
+   "text": "message_types=[\"text\"], timestamp=1,"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 198,
+   "label": "message_types",
+   "text": "message_types=[\"text\"], timestamp=1,"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 202,
+   "label": "message_types",
+   "text": "message_types=batchA2.message_types, timestamp=2,"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 210,
+   "label": "message_types",
+   "text": "message_types=[\"text\"], timestamp=1,"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 214,
+   "label": "message_types",
+   "text": "message_types=batchB.message_types, timestamp=2,"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "auto_thinking.py",
+   "line": 509,
+   "label": "on_llm_request",
+   "text": "★ 必须把 `user_prompt` 也算进来：判断发生在 ON_LLM_REQUEST，"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 15,
+   "label": "ON_COMMENT",
+   "text": "**两个文件逐行对比几乎完全相同**（101 行 vs 102 行；3.0 只多了个 `ON_COMMENT` 枚举、"
+  },
+  {
+   "file": "early_sent.py",
+   "line": 11,
+   "label": "on_llm_response",
+   "text": "在 `ON_LLM_RESPONSE` 里对整个回复做 XML 校验，解析失败时用另一个模型去修。"
+  },
+  {
+   "file": "main.py",
+   "line": 14,
+   "label": "on_llm_request",
+   "text": "- 插件依赖 `ON_LLM_REQUEST` 改 tool_set ⇒ 我们用 Priority.LOW 后执行，不抢"
+  },
+  {
+   "file": "main.py",
+   "line": 976,
+   "label": "on_llm_response",
+   "text": "#     · 生态的约定是\"先修再发\"，而修复发生在 ON_LLM_RESPONSE 阶段"
+  },
+  {
+   "file": "main.py",
+   "line": 977,
+   "label": "on_llm_response",
+   "text": "#       （xml_tag_fixer 在 ON_LLM_RESPONSE 里转义；内置 kira-ai 则调另一个"
+  },
+  {
+   "file": "main.py",
+   "line": 1509,
+   "label": "on_llm_response",
+   "text": "sustained-chat 插件（main.py:1681）都会在 ON_LLM_RESPONSE 里"
+  },
+  {
+   "file": "main.py",
+   "line": 1551,
+   "label": "on_llm_response",
+   "text": "#       而框架在 ON_LLM_RESPONSE 时已消费/改写它，"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 9,
+   "label": "on_llm_response",
+   "text": "- 返回**完整** LLMResponse（ON_LLM_RESPONSE / XML 解析 / 记忆写入全照常）"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 272,
+   "label": "on_llm_response",
+   "text": "#   实测框架内置 kira-ai 插件与 sustained-chat 插件都会在 ON_LLM_RESPONSE 里"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 291,
+   "label": "on_llm_response",
+   "text": "#   为什么要记：xml_tag_fixer 在 ON_LLM_RESPONSE 里会把**未注册的标签**"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 299,
+   "label": "on_llm_response",
+   "text": "\"[accel] 工具轮内抢发内容含工具标签（可能在 ON_LLM_RESPONSE 被\""
+  },
+  {
+   "file": "stream_first.py",
+   "line": 9,
+   "label": "on_llm_response",
+   "text": "① 返回**完整** LLMResponse —— 框架的 ON_LLM_RESPONSE / XML 解析 / 记忆写入全照常，"
+  },
+  {
+   "file": "tests/test_compat_xmlfixer.py",
+   "line": 69,
+   "label": "on_llm_response",
+   "text": "# ③ xml_tag_fixer 在 ON_LLM_RESPONSE 把它改写一遍"
+  },
+  {
+   "file": "tests/test_early_sent.py",
+   "line": 4,
+   "label": "on_llm_response",
+   "text": "框架内置 kira-ai 插件与 sustained-chat 插件都会在 ON_LLM_RESPONSE 里"
+  },
+  {
+   "file": "tests/test_ledger_lifecycle.py",
+   "line": 70,
+   "label": "on_llm_response",
+   "text": "# 而框架在 ON_LLM_RESPONSE 时已消费它、其它插件还会重写它 ⇒ 拿不到是**常态**。"
+  },
+  {
+   "file": "tests/test_session_routing.py",
+   "line": 8,
+   "label": "on_llm_request",
+   "text": "`self._current_tag_set`），在 `ON_LLM_REQUEST` 时写入，但真正发送发生在"
+  },
+  {
+   "file": "tests/test_strip_when_text_rewritten.py",
+   "line": 4,
+   "label": "on_llm_response",
+   "text": "它的 `on_llm_response`（Priority.HIGH）会改写 `resp.text_response`："
+  },
+  {
+   "file": "tests/test_unparsable_handback.py",
+   "line": 19,
+   "label": "on_llm_response",
+   "text": "· 框架自己遇到同样的事（内置 kira-ai 插件 on_llm_response）只打**一行 error**，"
+  },
+  {
+   "file": "tests/test_unparsable_handback.py",
+   "line": 21,
+   "label": "on_llm_response",
+   "text": "· 生态里另有 `xml_tag_fixer`（ON_LLM_RESPONSE 阶段做转义/补标签）——"
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "tests/test_compat_xmlfixer.py",
+   "line": 43,
+   "label": "selfie",
+   "text": "\"voice\",\"shortvideo\",\"gif\",\"cardimage\",\"tts\",\"pe\",\"redbag\",\"emoji\",\"img\",\"selfie\"}"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "core_compat.py",
+   "line": 45,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 102,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(module_name)"
+  },
+  {
+   "file": "core_compat.py",
+   "line": 164,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(module_name)"
+  },
+  {
+   "file": "early_sent.py",
+   "line": 164,
+   "label": "替换框架文件",
+   "text": "#   这正好覆盖最常见的形态（前面有新增块、我们的段连续），"
+  },
+  {
+   "file": "main.py",
+   "line": 60,
+   "label": "替换框架文件",
+   "text": "`self._current_sid` 是实例级的，会被**后到的**事件覆盖，"
+  },
+  {
+   "file": "main.py",
+   "line": 221,
+   "label": "替换框架文件",
+   "text": "#   否则刚清成 0 又被文件里的旧值覆盖 —— 实测抓到的真 bug。"
+  },
+  {
+   "file": "main.py",
+   "line": 443,
+   "label": "替换框架文件",
+   "text": "\"残留到下一轮\"的风险由两处覆盖，不需要\"按会话全清\"这个更粗的动作："
+  },
+  {
+   "file": "main.py",
+   "line": 649,
+   "label": "替换框架文件",
+   "text": "# ★ 键必须覆盖 _build_client 真正用到的一切："
+  },
+  {
+   "file": "main.py",
+   "line": 681,
+   "label": "替换框架文件",
+   "text": "① **一次性覆盖所有 provider**（OpenAI / DeepSeek / Anthropic / 任何插件注册的）"
+  },
+  {
+   "file": "main.py",
+   "line": 879,
+   "label": "替换框架文件",
+   "text": "台账 + 响应**一起清掉/覆盖** ⇒ 第 1 轮走到发送层时"
+  },
+  {
+   "file": "main.py",
+   "line": 942,
+   "label": "替换框架文件",
+   "text": "#    覆盖成真实会话；任何在钩子里改写事件的插件同理），二者就会分叉 ——"
+  },
+  {
+   "file": "main.py",
+   "line": 1540,
+   "label": "替换框架文件",
+   "text": "#   不会再互相清掉/覆盖（线上重复发送的真根因，详见 `_ckey`）。"
+  },
+  {
+   "file": "parallel_tools.py",
+   "line": 51,
+   "label": "替换框架文件",
+   "text": "\"write_file\",                # 写文件；同文件并发会互相覆盖"
+  },
+  {
+   "file": "patches.py",
+   "line": 102,
+   "label": "替换框架文件",
+   "text": "\"[accel] 接管点 %s 已被他人覆盖，跳过还原（不破坏别人）\", self.name"
+  },
+  {
+   "file": "stream_engine.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "一个引擎覆盖两个需求（都是用户提的）："
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 10,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 11,
+   "label": "读框架文件",
+   "text": "import importlib.machinery"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 12,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 49,
+   "label": "读框架文件",
+   "text": "spec = importlib.machinery.ModuleSpec(ALIAS, None, is_package=True)"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 50,
+   "label": "读框架文件",
+   "text": "module = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 53,
+   "label": "读框架文件",
+   "text": "return importlib.import_module(f\"{ALIAS}.{submodule}\")"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 122,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(module_name)"
+  },
+  {
+   "file": "tests/_env.py",
+   "line": 145,
+   "label": "读框架文件",
+   "text": "importlib.import_module(module_name)"
+  },
+  {
+   "file": "tests/test_after_xml_parse.py",
+   "line": 55,
+   "label": "读框架文件",
+   "text": "import importlib as _il                                      # noqa: E402"
+  },
+  {
+   "file": "tests/test_attach_full_e2e.py",
+   "line": 57,
+   "label": "读框架文件",
+   "text": "import importlib                                     # noqa: E402"
+  },
+  {
+   "file": "tests/test_attach_full_e2e.py",
+   "line": 58,
+   "label": "读框架文件",
+   "text": "main_mod = importlib.import_module(\"kira_accelerator.main\")"
+  },
+  {
+   "file": "tests/test_attach_full_e2e.py",
+   "line": 59,
+   "label": "读框架文件",
+   "text": "cc = importlib.import_module(\"kira_accelerator.core_compat\")"
+  },
+  {
+   "file": "tests/test_attach_full_e2e.py",
+   "line": 157,
+   "label": "读框架文件",
+   "text": "m = importlib.import_module(modname)"
+  },
+  {
+   "file": "tests/test_auto_thinking.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "覆盖：多信号打分、简单/复杂分流、工具失败加成、预算控制、effort 分级、"
+  },
+  {
+   "file": "tests/test_auto_thinking.py",
+   "line": 8,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_client_cache.py",
+   "line": 1,
+   "label": "替换框架文件",
+   "text": "\"\"\"HTTP 客户端复用：缓存的键必须覆盖 _build_client 用到的一切。"
+  },
+  {
+   "file": "tests/test_compat.py",
+   "line": 164,
+   "label": "读框架文件",
+   "text": "import importlib.util as _ilu"
+  },
+  {
+   "file": "tests/test_compat_xmlfixer.py",
+   "line": 1,
+   "label": "读框架文件",
+   "text": "import os, sys, pathlib, importlib.util, re"
+  },
+  {
+   "file": "tests/test_compat_xmlfixer.py",
+   "line": 16,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"xfix_main\", XFIX)"
+  },
+  {
+   "file": "tests/test_compat_xmlfixer.py",
+   "line": 17,
+   "label": "读框架文件",
+   "text": "xm = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_cross_session_routing.py",
+   "line": 293,
+   "label": "替换框架文件",
+   "text": "check(\"★★ 两轮的响应标记互不覆盖（各记 2 段）\","
+  },
+  {
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "line": 27,
+   "label": "替换框架文件",
+   "text": "\"残留到下一轮\"改由\"每轮开始前清本轮 + >600s 陈旧窗口\"两处覆盖。"
+  },
+  {
+   "file": "tests/test_dup_across_turns.py",
+   "line": 109,
+   "label": "替换框架文件",
+   "text": "# 泄漏防护：清理必须覆盖四个字典，而不只是 _ledger_ts"
+  },
+  {
+   "file": "tests/test_dup_across_turns.py",
+   "line": 112,
+   "label": "替换框架文件",
+   "text": "check(\"★★ 清理覆盖全部状态字典（否则多会话下会缓慢泄漏）\","
+  },
+  {
+   "file": "tests/test_dup_per_step.py",
+   "line": 295,
+   "label": "替换框架文件",
+   "text": "#   · `_resp_by_sid[sid]` 又被第 2 轮的响应**覆盖**"
+  },
+  {
+   "file": "tests/test_dup_send_guard.py",
+   "line": 14,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_early_sent.py",
+   "line": 8,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 246,
+   "label": "替换框架文件",
+   "text": "print(\"═══ 5b) ★★ 所有特效统一「色彩覆盖」：新图必须淡入（不许硬切）\")"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 257,
+   "label": "替换框架文件",
+   "text": "check(\"★ eatAway 里先保持实、后模糊降饱和淡出（真正的覆盖感）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 273,
+   "label": "替换框架文件",
+   "text": "continue                      # 墨渗按\"噪声长出\"覆盖，不走淡入"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 330,
+   "label": "替换框架文件",
+   "text": "print(\"═══ 7) ★ 「颜色相互消除/覆盖」感：旧图要被吃掉\")"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 484,
+   "label": "替换框架文件",
+   "text": "check(\"★ 收尾动画覆盖 opacity + transform + filter（化开而非单纯透明）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1081,
+   "label": "替换框架文件",
+   "text": "#   ② wpLastDur 覆盖动画真实时长"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1082,
+   "label": "替换框架文件",
+   "text": "#   ③ 旧图在\"覆盖完成\"之前不透明（eatAway / 自写动画）"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1099,
+   "label": "替换框架文件",
+   "text": "# 覆盖曲线必须平滑：100ms 增量 <= 25%（否则观感是\"一下换过去\"）"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1114,
+   "label": "替换框架文件",
+   "text": "check(\"★★ 七套特效的覆盖曲线都不陡（100ms 增量 <=25%）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1382,
+   "label": "替换框架文件",
+   "text": "# ★★★ 隐藏必须写 !important：普通 inline 会被**任何后写的 inline** 覆盖"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1456,
+   "label": "替换框架文件",
+   "text": "#   （= 用户报的\"新图一直被模糊覆盖\"）。"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1565,
+   "label": "替换框架文件",
+   "text": "check(\"★★ poll() **不再用 innerHTML 覆盖**状态块（否则会把心电图冲掉）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1588,
+   "label": "替换框架文件",
+   "text": "# ④ 覆盖率曲线：验证 50% 进度时**不该**超过 70%（否则\"散太快\"）"
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1605,
+   "label": "替换框架文件",
+   "text": "check(\"★★ 50% 进度时覆盖率 <=70%（墨是慢慢渗而不是一下散完）\","
+  },
+  {
+   "file": "tests/test_frontend_audit.py",
+   "line": 1607,
+   "label": "替换框架文件",
+   "text": "check(\"★★★ 画完时覆盖率必须 >=99%（否则最后一块永远渗不到 ⇒ 只能靠新图补 = 硬切）\","
+  },
+  {
+   "file": "tests/test_handback_guards.py",
+   "line": 58,
+   "label": "读框架文件",
+   "text": "import importlib as _il                                      # noqa: E402"
+  },
+  {
+   "file": "tests/test_ledger_lifecycle.py",
+   "line": 59,
+   "label": "替换框架文件",
+   "text": "check(\"★ 轮结束清理覆盖台账/响应缓存/抢发结果（三份状态一起清）\","
+  },
+  {
+   "file": "tests/test_ledger_lifecycle.py",
+   "line": 79,
+   "label": "替换框架文件",
+   "text": "check(\"★ 台账优先：`if ledger:` 分支里就用台账覆盖 n 与 segs\","
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 11,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 375,
+   "label": "读框架文件",
+   "text": "import importlib.util as _ilu3"
+  },
+  {
+   "file": "tests/test_load.py",
+   "line": 412,
+   "label": "读框架文件",
+   "text": "import importlib.util as _ilu2"
+  },
+  {
+   "file": "tests/test_log_behaviour.py",
+   "line": 71,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_parallel.py",
+   "line": 13,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_parallel_equiv.py",
+   "line": 12,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 8,
+   "label": "替换框架文件",
+   "text": "覆盖全部 7 个接管点："
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 33,
+   "label": "读框架文件",
+   "text": "import importlib as _il                                         # noqa: E402"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 62,
+   "label": "读框架文件",
+   "text": "m = __import__(modpath, fromlist=[clsname])"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 155,
+   "label": "替换框架文件",
+   "text": "# 模拟：某个接管点被第三方替换过 ⇒ 卸载时不该把我们不认识的东西覆盖掉"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 161,
+   "label": "替换框架文件",
+   "text": "check(\"★ 卸载不会覆盖第三方后来替换的实现\", getattr(cls, attr) is sentinel)"
+  },
+  {
+   "file": "tests/test_patch_restore.py",
+   "line": 172,
+   "label": "猴子补丁",
+   "text": "setattr(mc.OpenAICompatibleLLMClient, \"_build_client\", orig0)   # 从干净状态开始"
+  },
+  {
+   "file": "tests/test_patches.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "覆盖三条铁律 + 两条反向自检："
+  },
+  {
+   "file": "tests/test_plugin_takeover.py",
+   "line": 53,
+   "label": "读框架文件",
+   "text": "import importlib as _il                                      # noqa: E402"
+  },
+  {
+   "file": "tests/test_proxy_isinstance.py",
+   "line": 127,
+   "label": "替换框架文件",
+   "text": "print(\"\\n4) 覆盖框架里所有这类检查（不止 get_default_llm）\")"
+  },
+  {
+   "file": "tests/test_real_api.py",
+   "line": 42,
+   "label": "读框架文件",
+   "text": "import importlib as _il2"
+  },
+  {
+   "file": "tests/test_real_api.py",
+   "line": 44,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/test_real_api.py",
+   "line": 77,
+   "label": "替换框架文件",
+   "text": "check(\"已覆盖 require_auth 依赖\", True)"
+  },
+  {
+   "file": "tests/test_real_api.py",
+   "line": 79,
+   "label": "替换框架文件",
+   "text": "check(\"已覆盖 require_auth 依赖\", False, str(e)[:80])"
+  },
+  {
+   "file": "tests/test_rotation.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "覆盖："
+  },
+  {
+   "file": "tests/test_rotation.py",
+   "line": 70,
+   "label": "替换框架文件",
+   "text": "check(\"覆盖到多种壁纸（>=15 种）\", len(set(seq)) >= 15, f\"实际覆盖={len(set(seq))}\")"
+  },
+  {
+   "file": "tests/test_rotation.py",
+   "line": 119,
+   "label": "替换框架文件",
+   "text": "check(\"★ 位移与特效分层（不再互相覆盖 inline transform）\","
+  },
+  {
+   "file": "tests/test_rotation.py",
+   "line": 144,
+   "label": "读框架文件",
+   "text": "for _m in __import__(\"re\").finditer(r\"const cap = Math\\.max\\((\\d+), Math\\.floor\\(wpActive\\.length / (\\d+)\\)\\)\", html):"
+  },
+  {
+   "file": "tests/test_session_routing.py",
+   "line": 10,
+   "label": "替换框架文件",
+   "text": "实例变量就被覆盖了 ⇒ A 会话的回复发给了 B 会话。"
+  },
+  {
+   "file": "tests/test_session_routing.py",
+   "line": 17,
+   "label": "替换框架文件",
+   "text": "（证明它确实跟着 request 走，而不是\"碰巧还没被覆盖\"）。"
+  },
+  {
+   "file": "tests/test_session_routing.py",
+   "line": 99,
+   "label": "替换框架文件",
+   "text": "check(\"实例变量此刻停在 B（模拟被后到事件覆盖）\","
+  },
+  {
+   "file": "tests/test_session_routing.py",
+   "line": 109,
+   "label": "替换框架文件",
+   "text": "check(\"★ A 的段发到了 A（而不是被覆盖成的 B）\", got == [\"sess_A\"], f\"实际={got}\")"
+  },
+  {
+   "file": "tests/test_stats_retention.py",
+   "line": 5,
+   "label": "替换框架文件",
+   "text": "清零之后紧接着又被文件里的旧值覆盖回去（看起来代码全对，功能却不动）。"
+  },
+  {
+   "file": "tests/test_stream_engine.py",
+   "line": 1,
+   "label": "替换框架文件",
+   "text": "\"\"\"流式引擎自检 —— 覆盖强制流式、抢先发送、递归护栏、并发（子代理场景）。"
+  },
+  {
+   "file": "tests/test_stream_engine.py",
+   "line": 8,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_stream_first.py",
+   "line": 69,
+   "label": "读框架文件",
+   "text": "_stream_first = __import__(f\"{_pkg}.stream_first\", fromlist=[\"SegmentEmitter\"])"
+  },
+  {
+   "file": "tests/test_stream_first.py",
+   "line": 70,
+   "label": "读框架文件",
+   "text": "_stream_engine = __import__(f\"{_pkg}.stream_engine\", fromlist=[\"StreamEngine\"])"
+  },
+  {
+   "file": "tests/test_stream_first.py",
+   "line": 168,
+   "label": "读框架文件",
+   "text": "import importlib.util as _ilu"
+  },
+  {
+   "file": "tests/test_stream_real.py",
+   "line": 227,
+   "label": "替换框架文件",
+   "text": "print(\"\\n4) 覆盖 LLMResponse 全部字段（别漏了 chat() 会设的）\")"
+  },
+  {
+   "file": "tests/test_strip_when_text_rewritten.py",
+   "line": 23,
+   "label": "读框架文件",
+   "text": "import importlib.util as ilu"
+  },
+  {
+   "file": "tests/test_thinking_conflict.py",
+   "line": 127,
+   "label": "替换框架文件",
+   "text": "nothink=None 表示\"**不覆盖**，直接用 cfg 默认值\" —— 用来验证 v1.0.78"
+  },
+  {
+   "file": "tests/test_thinking_conflict.py",
+   "line": 242,
+   "label": "替换框架文件",
+   "text": "True, \"（上一断言已覆盖：配置未被改）\")"
+  },
+  {
+   "file": "tests/test_thinking_conflict.py",
+   "line": 266,
+   "label": "替换框架文件",
+   "text": "p = make_plugin(nothink=None)          # ← 不覆盖：走 cfg 默认（新默认=True）"
+  },
+  {
+   "file": "tests/test_thinking_default_migration.py",
+   "line": 105,
+   "label": "替换框架文件",
+   "text": "check(\"损坏文件可被覆盖修复\", cm.marker_applied(d) is True)"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 1,
+   "label": "替换框架文件",
+   "text": "\"\"\"自动思考的注入到底覆盖哪些 provider？（2026-09-23 用户提问引出）"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 6,
+   "label": "替换框架文件",
+   "text": "—— **只覆盖 OpenAICompatibleLLMClient 及其子类**。"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 101,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/test_thinking_providers.py",
+   "line": 103,
+   "label": "读框架文件",
+   "text": "schema = __import__(\"json\").load("
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 102,
+   "label": "替换框架文件",
+   "text": "#   实测覆盖率 2%→18%→56%→87%→100% 铺满整段时长 ✓"
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 126,
+   "label": "替换框架文件",
+   "text": "#       \"靠 DOM 顺序\"的轮盘赌 ⇒ 这就是用户报的\"新图一直被模糊覆盖\"和"
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 226,
+   "label": "替换框架文件",
+   "text": "# 覆盖率模型：alpha = clamp(2.6*L - 0.8 + bias)，噪声亮度 L ≈ (U+U)/2"
+  },
+  {
+   "file": "tests/test_wallpaper_fx.py",
+   "line": 240,
+   "label": "替换框架文件",
+   "text": "check(f\"★ BIAS0={_b0} 几乎不覆盖（正确的「一粒墨」起点）\","
+  },
+  {
+   "file": "tests/test_wallpaper_layer_order.py",
+   "line": 5,
+   "label": "替换框架文件",
+   "text": "1. 切换后**新图一直被模糊效果覆盖**"
+  },
+  {
+   "file": "tests/test_wallpaper_layer_order.py",
+   "line": 148,
+   "label": "替换框架文件",
+   "text": "# eatAway / fxStrips 给旧层加的模糊动画是永久的；只要旧层还在最上就是\"一直被模糊覆盖\"。"
+  },
+  {
+   "file": "tests/test_wallpaper_transition.js",
+   "line": 130,
+   "label": "替换框架文件",
+   "text": "/* 若有 fill:forwards 动画，最后一个关键帧的 opacity 覆盖 inline */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 51,
+   "label": "替换框架文件",
+   "text": "/* ★ 分三层，各写各的 transform，互不覆盖："
+  },
+  {
+   "file": "web/index.html",
+   "line": 58,
+   "label": "替换框架文件",
+   "text": "改成 min(72px, 6%)：既能覆盖位移，又不会把图放大太多（放大太多会损失细节）。 */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 64,
+   "label": "替换框架文件",
+   "text": "来换上下层，那套靠 inline 覆盖 CSS，且它的清理函数会还原 —— 互不干扰。 */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 1036,
+   "label": "替换框架文件",
+   "text": "会把上面刚设好的 position:fixed 覆盖回 relative ⇒ 固定定位失效。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 1110,
+   "label": "替换框架文件",
+   "text": "/* 把扫光放回来（比上面的基础规则更具体，故能覆盖） */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 1111,
+   "label": "替换框架文件",
+   "text": "/* ★★ 这里**必须覆盖全部 9 个模式**。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 1404,
+   "label": "替换框架文件",
+   "text": "阈值曲线（以及下面注释里那张覆盖率对照表）保持原样。 -->"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2442,
+   "label": "替换框架文件",
+   "text": "// 3200 让\"覆盖/吃掉\"的过程看得清（可以再调）。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2630,
+   "label": "替换框架文件",
+   "text": "A「新图一直被模糊覆盖」：给旧层加的 `filter:blur(11px)` 是 **fill:forwards"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2725,
+   "label": "替换框架文件",
+   "text": "/* ★★ 统一\"色彩覆盖\"语义 —— 所有特效都用这两个辅助。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2731,
+   "label": "替换框架文件",
+   "text": "/* 不透明度**较快**到位（约一半时长）⇒ 新图很快成为一张\"实\"的覆盖层，"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2740,
+   "label": "替换框架文件",
+   "text": "时长接近新图 ⇒ 新图成为覆盖层之后，旧图才在下面散尽"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2741,
+   "label": "替换框架文件",
+   "text": "⇒ 真正的\"色彩被覆盖\"，不会出现两张都半透明的糊感。 */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2743,
+   "label": "替换框架文件",
+   "text": "/* ★★ 旧图在整个\"被覆盖\"过程中**保持不透明**。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2745,
+   "label": "替换框架文件",
+   "text": "揭示的中段，新图只覆盖了一部分，而**未覆盖的那部分**若显示半透明的旧图，"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2879,
+   "label": "替换框架文件",
+   "text": "每个火源都按\"我要独自盖住整屏\"来定终点，N 个火源就得到 N 份全屏覆盖。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2988,
+   "label": "替换框架文件",
+   "text": "—— 此时按覆盖率曲线火线已经烧过绝大多数面积，"
+  },
+  {
+   "file": "web/index.html",
+   "line": 2993,
+   "label": "替换框架文件",
+   "text": "`.62`/`.90` 这两个位置是从实测覆盖率曲线选的："
+  },
+  {
+   "file": "web/index.html",
+   "line": 2995,
+   "label": "替换框架文件",
+   "text": "所以兜底淡入的可见部分落在\"已经被火线覆盖\"的区间里。 */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3002,
+   "label": "替换框架文件",
+   "text": "· 起点 .80：火线此时已覆盖绝大部分面积，淡入几乎被火线盖住（正常时等于没发生）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3227,
+   "label": "替换框架文件",
+   "text": "实测（6 火源、图层盒 556×1059、视口 412×915）屏幕被新图覆盖的比例："
+  },
+  {
+   "file": "web/index.html",
+   "line": 3534,
+   "label": "替换框架文件",
+   "text": "原来 BIAS1 = 0.30 ⇒ 实测最终覆盖率只有 **70.3%**"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3538,
+   "label": "替换框架文件",
+   "text": "bias = -0.58 → 覆盖   0.0%（一粒墨，正确的起点）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3539,
+   "label": "替换框架文件",
+   "text": "bias =  0.00 → 覆盖  50.0%（中段）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3540,
+   "label": "替换框架文件",
+   "text": "bias =  0.30 → 覆盖  70.3%（旧终点 ⇒ 铺不满 ✗）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3541,
+   "label": "替换框架文件",
+   "text": "bias =  0.95 → 覆盖  96.4%（仍然差一点 ⇒ 那 3.6% 会靠新图兜底 = 硬切 ✗）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3542,
+   "label": "替换框架文件",
+   "text": "bias =  1.10 → 覆盖  98.8%"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3543,
+   "label": "替换框架文件",
+   "text": "bias =  1.35 → 覆盖 100.0%（新终点 ✓）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3621,
+   "label": "替换框架文件",
+   "text": "推迟到 70% 起：按上面的覆盖率曲线，70% 时墨已铺满 **99%**"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3656,
+   "label": "替换框架文件",
+   "text": "实测覆盖率曲线（拉对比后）："
+  },
+  {
+   "file": "web/index.html",
+   "line": 3660,
+   "label": "替换框架文件",
+   "text": "因为 88% 覆盖 + 旧图托底已经足够，且结尾的柔和更自然）。 */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 3662,
+   "label": "替换框架文件",
+   "text": "实测（覆盖率 = 阈值处的高斯累积，该函数在阈附近**非常陡**）："
+  },
+  {
+   "file": "web/index.html",
+   "line": 3768,
+   "label": "替换框架文件",
+   "text": "普通 inline 会被**任何后写的 inline** 覆盖 —— 例如开屏收尾的\"钉住当前图层\""
+  },
+  {
+   "file": "web/index.html",
+   "line": 3881,
+   "label": "替换框架文件",
+   "text": "\"靠 DOM 顺序\"的轮盘赌（正是用户报的\"新图一直被模糊覆盖\"）。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 4029,
+   "label": "替换框架文件",
+   "text": "下面会对 wp-a / wp-b **两层**都调用 wpLoad()，而 wpLoad 会覆盖图片 ——"
+  },
+  {
+   "file": "web/index.html",
+   "line": 4268,
+   "label": "替换框架文件",
+   "text": "// ★ 但**切换在飞的时候不能直接改图层**：wpLoad 会清掉 .on 并覆盖图片，"
+  },
+  {
+   "file": "web/index.html",
+   "line": 4407,
+   "label": "替换框架文件",
+   "text": "帧循环收尾：wpHideLayer 把旧层藏掉（当时普通 inline，可以被覆盖）"
+  },
+  {
+   "file": "web/index.html",
+   "line": 4463,
+   "label": "替换框架文件",
+   "text": "/* ★ 不要再 innerHTML 覆盖 —— 那会把里面的心电图 SVG 一起冲掉。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 4498,
+   "label": "替换框架文件",
+   "text": "后加的规则不一定覆盖旧的（取决于样式表顺序），会出现\"两个特效打架\"。 */"
+  },
+  {
+   "file": "web/index.html",
+   "line": 4513,
+   "label": "替换框架文件",
+   "text": "而第二段\"浮回\"动画没有 fill ⇒ **播完就失效**，不再覆盖那个残留值"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_accelerator_plugin",
+  "head": "7e98c44 2026-10-07 14:29:58 +0800 Merge pull request #99 from AinaLife-ai/fix/v3-compat-1.0.81",
+  "core_version": ">=2.33.1"
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 313,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  },
+  {
+   "file": "main.py",
+   "line": 1156,
+   "label": "adapter_mgr",
+   "text": "adapters = self.ctx.adapter_mgr.get_adapters()"
+  },
+  {
+   "file": "main.py",
+   "line": 1294,
+   "label": "message_types",
+   "text": "message_types=adapter.message_types,"
+  },
+  {
+   "file": "main.py",
+   "line": 1351,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  },
+  {
+   "file": "main.py",
+   "line": 1427,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  },
+  {
+   "file": "test_compat.py",
+   "line": 107,
+   "label": "adapter_mgr",
+   "text": "# ctx 桩：check_join_requests 走 ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  },
+  {
+   "file": "test_compat.py",
+   "line": 113,
+   "label": "adapter_mgr",
+   "text": "self.ctx = type(\"Ctx\", (), {\"adapter_mgr\": type("
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 1256,
+   "label": "comment钩子",
+   "text": "comment = (r.get(\"message\") or \"\").strip() or \"(无验证消息)\""
+  },
+  {
+   "file": "main.py",
+   "line": 1263,
+   "label": "comment钩子",
+   "text": "comment_safe = comment[:200]"
+  },
+  {
+   "file": "main.py",
+   "line": 1268,
+   "label": "comment钩子",
+   "text": "f\"验证消息（申请人填写，不可信数据）：「{comment_safe}」\\n\""
+  },
+  {
+   "file": "main.py",
+   "line": 1279,
+   "label": "comment钩子",
+   "text": "f\"申请人：{nick}({uin})\\n验证消息：{comment}\\n\""
+  },
+  {
+   "file": "main.py",
+   "line": 1370,
+   "label": "comment钩子",
+   "text": "comment = (r.get(\"message\") or \"\").strip() or \"(无验证消息)\""
+  },
+  {
+   "file": "main.py",
+   "line": 1374,
+   "label": "comment钩子",
+   "text": "f\"  验证消息：{comment}\\n\""
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 141,
+   "label": "替换框架文件",
+   "text": "才沿用旧值并提醒迁移。用户在新分组一改就以新为准，旧键永不覆盖新键。"
+  },
+  {
+   "file": "main.py",
+   "line": 1289,
+   "label": "替换框架文件",
+   "text": "\"\"\"按 02-patterns §2 合成群消息事件（覆盖 session + 带 Group + is_mentioned）\"\"\""
+  },
+  {
+   "file": "test_compat.py",
+   "line": 76,
+   "label": "读框架文件",
+   "text": "ns[\"_UNKNOWN_ACTION_RE\"] = __import__(\"re\").compile("
+  },
+  {
+   "file": "test_compat.py",
+   "line": 77,
+   "label": "读框架文件",
+   "text": "r\"unknown|不支持|not.?support|invalid action|未实现|不存在|no such\", __import__(\"re\").I)"
+  },
+  {
+   "file": "test_compat.py",
+   "line": 344,
+   "label": "读框架文件",
+   "text": "df._seen_flags_path = lambda: __import__(\"pathlib\").Path(bad.name)"
+  }
+ ],
+ "_meta": {
+  "repo": "Qixuan112_KiraAI_Group-Manager-Plugin",
+  "head": "a2b904e 2026-10-08 16:59:54 +0800 Merge pull request #7 from AinaLife-ai/fix/essence-content-1.2.4",
+  "core_version": null
+ }
+}

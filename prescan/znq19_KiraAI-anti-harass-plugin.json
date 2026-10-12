@@ -1,0 +1,97 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "harass_detect.py",
+   "line": 113,
+   "label": "clear/reset会话语义",
+   "text": "# 达阈值：记录最近触发者（供 user|duration:N 无 ID 时反查），清空窗口计数避免重复触发"
+  },
+  {
+   "file": "harass_detect.py",
+   "line": 247,
+   "label": "clear/reset会话语义",
+   "text": "# 优先用达阈值时记录的最近触发者（窗口已清空，deque 里可能没有）"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 270,
+   "label": "on_llm_response",
+   "text": "# 输出，on_llm_response 已记录本次回复所属会话；handle_msg 里记录会被"
+  },
+  {
+   "file": "main.py",
+   "line": 340,
+   "label": "on_llm_response",
+   "text": "async def on_llm_response(self, event: KiraMessageBatchEvent, resp, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 343,
+   "label": "on_llm_response",
+   "text": "# 是唯一通道。写入已把竞态窗口缩到最小（on_llm_response 返回后框架才解析"
+  },
+  {
+   "file": "main.py",
+   "line": 376,
+   "label": "on_llm_request",
+   "text": "async def on_llm_request(self, event: KiraMessageBatchEvent, req: LLMRequest, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 387,
+   "label": "on_llm_request",
+   "text": "框架在 ON_LLM_REQUEST 钩子后会重新 request.tools = tool_set.to_list()，"
+  },
+  {
+   "file": "tests/test_fixes.py",
+   "line": 176,
+   "label": "on_llm_response",
+   "text": "asyncio.run(plugin.on_llm_response(SimpleNamespace(sid=\"A\"), SimpleNamespace(tool_calls=None)))"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 271,
+   "label": "替换框架文件",
+   "text": "# 任意新消息（含不触发 LLM 的围观消息）覆盖，造成 tag 作用到错误会话的竞态。"
+  },
+  {
+   "file": "main.py",
+   "line": 344,
+   "label": "替换框架文件",
+   "text": "# XML 执行 tag，多会话并发回复时可能被覆盖，已知限制）。"
+  },
+  {
+   "file": "main.py",
+   "line": 352,
+   "label": "替换框架文件",
+   "text": "# sid 维度记录（防多会话并发回复互相覆盖）：条目 300s 过期"
+  },
+  {
+   "file": "main.py",
+   "line": 639,
+   "label": "替换框架文件",
+   "text": "# -1 = 永久屏蔽（工具描述约定），透传不覆盖；0/空 = 用默认时长"
+  },
+  {
+   "file": "tests/test_fixes.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "覆盖："
+  },
+  {
+   "file": "tests/test_fixes.py",
+   "line": 161,
+   "label": "替换框架文件",
+   "text": "assert det.is_ignored(\"s1\", \"u1\", k, now), f\"apply(all) 未覆盖 {k}\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI-anti-harass-plugin",
+  "head": "96a043d 2026-09-22 03:10:48 +0800 Merge pull request #14 from AinaLife-ai/fix/system-event-and-ignore-consistency",
+  "core_version": ">=2.29.6"
+ }
+}

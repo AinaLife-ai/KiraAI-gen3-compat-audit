@@ -1,0 +1,259 @@
+{
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 65,
+   "label": "model_id使用",
+   "text": "model: str = \"\"               # \"provider_id:model_id\" / \"fast\" / \"\""
+  },
+  {
+   "file": "main.py",
+   "line": 65,
+   "label": "模型选择引用",
+   "text": "model: str = \"\"               # \"provider_id:model_id\" / \"fast\" / \"\""
+  },
+  {
+   "file": "main.py",
+   "line": 946,
+   "label": "model_id使用",
+   "text": "model_id = getattr(m, \"model_id\", \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 947,
+   "label": "model_id使用",
+   "text": "if provider and model_id:"
+  },
+  {
+   "file": "main.py",
+   "line": 948,
+   "label": "model_id使用",
+   "text": "return f\"{provider};{model_id}\""
+  },
+  {
+   "file": "main.py",
+   "line": 968,
+   "label": "model_id使用",
+   "text": "provider_id, _, model_id = model_str.partition(\":\")"
+  },
+  {
+   "file": "main.py",
+   "line": 969,
+   "label": "model_id使用",
+   "text": "if entries and not any(m[\"provider\"] == provider_id and m[\"model\"] == model_id for m in entries):"
+  },
+  {
+   "file": "main.py",
+   "line": 1728,
+   "label": "model_id使用",
+   "text": "\"model\": {\"type\": \"string\", \"description\": \"模型，格式 provider_id:model_id 或 fast（须在可选列表内）\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 1728,
+   "label": "模型选择引用",
+   "text": "\"model\": {\"type\": \"string\", \"description\": \"模型，格式 provider_id:model_id 或 fast（须在可选列表内）\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 1854,
+   "label": "model_id使用",
+   "text": "\"model\": {\"type\": \"string\", \"description\": \"新的模型（可选），格式 provider_id:model_id 或 fast\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 1854,
+   "label": "模型选择引用",
+   "text": "\"model\": {\"type\": \"string\", \"description\": \"新的模型（可选），格式 provider_id:model_id 或 fast\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 1979,
+   "label": "model_id使用",
+   "text": "\"model\": {\"type\": \"string\", \"description\": \"可选，本次使用的模型（须在可选列表内），格式 provider_id:model_id 或 fast\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 1979,
+   "label": "模型选择引用",
+   "text": "\"model\": {\"type\": \"string\", \"description\": \"可选，本次使用的模型（须在可选列表内），格式 provider_id:model_id 或 fast\"},"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 266,
+   "label": "旧plugin_handlers",
+   "text": "from core.plugin.plugin_handlers import event_handler_reg, EventType"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 1140,
+   "label": "message_types",
+   "text": "message_types=[],"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 1131,
+   "label": "on_llm_response",
+   "text": "# 放一条合成消息：框架的 ON_LLM_RESPONSE 钩子会把本事件广播给所有插件，"
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "main.py",
+   "line": 672,
+   "label": "persona_mgr",
+   "text": "persona_mgr = self.ctx.persona_mgr"
+  },
+  {
+   "file": "main.py",
+   "line": 674,
+   "label": "persona_mgr",
+   "text": "existing = await persona_mgr.list_personas()"
+  },
+  {
+   "file": "main.py",
+   "line": 687,
+   "label": "persona_mgr",
+   "text": "cur = await persona_mgr.get_persona(pid)"
+  },
+  {
+   "file": "main.py",
+   "line": 705,
+   "label": "persona_mgr",
+   "text": "await persona_mgr.create_persona(PersonaInfo("
+  },
+  {
+   "file": "main.py",
+   "line": 718,
+   "label": "persona_mgr",
+   "text": "persona_mgr = self.ctx.persona_mgr"
+  },
+  {
+   "file": "main.py",
+   "line": 721,
+   "label": "persona_mgr",
+   "text": "all_personas = await persona_mgr.list_personas()"
+  },
+  {
+   "file": "main.py",
+   "line": 788,
+   "label": "persona_mgr",
+   "text": "persona_mgr = self.ctx.persona_mgr"
+  },
+  {
+   "file": "main.py",
+   "line": 791,
+   "label": "persona_mgr",
+   "text": "all_personas = await persona_mgr.list_personas()"
+  },
+  {
+   "file": "main.py",
+   "line": 866,
+   "label": "persona_mgr",
+   "text": "p = await self.ctx.persona_mgr.get_persona(pid)"
+  },
+  {
+   "file": "main.py",
+   "line": 1791,
+   "label": "persona_mgr",
+   "text": "persona_mgr = self.ctx.persona_mgr"
+  },
+  {
+   "file": "main.py",
+   "line": 1795,
+   "label": "persona_mgr",
+   "text": "while await persona_mgr.get_persona(pid):"
+  },
+  {
+   "file": "main.py",
+   "line": 1799,
+   "label": "persona_mgr",
+   "text": "existing = await persona_mgr.list_personas()"
+  },
+  {
+   "file": "main.py",
+   "line": 1806,
+   "label": "persona_mgr",
+   "text": "await persona_mgr.create_persona(PersonaInfo(id=pid, name=pname, format=\"text\", content=content))"
+  },
+  {
+   "file": "main.py",
+   "line": 1959,
+   "label": "persona_mgr",
+   "text": "p = await self.ctx.persona_mgr.get_persona(cfg.persona_id)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 12,
+   "label": "替换框架文件",
+   "text": "- 人设系统集成：内置人设自动注册到 webui（重名不覆盖），persona_id 稳定绑定"
+  },
+  {
+   "file": "main.py",
+   "line": 671,
+   "label": "替换框架文件",
+   "text": "\"\"\"把内置子代理人设注册到 webui 人设库。重名不覆盖；已删除不重建（策略A）。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 689,
+   "label": "替换框架文件",
+   "text": "# 已存在（含用户改名/改内容的情况）→ 直接使用，绝不覆盖"
+  },
+  {
+   "file": "main.py",
+   "line": 778,
+   "label": "替换框架文件",
+   "text": "# 人设内容以 webui 实时内容为准，覆盖保存的旧文本"
+  },
+  {
+   "file": "main.py",
+   "line": 858,
+   "label": "替换框架文件",
+   "text": "# 隔离：协调者的存档/覆盖记录不进入普通子代理层；"
+  },
+  {
+   "file": "main.py",
+   "line": 1207,
+   "label": "读框架文件",
+   "text": "return str(tpl).format_map(__import__(\"collections\").defaultdict(str, base))"
+  },
+  {
+   "file": "main.py",
+   "line": 1790,
+   "label": "替换框架文件",
+   "text": "\"\"\"把子代理保存为 webui 人设。id 冲突自动加后缀，绝不覆盖已有数据。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1814,
+   "label": "替换框架文件",
+   "text": "description=\"把一个已存在的子代理保存为 webui 新人设（持久化，重启不丢）。适合子代理任务完成后，判断它有长期复用价值时再保存。绝不覆盖已有人设。\","
+  },
+  {
+   "file": "main.py",
+   "line": 1980,
+   "label": "替换框架文件",
+   "text": "\"max_steps\": {\"type\": \"integer\", \"description\": \"可选，本次任务的步数覆盖（不改子代理配置）。参考：简单问答/单次工具调用 15 步左右，一般任务 15-20 步，复杂多工具任务 20-25 步。不确定就填 0 或不填\"},"
+  },
+  {
+   "file": "schema.json",
+   "line": 434,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"总开关：允许主 AI 把创建的子代理保存为 webui 新人设（绝不覆盖已有人设）。关闭则下面两个相关设置均无效\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI-subagent-plugin",
+  "head": "f504428 2026-08-10 02:21:14 +0800 Merge pull request #1 from AinaLife-ai/master",
+  "core_version": null
+ }
+}

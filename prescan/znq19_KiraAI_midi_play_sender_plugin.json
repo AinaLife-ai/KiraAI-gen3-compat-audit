@@ -1,0 +1,35 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 102,
+   "label": "clear/reset会话语义",
+   "text": "A：白名单只影响 `/弹奏` 命令。要么把自己 QQ 加进白名单，要么清空白名单（清空=不限制）。"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 298,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(usable, dst)"
+  },
+  {
+   "file": "main.py",
+   "line": 306,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(usable, dst)"
+  },
+  {
+   "file": "main.py",
+   "line": 432,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(src, target)"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_midi_play_sender_plugin",
+  "head": "0dcbcd3 2026-08-28 22:08:08 +0800 Merge pull request #2 from AinaLife-ai/main",
+  "core_version": ">=2.6.1"
+ }
+}

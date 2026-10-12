@@ -1,0 +1,1383 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 886,
+   "label": "clear/reset会话语义",
+   "text": "`/extension` ⇒ **清空 → 填满 → 清空 → 填满**，正是看到的一闪一闪。"
+  },
+  {
+   "file": "README.md",
+   "line": 899,
+   "label": "clear/reset会话语义",
+   "text": "- 扩展更新好之后照旧收起并清空（下次需要时重新拉最新步骤）。"
+  },
+  {
+   "file": "README.md",
+   "line": 2618,
+   "label": "clear/reset会话语义",
+   "text": "1. **补上方法**：`BrowserBridge.clear_event_listeners()` 清空"
+  },
+  {
+   "file": "bridge.py",
+   "line": 56,
+   "label": "clear/reset会话语义",
+   "text": "而不是和新会话共用 —— 旧版共用全局 ``self._ws`` 与全局发送锁，"
+  },
+  {
+   "file": "bridge.py",
+   "line": 139,
+   "label": "clear/reset会话语义",
+   "text": "#: 世代号：每次扶正新会话 +1。旧会话的接收循环据此知道自己被替换，"
+  },
+  {
+   "file": "bridge.py",
+   "line": 551,
+   "label": "clear/reset会话语义",
+   "text": "# 已被新连接替换，全局状态归新会话管（retire 时已经收拾过）"
+  },
+  {
+   "file": "bridge.py",
+   "line": 864,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"清空所有已注册的事件回调。"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 220,
+   "label": "clear/reset会话语义",
+   "text": "其余字符串内容清空（运行时才存在的文本，不是变量引用）。"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 309,
+   "label": "clear/reset会话语义",
+   "text": "与 harness 的 `strip_js_noise` 不同：那个会把字符串内容清空"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 50,
+   "label": "clear/reset会话语义",
+   "text": "//       —— 这是**有意的**（面板清空端口 = 用默认值），不算非法，"
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 793,
+   "label": "clear/reset会话语义",
+   "text": "f\"conflog/domains 的 innerHTML 赋值必须清空或纯静态：{_sinks}\")"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 324,
+   "label": "clear/reset会话语义",
+   "text": "#       `strip_js_noise` 会把字符串内容清空（它是为\"找标识符\"设计的），"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 1960,
+   "label": "model_id使用",
+   "text": "mid = getattr(m, \"model_id\", \"?\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1986,
+   "label": "model_id使用",
+   "text": "uuid = f\"{pid}:{mi.model_id}\""
+  },
+  {
+   "file": "main.py",
+   "line": 1987,
+   "label": "model_id使用",
+   "text": "lower = str(mi.model_id).lower()"
+  },
+  {
+   "file": "main.py",
+   "line": 2010,
+   "label": "model_id使用",
+   "text": "info.append(f\"  ✅ {dv.model.provider_id}:{dv.model.model_id}\""
+  },
+  {
+   "file": "main.py",
+   "line": 2409,
+   "label": "model_id使用",
+   "text": "- `id` 用 `provider_id:model_id`（配置里填的就是这个格式）"
+  },
+  {
+   "file": "main.py",
+   "line": 2409,
+   "label": "模型选择引用",
+   "text": "- `id` 用 `provider_id:model_id`（配置里填的就是这个格式）"
+  },
+  {
+   "file": "vlm.py",
+   "line": 84,
+   "label": "model_id使用",
+   "text": "model_id = str(getattr(model_client.model, \"model_id\", \"\")).lower()"
+  },
+  {
+   "file": "vlm.py",
+   "line": 85,
+   "label": "model_id使用",
+   "text": "return not any(m in model_id for m in _NON_VISION_MARKERS)"
+  },
+  {
+   "file": "vlm.py",
+   "line": 93,
+   "label": "model_id使用",
+   "text": "configured: 配置里的 `vlm_model`（形如 ``provider_id:model_id``），"
+  },
+  {
+   "file": "vlm.py",
+   "line": 93,
+   "label": "模型选择引用",
+   "text": "configured: 配置里的 `vlm_model`（形如 ``provider_id:model_id``），"
+  },
+  {
+   "file": "vlm.py",
+   "line": 137,
+   "label": "model_id使用",
+   "text": "f\"使用框架默认 VLM：{getattr(client.model, 'model_id', '?')}\")"
+  },
+  {
+   "file": "vlm.py",
+   "line": 152,
+   "label": "默认模型读取",
+   "text": "client = ctx.get_default_llm_client()"
+  },
+  {
+   "file": "vlm.py",
+   "line": 155,
+   "label": "model_id使用",
+   "text": "f\"使用默认 LLM（支持视觉）：{getattr(client.model, 'model_id', '?')}\")"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 96,
+   "label": "model_id使用",
+   "text": "self.model_id = mid"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 109,
+   "label": "model_id使用",
+   "text": "# ⚠️ 返回值要**带上自己的 model_id** —— 两个假客户端都返回同一句"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 114,
+   "label": "model_id使用",
+   "text": "text_response = \"【假VLM:\" + self.model.model_id + \"】页面是登录表单\""
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 155,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 252,
+   "label": "默认模型读取",
+   "text": "and \"get_default_llm_client\" in v)"
+  },
+  {
+   "file": "web/app.js",
+   "line": 718,
+   "label": "model_id使用",
+   "text": "//    其中 id 是 `provider_id:model_id`（配置里就是这个格式），"
+  },
+  {
+   "file": "web/app.js",
+   "line": 718,
+   "label": "模型选择引用",
+   "text": "//    其中 id 是 `provider_id:model_id`（配置里就是这个格式），"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 1972,
+   "label": "provider_mgr",
+   "text": "mgr = self.ctx.provider_mgr"
+  },
+  {
+   "file": "main.py",
+   "line": 2008,
+   "label": "provider_mgr",
+   "text": "dv = self.ctx.provider_mgr.get_default_vlm()"
+  },
+  {
+   "file": "main.py",
+   "line": 2415,
+   "label": "provider_mgr",
+   "text": "pm = getattr(self.ctx, \"provider_mgr\", None)"
+  },
+  {
+   "file": "vlm.py",
+   "line": 22,
+   "label": "provider_mgr",
+   "text": "2. **框架 WebUI 里设的默认 VLM**（`provider_mgr.get_default_vlm()`）"
+  },
+  {
+   "file": "vlm.py",
+   "line": 134,
+   "label": "provider_mgr",
+   "text": "client = ctx.provider_mgr.get_default_vlm()"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 150,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = PM(dvlm, raise_it=no_vlm)"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 227,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = PM2()"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "bridge.py",
+   "line": 330,
+   "label": "旧plugin_registry",
+   "text": "插件 handler（见 ``plugin_registry._register_plugin_ws_for``），鉴权依赖"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 830,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(parts[0])"
+  },
+  {
+   "file": "main.py",
+   "line": 844,
+   "label": "send_direct_message",
+   "text": "r = await adapter.send_group_message(target, chain)"
+  },
+  {
+   "file": "main.py",
+   "line": 846,
+   "label": "send_direct_message",
+   "text": "r = await adapter.send_direct_message(target, chain)"
+  },
+  {
+   "file": "regression/checks/runtime_behavior.py",
+   "line": 60,
+   "label": "adapter_mgr",
+   "text": "self.adapter_mgr = SimpleNamespace(get_adapter=lambda n: None)"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 1172,
+   "label": "on_llm_request",
+   "text": "#    时机上这样是对的：本钩子（ON_LLM_REQUEST）在 message_manager 里"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 225,
+   "label": "comment钩子",
+   "text": "# 状态：code / line_comment / block_comment / str(' or \") / tmpl(`)"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 237,
+   "label": "comment钩子",
+   "text": "state = \"line_comment\""
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 241,
+   "label": "comment钩子",
+   "text": "state = \"block_comment\""
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 257,
+   "label": "comment钩子",
+   "text": "if state == \"line_comment\":"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 264,
+   "label": "comment钩子",
+   "text": "if state == \"block_comment\":"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 306,
+   "label": "comment钩子",
+   "text": "def strip_comments_only(src_text: str) -> str:"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 322,
+   "label": "comment钩子",
+   "text": "state = \"line_comment\"; i += 2; continue"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 324,
+   "label": "comment钩子",
+   "text": "state = \"block_comment\"; i += 2; continue"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 329,
+   "label": "comment钩子",
+   "text": "elif state == \"line_comment\":"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 333,
+   "label": "comment钩子",
+   "text": "elif state == \"block_comment\":"
+  },
+  {
+   "file": "regression/checks/callgraph.py",
+   "line": 226,
+   "label": "on_llm_request",
+   "text": "# 框架按 (event, req, ...) 调用 ON_LLM_REQUEST"
+  },
+  {
+   "file": "regression/checks/execjs_gates.py",
+   "line": 35,
+   "label": "comment钩子",
+   "text": "from ..harness import section, src_safe, strip_comments_only, strip_js_noise"
+  },
+  {
+   "file": "regression/checks/execjs_gates.py",
+   "line": 88,
+   "label": "comment钩子",
+   "text": "code_no_comments = strip_comments_only(cap_text)"
+  },
+  {
+   "file": "regression/checks/execjs_gates.py",
+   "line": 89,
+   "label": "comment钩子",
+   "text": "m = re.search(r'csp:\\s*\"([^\"]*)\"', code_no_comments) or \\"
+  },
+  {
+   "file": "regression/checks/execjs_gates.py",
+   "line": 90,
+   "label": "comment钩子",
+   "text": "re.search(r\"csp:\\s*'([^']*)'\", code_no_comments)"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 38,
+   "label": "comment钩子",
+   "text": "from ..harness import PLUGIN_DIR, src_safe, strip_comments_only"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 675,
+   "label": "comment钩子",
+   "text": "#    `strip_comments_only` 保留字符串字面量 —— 而\"给用户看的字\""
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 677,
+   "label": "comment钩子",
+   "text": "_bg = strip_comments_only(src_safe(\"browser-bridge/background.js\"))"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 678,
+   "label": "comment钩子",
+   "text": "_pop = strip_comments_only(src_safe(\"browser-bridge/popup.html\"))"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 679,
+   "label": "comment钩子",
+   "text": "_panel = strip_comments_only(src_safe(\"web/index.html\"))"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 697,
+   "label": "comment钩子",
+   "text": "#    ⚠️ 要查**渲染出来的文本**，不是源码 —— `strip_comments_only` 是给"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 745,
+   "label": "comment钩子",
+   "text": "_js = {f.name: strip_comments_only(f.read_text(encoding=\"utf-8\"))"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 48,
+   "label": "comment钩子",
+   "text": "def _strip_comment_lines(text: str) -> str:"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 225,
+   "label": "comment钩子",
+   "text": "_save = _strip_comment_lines(_fn_body(js, \"saveConfig\"))"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 103,
+   "label": "comment钩子",
+   "text": "strip_comments_only)"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 228,
+   "label": "comment钩子",
+   "text": "_dl_code = strip_comments_only(_dl)"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 704,
+   "label": "comment钩子",
+   "text": "#       （`strip_comments_only` 是给 JS 写的，剥不掉 `#`。）"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 323,
+   "label": "comment钩子",
+   "text": "#    ⚠️ 要用 **strip_comments_only**（只剥注释、**保留**字符串字面量）——"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 327,
+   "label": "comment钩子",
+   "text": "from ..harness import strip_comments_only as _sco"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "bridge.py",
+   "line": 751,
+   "label": "替换框架文件",
+   "text": "timeout: 覆盖默认超时"
+  },
+  {
+   "file": "main.py",
+   "line": 5,
+   "label": "替换框架文件",
+   "text": "原来的两个插件各自只能覆盖一半场景："
+  },
+  {
+   "file": "main.py",
+   "line": 123,
+   "label": "替换框架文件",
+   "text": "# ⚠️ 顺序要紧：覆盖值必须在 `_apply_config` **之前**加载 ——"
+  },
+  {
+   "file": "main.py",
+   "line": 124,
+   "label": "替换框架文件",
+   "text": "#    `_apply_config` 会把它们叠在框架配置之上（覆盖优先）✓"
+  },
+  {
+   "file": "main.py",
+   "line": 178,
+   "label": "替换框架文件",
+   "text": "⚠️ **侧边栏 WebUI 的改动也要能生效**：WebUI 写下来的覆盖值存在"
+  },
+  {
+   "file": "main.py",
+   "line": 180,
+   "label": "替换框架文件",
+   "text": "（覆盖优先）—— 于是 `_apply_config` 一跑，热更新就完成了。"
+  },
+  {
+   "file": "main.py",
+   "line": 186,
+   "label": "替换框架文件",
+   "text": "except Exception as e:                     # 覆盖值坏了不该拖垮初始化"
+  },
+  {
+   "file": "main.py",
+   "line": 187,
+   "label": "替换框架文件",
+   "text": "logger.warning(f\"WebUI 覆盖配置读取失败（忽略）：{e}\")"
+  },
+  {
+   "file": "main.py",
+   "line": 233,
+   "label": "替换框架文件",
+   "text": "#: 默认是否描述。**每次截图时模型也可以自己用 describe 参数覆盖** ——"
+  },
+  {
+   "file": "main.py",
+   "line": 628,
+   "label": "替换框架文件",
+   "text": "#    顺手把页面状态带上，是**白赚**的：一处改动覆盖所有写操作"
+  },
+  {
+   "file": "main.py",
+   "line": 1170,
+   "label": "替换框架文件",
+   "text": "#    system prompt 因此跨轮稳定，前缀缓存能覆盖整段记忆。"
+  },
+  {
+   "file": "main.py",
+   "line": 1840,
+   "label": "替换框架文件",
+   "text": "# ⚠️ 重名不能**静默覆盖**：两次下载同名文件（`document.pdf` 太常见），"
+  },
+  {
+   "file": "main.py",
+   "line": 1937,
+   "label": "替换框架文件",
+   "text": "f\"（模型每次可以自己用 describe 参数覆盖）\")"
+  },
+  {
+   "file": "main.py",
+   "line": 2279,
+   "label": "替换框架文件",
+   "text": "\"\"\"读 WebUI 写下来的覆盖值。任何异常都当\"没有覆盖\"，不拖垮初始化。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 2286,
+   "label": "替换框架文件",
+   "text": "logger.warning(f\"读取 WebUI 配置失败（按无覆盖处理）：{e}\")"
+  },
+  {
+   "file": "main.py",
+   "line": 2310,
+   "label": "替换框架文件",
+   "text": "\"\"\"当前**生效**的值（含 WebUI 覆盖），给界面回显用。"
+  },
+  {
+   "file": "main.py",
+   "line": 2322,
+   "label": "替换框架文件",
+   "text": "实例属性 → 框架配置里写过的 → 面板覆盖过的 → schema 里的 default"
+  },
+  {
+   "file": "schema.json",
+   "line": 612,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"开启（默认）：AI 可以打开 localhost / 127.0.0.1 / 内网地址 -- 包括你自己的本地开发服务器（如 http://localhost:3000）以及 KiraAI 自身的面板。本插件的定位就是「让 AI 帮你操作浏览器」，本机页面是正常的工作目标，不是攻击面，所以默认放开。关"
+  },
+  {
+   "file": "security.py",
+   "line": 282,
+   "label": "替换框架文件",
+   "text": "# 子域匹配规则自然覆盖（www.example.com 是 example.com 的子域）。"
+  },
+  {
+   "file": "security.py",
+   "line": 553,
+   "label": "替换框架文件",
+   "text": "拦下 —— 要覆盖这种写法，请用 ``*bank*``。"
+  },
+  {
+   "file": "security.py",
+   "line": 888,
+   "label": "替换框架文件",
+   "text": "#    那个顾虑现在**已经不成立**：is_local_host 已经覆盖了这些等价写法"
+  },
+  {
+   "file": "backends/extension_backend.py",
+   "line": 382,
+   "label": "替换框架文件",
+   "text": "#   uvicorn 的 ws_max_size 默认 **16 MiB**，KiraAI 没有覆盖它。"
+  },
+  {
+   "file": "backends/headless_backend.py",
+   "line": 44,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "backends/headless_backend.py",
+   "line": 45,
+   "label": "读框架文件",
+   "text": "_sync = importlib.import_module(\"playwright.sync_api\")"
+  },
+  {
+   "file": "backends/headless_backend.py",
+   "line": 570,
+   "label": "替换框架文件",
+   "text": "await asyncio.to_thread(shutil.copytree, src, dst,"
+  },
+  {
+   "file": "backends/headless_backend.py",
+   "line": 893,
+   "label": "替换框架文件",
+   "text": "覆盖，先前建出来的页面**没人引用也没人关**（常驻泄漏），"
+  },
+  {
+   "file": "browser-bridge/background.js",
+   "line": 182,
+   "label": "替换框架文件",
+   "text": "// migration 不会再拿旧键去覆盖它）。"
+  },
+  {
+   "file": "browser-bridge/background.js",
+   "line": 820,
+   "label": "替换框架文件",
+   "text": "//    probe 槽位是**每条连接各一个**：多条连接同时探测时互不覆盖。"
+  },
+  {
+   "file": "browser-bridge/background.js",
+   "line": 1481,
+   "label": "替换框架文件",
+   "text": "// 弹窗里手动添加一个实例（自动探测覆盖不到的端口用这个兜底）"
+  },
+  {
+   "file": "browser-bridge/popup.js",
+   "line": 155,
+   "label": "替换框架文件",
+   "text": "/** 手动把一个实例加进列表（自动探测覆盖不到的端口用这个兜底）。 */"
+  },
+  {
+   "file": "browser-bridge/protocol.js",
+   "line": 185,
+   "label": "替换框架文件",
+   "text": "//    而不是拿端口字段去覆盖 —— 否则会静默连到错误的端口上。"
+  },
+  {
+   "file": "browser-bridge/protocol.js",
+   "line": 226,
+   "label": "替换框架文件",
+   "text": "// ⚠️ 提示要覆盖 **http://**：用户粘 `http://host:port` 时，"
+  },
+  {
+   "file": "browser-bridge/protocol.js",
+   "line": 329,
+   "label": "替换框架文件",
+   "text": "*  其余是常见的 Web 端口，覆盖\"用户自己改过端口\"的大多数情况。"
+  },
+  {
+   "file": "regression/delete_matrix.py",
+   "line": 50,
+   "label": "替换框架文件",
+   "text": "shutil.copytree(SRC, work,"
+  },
+  {
+   "file": "regression/ext_version_stamp.py",
+   "line": 51,
+   "label": "替换框架文件",
+   "text": "⚠️ 覆盖目录里**所有**文件（含 manifest、icons）—— 只要是随扩展发布的东西，"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 24,
+   "label": "替换框架文件",
+   "text": "可以用环境变量 ``KIRA_PLUGIN_DIR`` 覆盖，方便对别的副本跑同一套检查。"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 432,
+   "label": "读框架文件",
+   "text": "# 插件包自身也要在 path 上（脚本会用 importlib 直接加载它的模块）"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 446,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 455,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(full, path)"
+  },
+  {
+   "file": "regression/harness.py",
+   "line": 456,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/run_all.py",
+   "line": 59,
+   "label": "替换框架文件",
+   "text": "# ⚠️ 打印**检查实际用的**目录（可能被 KIRA_PLUGIN_DIR 覆盖），"
+  },
+  {
+   "file": "regression/checks/bridge_e2e.py",
+   "line": 13,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/bridge_e2e.py",
+   "line": 107,
+   "label": "读框架文件",
+   "text": "importlib.import_module(name)"
+  },
+  {
+   "file": "regression/checks/bridge_e2e.py",
+   "line": 128,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{pkg}.{name}\", path)"
+  },
+  {
+   "file": "regression/checks/bridge_e2e.py",
+   "line": 129,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/bridge_e2e.py",
+   "line": 173,
+   "label": "替换框架文件",
+   "text": "#    两个回归进程同时跑会互相覆盖、甚至在 finally 里删掉对方的脚本。"
+  },
+  {
+   "file": "regression/checks/bridge_idle.py",
+   "line": 75,
+   "label": "替换框架文件",
+   "text": "r.ok(\"B1 半开连接的判定与自愈接线（覆盖度）\", False,"
+  },
+  {
+   "file": "regression/checks/callgraph.py",
+   "line": 310,
+   "label": "替换框架文件",
+   "text": "#      · 引用形态要覆盖三种：`name(` / `.name` / `\"name\"`（字符串派发）"
+  },
+  {
+   "file": "regression/checks/callgraph.py",
+   "line": 410,
+   "label": "读框架文件",
+   "text": "#     只看 F1 的话，`importlib` 动态导入、或未来别的新写法都躲得过去。"
+  },
+  {
+   "file": "regression/checks/claims.py",
+   "line": 23,
+   "label": "替换框架文件",
+   "text": "(\"回环判定覆盖 v4-mapped / 展开写法\","
+  },
+  {
+   "file": "regression/checks/content_dom.py",
+   "line": 144,
+   "label": "替换框架文件",
+   "text": "#    以 _ 开头，已被 .gitignore 覆盖，不会误提交。"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 20,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 42,
+   "label": "替换框架文件",
+   "text": "# ⚠️ 这两个 path 会被**覆盖**成受管理 tmp 下的文件（见 _collect_*）——"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 87,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{name}.{sub}\", path)"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 88,
+   "label": "读框架文件",
+   "text": "m = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 98,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 100,
+   "label": "读框架文件",
+   "text": "m = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 243,
+   "label": "替换框架文件",
+   "text": "⚠️ 为什么必须逐个覆盖：假 Playwright 的 `page.screenshot(path=...)`"
+  },
+  {
+   "file": "regression/checks/contract.py",
+   "line": 245,
+   "label": "替换框架文件",
+   "text": "每跑一次回归就留一份残留（而且并发跑会互相覆盖）。"
+  },
+  {
+   "file": "regression/checks/ext_icons.py",
+   "line": 155,
+   "label": "替换框架文件",
+   "text": "# ⚠️ 这一段的 `shutil.copy2(ext_dir / \"manifest.json\", ...)` 在文件缺失时"
+  },
+  {
+   "file": "regression/checks/ext_icons.py",
+   "line": 170,
+   "label": "替换框架文件",
+   "text": "（见 run() 里的那个 if）—— 否则 `shutil.copy2` 抛的"
+  },
+  {
+   "file": "regression/checks/ext_icons.py",
+   "line": 176,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(ext_dir / \"manifest.json\", fake / \"manifest.json\")"
+  },
+  {
+   "file": "regression/checks/ext_icons.py",
+   "line": 180,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(ext_dir / rel, fake / rel)"
+  },
+  {
+   "file": "regression/checks/ext_update.py",
+   "line": 29,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/ext_update.py",
+   "line": 196,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/ext_update.py",
+   "line": 198,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"hb_ext_stamp\", _stamp_tool)"
+  },
+  {
+   "file": "regression/checks/ext_update.py",
+   "line": 199,
+   "label": "读框架文件",
+   "text": "_mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/ext_update.py",
+   "line": 203,
+   "label": "替换框架文件",
+   "text": "# 反向自检：把扩展代码\"改一个字节\"，判据必须能发现（证明指纹真的覆盖内容）"
+  },
+  {
+   "file": "regression/checks/ext_update.py",
+   "line": 208,
+   "label": "替换框架文件",
+   "text": "shutil.copytree(PLUGIN_DIR / \"browser-bridge\", _copy)"
+  },
+  {
+   "file": "regression/checks/failover_notice.py",
+   "line": 31,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "regression/checks/failover_notice.py",
+   "line": 156,
+   "label": "读框架文件",
+   "text": "FakeBackend.OpResult = importlib.import_module("
+  },
+  {
+   "file": "regression/checks/file_hygiene.py",
+   "line": 74,
+   "label": "替换框架文件",
+   "text": "\"\"\"判断相对路径是否被 .gitignore 覆盖（够用的简化实现）。"
+  },
+  {
+   "file": "regression/checks/file_hygiene.py",
+   "line": 260,
+   "label": "替换框架文件",
+   "text": "\"在 git 仓库里跑能覆盖『已跟踪的依赖产物』\")"
+  },
+  {
+   "file": "regression/checks/file_hygiene.py",
+   "line": 344,
+   "label": "替换框架文件",
+   "text": "r.ok(\"E1 .gitignore 覆盖缓存与运行时数据\", not miss, f\"缺={miss or '无'}\")"
+  },
+  {
+   "file": "regression/checks/file_hygiene.py",
+   "line": 346,
+   "label": "替换框架文件",
+   "text": "r.ok(\"E2 .gitignore 覆盖回归测试产物\","
+  },
+  {
+   "file": "regression/checks/filedoc.py",
+   "line": 88,
+   "label": "替换框架文件",
+   "text": "报告上只剩一句笼统的\"未抛异常\"，连\"少了 50 多条覆盖\"都看不出来。"
+  },
+  {
+   "file": "regression/checks/filedoc.py",
+   "line": 94,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/filedoc.py",
+   "line": 99,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"_hb_security_check\", p)"
+  },
+  {
+   "file": "regression/checks/filedoc.py",
+   "line": 102,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/filedoc.py",
+   "line": 115,
+   "label": "替换框架文件",
+   "text": "#    报告上就只剩\"少了一大片覆盖\"而看不出少了什么。"
+  },
+  {
+   "file": "regression/checks/filedoc_e2e.py",
+   "line": 22,
+   "label": "替换框架文件",
+   "text": "E/F 段和人工验证覆盖。"
+  },
+  {
+   "file": "regression/checks/lifecycle.py",
+   "line": 18,
+   "label": "替换框架文件",
+   "text": "方法调用），但\"能把 `initialize()` 真跑通\"是另一层保险 —— 它顺带覆盖"
+  },
+  {
+   "file": "regression/checks/lost_features.py",
+   "line": 65,
+   "label": "读框架文件",
+   "text": "import asyncio, importlib.util, json, os, sys, tempfile"
+  },
+  {
+   "file": "regression/checks/lost_features.py",
+   "line": 68,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"ck\", os.path.join(PLUGIN, \"cookies.py\"))"
+  },
+  {
+   "file": "regression/checks/lost_features.py",
+   "line": 69,
+   "label": "读框架文件",
+   "text": "ck = importlib.util.module_from_spec(spec); sys.modules[\"ck\"] = ck"
+  },
+  {
+   "file": "regression/checks/one_step.py",
+   "line": 31,
+   "label": "替换框架文件",
+   "text": "#       才能一处覆盖所有写操作（也才不会\"新加个工具就忘了带结果\"）。"
+  },
+  {
+   "file": "regression/checks/one_step.py",
+   "line": 41,
+   "label": "替换框架文件",
+   "text": "r.ok(\"S1 写操作后一并返回页面（挂在 _call 上，覆盖所有写工具）\", not _bad1,"
+  },
+  {
+   "file": "regression/checks/one_step.py",
+   "line": 224,
+   "label": "替换框架文件",
+   "text": "#      ② _apply_config 会把侧边栏的覆盖值叠在框架配置之上（不叠 = 光存不生效）"
+  },
+  {
+   "file": "regression/checks/one_step.py",
+   "line": 234,
+   "label": "替换框架文件",
+   "text": "_bad10.append(\"覆盖值没叠进 _apply_config（那样就像'存了不生效'）\")"
+  },
+  {
+   "file": "regression/checks/one_step.py",
+   "line": 243,
+   "label": "替换框架文件",
+   "text": "r.ok(\"S10 侧边栏可配置全部项并热生效（读/写端点 + 叠覆盖 + schema 生成）\","
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 17,
+   "label": "替换框架文件",
+   "text": "这条路以前没有任何检查覆盖，所以出过的两个真 bug（SW 启动即崩、"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 27,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 195,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{pkg}.{name}\", path)"
+  },
+  {
+   "file": "regression/checks/pair_e2e.py",
+   "line": 196,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 80,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 101,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(full, path)"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 102,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 169,
+   "label": "替换框架文件",
+   "text": "# 覆盖度：这几条必须真的跑过，否则探针被改瘦了也会全绿"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 184,
+   "label": "替换框架文件",
+   "text": "r.ok(\"P1 面板行为探针覆盖关键场景\", False,"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 372,
+   "label": "替换框架文件",
+   "text": "r.ok(\"S24 /config 快照覆盖所有字段（面板上不该有空框）\", False, err)"
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 384,
+   "label": "替换框架文件",
+   "text": "r.ok(\"S24 /config 快照覆盖所有字段（面板上不该有空框）\","
+  },
+  {
+   "file": "regression/checks/panel_ui.py",
+   "line": 387,
+   "label": "替换框架文件",
+   "text": "r.ok(\"S24 /config 快照覆盖所有字段（面板上不该有空框）\", False,"
+  },
+  {
+   "file": "regression/checks/paths_default.py",
+   "line": 24,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/paths_default.py",
+   "line": 46,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"_fw_path_utils\", p)"
+  },
+  {
+   "file": "regression/checks/paths_default.py",
+   "line": 47,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/paths_default.py",
+   "line": 142,
+   "label": "读框架文件",
+   "text": "_M = __import__(\"hb_paths_probe.main\", fromlist=[\"main\"])"
+  },
+  {
+   "file": "regression/checks/paths_default.py",
+   "line": 151,
+   "label": "读框架文件",
+   "text": "_hb_mod = __import__(\"hb_paths_probe.backends.headless_backend\","
+  },
+  {
+   "file": "regression/checks/runtime_behavior.py",
+   "line": 10,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "regression/checks/runtime_behavior.py",
+   "line": 40,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{pkg_name}.{name}\", path)"
+  },
+  {
+   "file": "regression/checks/runtime_behavior.py",
+   "line": 41,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/runtime_behavior.py",
+   "line": 259,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "regression/checks/runtime_behavior.py",
+   "line": 261,
+   "label": "读框架文件",
+   "text": "rt = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 51,
+   "label": "替换框架文件",
+   "text": "//       所以不列在这里；它们由下面\"应落到默认端口\"那一组覆盖。"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 200,
+   "label": "替换框架文件",
+   "text": "# 源码层面确认 scheme 解析接受 ws/wss/http/https（行为由 B2.7 真跑覆盖）"
+  },
+  {
+   "file": "regression/checks/security_rules.py",
+   "line": 604,
+   "label": "替换框架文件",
+   "text": "#    覆盖不到\"整段地址范围没被当成内网\"这种漏 —— 实测那时"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 320,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 321,
+   "label": "读框架文件",
+   "text": "_pkg = importlib.import_module(\"regression.checks\")"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 331,
+   "label": "替换框架文件",
+   "text": "r.ok(\"G1 regression/README.md 的 checks 清单覆盖所有已登记模块\","
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 493,
+   "label": "替换框架文件",
+   "text": "#     轮询那条拿到的**旧令牌**如果晚到，会把刚生成的新令牌**覆盖掉**，"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 511,
+   "label": "替换框架文件",
+   "text": "# 覆盖度：必须真的测了\"迟到覆盖\"这一条，否则脚本改瘦了也全绿"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 513,
+   "label": "替换框架文件",
+   "text": "_need = (\"迟到的旧响应不得覆盖新令牌\", \"迟到的失败响应不得覆盖新令牌\")"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 516,
+   "label": "替换框架文件",
+   "text": "r.ok(\"I1 竞态探测覆盖关键场景\", False, f\"缺={_miss}；实际={_names}\")"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 526,
+   "label": "替换框架文件",
+   "text": "#    一次 `/status` 比 3 秒还慢时，旧请求后到就会把新状态覆盖回去。"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 543,
+   "label": "替换框架文件",
+   "text": "_need2 = (\"迟到的旧响应不得覆盖新状态\","
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 544,
+   "label": "替换框架文件",
+   "text": "\"迟到的失败响应不得覆盖成功状态\")"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 547,
+   "label": "替换框架文件",
+   "text": "r.ok(\"I2 竞态探测覆盖关键场景\", False, f\"缺={_miss2}；实际={_nm2}\")"
+  },
+  {
+   "file": "regression/checks/spec_compliance.py",
+   "line": 579,
+   "label": "替换框架文件",
+   "text": "r.ok(\"I3 多连接路由探测覆盖关键场景\", False, f\"缺={_missm}\")"
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 91,
+   "label": "替换框架文件",
+   "text": "# A8 background.js 分派覆盖全部命令"
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 97,
+   "label": "替换框架文件",
+   "text": "r.ok(\"A8 background.js 分派覆盖全部协议命令\","
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 112,
+   "label": "替换框架文件",
+   "text": "r.ok(\"A10 host_permissions 覆盖本地 + 全站\","
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 258,
+   "label": "替换框架文件",
+   "text": "#    回归进程会互相覆盖、甚至在 finally 里删掉对方的文件。"
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 396,
+   "label": "替换框架文件",
+   "text": "#    是**前缀缓存**覆盖的那一段。这个块每 2 分钟就变一次，"
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 589,
+   "label": "替换框架文件",
+   "text": "#    （`link.probe`）—— 多连接同时探测时互不覆盖。"
+  },
+  {
+   "file": "regression/checks/static_audit.py",
+   "line": 704,
+   "label": "替换框架文件",
+   "text": "#    默认 16 MiB，且框架没有覆盖它。实测：整条帧超过 16 MiB 时对端回"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 19,
+   "label": "替换框架文件",
+   "text": "#: 旧工具 → 新出口。``None`` 表示**有意合并**（能力由其它工具覆盖）"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 39,
+   "label": "替换框架文件",
+   "text": "# screenshot(send) 与 file(download) 覆盖 —— 有意合并，非遗漏。"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 162,
+   "label": "替换框架文件",
+   "text": "r.note(f\"🔀 {old:<28} → 有意合并（能力由其它工具覆盖）\")"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 229,
+   "label": "替换框架文件",
+   "text": "r.ok(\"C2 browser_interact 的 action 覆盖全部交互动作\","
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 371,
+   "label": "替换框架文件",
+   "text": "# 至少要覆盖：1 条 isHttps 来源 + HTTPS/HTTP 两种协议"
+  },
+  {
+   "file": "regression/checks/tool_merge.py",
+   "line": 378,
+   "label": "替换框架文件",
+   "text": "r.ok(\"C8b 凭据探测覆盖必要场景\", False,"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 46,
+   "label": "读框架文件",
+   "text": "import asyncio, atexit, importlib.util, json, os, sys, tempfile"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 52,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"vlm_uut\", os.path.join(PLUGIN, \"vlm.py\"))"
+  },
+  {
+   "file": "regression/checks/vlm_describe.py",
+   "line": 53,
+   "label": "读框架文件",
+   "text": "vlm = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "regression/checks/wiring.py",
+   "line": 60,
+   "label": "替换框架文件",
+   "text": "取真实值（而不是正则扫字面量）才能覆盖\"派生形式\"，"
+  },
+  {
+   "file": "regression/checks/wiring.py",
+   "line": 128,
+   "label": "替换框架文件",
+   "text": "# 确认覆盖的命令集合两端要一致"
+  },
+  {
+   "file": "web/app.js",
+   "line": 76,
+   "label": "替换框架文件",
+   "text": "//    旧请求后到会把新状态覆盖回去 —— 只认\"最后一次发出\"的响应。"
+  },
+  {
+   "file": "web/app.js",
+   "line": 118,
+   "label": "替换框架文件",
+   "text": "\"如果仍是这样，按下面的步骤用插件自带的那份覆盖安装。\","
+  },
+  {
+   "file": "web/app.js",
+   "line": 661,
+   "label": "替换框架文件",
+   "text": "//    钉成覆盖值 —— 以后插件升级改了默认值，这些用户再也跟不上 ✗"
+  },
+  {
+   "file": "web/app.js",
+   "line": 849,
+   "label": "替换框架文件",
+   "text": "*       被别的规则覆盖 / 浏览器把动效关了），也必须收掉。"
+  },
+  {
+   "file": "web/index.html",
+   "line": 8,
+   "label": "替换框架文件",
+   "text": "为什么不能只放外链：那样浏览器会先画一帧**没有样式**的覆盖层（甚至先"
+  },
+  {
+   "file": "web/index.html",
+   "line": 10,
+   "label": "替换框架文件",
+   "text": "再跳出动画\"。内联之后，覆盖层在**第一帧**就已经是满屏不透明的 ✓"
+  },
+  {
+   "file": "web/index.html",
+   "line": 39,
+   "label": "替换框架文件",
+   "text": "· 覆盖层放在 body 最前面，样式**内联在 head**（外链会先画一帧没样式的"
+  },
+  {
+   "file": "web/index.html",
+   "line": 59,
+   "label": "替换框架文件",
+   "text": "// **渲染前**判断（用户关掉时一帧都不闪）—— 位置紧跟覆盖层，别挪到后面"
+  }
+ ],
+ "_meta": {
+  "repo": "Qixuan112_Kira_headless_browser",
+  "head": "c0d6dcc 2026-10-07 02:40:18 +0800 Merge pull request #37 from AinaLife-ai/fix/tool-dispatch-kw-2.2.1",
+  "core_version": ">=2.30.0"
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 10,
+   "label": "旧plugin_registry",
+   "text": "# （3.0 已将 core/plugin/plugin_registry.py 重构为 registry.py，旧子模块路径在 3.0 不存在）"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 362,
+   "label": "comment钩子",
+   "text": "description=\"Get metadata from GitHub: file SHA, issue details, pull request details, PR files, PR status, PR comments, PR reviews. For reading actual file cont"
+  },
+  {
+   "file": "main.py",
+   "line": 366,
+   "label": "comment钩子",
+   "text": "\"t\": {\"type\": \"string\", \"enum\": [\"contents\", \"issue\", \"pull_request\", \"pull_request_files\", \"pull_request_status\", \"pull_request_comments\", \"pull_request_review"
+  },
+  {
+   "file": "main.py",
+   "line": 402,
+   "label": "comment钩子",
+   "text": "\"pull_request_comments\": f\"/repos/{o}/{r}/pulls/{n}/comments\","
+  },
+  {
+   "file": "main.py",
+   "line": 461,
+   "label": "comment钩子",
+   "text": "\"act\": {\"type\": \"string\", \"enum\": [\"repository\", \"file\", \"issue\", \"pull_request\", \"branch\", \"pull_request_review\", \"star\", \"unstar\", \"release\", \"delete_file\", \""
+  },
+  {
+   "file": "main.py",
+   "line": 484,
+   "label": "comment钩子",
+   "text": "\"cid\": {\"type\": \"integer\", \"description\": \"Comment ID (for delete_comment)\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 485,
+   "label": "comment钩子",
+   "text": "\"k\": {\"type\": \"string\", \"enum\": [\"issue\", \"review\"], \"description\": \"Comment kind (for delete_comment): issue comment or PR review comment\", \"default\": \"issue\"}"
+  },
+  {
+   "file": "main.py",
+   "line": 658,
+   "label": "comment钩子",
+   "text": "elif act == \"delete_comment\":"
+  },
+  {
+   "file": "main.py",
+   "line": 660,
+   "label": "comment钩子",
+   "text": "return \"act=delete_comment 缺少必填参数: cid（评论 ID，可从 github_get 的评论列表获取）\""
+  },
+  {
+   "file": "main.py",
+   "line": 662,
+   "label": "comment钩子",
+   "text": "path = f\"/repos/{o}/{r}/pulls/comments/{cid}\""
+  },
+  {
+   "file": "main.py",
+   "line": 664,
+   "label": "comment钩子",
+   "text": "path = f\"/repos/{o}/{r}/issues/comments/{cid}\""
+  },
+  {
+   "file": "main.py",
+   "line": 767,
+   "label": "comment钩子",
+   "text": "description=\"Perform batched mutations: create/update multiple files in one call (SHA handled automatically, each file's real success/failure is reported), add "
+  },
+  {
+   "file": "main.py",
+   "line": 771,
+   "label": "comment钩子",
+   "text": "\"act\": {\"type\": \"string\", \"enum\": [\"files\", \"issue_comment\", \"pull_request\"], \"description\": \"Mutation type\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 777,
+   "label": "comment钩子",
+   "text": "\"in\": {\"type\": \"integer\", \"description\": \"Issue number (for comment)\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 845,
+   "label": "comment钩子",
+   "text": "elif act == \"issue_comment\":"
+  },
+  {
+   "file": "main.py",
+   "line": 847,
+   "label": "comment钩子",
+   "text": "rc, out = await _req(\"POST\", f\"/repos/{o}/{r}/issues/{inn}/comments\", d)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "manifest.json",
+   "line": 7,
+   "label": "替换框架文件",
+   "text": "\"description\": \"curl直调GitHub REST API，覆盖search/get/list/create/update/mutation/fork全部操作，token在webui里配置，不需要MCP桥接层\","
+  },
+  {
+   "file": "manifest.json",
+   "line": 17,
+   "label": "替换框架文件",
+   "text": "\"description\": \"curl直调GitHub REST API，覆盖search/get/list/create/update/mutation/fork全部操作，token在webui里配置，不需要MCP桥接层\""
+  }
+ ],
+ "_meta": {
+  "repo": "AinaLife-ai_KiraAI_github_tool_plugin",
+  "head": "49eaaef 2026-10-10 04:55:34 +0800 v1.3.2: 新增插件图标 icon.png（512×512，manifest 声明 icon 字段） (#8)",
+  "core_version": null
+ }
+}

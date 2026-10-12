@@ -1,0 +1,127 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "main.py",
+   "line": 888,
+   "label": "clear/reset会话语义",
+   "text": "# ⚠ 必须先取出 sub.tail：emit_elem 对非拆壳元素会清空它，"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 362,
+   "label": "旧plugin_registry",
+   "text": "（见 core/plugin/plugin_registry.py 的 PLUGIN_CONFIG_DIR）。"
+  },
+  {
+   "file": "tests/verify_no_slow_path.py",
+   "line": 13,
+   "label": "旧plugin_handlers",
+   "text": "钩子执行顺序（core/plugin/plugin_handlers.py:EventHandlerRegistry.register）："
+  }
+ ],
+ "E_工作流与消息处理": [
+  {
+   "file": "main.py",
+   "line": 460,
+   "label": "send_xml_messages",
+   "text": "# 框架侧（core/message_manager.py:send_xml_messages）对整段文本只有一次"
+  },
+  {
+   "file": "main.py",
+   "line": 855,
+   "label": "_parse_xml_msg",
+   "text": "框架 _parse_xml_msg 只读 msg **直接子元素**的**直接文本**"
+  },
+  {
+   "file": "tests/test_fixer.py",
+   "line": 6,
+   "label": "send_xml_messages",
+   "text": "框架侧（core/message_manager.py:send_xml_messages）对整段文本只有一次"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 1454,
+   "label": "on_llm_response",
+   "text": "async def on_llm_response(self, event: KiraMessageBatchEvent, resp: LLMResponse):"
+  },
+  {
+   "file": "tests/verify_no_slow_path.py",
+   "line": 43,
+   "label": "on_llm_response",
+   "text": "\"\"\"按框架的优先级降序跑 ON_LLM_RESPONSE 钩子链。\"\"\""
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "main.py",
+   "line": 206,
+   "label": "selfie",
+   "text": "\"voice\", \"shortvideo\", \"gif\", \"cardimage\", \"tts\", \"pe\", \"redbag\", \"emoji\", \"img\", \"selfie\""
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 80,
+   "label": "替换框架文件",
+   "text": "\"\"\"读 JSON。任何异常都返回 None（调用方据此中止迁移，绝不覆盖）。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 110,
+   "label": "替换框架文件",
+   "text": "# 存在但读不了 → 中止（绝不覆盖）"
+  },
+  {
+   "file": "main.py",
+   "line": 376,
+   "label": "替换框架文件",
+   "text": "# 所有插件加载完成后再检测一次（覆盖 mimo 比本插件后加载的情况）"
+  },
+  {
+   "file": "main.py",
+   "line": 382,
+   "label": "替换框架文件",
+   "text": "本插件的 flatten_no_wrap_tags 与 fix_record_split 已完整覆盖 mimo 的"
+  },
+  {
+   "file": "main.py",
+   "line": 1475,
+   "label": "替换框架文件",
+   "text": "官方 <record> 与 <mimo_tts> 此时都是 Record 元素，天然一并覆盖。"
+  },
+  {
+   "file": "tests/test_migration.py",
+   "line": 11,
+   "label": "替换框架文件",
+   "text": "M8 文件损坏                       → 中止，不覆盖"
+  },
+  {
+   "file": "tests/test_migration.py",
+   "line": 135,
+   "label": "替换框架文件",
+   "text": "# ---- M8 损坏 JSON → 中止且不覆盖 ----"
+  },
+  {
+   "file": "tests/test_migration.py",
+   "line": 139,
+   "label": "替换框架文件",
+   "text": "ck(\"M8 损坏文件未被覆盖\", open(p, encoding=\"utf-8\").read() == raw_before)"
+  },
+  {
+   "file": "tests/test_unregistered_tags.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "覆盖三件事："
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_xml_tag_fixer_plugin",
+  "head": "ff57a7a 2026-09-27 00:53:47 +0800 Merge pull request #4 from AinaLife-ai/fix/unregistered-tag-structure",
+  "core_version": null
+ }
+}

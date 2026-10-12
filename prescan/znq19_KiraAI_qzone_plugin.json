@@ -1,0 +1,2181 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "main.py",
+   "line": 501,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"从 OneBot 获取最新 Cookie 并原地更新会话。"
+  },
+  {
+   "file": "main.py",
+   "line": 535,
+   "label": "clear/reset会话语义",
+   "text": "logger.info(\"已从 OneBot 获取最新 Cookie 并原地更新会话\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1949,
+   "label": "get_session_capabilities",
+   "text": "caps = self.ctx.get_session_capabilities(sid) or {}"
+  },
+  {
+   "file": "qzone/utils.py",
+   "line": 53,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"仅供自检使用：清空失败日志去重表。\"\"\""
+  },
+  {
+   "file": "tests/test_silent_guard.py",
+   "line": 6,
+   "label": "clear/reset会话语义",
+   "text": "清空 = 这一轮模型产出的全部消息永久丢失。定时发布要跑几分钟，期间 Midflight"
+  },
+  {
+   "file": "tests/test_silent_guard.py",
+   "line": 41,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"旧的清空/关键词压制实现必须彻底移除，不留半截。\"\"\""
+  },
+  {
+   "file": "tests/test_silent_guard.py",
+   "line": 115,
+   "label": "clear/reset会话语义",
+   "text": "self.assertNotIn('被清空的轮次 message_id 为空', txt,"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 1813,
+   "label": "provider_mgr",
+   "text": "return self.ctx.provider_mgr.get_default_vlm()"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 375,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = FakeProviderManager()"
+  }
+ ],
+ "E_工作流与消息处理": [
+  {
+   "file": "main.py",
+   "line": 1670,
+   "label": "message_format_to_text",
+   "text": "此时框架已跑完 message_format_to_text（它在 ON_LLM_REQUEST 钩子之前），"
+  },
+  {
+   "file": "main.py",
+   "line": 1801,
+   "label": "ImageDescCache",
+   "text": "# ---------- 图片识图（复用核心 image_desc_cache + desc_img） ----------"
+  },
+  {
+   "file": "main.py",
+   "line": 1820,
+   "label": "ImageDescCache",
+   "text": "cached = await self.ctx.db.get_image_desc_cache(md5)"
+  },
+  {
+   "file": "main.py",
+   "line": 1830,
+   "label": "ImageDescCache",
+   "text": "existing = await self.ctx.db.get_image_desc_cache(md5)"
+  },
+  {
+   "file": "main.py",
+   "line": 1832,
+   "label": "ImageDescCache",
+   "text": "await self.ctx.db.update_image_desc_cache("
+  },
+  {
+   "file": "main.py",
+   "line": 1836,
+   "label": "ImageDescCache",
+   "text": "await self.ctx.db.add_image_desc_cache(md5, desc, count=1, last_seen=now)"
+  },
+  {
+   "file": "main.py",
+   "line": 2143,
+   "label": "message_format_to_text",
+   "text": "message_format_to_text（给每张图 hash + 生成描述 + 写缓存 + 填 caption），"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 337,
+   "label": "ImageDescCache",
+   "text": "async def get_image_desc_cache(self, md5):"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 341,
+   "label": "ImageDescCache",
+   "text": "async def add_image_desc_cache(self, md5, description, count=1, last_seen=0):"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 344,
+   "label": "ImageDescCache",
+   "text": "async def update_image_desc_cache(self, md5, description=None, count=None, last_seen=None):"
+  },
+  {
+   "file": "tests/test_expired_image.py",
+   "line": 68,
+   "label": "ImageDescCache",
+   "text": "self.run_(self.ctx.db.add_image_desc_cache(\"md5-b\", \"缓存里的描述\","
+  },
+  {
+   "file": "tests/test_manifest_hook.py",
+   "line": 93,
+   "label": "ImageDescCache",
+   "text": "self.ctx.db.get_image_desc_cache = slow_db"
+  },
+  {
+   "file": "tests/test_review_fixes.py",
+   "line": 114,
+   "label": "ImageDescCache",
+   "text": "ctx.db.get_image_desc_cache = counting_db"
+  },
+  {
+   "file": "tests/test_silent_guard.py",
+   "line": 5,
+   "label": "send_xml_messages",
+   "text": "send_xml_messages 是唯一发送入口，解析后**没有**任何撤回/补发通道 ——"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 815,
+   "label": "adapter_mgr",
+   "text": "mgr = self.ctx.adapter_mgr"
+  },
+  {
+   "file": "main.py",
+   "line": 931,
+   "label": "adapter_mgr",
+   "text": "ada = self.ctx.adapter_mgr.get_adapter(ada_name)"
+  },
+  {
+   "file": "main.py",
+   "line": 951,
+   "label": "adapter_mgr",
+   "text": "if hasattr(self.ctx.adapter_mgr, 'get_adapters'):"
+  },
+  {
+   "file": "main.py",
+   "line": 952,
+   "label": "adapter_mgr",
+   "text": "adapters = self.ctx.adapter_mgr.get_adapters()"
+  },
+  {
+   "file": "main.py",
+   "line": 953,
+   "label": "adapter_mgr",
+   "text": "elif hasattr(self.ctx.adapter_mgr, '_adapters'):"
+  },
+  {
+   "file": "main.py",
+   "line": 954,
+   "label": "adapter_mgr",
+   "text": "adapters = self.ctx.adapter_mgr._adapters"
+  },
+  {
+   "file": "main.py",
+   "line": 1049,
+   "label": "adapter_mgr",
+   "text": "current = self.ctx.adapter_mgr.get_adapter(name) if name else None"
+  },
+  {
+   "file": "main.py",
+   "line": 1057,
+   "label": "adapter_mgr",
+   "text": "names = list(self.ctx.adapter_mgr.get_adapters().keys())"
+  },
+  {
+   "file": "main.py",
+   "line": 1353,
+   "label": "message_types",
+   "text": "message_types=adapter.message_types,"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 271,
+   "label": "message_types",
+   "text": "self.message_types = [\"text\", \"img\"]"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 372,
+   "label": "adapter_mgr",
+   "text": "self.adapter_mgr = FakeAdapterManager(adapters)"
+  },
+  {
+   "file": "tests/test_cookie_selfheal.py",
+   "line": 22,
+   "label": "adapter_mgr",
+   "text": "self.ctx.adapter_mgr._adapters['qq_ada'] = ada_b"
+  },
+  {
+   "file": "tests/test_cookie_selfheal.py",
+   "line": 96,
+   "label": "adapter_mgr",
+   "text": "self.plugin._ada_obj = self.ctx.adapter_mgr.get_adapter('qq_ada')"
+  },
+  {
+   "file": "tests/test_cookie_selfheal.py",
+   "line": 190,
+   "label": "adapter_mgr",
+   "text": "self.assertIsNot(self.ctx.adapter_mgr.get_adapter('qq_ada'), ada)"
+  },
+  {
+   "file": "tests/test_cookie_selfheal.py",
+   "line": 201,
+   "label": "adapter_mgr",
+   "text": "self.assertIn('qq_ada', self.ctx.adapter_mgr.get_adapters())"
+  },
+  {
+   "file": "tests/test_silent_guard.py",
+   "line": 72,
+   "label": "adapter_mgr",
+   "text": "ada = ctx.adapter_mgr.get_adapter('qq_ada')"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 149,
+   "label": "comment钩子",
+   "text": "self.auto_comment_schedule = cfg.get(\"auto_comment_schedule\", \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 152,
+   "label": "comment钩子",
+   "text": "self.like_when_comment = cfg.get(\"like_when_comment\", False)"
+  },
+  {
+   "file": "main.py",
+   "line": 162,
+   "label": "comment钩子",
+   "text": "self.comment_verify = bool(cfg.get(\"comment_verify\", False))"
+  },
+  {
+   "file": "main.py",
+   "line": 178,
+   "label": "comment钩子",
+   "text": "self.auto_comment_cron = cfg.get(\"auto_comment_cron\", \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 182,
+   "label": "comment钩子",
+   "text": "self.auto_comment_trigger_dict = self._parse_schedule(self.auto_comment_schedule) if self.auto_comment_schedule else None"
+  },
+  {
+   "file": "main.py",
+   "line": 185,
+   "label": "comment钩子",
+   "text": "self.max_comments_per_cycle = cfg.get(\"max_comments_per_cycle\", 3)"
+  },
+  {
+   "file": "main.py",
+   "line": 228,
+   "label": "comment钩子",
+   "text": "self.auto_comment_image_desc = cfg.get(\"auto_comment_image_desc\", False)"
+  },
+  {
+   "file": "main.py",
+   "line": 235,
+   "label": "comment钩子",
+   "text": "self.replied_comments = set()"
+  },
+  {
+   "file": "main.py",
+   "line": 320,
+   "label": "comment钩子",
+   "text": "self.replied_comments = set(data.get(\"replied_comments\", [])[-MAX_REPLIED_CACHE:])"
+  },
+  {
+   "file": "main.py",
+   "line": 335,
+   "label": "comment钩子",
+   "text": "f\"已回复评论 {len(self.replied_comments)} 条，\""
+  },
+  {
+   "file": "main.py",
+   "line": 374,
+   "label": "comment钩子",
+   "text": "\"replied_comments\": list(self.replied_comments)[-MAX_REPLIED_CACHE:],"
+  },
+  {
+   "file": "main.py",
+   "line": 1256,
+   "label": "comment钩子",
+   "text": "add_job(self._auto_comment_job, self.auto_comment_trigger_dict, self.auto_comment_cron, \"auto_comment\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1544,
+   "label": "comment钩子",
+   "text": "async def _auto_comment_job(self):"
+  },
+  {
+   "file": "main.py",
+   "line": 1554,
+   "label": "comment钩子",
+   "text": "await self._legacy_auto_comment()"
+  },
+  {
+   "file": "main.py",
+   "line": 1558,
+   "label": "comment钩子",
+   "text": "async def _legacy_auto_comment(self):"
+  },
+  {
+   "file": "main.py",
+   "line": 1569,
+   "label": "comment钩子",
+   "text": "selected = random.sample(posts, min(self.max_comments_per_cycle, len(posts)))"
+  },
+  {
+   "file": "main.py",
+   "line": 1573,
+   "label": "comment钩子",
+   "text": "if self.auto_comment_image_desc and post.images and self.qzone_image_desc_enabled:"
+  },
+  {
+   "file": "main.py",
+   "line": 1577,
+   "label": "comment钩子",
+   "text": "comment_text = await self._call_llm(prompt, await self._get_persona_content(), use_backend_model=True)"
+  },
+  {
+   "file": "main.py",
+   "line": 1578,
+   "label": "comment钩子",
+   "text": "if not comment_text:"
+  },
+  {
+   "file": "main.py",
+   "line": 1581,
+   "label": "comment钩子",
+   "text": "result = await self._comment(post, comment_text)"
+  },
+  {
+   "file": "main.py",
+   "line": 1582,
+   "label": "comment钩子",
+   "text": "logger.info(f\"自动评论成功: {post.tid} -> {comment_text}\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1586,
+   "label": "comment钩子",
+   "text": "if self.like_when_comment and \"未重复提交\" not in result:"
+  },
+  {
+   "file": "main.py",
+   "line": 1610,
+   "label": "comment钩子",
+   "text": "instruction = \"【回复任务】请回复你最近说说下的新评论，使用qzone_reply_comment和评论自身的ID、UIN准确回复，target_id为自己的QQ号。自然一点和简洁（0-15字内），严禁内容重复和复读。根据评论作者UIN不回复自己，优先没有回复过的用户和新回复，否则不回复。\""
+  },
+  {
+   "file": "main.py",
+   "line": 1635,
+   "label": "comment钩子",
+   "text": "for comment in full_post.comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 1636,
+   "label": "comment钩子",
+   "text": "if comment.uin == self.my_uin:"
+  },
+  {
+   "file": "main.py",
+   "line": 1638,
+   "label": "comment钩子",
+   "text": "reply_key = f\"{full_post.tid}:{comment.tid}:{comment.uin}\""
+  },
+  {
+   "file": "main.py",
+   "line": 1639,
+   "label": "comment钩子",
+   "text": "if reply_key in self.replied_comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 1641,
+   "label": "comment钩子",
+   "text": "_, prompt_content = self._parse_comment_content(comment.content)"
+  },
+  {
+   "file": "main.py",
+   "line": 1642,
+   "label": "comment钩子",
+   "text": "prompt = f\"用户 {comment.nickname} 评论了你的说说：{prompt_content}，请生成一条简洁回复（0-15字）。\""
+  },
+  {
+   "file": "main.py",
+   "line": 1646,
+   "label": "comment钩子",
+   "text": "root_comment = self._find_root_comment(full_post.comments, comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 1647,
+   "label": "comment钩子",
+   "text": "resp = await self.api.reply(full_post, comment, reply_text, root_comment=root_comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 1649,
+   "label": "comment钩子",
+   "text": "logger.warning(f\"自动回复失败: {comment.tid}/{comment.uin} -> {resp.message}\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1651,
+   "label": "comment钩子",
+   "text": "logger.info(f\"自动回复成功: {comment.tid}/{comment.uin} -> {reply_text}\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1652,
+   "label": "comment钩子",
+   "text": "self.replied_comments.add(reply_key)"
+  },
+  {
+   "file": "main.py",
+   "line": 1670,
+   "label": "on_llm_request",
+   "text": "此时框架已跑完 message_format_to_text（它在 ON_LLM_REQUEST 钩子之前），"
+  },
+  {
+   "file": "main.py",
+   "line": 2144,
+   "label": "on_llm_request",
+   "text": "再触发 ON_LLM_REQUEST 钩子 —— 所以进到这里时，本轮图片的描述已经就绪。"
+  },
+  {
+   "file": "main.py",
+   "line": 2478,
+   "label": "comment钩子",
+   "text": "def _normalize_comment_text(content: str) -> str:"
+  },
+  {
+   "file": "main.py",
+   "line": 2482,
+   "label": "comment钩子",
+   "text": "def _count_own_comment(self, post: QzonePost, content: str) -> int:"
+  },
+  {
+   "file": "main.py",
+   "line": 2483,
+   "label": "comment钩子",
+   "text": "expected = self._normalize_comment_text(content)"
+  },
+  {
+   "file": "main.py",
+   "line": 2488,
+   "label": "comment钩子",
+   "text": "for comment in post.comments"
+  },
+  {
+   "file": "main.py",
+   "line": 2489,
+   "label": "comment钩子",
+   "text": "if str(comment.uin) == str(self.my_uin)"
+  },
+  {
+   "file": "main.py",
+   "line": 2490,
+   "label": "comment钩子",
+   "text": "and self._normalize_comment_text(comment.plain_content) == expected"
+  },
+  {
+   "file": "main.py",
+   "line": 2518,
+   "label": "comment钩子",
+   "text": "async def _comment(self, post: QzonePost, content: str) -> str:"
+  },
+  {
+   "file": "main.py",
+   "line": 2531,
+   "label": "comment钩子",
+   "text": "if self._count_own_comment(before_post, content) > 0:"
+  },
+  {
+   "file": "main.py",
+   "line": 2537,
+   "label": "comment钩子",
+   "text": "resp = await self.api.comment(post, content)"
+  },
+  {
+   "file": "main.py",
+   "line": 2549,
+   "label": "comment钩子",
+   "text": "if self.comment_verify:"
+  },
+  {
+   "file": "main.py",
+   "line": 2553,
+   "label": "comment钩子",
+   "text": "if self._count_own_comment(verify_post, content) > 0:"
+  },
+  {
+   "file": "main.py",
+   "line": 2571,
+   "label": "comment钩子",
+   "text": "def _find_root_comment(comments: List[QzoneComment], comment: QzoneComment) -> QzoneComment:"
+  },
+  {
+   "file": "main.py",
+   "line": 2573,
+   "label": "comment钩子",
+   "text": "if comment.parent_tid is None:"
+  },
+  {
+   "file": "main.py",
+   "line": 2574,
+   "label": "comment钩子",
+   "text": "return comment"
+  },
+  {
+   "file": "main.py",
+   "line": 2576,
+   "label": "comment钩子",
+   "text": "item for item in comments"
+  },
+  {
+   "file": "main.py",
+   "line": 2577,
+   "label": "comment钩子",
+   "text": "if item.parent_tid is None and str(item.tid) == str(comment.parent_tid)"
+  },
+  {
+   "file": "main.py",
+   "line": 2581,
+   "label": "comment钩子",
+   "text": "f\"无法唯一定位楼中回复 {comment.tid}/{comment.uin} 的主评论 {comment.parent_tid}\""
+  },
+  {
+   "file": "main.py",
+   "line": 2585,
+   "label": "comment钩子",
+   "text": "async def _reply_comment("
+  },
+  {
+   "file": "main.py",
+   "line": 2588,
+   "label": "comment钩子",
+   "text": "comment: QzoneComment,"
+  },
+  {
+   "file": "main.py",
+   "line": 2590,
+   "label": "comment钩子",
+   "text": "root_comment: Optional[QzoneComment] = None,"
+  },
+  {
+   "file": "main.py",
+   "line": 2594,
+   "label": "comment钩子",
+   "text": "_, prompt_content = self._parse_comment_content(comment.content)"
+  },
+  {
+   "file": "main.py",
+   "line": 2595,
+   "label": "comment钩子",
+   "text": "prompt = f\"用户 {comment.nickname} 评论了你的说说：{prompt_content}，请生成一条简洁回复（0-15字）。\""
+  },
+  {
+   "file": "main.py",
+   "line": 2599,
+   "label": "comment钩子",
+   "text": "resp = await self.api.reply(post, comment, content, root_comment=root_comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 2656,
+   "label": "comment钩子",
+   "text": "def _parse_comment_content(content: str) -> tuple[str, str]:"
+  },
+  {
+   "file": "main.py",
+   "line": 2666,
+   "label": "comment钩子",
+   "text": "def _format_comment_line(cls, comment: QzoneComment, label: str, indent: str, time_str: str) -> str:"
+  },
+  {
+   "file": "main.py",
+   "line": 2667,
+   "label": "comment钩子",
+   "text": "target, content = cls._parse_comment_content(comment.content)"
+  },
+  {
+   "file": "main.py",
+   "line": 2671,
+   "label": "comment钩子",
+   "text": "cid = comment.comment_id or str(comment.tid)"
+  },
+  {
+   "file": "main.py",
+   "line": 2673,
+   "label": "comment钩子",
+   "text": "f\"{indent}└ [{label} ID:{cid} UIN:{comment.uin}] \""
+  },
+  {
+   "file": "main.py",
+   "line": 2674,
+   "label": "comment钩子",
+   "text": "f\"{comment.nickname}{relation} [{time_str}]: {content}\""
+  },
+  {
+   "file": "main.py",
+   "line": 2931,
+   "label": "comment钩子",
+   "text": "if detail_post is not None and detail_post.comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 2933,
+   "label": "comment钩子",
+   "text": "comments = (full_post or p).comments"
+  },
+  {
+   "file": "main.py",
+   "line": 2994,
+   "label": "comment钩子",
+   "text": "if comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 2995,
+   "label": "comment钩子",
+   "text": "comment_lines = []"
+  },
+  {
+   "file": "main.py",
+   "line": 2997,
+   "label": "comment钩子",
+   "text": "main_comments = []"
+  },
+  {
+   "file": "main.py",
+   "line": 2998,
+   "label": "comment钩子",
+   "text": "for cmt in comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 3000,
+   "label": "comment钩子",
+   "text": "main_comments.append(cmt)"
+  },
+  {
+   "file": "main.py",
+   "line": 3004,
+   "label": "comment钩子",
+   "text": "shown_comments: set[int] = set()"
+  },
+  {
+   "file": "main.py",
+   "line": 3005,
+   "label": "comment钩子",
+   "text": "for cmt in main_comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 3007,
+   "label": "comment钩子",
+   "text": "comment_lines.append(self._format_comment_line(cmt, \"主评论\", \"  \", cmt_time_str))"
+  },
+  {
+   "file": "main.py",
+   "line": 3008,
+   "label": "comment钩子",
+   "text": "shown_comments.add(id(cmt))"
+  },
+  {
+   "file": "main.py",
+   "line": 3011,
+   "label": "comment钩子",
+   "text": "comment_lines.append(self._format_comment_line(reply, \"楼中回复\", \"    \", reply_time_str))"
+  },
+  {
+   "file": "main.py",
+   "line": 3012,
+   "label": "comment钩子",
+   "text": "shown_comments.add(id(reply))"
+  },
+  {
+   "file": "main.py",
+   "line": 3015,
+   "label": "comment钩子",
+   "text": "for cmt in comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 3016,
+   "label": "comment钩子",
+   "text": "if id(cmt) in shown_comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 3021,
+   "label": "comment钩子",
+   "text": "comment_lines.append(self._format_comment_line(cmt, label, indent, cmt_time_str))"
+  },
+  {
+   "file": "main.py",
+   "line": 3022,
+   "label": "comment钩子",
+   "text": "shown_comments.add(id(cmt))"
+  },
+  {
+   "file": "main.py",
+   "line": 3023,
+   "label": "comment钩子",
+   "text": "if comment_lines:"
+  },
+  {
+   "file": "main.py",
+   "line": 3024,
+   "label": "comment钩子",
+   "text": "line += \"\\n评论区：\\n\" + \"\\n\".join(comment_lines[:30])"
+  },
+  {
+   "file": "main.py",
+   "line": 3155,
+   "label": "comment钩子",
+   "text": "name=\"qzone_comment\","
+  },
+  {
+   "file": "main.py",
+   "line": 3167,
+   "label": "comment钩子",
+   "text": "async def tool_comment(self, event: KiraMessageBatchEvent, target_id: str, tid: str, content: str = \"\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 3195,
+   "label": "comment钩子",
+   "text": "result = await self._comment(post, content)"
+  },
+  {
+   "file": "main.py",
+   "line": 3198,
+   "label": "comment钩子",
+   "text": "if self.like_when_comment and \"未重复提交\" not in result:"
+  },
+  {
+   "file": "main.py",
+   "line": 3252,
+   "label": "comment钩子",
+   "text": "name=\"qzone_delete_comment\","
+  },
+  {
+   "file": "main.py",
+   "line": 3259,
+   "label": "comment钩子",
+   "text": "\"comment_id\": {\"type\": \"string\", \"description\": \"要删除的评论ID（从 qzone_view 获取）\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 3260,
+   "label": "comment钩子",
+   "text": "\"comment_uin\": {\"type\": \"string\", \"description\": \"评论作者QQ号（可选，楼中回复建议传）\"}"
+  },
+  {
+   "file": "main.py",
+   "line": 3262,
+   "label": "comment钩子",
+   "text": "\"required\": [\"target_id\", \"tid\", \"comment_id\"]"
+  },
+  {
+   "file": "main.py",
+   "line": 3265,
+   "label": "comment钩子",
+   "text": "async def tool_delete_comment(self, event: KiraMessageBatchEvent, target_id: str, tid: str, comment_id: str, comment_uin: str = \"\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 3274,
+   "label": "comment钩子",
+   "text": "real_cid = str(comment_id)"
+  },
+  {
+   "file": "main.py",
+   "line": 3277,
+   "label": "comment钩子",
+   "text": "# （h5 域 delcomment_ugc 接受短楼层号 commentId）。"
+  },
+  {
+   "file": "main.py",
+   "line": 3285,
+   "label": "comment钩子",
+   "text": "matched = self._match_comment(parsed_posts[0].comments, comment_id, comment_uin)"
+  },
+  {
+   "file": "main.py",
+   "line": 3288,
+   "label": "comment钩子",
+   "text": "if matched is not None and matched.comment_id:"
+  },
+  {
+   "file": "main.py",
+   "line": 3289,
+   "label": "comment钩子",
+   "text": "real_cid = matched.comment_id"
+  },
+  {
+   "file": "main.py",
+   "line": 3291,
+   "label": "comment钩子",
+   "text": "f\"删除评论反查真实 ID: {comment_id} -> {real_cid} \""
+  },
+  {
+   "file": "main.py",
+   "line": 3296,
+   "label": "comment钩子",
+   "text": "f\"删除评论未找到唯一匹配（可能为短楼层号），直接用原 ID 尝试: {comment_id} \""
+  },
+  {
+   "file": "main.py",
+   "line": 3302,
+   "label": "comment钩子",
+   "text": "resp = await self.api.delete_comment("
+  },
+  {
+   "file": "main.py",
+   "line": 3305,
+   "label": "comment钩子",
+   "text": "comment_id=real_cid,"
+  },
+  {
+   "file": "main.py",
+   "line": 3306,
+   "label": "comment钩子",
+   "text": "comment_uin=str(comment_uin or \"\"),"
+  },
+  {
+   "file": "main.py",
+   "line": 3315,
+   "label": "comment钩子",
+   "text": "def _match_comment(comments: List[QzoneComment], comment_id: str, comment_uin: str = \"\") -> Optional[QzoneComment]:"
+  },
+  {
+   "file": "main.py",
+   "line": 3316,
+   "label": "comment钩子",
+   "text": "\"\"\"按评论 ID（兼容真实 comment_id 与短楼层号 tid）和 UIN 匹配评论；0/多条返回 None。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 3318,
+   "label": "comment钩子",
+   "text": "cmt for cmt in comments"
+  },
+  {
+   "file": "main.py",
+   "line": 3319,
+   "label": "comment钩子",
+   "text": "if str(cmt.comment_id) == str(comment_id)"
+  },
+  {
+   "file": "main.py",
+   "line": 3320,
+   "label": "comment钩子",
+   "text": "or str(cmt.tid) == str(comment_id)"
+  },
+  {
+   "file": "main.py",
+   "line": 3322,
+   "label": "comment钩子",
+   "text": "if comment_uin:"
+  },
+  {
+   "file": "main.py",
+   "line": 3323,
+   "label": "comment钩子",
+   "text": "matches = [cmt for cmt in matches if str(cmt.uin) == str(comment_uin)]"
+  },
+  {
+   "file": "main.py",
+   "line": 3327,
+   "label": "comment钩子",
+   "text": "name=\"qzone_reply_comment\","
+  },
+  {
+   "file": "main.py",
+   "line": 3328,
+   "label": "comment钩子",
+   "text": "description=\"回复某条评论。评论 ID 与作者 UIN 从 qzone_view 获取；同一说说内评论 ID 重复时必须同时传 comment_uin。\","
+  },
+  {
+   "file": "main.py",
+   "line": 3334,
+   "label": "comment钩子",
+   "text": "\"comment_id\": {\"type\": \"string\", \"description\": \"要回复的评论ID\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 3335,
+   "label": "comment钩子",
+   "text": "\"comment_uin\": {\"type\": \"string\", \"description\": \"评论作者QQ号（同一说说内评论ID重复时必填）\"},"
+  },
+  {
+   "file": "main.py",
+   "line": 3338,
+   "label": "comment钩子",
+   "text": "\"required\": [\"target_id\", \"tid\", \"comment_id\"]"
+  },
+  {
+   "file": "main.py",
+   "line": 3341,
+   "label": "comment钩子",
+   "text": "async def tool_reply_comment(self, event: KiraMessageBatchEvent, target_id: str, tid: str, comment_id: str, comment_uin: str = \"\", content: str = \"\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 3359,
+   "label": "comment钩子",
+   "text": "# view 展示的是真实评论 ID（comment_id），删除接口也按它匹配；"
+  },
+  {
+   "file": "main.py",
+   "line": 3362,
+   "label": "comment钩子",
+   "text": "cmt for cmt in full_post.comments"
+  },
+  {
+   "file": "main.py",
+   "line": 3363,
+   "label": "comment钩子",
+   "text": "if str(cmt.comment_id) == str(comment_id) or str(cmt.tid) == str(comment_id)"
+  },
+  {
+   "file": "main.py",
+   "line": 3365,
+   "label": "comment钩子",
+   "text": "if comment_uin:"
+  },
+  {
+   "file": "main.py",
+   "line": 3366,
+   "label": "comment钩子",
+   "text": "matches = [cmt for cmt in matches if str(cmt.uin) == str(comment_uin)]"
+  },
+  {
+   "file": "main.py",
+   "line": 3368,
+   "label": "comment钩子",
+   "text": "suffix = f\"、UIN: {comment_uin}\" if comment_uin else \"\""
+  },
+  {
+   "file": "main.py",
+   "line": 3369,
+   "label": "comment钩子",
+   "text": "return f\"未找到指定的评论 ID: {comment_id}{suffix}\""
+  },
+  {
+   "file": "main.py",
+   "line": 3372,
+   "label": "comment钩子",
+   "text": "return f\"评论 ID {comment_id} 不唯一，请补充 comment_uin。可选目标：{options}\""
+  },
+  {
+   "file": "main.py",
+   "line": 3373,
+   "label": "comment钩子",
+   "text": "target_comment = matches[0]"
+  },
+  {
+   "file": "main.py",
+   "line": 3376,
+   "label": "comment钩子",
+   "text": "_, prompt_content = self._parse_comment_content(target_comment.content)"
+  },
+  {
+   "file": "main.py",
+   "line": 3377,
+   "label": "comment钩子",
+   "text": "prompt = f\"用户 {target_comment.nickname} 评论了你的说说：{prompt_content}，请生成一条简洁回复（0-15字）。\""
+  },
+  {
+   "file": "main.py",
+   "line": 3381,
+   "label": "comment钩子",
+   "text": "root_comment = self._find_root_comment(full_post.comments, target_comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 3382,
+   "label": "comment钩子",
+   "text": "result = await self._reply_comment("
+  },
+  {
+   "file": "main.py",
+   "line": 3384,
+   "label": "comment钩子",
+   "text": "target_comment,"
+  },
+  {
+   "file": "main.py",
+   "line": 3386,
+   "label": "comment钩子",
+   "text": "root_comment=root_comment,"
+  },
+  {
+   "file": "schema.json",
+   "line": 92,
+   "label": "comment钩子",
+   "text": "\"auto_comment_schedule\": {"
+  },
+  {
+   "file": "schema.json",
+   "line": 158,
+   "label": "comment钩子",
+   "text": "\"max_comments_per_cycle\": {"
+  },
+  {
+   "file": "schema.json",
+   "line": 168,
+   "label": "comment钩子",
+   "text": "\"like_when_comment\": {"
+  },
+  {
+   "file": "schema.json",
+   "line": 183,
+   "label": "comment钩子",
+   "text": "\"comment_verify\": {"
+  },
+  {
+   "file": "schema.json",
+   "line": 255,
+   "label": "comment钩子",
+   "text": "\"auto_comment_image_desc\": {"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 54,
+   "label": "comment钩子",
+   "text": "DELETE_COMMENT_H5_URL = \"https://h5.qzone.qq.com/proxy/domain/taotao.qzone.qq.com/cgi-bin/emotion_cgi_delcomment_ugc\""
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 436,
+   "label": "comment钩子",
+   "text": "async def comment(self, post: Post, content: str) -> ApiResponse:"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 543,
+   "label": "comment钩子",
+   "text": "comment: Comment,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 545,
+   "label": "comment钩子",
+   "text": "root_comment: Comment | None = None,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 549,
+   "label": "comment钩子",
+   "text": "root = root_comment or comment"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 550,
+   "label": "comment钩子",
+   "text": "if comment.parent_tid is not None and root.tid != comment.parent_tid:"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 552,
+   "label": "comment钩子",
+   "text": "f\"楼中回复所属主评论不匹配: target={comment.tid} \""
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 553,
+   "label": "comment钩子",
+   "text": "f\"parent={comment.parent_tid} root={root.tid}\""
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 557,
+   "label": "comment钩子",
+   "text": "if comment.parent_tid is not None:"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 558,
+   "label": "comment钩子",
+   "text": "reply_content = f\"@{{uin:{comment.uin},nick:{comment.nickname},who:1,auto:1}}{content}\""
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 561,
+   "label": "comment钩子",
+   "text": "\"QZone回复参数: post=%s target_comment=%s root_comment=%s \""
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 564,
+   "label": "comment钩子",
+   "text": "comment.tid,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 567,
+   "label": "comment钩子",
+   "text": "comment.uin,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 568,
+   "label": "comment钩子",
+   "text": "comment.parent_tid is not None,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 589,
+   "label": "comment钩子",
+   "text": "\"commentId\": root.tid,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 590,
+   "label": "comment钩子",
+   "text": "\"commentUin\": root.uin,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 646,
+   "label": "comment钩子",
+   "text": "async def delete_comment("
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 650,
+   "label": "comment钩子",
+   "text": "comment_id: str,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 651,
+   "label": "comment钩子",
+   "text": "comment_uin: str = \"\","
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 655,
+   "label": "comment钩子",
+   "text": "唯一路径：h5 代理域 emotion_cgi_delcomment_ugc（实测成功）。"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 657,
+   "label": "comment钩子",
+   "text": "comment_id: 评论 ID（短楼层号 1/2/3 即可，网页端同款，无需真实长 ID）"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 658,
+   "label": "comment钩子",
+   "text": "comment_uin: 评论作者 QQ（仅用于 tool 层反查定位，本接口请求不携带）"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 696,
+   "label": "comment钩子",
+   "text": "# 唯一路径：h5 代理域 emotion_cgi_delcomment_ugc（实测成功，见更新记录 v1.4.4）。"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 699,
+   "label": "comment钩子",
+   "text": "# v1 为实测版参数（topicId+commentId+format=fs，网页端同款，短楼层号可直接删）；"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 706,
+   "label": "comment钩子",
+   "text": "\"commentId\": comment_id,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 719,
+   "label": "comment钩子",
+   "text": "\"comment_id\": comment_id,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 741,
+   "label": "comment钩子",
+   "text": "\"QZone删除评论成功: route=h5 variant=%s post=%s comment=%s\","
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 742,
+   "label": "comment钩子",
+   "text": "idx, tid, comment_id,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 788,
+   "label": "comment钩子",
+   "text": "\"need_comment\": 1,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 789,
+   "label": "comment钩子",
+   "text": "\"need_private_comment\": 1,"
+  },
+  {
+   "file": "qzone/api.py",
+   "line": 800,
+   "label": "comment钩子",
+   "text": "2. PC emotion_cgi_getdetailv6（评论含真实 commentid，供删除/回复定位；多数环境不可用）"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 198,
+   "label": "comment钩子",
+   "text": "comment_id: str = \"\"  # 真实评论 ID（长数字或含 _r_ 的合成 id，删除/回复用）"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 214,
+   "label": "comment钩子",
+   "text": "# 真实评论 ID：PC/详情接口通常带 commentid/cid；feeds3/msglist 可能只有短楼层号 tid。"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 216,
+   "label": "comment钩子",
+   "text": "comment_id = str("
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 217,
+   "label": "comment钩子",
+   "text": "raw.get(\"commentid\") or raw.get(\"comment_id\") or raw.get(\"cid\")"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 218,
+   "label": "comment钩子",
+   "text": "or raw.get(\"commentId\") or raw_tid or \"\""
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 231,
+   "label": "comment钩子",
+   "text": "comment_id=comment_id.strip(),"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 238,
+   "label": "comment钩子",
+   "text": "def build_list(comment_list: List[dict]) -> List[\"Comment\"]:"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 239,
+   "label": "comment钩子",
+   "text": "\"\"\"将 commentlist 整段 flatten 成 List[Comment]\"\"\""
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 241,
+   "label": "comment钩子",
+   "text": "for main in comment_list:"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 288,
+   "label": "comment钩子",
+   "text": "comments: List[Comment] = pydantic.Field(default_factory=list)"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 323,
+   "label": "comment钩子",
+   "text": "if self.comments:"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 325,
+   "label": "comment钩子",
+   "text": "for comment in self.comments:"
+  },
+  {
+   "file": "qzone/model.py",
+   "line": 327,
+   "label": "comment钩子",
+   "text": "f\"- **{remove_em_tags(comment.nickname)}**: {remove_em_tags(extract_and_replace_nickname(comment.content))}\""
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 282,
+   "label": "comment钩子",
+   "text": "comments = Comment.build_list(_as_list(msg.get(\"commentlist\")))"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 318,
+   "label": "comment钩子",
+   "text": "comments=comments,"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 395,
+   "label": "comment钩子",
+   "text": "comments: list[Comment] = []"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 397,
+   "label": "comment钩子",
+   "text": "comment_items = soup.select(\"li.comments-item.bor3\")"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 398,
+   "label": "comment钩子",
+   "text": "if comment_items:"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 399,
+   "label": "comment钩子",
+   "text": "for item in comment_items:"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 401,
+   "label": "comment钩子",
+   "text": "comment_tid = str(item.get(\"data-tid\", \"\"))"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 404,
+   "label": "comment钩子",
+   "text": "content_div = item.select_one(\"div.comments-content\")"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 407,
+   "label": "comment钩子",
+   "text": "for op in content_div.select(\"div.comments-op\"):"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 416,
+   "label": "comment钩子",
+   "text": "comment_time_span = item.select_one(\"span.state\")"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 417,
+   "label": "comment钩子",
+   "text": "comment_time = ("
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 418,
+   "label": "comment钩子",
+   "text": "comment_time_span.get_text(strip=True)"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 419,
+   "label": "comment钩子",
+   "text": "if comment_time_span"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 425,
+   "label": "comment钩子",
+   "text": "parent_div = item.find_parent(\"div\", class_=\"mod-comments-sub\")"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 428,
+   "label": "comment钩子",
+   "text": "\"li\", class_=\"comments-item\""
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 433,
+   "label": "comment钩子",
+   "text": "comments.append("
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 439,
+   "label": "comment钩子",
+   "text": "create_time_str=comment_time,"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 440,
+   "label": "comment钩子",
+   "text": "tid=int(comment_tid) if comment_tid.isdigit() else 0,"
+  },
+  {
+   "file": "qzone/parser.py",
+   "line": 455,
+   "label": "comment钩子",
+   "text": "comments=comments,"
+  },
+  {
+   "file": "tests/test_parser_dirty_data.py",
+   "line": 17,
+   "label": "comment钩子",
+   "text": "\"commentlist\": [],"
+  },
+  {
+   "file": "tests/test_parser_dirty_data.py",
+   "line": 60,
+   "label": "comment钩子",
+   "text": "def test_comment_uin_not_numeric(self):"
+  },
+  {
+   "file": "tests/test_parser_dirty_data.py",
+   "line": 61,
+   "label": "comment钩子",
+   "text": "page = [post(commentlist=[{\"uin\": \"x\", \"name\": \"n\", \"content\": \"c\", \"tid\": \"1\"}])]"
+  },
+  {
+   "file": "tests/test_parser_dirty_data.py",
+   "line": 64,
+   "label": "comment钩子",
+   "text": "self.assertEqual(len(posts[0].comments), 1)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 14,
+   "label": "comment钩子",
+   "text": "def cmt(tid=1, uin=20002, nick=\"小王\", content=\"你好\", comment_id=\"\", parent_tid=None):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 16,
+   "label": "comment钩子",
+   "text": "tid=tid, comment_id=comment_id or str(tid), parent_tid=parent_tid)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 160,
+   "label": "comment钩子",
+   "text": "def test_parse_comment_content(self):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 161,
+   "label": "comment钩子",
+   "text": "target, text = self.plugin._parse_comment_content("
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 165,
+   "label": "comment钩子",
+   "text": "target, text = self.plugin._parse_comment_content(\"普通评论\")"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 170,
+   "label": "comment钩子",
+   "text": "post = Post(tid=\"t1\", uin=10001, comments=["
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 174,
+   "label": "comment钩子",
+   "text": "self.assertEqual(self.plugin._count_own_comment(post, \"好看\"), 1)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 175,
+   "label": "comment钩子",
+   "text": "self.assertEqual(self.plugin._count_own_comment(post, \"没有的\"), 0)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 177,
+   "label": "comment钩子",
+   "text": "def test_match_comment_by_comment_id_or_tid_or_uin(self):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 178,
+   "label": "comment钩子",
+   "text": "comments = [cmt(tid=1, uin=20002, comment_id=\"1001\"),"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 179,
+   "label": "comment钩子",
+   "text": "cmt(tid=2, uin=30003, comment_id=\"1002\")]"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 180,
+   "label": "comment钩子",
+   "text": "self.assertIsNotNone(self.plugin._match_comment(comments, \"1001\"))"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 181,
+   "label": "comment钩子",
+   "text": "self.assertIsNotNone(self.plugin._match_comment(comments, \"2\"))"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 182,
+   "label": "comment钩子",
+   "text": "self.assertIsNotNone(self.plugin._match_comment(comments, \"1\", \"20002\"))"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 183,
+   "label": "comment钩子",
+   "text": "self.assertIsNone(self.plugin._match_comment(comments, \"1\", \"99999\"))"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 184,
+   "label": "comment钩子",
+   "text": "self.assertIsNone(self.plugin._match_comment(comments, \"999\"))"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 186,
+   "label": "comment钩子",
+   "text": "def test_match_comment_ambiguous_returns_none(self):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 188,
+   "label": "comment钩子",
+   "text": "comments = [cmt(tid=1, uin=20002, comment_id=\"same\"),"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 189,
+   "label": "comment钩子",
+   "text": "cmt(tid=2, uin=30003, comment_id=\"same\")]"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 190,
+   "label": "comment钩子",
+   "text": "self.assertIsNone(self.plugin._match_comment(comments, \"same\"))"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 192,
+   "label": "comment钩子",
+   "text": "def test_format_comment_line_prefers_real_id(self):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 193,
+   "label": "comment钩子",
+   "text": "line = self.plugin._format_comment_line(cmt(tid=7, comment_id=\"9001\"), \"主评论\", \"  \", \"t\")"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 197,
+   "label": "comment钩子",
+   "text": "def test_find_root_comment(self):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 198,
+   "label": "comment钩子",
+   "text": "root = cmt(tid=10, comment_id=\"r\")"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 199,
+   "label": "comment钩子",
+   "text": "sub = cmt(tid=11, comment_id=\"s\", parent_tid=10)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 200,
+   "label": "comment钩子",
+   "text": "other = cmt(tid=12, comment_id=\"o\")"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 201,
+   "label": "comment钩子",
+   "text": "self.assertIs(self.plugin._find_root_comment([root, sub, other], sub), root)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 202,
+   "label": "comment钩子",
+   "text": "self.assertIs(self.plugin._find_root_comment([root, sub, other], root), root)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 204,
+   "label": "comment钩子",
+   "text": "def test_find_root_comment_ambiguous_raises(self):"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 205,
+   "label": "comment钩子",
+   "text": "root1 = cmt(tid=10, comment_id=\"r1\")"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 206,
+   "label": "comment钩子",
+   "text": "root2 = cmt(tid=10, comment_id=\"r2\")"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 207,
+   "label": "comment钩子",
+   "text": "sub = cmt(tid=11, comment_id=\"s\", parent_tid=10)"
+  },
+  {
+   "file": "tests/test_parsing_helpers.py",
+   "line": 209,
+   "label": "comment钩子",
+   "text": "self.plugin._find_root_comment([root1, root2, sub], sub)"
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 313,
+   "label": "comment钩子",
+   "text": "def test_comment_job_sends_instruction(self):"
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 314,
+   "label": "comment钩子",
+   "text": "self.run_(self.plugin._auto_comment_job())"
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 319,
+   "label": "comment钩子",
+   "text": "\"\"\"回复任务指令里点名的工具必须真实存在（本轮还原了 qzone_reply_comment）。\"\"\""
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 322,
+   "label": "comment钩子",
+   "text": "self.assertIn(\"qzone_reply_comment\", self._text(self.ctx.message_processor.events[0]))"
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 323,
+   "label": "comment钩子",
+   "text": "self.assertTrue(hasattr(self.plugin, \"tool_reply_comment\"), \"指令点名的工具必须存在\")"
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 331,
+   "label": "comment钩子",
+   "text": "for job in (self.plugin._auto_publish_job, self.plugin._auto_comment_job):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 16,
+   "label": "comment钩子",
+   "text": "def detail_msg(tid=\"t1\", uin=10001, name=\"我\", text=\"内容\", comments=None, pic=None, liked=0):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 20,
+   "label": "comment钩子",
+   "text": "\"commentlist\": comments or [], \"isliked\": liked, \"curlikekey\": f\"key-{tid}\","
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 29,
+   "label": "comment钩子",
+   "text": "self.comment_ok = True"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 30,
+   "label": "comment钩子",
+   "text": "self.dup_comment = False"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 51,
+   "label": "comment钩子",
+   "text": "async def comment(self, post, content):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 52,
+   "label": "comment钩子",
+   "text": "self.calls.append((\"comment\", post.tid, content))"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 53,
+   "label": "comment钩子",
+   "text": "return resp(True) if self.comment_ok else resp(False, message=\"评论失败原因\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 63,
+   "label": "comment钩子",
+   "text": "async def reply(self, post, comment, content, root_comment=None):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 64,
+   "label": "comment钩子",
+   "text": "self.calls.append((\"reply\", post.tid, comment.tid, content))"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 71,
+   "label": "comment钩子",
+   "text": "async def delete_comment(self, uin, tid, comment_id, comment_uin=\"\"):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 72,
+   "label": "comment钩子",
+   "text": "self.calls.append((\"delete_comment\", uin, tid, comment_id, comment_uin))"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 139,
+   "label": "comment钩子",
+   "text": "def test_view_shows_comments_and_likes(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 141,
+   "label": "comment钩子",
+   "text": "self.api.detail = detail_msg(tid=\"t1\", text=\"正文\", comments=["
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 143,
+   "label": "comment钩子",
+   "text": "\"commentid\": \"c1\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 158,
+   "label": "comment钩子",
+   "text": "def test_comment_with_content(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 159,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_comment', target_id=\"20002\", tid=\"t1\", content=\"不错哦\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 162,
+   "label": "comment钩子",
+   "text": "def test_comment_idempotent(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 163,
+   "label": "comment钩子",
+   "text": "self.api.detail = detail_msg(tid=\"t1\", comments=["
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 165,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"c1\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 167,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_comment', target_id=\"20002\", tid=\"t1\", content=\"不错哦\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 170,
+   "label": "comment钩子",
+   "text": "def test_comment_with_auto_like(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 171,
+   "label": "comment钩子",
+   "text": "self.plugin.like_when_comment = True"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 173,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_comment', target_id=\"20002\", tid=\"t1\", content=\"hi\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 192,
+   "label": "comment钩子",
+   "text": "def test_delete_comment(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 193,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_delete_comment', target_id=\"10001\", tid=\"t1\", comment_id=\"c1\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 196,
+   "label": "comment钩子",
+   "text": "def _with_one_comment(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 197,
+   "label": "comment钩子",
+   "text": "self.api.detail = detail_msg(tid=\"t1\", comments=["
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 199,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"c1\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 204,
+   "label": "comment钩子",
+   "text": "\"\"\"qzone_comment 不该有 comment_id；qzone_reply_comment 必须有。\"\"\""
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 220,
+   "label": "comment钩子",
+   "text": "c_props, c_req = decls['qzone_comment']"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 221,
+   "label": "comment钩子",
+   "text": "r_props, r_req = decls['qzone_reply_comment']"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 223,
+   "label": "comment钩子",
+   "text": "self.assertNotIn('comment_id', c_props, '评论工具不该有 comment_id（否则可能被误用成回复）')"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 225,
+   "label": "comment钩子",
+   "text": "self.assertIn('comment_id', r_props)"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 226,
+   "label": "comment钩子",
+   "text": "self.assertIn('comment_id', r_req, '回复工具的 comment_id 必须是必填')"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 229,
+   "label": "comment钩子",
+   "text": "def test_comment_does_not_reply(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 230,
+   "label": "comment钩子",
+   "text": "self._with_one_comment()"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 231,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_comment', target_id=\"10001\", tid=\"t1\", content=\"不错\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 234,
+   "label": "comment钩子",
+   "text": "self.assertIn(\"comment\", called)"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 237,
+   "label": "comment钩子",
+   "text": "def test_reply_does_not_comment(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 238,
+   "label": "comment钩子",
+   "text": "self._with_one_comment()"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 239,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_reply_comment', target_id=\"10001\", tid=\"t1\","
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 240,
+   "label": "comment钩子",
+   "text": "comment_id=\"c1\", content=\"在的\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 244,
+   "label": "comment钩子",
+   "text": "self.assertNotIn(\"comment\", called, '回复工具不该走评论分支')"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 246,
+   "label": "comment钩子",
+   "text": "def test_reply_with_unknown_comment_id(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 247,
+   "label": "comment钩子",
+   "text": "self._with_one_comment()"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 248,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_reply_comment', target_id=\"10001\", tid=\"t1\", comment_id=\"不存在\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 253,
+   "label": "comment钩子",
+   "text": "self.api.detail = detail_msg(tid=\"t1\", comments=["
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 255,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"same\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 257,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"same\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 259,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_reply_comment', target_id=\"10001\", tid=\"t1\", comment_id=\"same\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 261,
+   "label": "comment钩子",
+   "text": "self.assertIn(\"comment_uin\", out)"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 265,
+   "label": "comment钩子",
+   "text": "self.api.detail = detail_msg(tid=\"t1\", comments=["
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 267,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"same\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 269,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"same\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 271,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_reply_comment', target_id=\"10001\", tid=\"t1\","
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 272,
+   "label": "comment钩子",
+   "text": "comment_id=\"same\", comment_uin=\"30003\", content=\"回你\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 279,
+   "label": "comment钩子",
+   "text": "self._with_one_comment()"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 285,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_reply_comment', target_id=\"10001\", tid=\"t1\", comment_id=\"c1\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 289,
+   "label": "comment钩子",
+   "text": "def test_comment_path_still_idempotent(self):"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 290,
+   "label": "comment钩子",
+   "text": "self.api.detail = detail_msg(tid=\"t1\", comments=["
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 292,
+   "label": "comment钩子",
+   "text": "\"create_time\": 1700000000, \"commentid\": \"c1\"},"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 294,
+   "label": "comment钩子",
+   "text": "out = self.call('tool_comment', target_id=\"10001\", tid=\"t1\", content=\"不错\")"
+  },
+  {
+   "file": "tests/test_tool_flows.py",
+   "line": 296,
+   "label": "comment钩子",
+   "text": "self.assertNotIn(\"comment\", [c[0] for c in self.api.calls])"
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "main.py",
+   "line": 475,
+   "label": "persona_mgr",
+   "text": "persona_info = await self.ctx.persona_mgr.get_persona(self.backend_persona)"
+  },
+  {
+   "file": "main.py",
+   "line": 479,
+   "label": "persona_mgr",
+   "text": "for p in await self.ctx.persona_mgr.list_personas():"
+  },
+  {
+   "file": "main.py",
+   "line": 488,
+   "label": "persona_mgr",
+   "text": "persona_info = await self.ctx.persona_mgr.get_active_persona()"
+  },
+  {
+   "file": "main.py",
+   "line": 495,
+   "label": "persona_mgr",
+   "text": "return self.ctx.persona_mgr.get_persona() or \"\""
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 376,
+   "label": "persona_mgr",
+   "text": "self.persona_mgr = None"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 924,
+   "label": "替换框架文件",
+   "text": "覆盖注册表（core/adapter/adapter_registry.py:547），长期缓存旧对象会让插件"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 9,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 217,
+   "label": "读框架文件",
+   "text": "_spec = importlib.util.spec_from_file_location('qzone_plugin.main', ROOT / 'main.py')"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 218,
+   "label": "读框架文件",
+   "text": "main = importlib.util.module_from_spec(_spec)"
+  },
+  {
+   "file": "tests/_bootstrap.py",
+   "line": 391,
+   "label": "替换框架文件",
+   "text": "# 既有用例按\"每轮注入\"的旧语义写；on_demand 由专门用例覆盖"
+  },
+  {
+   "file": "tests/run_tests.py",
+   "line": 46,
+   "label": "读框架文件",
+   "text": "module = __import__(name)"
+  },
+  {
+   "file": "tests/test_cookie_selfheal.py",
+   "line": 20,
+   "label": "替换框架文件",
+   "text": "# 框架在适配器更新时会 new 一个新实例覆盖注册表"
+  },
+  {
+   "file": "tests/test_manifest_hook.py",
+   "line": 39,
+   "label": "替换框架文件",
+   "text": "# 既有清单用例按\"每轮注入\"语义写；on_demand 由专门用例覆盖"
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 3,
+   "label": "替换框架文件",
+   "text": "覆盖："
+  },
+  {
+   "file": "tests/test_publish_paths.py",
+   "line": 277,
+   "label": "替换框架文件",
+   "text": "这是 README 里推荐的模式，之前没有端到端覆盖。"
+  },
+  {
+   "file": "tests/test_silent_guard.py",
+   "line": 13,
+   "label": "替换框架文件",
+   "text": "- 「关键词压制」那版半吊子实现已删除 —— 它既漏（关键词覆盖不到就照发）、"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_qzone_plugin",
+  "head": "118fa40 2026-10-01 07:04:44 +0800 Merge pull request #5 from AinaLife-ai/fix/silent-guard-swallows-messages-1.4.10",
+  "core_version": null
+ }
+}

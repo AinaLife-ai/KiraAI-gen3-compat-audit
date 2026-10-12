@@ -1,0 +1,12 @@
+# znq19_KiraAI-subagent-plugin（用户点名额外纳入）
+- 总级: NEEDS-FIX（两处小修）
+- 版本: core_version 未声明
+- 规模: 2 py（main.py 2000+ 行，子代理委派）
+- 命中裁决:
+  - [D] main.py:266 `from core.plugin.plugin_handlers import event_handler_reg, EventType` → rc1 模块已删（等效物 core/plugin/handlers.py:20/102）→ rc1 上 ImportError 无法加载
+  - [B] main.py:946-948 `_fast_model_label`：`getattr(m,'model_id','')` 拼「provider;model_id」给用户看 → rc1 model_id=内部UUID → **显示 UUID 乱码**（命中用户关注点1）
+  - [B] available_models 配置项要求手填 provider_id:model_id（main.py:1728 等）→ rc1 下管理员须填内部 ID 才能过 get_llm_client(model_uuid=...)（rc1:132 在）→ 功能可通但 UX 退化（webui 里是 uuid）；属配置语义非崩溃
+  - [H] persona_mgr.list_personas/get_persona/create_persona（:672-721）rc1 全在且已 await；PersonaInfo 新增字段有默认值不破坏构造 → SAFE
+  - [F] main.py:1140 `message_types=[]` 构造事件 → rc1 兼容旧 kwarg（_accept_legacy_message_types）→ 功能正常仅 deprecation
+- 修复方案: ① :266 改双形态导入（try core.plugin.handlers / except core.plugin.plugin_handlers）；② :946 改 `getattr(m,'model_name',None) or getattr(m,'model_id','')`。两处均为单行级。
+- 备注: **本会话可直接修**。

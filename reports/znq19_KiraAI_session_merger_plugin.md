@@ -1,0 +1,12 @@
+# znq19_KiraAI_session_merger_plugin
+- 总级: NEEDS-FIX
+- 版本: core_version >=2.29.6
+- 规模: 18 py（merge_engine/cross_session/memory_access/hard_reset 等）
+- 命中裁决:
+  - [A] memory_access.py **直读内部缓存** `getattr(session_mgr,'chat_memory',None)`（:16,26,52,82 等全文件）——刻意绕过 2.x API 以避免 _ensure_session_data 写盘（:4 注释）→ rc1 该属性删除 → 返回 None → **全部读取静默返回空，合并永远合不到东西（静默全损，无报错）**
+  - [A] hard_reset.py:100,153,166-175：写穿覆写 write_memory（默认，保留 title/description）/ delete_session（可选）+ fetch_memory + get_session_info → rc1 全需换异步层
+  - [B] main.py:811 `provider_mgr.get_default_llm()` rc1:185 在；summarize_model 走 summarizer._resolve_client(model_id 优先→快速→默认回退) → SAFE
+  - [D] plugin_registry/plugin_handlers 命中全在 tests/test_integration_framework.py（自带测试桩）——生产无
+  - 注入面：on_llm_request 改写 req.messages（main.py:1864）——两代稳定 ✓
+- 修复方案(NEEDS-FIX): memory_access 全层重写为双世代：rc1 用 `await get_sessions(include_content=False)`（列表）/`await get_session(sid, ensure_session=False)`+`flatten_content()`（只读语义恰好对应其「不触发写盘」初衷）；hard_reset 写穿映射 `update_session(sid, content=chunks)`。调用点同步→异步改造面较大。
+- 备注: **建议新开会话项目承接**（与 reboot/ADS 一批，三者互操作有兼容契约——compat.py 的 SUMMARY_MARKER 共享约定，必须同测）。

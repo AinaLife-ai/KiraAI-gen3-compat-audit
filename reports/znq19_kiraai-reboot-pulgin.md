@@ -1,0 +1,13 @@
+# znq19_kiraai-reboot-pulgin（fork 但视同 znq19 维护）
+- 总级: NEEDS-FIX
+- 版本: core_version >=2.33
+- 规模: 4 py（main.py 1226 + summarizer 463 + compat 244[插件间兼容层，非框架兼容]）
+- 命中裁决:
+  - [A] 生产代码全面使用 2.x 同步会话 API：fetch_memory(main.py:1036)、read_memory(:1211)、write_memory(:990,1006,1009,1057,1225)、delete_session(:1004)、get_session_info(:1005)、get_memory_count(:552) —— **rc1 全部删除或变异步**。启动时 main.py:547-560 的 hasattr 必需方法检查会检出 missing → `session_mgr=None` → **插件在 rc1 上自我禁用（优雅但功能全失）**
+  - [A] 清空语义正确性：默认 memory_only 模式 write_memory 覆写（保留会话元数据，main.py:12-14 注释明确此设计哲学）；delete_session 为可选模式 → rc1 对应物是 `await update_session(sid, content=chunks)`（保留 title/data/capabilities）
+  - [A] main.py:1200 注释暴露竞态设计：「read_memory 与 write_memory 之间禁止 await（框架每轮末尾 update_memory）」→ rc1 全异步化后此原子性假设需重新设计（修复会话必查）
+  - [B] 模型：schema model_select(model_type=llm) + summarizer.py:188-198 `_resolve_client` 用 `ctx.get_llm_client(model_id)`（rc1 plugin_context.py:132 在）+ try/except 回退默认客户端 → SAFE
+  - [D] 导入全包级（core.plugin/core.chat/core.agent.message.OpenAIMessage[rc1 在]）→ SAFE
+  - [A] get_session_capabilities/update_session_capabilities/chat_memory 命中全在 tests/harness.py（自带 2.x 形态桩）——生产无
+- 修复方案(NEEDS-FIX): 加双世代会话层（参照 KPP v1.2.1 已验证模式）：特征识别 `hasattr(sm,'fetch_memory')` 走 2.x 同步；否则 rc1：`get_session(ensure_session=False)`→`flatten_content()`（读）、`update_session(sid, content=chunks)`（写穿覆写，=现 memory_only 语义）、`await delete_session`（delete 模式）、`len(session.content)`（计数）。全链路 async 化 + 重审 :1200 的原子性窗口。版本号+0.0.1，补 core_version 无妨。
+- 备注: **建议新开会话项目承接**（含测试套件与双世代回归，参照 KPP PR #2 流程）。

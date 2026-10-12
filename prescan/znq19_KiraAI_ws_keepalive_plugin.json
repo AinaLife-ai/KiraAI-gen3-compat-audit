@@ -1,0 +1,107 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 308,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = getattr(self.ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 309,
+   "label": "adapter_mgr",
+   "text": "if adapter_mgr is None:"
+  },
+  {
+   "file": "main.py",
+   "line": 312,
+   "label": "adapter_mgr",
+   "text": "getter = getattr(adapter_mgr, \"get_adapters\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 313,
+   "label": "adapter_mgr",
+   "text": "adapters = getter() if callable(getter) else getattr(adapter_mgr, \"_adapters\", {})"
+  },
+  {
+   "file": "selfcheck.py",
+   "line": 100,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = None"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 25,
+   "label": "替换框架文件",
+   "text": "参数。重连同样走 `NapCatWebSocketClient.connect`，所以挂在这一处即可全覆盖。"
+  },
+  {
+   "file": "main.py",
+   "line": 47,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "main.py",
+   "line": 61,
+   "label": "替换框架文件",
+   "text": "# 存的是旧默认 ``ping_timeout=30``；框架只补缺失键、不会覆盖已有值——不迁的话"
+  },
+  {
+   "file": "main.py",
+   "line": 190,
+   "label": "替换框架文件",
+   "text": "f\"open_timeout={self.open_timeout}s（覆盖新建连接与所有重连）\""
+  },
+  {
+   "file": "main.py",
+   "line": 230,
+   "label": "替换框架文件",
+   "text": "`NapCatWebSocketClient.connect`，而它内部调这个函数 —— 挂一处全覆盖。"
+  },
+  {
+   "file": "main.py",
+   "line": 237,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(f\"{pkg.__name__}.client\")"
+  },
+  {
+   "file": "main.py",
+   "line": 248,
+   "label": "替换框架文件",
+   "text": "# 结果是\"新实例配的值被旧实例覆盖\"。拆开重包则永远是最外层说了算。"
+  },
+  {
+   "file": "main.py",
+   "line": 258,
+   "label": "替换框架文件",
+   "text": "# 所以必须【赋值覆盖】，不能用 setdefault —— setdefault 只在键缺失时生效，"
+  },
+  {
+   "file": "main.py",
+   "line": 293,
+   "label": "读框架文件",
+   "text": "module = importlib.import_module(f\"{pkg.__name__}.client\")"
+  },
+  {
+   "file": "selfcheck.py",
+   "line": 132,
+   "label": "替换框架文件",
+   "text": "print(\"⑤ 反向验证：适配器硬编码的 5.0 / 10.0 必须已被覆盖 …\")"
+  },
+  {
+   "file": "selfcheck.py",
+   "line": 137,
+   "label": "替换框架文件",
+   "text": "print(\"    ✅ 适配器硬编码值已被覆盖\")"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_ws_keepalive_plugin",
+  "head": "776bb34 2026-10-08 15:07:30 +0800 Merge pull request #3 from AinaLife-ai/feat/ping-timeout-300-selfcheck",
+  "core_version": ">=2.29.6"
+ }
+}

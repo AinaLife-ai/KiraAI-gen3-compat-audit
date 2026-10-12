@@ -1,0 +1,21 @@
+{
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 329,
+   "label": "on_im_message",
+   "text": "async def on_im_message(self, event: KiraMessageEvent, *_):"
+  },
+  {
+   "file": "main.py",
+   "line": 428,
+   "label": "on_llm_request",
+   "text": "async def on_llm_request(self, event: KiraMessageBatchEvent, req: LLMRequest, *_):"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_payload_defense_plugin",
+  "head": "5e4a507 2026-08-19 03:28:16 +0800 Merge pull request #1 from AinaLife-ai/main",
+  "core_version": null
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 42,
+   "label": "clear/reset会话语义",
+   "text": "| `/dw clear` | 清除上下文（预设仓库默认保留绑定，见下文） |"
+  },
+  {
+   "file": "README.md",
+   "line": 92,
+   "label": "clear/reset会话语义",
+   "text": "搜索后会列出候选，并附带选仓指引 —— `/dw 1` 选第一个、`/dw owner/repo` 直接指定、`/dw ?` / `/dw clear` 查看或清除上下文。"
+  },
+  {
+   "file": "README.md",
+   "line": 152,
+   "label": "clear/reset会话语义",
+   "text": "默认开启「重置时保留预设仓库」：`/dw clear` 只清除对话记忆与候选列表，**仍保持绑定预设仓库**，可直接继续提问，不会回到搜索阶段。关闭该开关后，重置即彻底清空（下一次使用命令时预设会重新应用）。"
+  },
+  {
+   "file": "main.py",
+   "line": 477,
+   "label": "clear/reset会话语义",
+   "text": "lines.append(f\"• {p} clear      → 清除上下文，重新查询仓库来提问\")"
+  },
+  {
+   "file": "main.py",
+   "line": 504,
+   "label": "clear/reset会话语义",
+   "text": "\"clear_command_words\": [\"clear\", \"重置\", \"清空\", \"reset\", \"清除\", \"清除上下文\", \"重置上下文\"],"
+  },
+  {
+   "file": "main.py",
+   "line": 606,
+   "label": "clear/reset会话语义",
+   "text": "\"clear\", \"重置\", \"清空\", \"reset\", \"清除\", \"清除上下文\", \"重置上下文\""
+  },
+  {
+   "file": "main.py",
+   "line": 925,
+   "label": "clear/reset会话语义",
+   "text": "f\"• {p} clear        → 清除上下文\""
+  },
+  {
+   "file": "main.py",
+   "line": 940,
+   "label": "clear/reset会话语义",
+   "text": "f\"{p} clear      （清除上下文，重新查询仓库来提问）\""
+  },
+  {
+   "file": "main.py",
+   "line": 973,
+   "label": "clear/reset会话语义",
+   "text": "f\"清除上下文：{p} clear\\n\""
+  },
+  {
+   "file": "main.py",
+   "line": 1710,
+   "label": "clear/reset会话语义",
+   "text": "extra = {\"forget\", \"忘掉\", \"不要记住\", \"别记了\", \"清除上下文\", \"重置上下文\"}"
+  },
+  {
+   "file": "main.py",
+   "line": 1749,
+   "label": "clear/reset会话语义",
+   "text": "lines.append(f\"• {c}   （清除上下文，重新查询仓库来提问）\")"
+  },
+  {
+   "file": "schema.json",
+   "line": 145,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"开启（默认）：对配置了「默认初始仓库」的会话/用户，使用 /dw clear 等重置命令只清除对话记忆与候选列表，仍保持绑定预设仓库，可直接继续提问，不会回到搜索阶段。\\n关闭：重置后彻底清空，预设仓库也会被解除（下一次使用命令时会重新应用预设）。\""
+  },
+  {
+   "file": "schema.json",
+   "line": 159,
+   "label": "clear/reset会话语义",
+   "text": "\"清空\","
+  },
+  {
+   "file": "schema.json",
+   "line": 162,
+   "label": "clear/reset会话语义",
+   "text": "\"清除上下文\","
+  },
+  {
+   "file": "schema.json",
+   "line": 305,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"自定义答案末尾操作指南，必须是 JSON 对象。默认 {\\\"lines\\\":[]} 表示用插件自动生成的完整指南。自定义示例：{\\\"lines\\\":[\\\"——操作指南——\\\",\\\"• /dw 1 （从候选列表中查询对应序号的仓库）\\\",\\\"• /dw clear （清除上下文，重新查询仓库来提问）\\\""
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 1281,
+   "label": "adapter_mgr",
+   "text": "adapter_inst = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 529,
+   "label": "替换框架文件",
+   "text": "WebUI 增量保存也不会清除旧分组 —— 若简单让新分组覆盖旧分组，"
+  },
+  {
+   "file": "main.py",
+   "line": 1685,
+   "label": "替换框架文件",
+   "text": "\"\"\"为 ctx_key 应用预设仓库（已绑定时不覆盖）。返回最终生效的预设或 None。\"\"\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_deepwiki_plugin",
+  "head": "583e9b7 2026-08-13 23:57:42 +0800 Merge pull request #1 from AinaLife-ai/main",
+  "core_version": null
+ }
+}

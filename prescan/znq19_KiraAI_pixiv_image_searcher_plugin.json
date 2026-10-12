@@ -1,0 +1,29 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 647,
+   "label": "adapter_mgr",
+   "text": "inst = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  },
+  {
+   "file": "main.py",
+   "line": 664,
+   "label": "adapter_mgr",
+   "text": "adapter_inst = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "schema.json",
+   "line": 91,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"中文关键词到 Pixiv tag 的映射，会覆盖默认映射\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_pixiv_image_searcher_plugin",
+  "head": "ebbd04e 2026-10-12 06:57:12 +0800 Merge pull request #1 from AinaLife-ai/feat/icon-tags-1.4.1",
+  "core_version": null
+ }
+}

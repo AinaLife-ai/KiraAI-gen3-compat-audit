@@ -1,0 +1,291 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "main.py",
+   "line": 2500,
+   "label": "clear/reset会话语义",
+   "text": "# （插件 reload 后 _pending 会被清空，但缓存文件还在）"
+  },
+  {
+   "file": "main.py",
+   "line": 3306,
+   "label": "clear/reset会话语义",
+   "text": "if model_spec:                                   # 本次显式换了模型 → 更新会话"
+  },
+  {
+   "file": "tests/audit_notice.py",
+   "line": 32,
+   "label": "clear/reset会话语义",
+   "text": "issue(left == 0, f\"coalesce={coalesce} 缓冲清空\", f\"left={left}\")"
+  },
+  {
+   "file": "tests/audit_notice.py",
+   "line": 102,
+   "label": "clear/reset会话语义",
+   "text": "issue(not inst._flushing, \"flushing 集合已清空\", str(inst._flushing))"
+  },
+  {
+   "file": "tests/audit_runtime.py",
+   "line": 172,
+   "label": "clear/reset会话语义",
+   "text": "issue(not inst._tasks, \"terminate 清空任务表\")"
+  },
+  {
+   "file": "tests/audit_runtime.py",
+   "line": 173,
+   "label": "clear/reset会话语义",
+   "text": "issue(not inst._background_tasks, \"terminate 清空后台任务集\")"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 236,
+   "label": "默认模型读取",
+   "text": "self.default_model = str(basic.get(\"default_model\", \"auto\"))"
+  },
+  {
+   "file": "main.py",
+   "line": 2931,
+   "label": "默认模型读取",
+   "text": "profile = model_spec or select_model(self._profiles, duration_hint, self.default_model)"
+  },
+  {
+   "file": "main.py",
+   "line": 3255,
+   "label": "默认模型读取",
+   "text": "or select_model(self._profiles, total, self.default_model) \\"
+  },
+  {
+   "file": "main.py",
+   "line": 3303,
+   "label": "默认模型读取",
+   "text": "or select_model(self._profiles, sess.duration, self.default_model) \\"
+  },
+  {
+   "file": "schema.json",
+   "line": 18,
+   "label": "默认模型读取",
+   "text": "\"default_model\": {"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "llm_proxy.py",
+   "line": 11,
+   "label": "直接OpenAI",
+   "text": "from openai import AsyncOpenAI"
+  },
+  {
+   "file": "llm_proxy.py",
+   "line": 201,
+   "label": "直接OpenAI",
+   "text": "client = AsyncOpenAI(api_key=profile.api_key, base_url=profile.api_base)"
+  },
+  {
+   "file": "llm_proxy.py",
+   "line": 272,
+   "label": "直接OpenAI",
+   "text": "client = AsyncOpenAI(api_key=profile.api_key, base_url=profile.api_base)"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 381,
+   "label": "旧plugin_registry",
+   "text": "缺失的 key 补成默认值（plugin_registry._ensure_plugin_config），"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 2106,
+   "label": "adapter_mgr",
+   "text": "ad = self.ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  },
+  {
+   "file": "main.py",
+   "line": 2216,
+   "label": "adapter_mgr",
+   "text": "ad = self.ctx.adapter_mgr.get_adapter(event.adapter.name)"
+  },
+  {
+   "file": "main.py",
+   "line": 2314,
+   "label": "adapter_mgr",
+   "text": "ad = self.ctx.adapter_mgr.get_adapter(ad_name)"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "tests/selfcheck.py",
+   "line": 41,
+   "label": "comment钩子",
+   "text": "def strip_comments(src: str) -> str:"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 71,
+   "label": "comment钩子",
+   "text": "def strip_json_comments(src: str) -> str:"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 82,
+   "label": "comment钩子",
+   "text": "main_code = strip_comments(main_src)"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 83,
+   "label": "comment钩子",
+   "text": "vp_code = strip_comments(read(\"video_processor.py\"))"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "asr.py",
+   "line": 167,
+   "label": "替换框架文件",
+   "text": "response_format 等）不会被覆盖。"
+  },
+  {
+   "file": "asr.py",
+   "line": 188,
+   "label": "替换框架文件",
+   "text": "headers[str(k)] = str(v)     # 自定义头可覆盖上面的默认鉴权方式"
+  },
+  {
+   "file": "asr.py",
+   "line": 204,
+   "label": "替换框架文件",
+   "text": "# 额外表单字段（用户自定义；不覆盖上面的关键字段）"
+  },
+  {
+   "file": "main.py",
+   "line": 384,
+   "label": "替换框架文件",
+   "text": "万一写标记失败，宁可这次不迁移，也绝不会二次覆盖用户的手动修改。"
+  },
+  {
+   "file": "main.py",
+   "line": 461,
+   "label": "替换框架文件",
+   "text": "用我们的改动覆盖），这样即使是并行更新也不会丢掉别人的字段。"
+  },
+  {
+   "file": "main.py",
+   "line": 1106,
+   "label": "替换框架文件",
+   "text": "#    不能无条件覆盖成 cancelled，否则通告会误报成"
+  },
+  {
+   "file": "main.py",
+   "line": 2546,
+   "label": "替换框架文件",
+   "text": "#      通告里会用后台拿到的真实标题覆盖。"
+  },
+  {
+   "file": "main.py",
+   "line": 3225,
+   "label": "替换框架文件",
+   "text": "# frames 路径（含 native 多段：一次请求覆盖所有段）"
+  },
+  {
+   "file": "main.py",
+   "line": 3230,
+   "label": "替换框架文件",
+   "text": "note = \"\\n（多段分析走帧模式：一次请求覆盖所有段）\" if (multi and profile.mode == \"native\") else \"\""
+  },
+  {
+   "file": "schema.json",
+   "line": 692,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"JSON 对象。ASR 走 multipart 表单，所以这里是「再往表单里塞字段」，不是 JSON body 合并。例如 {\\\"temperature\\\":0} 或 {\\\"language\\\":\\\"zh\\\"}。插件自身的 file/model/response_format 不会被覆盖\""
+  },
+  {
+   "file": "video_processor.py",
+   "line": 6,
+   "label": "替换框架文件",
+   "text": "第二级：I帧（关键帧）— 编码层面最清晰的帧，补充场景变化未覆盖的"
+  },
+  {
+   "file": "video_processor.py",
+   "line": 7,
+   "label": "替换框架文件",
+   "text": "第三级：均匀抽帧 — 时序兜底，保证时间全覆盖"
+  },
+  {
+   "file": "video_processor.py",
+   "line": 253,
+   "label": "替换框架文件",
+   "text": "span 为该批帧覆盖的时长（用于估算平均帧间隔）。"
+  },
+  {
+   "file": "tests/audit_deadcfg.py",
+   "line": 100,
+   "label": "替换框架文件",
+   "text": "# __init__ 里定义的字段数应覆盖所有被直接访问的实例字段"
+  },
+  {
+   "file": "tests/audit_deadcfg.py",
+   "line": 128,
+   "label": "替换框架文件",
+   "text": "#    这类 AnnAssign 的 target 仍是 Attribute，但上面按 name 收集时要覆盖到。"
+  },
+  {
+   "file": "tests/audit_paths.py",
+   "line": 258,
+   "label": "读框架文件",
+   "text": "schema = __import__(\"json\").loads(sc.read(\"schema.json\"))"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 7,
+   "label": "替换框架文件",
+   "text": "覆盖："
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 207,
+   "label": "替换框架文件",
+   "text": "check(\"审计：排队超时不被 canceled 覆盖\","
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 299,
+   "label": "读框架文件",
+   "text": "path_utils.get_data_path = lambda: __import__(\"pathlib\").Path(tmpdir)"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 317,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 318,
+   "label": "读框架文件",
+   "text": "main_mod = importlib.import_module(\"main\")"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 319,
+   "label": "读框架文件",
+   "text": "importlib.reload(main_mod)"
+  },
+  {
+   "file": "tests/selfcheck.py",
+   "line": 610,
+   "label": "替换框架文件",
+   "text": "check(\"B7 用户改过的值不被覆盖\","
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_video_comprehension_plugin",
+  "head": "b3b8e9a 2026-09-25 06:34:38 +0800 Merge pull request #15 from AinaLife-ai/main",
+  "core_version": ">=2.33.1"
+ }
+}

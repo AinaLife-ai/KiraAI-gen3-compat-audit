@@ -1,0 +1,35 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 33,
+   "label": "adapter_mgr",
+   "text": "if not hasattr(self.ctx, \"adapter_mgr\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 34,
+   "label": "adapter_mgr",
+   "text": "logger.error(\"PluginContext missing 'adapter_mgr' attribute! Plugin will not work.\")"
+  },
+  {
+   "file": "main.py",
+   "line": 56,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(session.adapter_name)"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 188,
+   "label": "on_llm_response",
+   "text": "async def on_llm_response(self, event: KiraMessageBatchEvent, resp: LLMResponse):"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_typing_indicator_plugin",
+  "head": "c194fbc 2026-07-14 16:11:10 +0800 docs: add DeepWiki badge for auto-updating docs",
+  "core_version": null
+ }
+}

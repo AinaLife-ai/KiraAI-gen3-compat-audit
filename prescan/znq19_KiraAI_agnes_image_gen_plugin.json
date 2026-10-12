@@ -1,0 +1,205 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "main.py",
+   "line": 397,
+   "label": "clear/reset会话语义",
+   "text": "这样 terminate() 清空登记表后，迟到的回调不会误扣新任务的额度。"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 1012,
+   "label": "adapter_mgr",
+   "text": "adapter_inst = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "main.py",
+   "line": 311,
+   "label": "selfie",
+   "text": "3. KiraAI 2.x：bot_config.selfie.path"
+  },
+  {
+   "file": "main.py",
+   "line": 312,
+   "label": "persona_mgr",
+   "text": "4. KiraAI 3.0：persona_mgr.get_reference_image()（3.0 已把 selfie 迁移到 persona 表，"
+  },
+  {
+   "file": "main.py",
+   "line": 312,
+   "label": "selfie",
+   "text": "4. KiraAI 3.0：persona_mgr.get_reference_image()（3.0 已把 selfie 迁移到 persona 表，"
+  },
+  {
+   "file": "main.py",
+   "line": 312,
+   "label": "reference_image",
+   "text": "4. KiraAI 3.0：persona_mgr.get_reference_image()（3.0 已把 selfie 迁移到 persona 表，"
+  },
+  {
+   "file": "main.py",
+   "line": 313,
+   "label": "selfie",
+   "text": "bot_config.selfie 仅作一次性迁移用途，直接读配置在 3.0 上必然拿不到）"
+  },
+  {
+   "file": "main.py",
+   "line": 324,
+   "label": "selfie",
+   "text": "self.ctx.config.get_config(\"bot_config.selfie.path\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 325,
+   "label": "selfie",
+   "text": "or (self.ctx.config.get(\"bot_config\", {}) or {}).get(\"selfie\", {}).get(\"path\", \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 334,
+   "label": "selfie",
+   "text": "logger.debug(\"[agnes_image_gen] 读取 bot_config.selfie.path 失败\")"
+  },
+  {
+   "file": "main.py",
+   "line": 336,
+   "label": "reference_image",
+   "text": "# 3.0 persona 参考图（get_reference_image 接受 persona_id=None 表示当前激活角色）"
+  },
+  {
+   "file": "main.py",
+   "line": 339,
+   "label": "persona_mgr",
+   "text": "persona_mgr = getattr(self.ctx, \"persona_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 340,
+   "label": "persona_mgr",
+   "text": "getter = getattr(persona_mgr, \"get_reference_image\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 340,
+   "label": "reference_image",
+   "text": "getter = getattr(persona_mgr, \"get_reference_image\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 515,
+   "label": "reference_image",
+   "text": "reference_image_urls: Optional[List[str]] = None,"
+  },
+  {
+   "file": "main.py",
+   "line": 524,
+   "label": "reference_image",
+   "text": "reference_image_urls: 已解析的参考图片列表（URL 或 data URL），"
+  },
+  {
+   "file": "main.py",
+   "line": 525,
+   "label": "reference_image",
+   "text": "由调用方先通过 _resolve_reference_image 逐张处理"
+  },
+  {
+   "file": "main.py",
+   "line": 547,
+   "label": "reference_image",
+   "text": "if reference_image_urls:"
+  },
+  {
+   "file": "main.py",
+   "line": 549,
+   "label": "reference_image",
+   "text": "\"image\": reference_image_urls,"
+  },
+  {
+   "file": "main.py",
+   "line": 814,
+   "label": "reference_image",
+   "text": "async def _resolve_reference_image(self, reference: str) -> Optional[str]:"
+  },
+  {
+   "file": "main.py",
+   "line": 1177,
+   "label": "reference_image",
+   "text": "\"如果用户提供了参考图片的 URL，使用 reference_image_url 参数进入图生图模式。\""
+  },
+  {
+   "file": "main.py",
+   "line": 1242,
+   "label": "reference_image",
+   "text": "\"reference_image_url\": {"
+  },
+  {
+   "file": "main.py",
+   "line": 1280,
+   "label": "reference_image",
+   "text": "reference_image_url: str = \"\","
+  },
+  {
+   "file": "main.py",
+   "line": 1309,
+   "label": "reference_image",
+   "text": "# 收集参考图列表（use_selfie 与 reference_image_url 可叠加）"
+  },
+  {
+   "file": "main.py",
+   "line": 1319,
+   "label": "reference_image",
+   "text": "if reference_image_url:"
+  },
+  {
+   "file": "main.py",
+   "line": 1320,
+   "label": "reference_image",
+   "text": "for part in reference_image_url.split(\",\"):"
+  },
+  {
+   "file": "main.py",
+   "line": 1335,
+   "label": "reference_image",
+   "text": "resolved = await self._resolve_reference_image(ref)"
+  },
+  {
+   "file": "main.py",
+   "line": 1383,
+   "label": "reference_image",
+   "text": "reference_image_urls=ref_urls if ref_urls else None,"
+  },
+  {
+   "file": "main.py",
+   "line": 1438,
+   "label": "reference_image",
+   "text": "reference_image_urls=ref_urls if ref_urls else None,"
+  },
+  {
+   "file": "main.py",
+   "line": 1522,
+   "label": "reference_image",
+   "text": "\"可与 reference_image_url 同时使用（如「用你的形象 + 这张图的场景」）。\""
+  },
+  {
+   "file": "main.py",
+   "line": 1537,
+   "label": "reference_image",
+   "text": "\"填到 reference_image_url，本地路径会被自动处理；\""
+  },
+  {
+   "file": "schema.json",
+   "line": 110,
+   "label": "selfie",
+   "text": "\"hint\": \"Bot 角色自身的形象参考图片路径。支持相对路径和绝对路径。留空则自动读取 KiraAI 系统设置的 selfie 形象参考图。当用户要求看 Bot 角色自身的图片/自拍/形象照时，AI 会自动用此图作为图生图参考。\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_agnes_image_gen_plugin",
+  "head": "b172da7 2026-10-10 03:52:44 +0800 Merge pull request #4 from AinaLife-ai/docs/v1.4.0-changelog",
+  "core_version": ">=2.6.1"
+ }
+}

@@ -1,0 +1,963 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 216,
+   "label": "clear/reset会话语义",
+   "text": "- **修复 `_gc` 一刀切清空在途轮注入计数**：原实现超过 200 条时整表 `clear()`，会把**正在运行**的轮次计数清零，导致「单轮最多流入条数」失效、单轮超量注入。现值改为 `(计数, 最后更新时间)`，gc 只淘汰 10 分钟未更新的过期项；200 条容量上限保留为兜底（超限时淘汰最旧项，不再整"
+  },
+  {
+   "file": "README.md",
+   "line": 267,
+   "label": "clear/reset会话语义",
+   "text": "- **修复注入计数随轮数无限增长**：`_finish_run` 现在一并清理本轮注入计数，避免内存增长，也避免 `_gc` 超过 200 条整表清空时误伤仍在执行中的轮（计数被清零 → 超额注入）"
+  },
+  {
+   "file": "main.py",
+   "line": 1660,
+   "label": "clear/reset会话语义",
+   "text": "# 绝不整表清空——那会把仍在执行中的轮次计数清零，导致"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 187,
+   "label": "clear/reset会话语义",
+   "text": "assert ctx.get_buffer(sid).get_length() == 0, \"F3 失败：buffer 未清空\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 188,
+   "label": "clear/reset会话语义",
+   "text": "print(\"  F3 PASS：3.0 成批消息逐条一致、顺序不变、buffer 已清空\")"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 203,
+   "label": "clear/reset会话语义",
+   "text": "assert not plugin._pending_inject.get(SID), \"G2 失败：流入队列未清空\""
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 188,
+   "label": "clear/reset会话语义",
+   "text": "有看门狗 → grace 秒后应自愈（队列清空 + 运行中标记清掉 + 后续消息不再被拦）"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 288,
+   "label": "默认模型读取",
+   "text": "client = self.ctx.get_default_llm_client()"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 138,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 82,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  },
+  {
+   "file": "tests/test_inject_count.py",
+   "line": 72,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 74,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 67,
+   "label": "默认模型读取",
+   "text": "def get_default_llm_client(self):"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 91,
+   "label": "flush_session_messages",
+   "text": "⚠ 双世代字段名：框架把 shim 还原进 SessionBuffer 后，flush_session_messages"
+  },
+  {
+   "file": "main.py",
+   "line": 438,
+   "label": "flush_session_messages",
+   "text": "# 在 buffer.lock 内 drain，与官方 flush_session_messages 同一互斥域"
+  },
+  {
+   "file": "main.py",
+   "line": 1021,
+   "label": "flush_session_messages",
+   "text": "await self.ctx.flush_session_messages(sid)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 152,
+   "label": "flush_session_messages",
+   "text": "async def flush_session_messages(self, sid, extra_event=None):"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 95,
+   "label": "flush_session_messages",
+   "text": "async def flush_session_messages(self, sid, extra_event=None):"
+  },
+  {
+   "file": "tests/test_inject_count.py",
+   "line": 85,
+   "label": "flush_session_messages",
+   "text": "async def flush_session_messages(self, sid, extra_event=None):"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 2,
+   "label": "flush_session_messages",
+   "text": "``flush_session_messages`` on BOTH framework generations."
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 7,
+   "label": "flush_session_messages",
+   "text": "``flush_session_messages`` (core/message_manager.py) reads the message-type"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 18,
+   "label": "flush_session_messages",
+   "text": "File \".../core/message_manager.py\", line 254, in flush_session_messages"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 33,
+   "label": "flush_session_messages",
+   "text": "reimplementations of ``flush_session_messages`` and asserts:"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 100,
+   "label": "flush_session_messages",
+   "text": "# -------------------- faithful per-generation flush_session_messages semantics"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 102,
+   "label": "flush_session_messages",
+   "text": "#  FakeCtx.flush_session_messages is a no-op, so we swap in the real behaviour)"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 145,
+   "label": "flush_session_messages",
+   "text": "ctx.flush_session_messages = _flush"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 87,
+   "label": "flush_session_messages",
+   "text": "async def flush_session_messages(self, sid, extra_event=None):"
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 80,
+   "label": "flush_session_messages",
+   "text": "async def flush_session_messages(self, sid, extra_event=None):"
+  },
+  {
+   "file": "tests/core/plugin/__init__.py",
+   "line": 6,
+   "label": "旧plugin_handlers",
+   "text": "\"\"\"Mirrors core/plugin/plugin_handlers.py (SYS_LOW/SYS_HIGH are system-level).\"\"\""
+  }
+ ],
+ "E_工作流与消息处理": [
+  {
+   "file": "main.py",
+   "line": 7,
+   "label": "SessionBuffer",
+   "text": "把该会话 SessionBuffer 里\"恰好已到达、还没来得及成为下一轮\"的消息，"
+  },
+  {
+   "file": "main.py",
+   "line": 91,
+   "label": "SessionBuffer",
+   "text": "⚠ 双世代字段名：框架把 shim 还原进 SessionBuffer 后，flush_session_messages"
+  },
+  {
+   "file": "main.py",
+   "line": 524,
+   "label": "message_format_to_text",
+   "text": "# 原生样式文本化（与官方批次 message_format_to_text 一致）"
+  },
+  {
+   "file": "main.py",
+   "line": 533,
+   "label": "message_format_to_text",
+   "text": "# 为空（buffer 路径未经渲染）再回退 message_format_to_text"
+  },
+  {
+   "file": "main.py",
+   "line": 537,
+   "label": "message_format_to_text",
+   "text": "native = await self.ctx.message_processor.message_format_to_text(chain) if chain else text"
+  },
+  {
+   "file": "main.py",
+   "line": 1011,
+   "label": "SessionBuffer",
+   "text": "\"\"\"把消息还原回 SessionBuffer（保持原顺序置于头部），可选立即 flush。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1212,
+   "label": "message_format_to_text",
+   "text": "# 媒体内容本身由官方 message_format_to_text 统一转换（语音→STT 文字、"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 104,
+   "label": "SessionBuffer",
+   "text": "\"\"\"Shaped like core.chat.session_session.SessionBuffer.\"\"\""
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 175,
+   "label": "SessionBuffer",
+   "text": "\"\"\"SessionBuffer holds KiraMessageEvent-like objects (``.message`` accessor).\"\"\""
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 87,
+   "label": "message_types",
+   "text": "（.message / .is_group_message() / .message_types / .supported_elements /"
+  },
+  {
+   "file": "main.py",
+   "line": 87,
+   "label": "supported_elements",
+   "text": "（.message / .is_group_message() / .message_types / .supported_elements /"
+  },
+  {
+   "file": "main.py",
+   "line": 93,
+   "label": "message_types",
+   "text": "· 2.x  读 last_event.message_types       （core/message_manager.py）"
+  },
+  {
+   "file": "main.py",
+   "line": 94,
+   "label": "supported_elements",
+   "text": "· 3.0  读 last_event.supported_elements  （同文件，字段改名）"
+  },
+  {
+   "file": "main.py",
+   "line": 95,
+   "label": "supported_elements",
+   "text": "两个名字都必须存在，缺哪个哪代炸（3.0 缺 supported_elements 时"
+  },
+  {
+   "file": "main.py",
+   "line": 98,
+   "label": "message_types",
+   "text": "__slots__ = (\"message\", \"message_types\", \"supported_elements\","
+  },
+  {
+   "file": "main.py",
+   "line": 98,
+   "label": "supported_elements",
+   "text": "__slots__ = (\"message\", \"message_types\", \"supported_elements\","
+  },
+  {
+   "file": "main.py",
+   "line": 103,
+   "label": "message_types",
+   "text": "# 先取新名（3.0 的 supported_elements）再回退旧名（2.x 的 message_types）："
+  },
+  {
+   "file": "main.py",
+   "line": 103,
+   "label": "supported_elements",
+   "text": "# 先取新名（3.0 的 supported_elements）再回退旧名（2.x 的 message_types）："
+  },
+  {
+   "file": "main.py",
+   "line": 104,
+   "label": "message_types",
+   "text": "# 3.0 上 message_types 是带 @deprecated 的 property 别名，直接读会刷"
+  },
+  {
+   "file": "main.py",
+   "line": 105,
+   "label": "supported_elements",
+   "text": "# DeprecationWarning；2.x 上 supported_elements 不存在，getattr 直接拿"
+  },
+  {
+   "file": "main.py",
+   "line": 107,
+   "label": "supported_elements",
+   "text": "types = getattr(batch_event, \"supported_elements\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 109,
+   "label": "message_types",
+   "text": "types = getattr(batch_event, \"message_types\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 110,
+   "label": "message_types",
+   "text": "self.message_types = types        # 2.x 框架 flush 读取"
+  },
+  {
+   "file": "main.py",
+   "line": 111,
+   "label": "supported_elements",
+   "text": "self.supported_elements = types   # 3.0 框架 flush 读取"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 6,
+   "label": "message_types",
+   "text": "``_BufferedMsgShim`` only exposed ``.message_types``.  The framework's"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 10,
+   "label": "message_types",
+   "text": "* 2.x (<= v2.34.x):  ``message_types=last_event.message_types``   -> shim OK"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 11,
+   "label": "supported_elements",
+   "text": "* 3.0 (dev-v3):      ``supported_elements = last_event.supported_elements``"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 19,
+   "label": "supported_elements",
+   "text": "supported_elements = last_event.supported_elements"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 25,
+   "label": "message_types",
+   "text": "Second symptom (same spot): ``getattr(batch_event, \"message_types\", None)``"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 27,
+   "label": "supported_elements",
+   "text": "``DeprecationWarning: ... use supported_elements instead`` for every"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 30,
+   "label": "supported_elements",
+   "text": "Fix (v1.3.5): the shim reads ``supported_elements`` first, falls back to"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 31,
+   "label": "message_types",
+   "text": "``message_types``, and exposes **both** names.  This test drives the real"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 36,
+   "label": "supported_elements",
+   "text": "F2  gen3: restore+flush builds the new batch (shim carries supported_elements)"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 38,
+   "label": "message_types",
+   "text": "F4  gen2: same flow works with message_types"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 39,
+   "label": "message_types",
+   "text": "F5  reverse guard: the OLD shim shape (message_types only) really does crash"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 66,
+   "label": "message_types",
+   "text": "``supported_elements`` is the real dataclass field; ``message_types``"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 66,
+   "label": "supported_elements",
+   "text": "``supported_elements`` is the real dataclass field; ``message_types``"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 70,
+   "label": "supported_elements",
+   "text": "self.supported_elements = [\"text\", \"image\"]"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 80,
+   "label": "message_types",
+   "text": "def message_types(self):"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 81,
+   "label": "message_types",
+   "text": "warnings.warn(\"message_types is deprecated; use supported_elements instead\","
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 81,
+   "label": "supported_elements",
+   "text": "warnings.warn(\"message_types is deprecated; use supported_elements instead\","
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 83,
+   "label": "supported_elements",
+   "text": "return self.supported_elements"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 105,
+   "label": "message_types",
+   "text": "\"\"\"v2.34.8: batch built with message_types=last_event.message_types.\"\"\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 113,
+   "label": "message_types",
+   "text": "\"message_types\": last_event.message_types,   # <- 2.x attribute access"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 122,
+   "label": "supported_elements",
+   "text": "\"\"\"dev-v3 (3.0): supported_elements = last_event.supported_elements.\"\"\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 129,
+   "label": "supported_elements",
+   "text": "supported_elements = last_event.supported_elements  # <- 3.0 attribute access"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 131,
+   "label": "supported_elements",
+   "text": "\"supported_elements\": supported_elements,"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 165,
+   "label": "supported_elements",
+   "text": "\"\"\"3.0: intercept from a supported_elements batch, restore must flush.\"\"\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 180,
+   "label": "supported_elements",
+   "text": "\"F2 失败：还原后 flush 没有产出新批次（shim 缺 supported_elements？）\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 182,
+   "label": "supported_elements",
+   "text": "assert built[\"supported_elements\"] == mid.supported_elements, \\"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 183,
+   "label": "supported_elements",
+   "text": "\"F2 失败：新批次 supported_elements 与来源批次不一致\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 184,
+   "label": "supported_elements",
+   "text": "print(\"  F2 PASS：3.0 还原+flush 成功成批，supported_elements 透传正确\")"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 194,
+   "label": "message_types",
+   "text": "\"\"\"2.x: same flow with a message_types batch event — must keep working.\"\"\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 201,
+   "label": "message_types",
+   "text": "mid.message_types = [\"text\"]"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 207,
+   "label": "message_types",
+   "text": "assert built[\"message_types\"] == [\"text\"], \"F4 失败：2.x 新批次 message_types 不对\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 209,
+   "label": "message_types",
+   "text": "print(\"  F4 PASS：2.x 还原+flush 成功成批，message_types 透传正确\")"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 215,
+   "label": "message_types",
+   "text": "\"\"\"Reverse validation: the v1.3.4 shim shape (message_types only) MUST crash"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 220,
+   "label": "message_types",
+   "text": "message=FakeMessage(\"400\", \"旧形状\"), message_types=[\"text\"],"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 248,
+   "label": "supported_elements",
+   "text": "assert shim3.supported_elements == g3.supported_elements, \"F6 失败：shim.supported_elements 缺失/不等\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 249,
+   "label": "message_types",
+   "text": "assert shim3.message_types == g3.supported_elements, \"F6 失败：shim.message_types 未同步\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 249,
+   "label": "supported_elements",
+   "text": "assert shim3.message_types == g3.supported_elements, \"F6 失败：shim.message_types 未同步\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 252,
+   "label": "message_types",
+   "text": "g2.message_types = [\"text\"]"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 254,
+   "label": "message_types",
+   "text": "assert shim2.message_types == [\"text\"], \"F6 失败：2.x 批次构造 shim 丢 message_types\""
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 255,
+   "label": "supported_elements",
+   "text": "assert shim2.supported_elements == [\"text\"], \"F6 失败：2.x 批次构造 shim 未补 supported_elements\""
+  },
+  {
+   "file": "tests/core/chat/message_utils.py",
+   "line": 16,
+   "label": "message_types",
+   "text": "message_types: list = field(default_factory=list)"
+  },
+  {
+   "file": "tests/core/chat/message_utils.py",
+   "line": 21,
+   "label": "message_types",
+   "text": "message_types: list = field(default_factory=list)"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 141,
+   "label": "on_llm_request",
+   "text": "#   ① 本轮在 ON_LLM_REQUEST 阶段被别的插件 stop / 中途异常被 EventBus 吞掉；"
+  },
+  {
+   "file": "main.py",
+   "line": 512,
+   "label": "on_llm_response",
+   "text": "# ⚠ 本轮马上会被框架结束，但**不会**再有 ON_LLM_RESPONSE / 工具边界来收尾"
+  },
+  {
+   "file": "main.py",
+   "line": 594,
+   "label": "on_llm_request",
+   "text": "\"\"\"ON_LLM_REQUEST 在每轮 agent 启动前触发（且只带批次事件）——"
+  },
+  {
+   "file": "main.py",
+   "line": 616,
+   "label": "on_llm_response",
+   "text": "ON_LLM_RESPONSE handler 循环体内（agent_executor.py:149-164）。"
+  },
+  {
+   "file": "main.py",
+   "line": 659,
+   "label": "on_llm_request",
+   "text": "框架在批次于 ON_IM_BATCH_MESSAGE / ON_LLM_REQUEST 阶段就被 return 时**不派发**"
+  },
+  {
+   "file": "main.py",
+   "line": 680,
+   "label": "on_llm_request",
+   "text": "4) 该 sid 空闲 → 放行（运行开始的标记改在 ON_LLM_REQUEST 做）。"
+  },
+  {
+   "file": "main.py",
+   "line": 747,
+   "label": "on_llm_request",
+   "text": "# 空闲：放行。运行开始的标记在 ON_LLM_REQUEST 做（批次被"
+  },
+  {
+   "file": "main.py",
+   "line": 851,
+   "label": "on_llm_request",
+   "text": "⚠️ 运行中状态**只能由 ON_LLM_REQUEST（_track_run_start）建立**：框架里每一轮"
+  },
+  {
+   "file": "main.py",
+   "line": 852,
+   "label": "on_llm_request",
+   "text": "agent 都必然先经过 ON_LLM_REQUEST，工具边界只可能是它的后续。所以这里遇到"
+  },
+  {
+   "file": "main.py",
+   "line": 1032,
+   "label": "on_llm_request",
+   "text": "#   · 本轮被别的插件在 ON_LLM_REQUEST / ON_STEP_RESULT 阶段 stop；"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 6,
+   "label": "on_llm_request",
+   "text": "ON_LLM_REQUEST          core/message_manager.py  -> _track_run_start"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 7,
+   "label": "on_llm_response",
+   "text": "ON_LLM_RESPONSE         core/agent/agent_executor.py -> _ensure_stop_checkpoint"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 190,
+   "label": "on_llm_request",
+   "text": "\"\"\"ON_LLM_REQUEST: register the run the way the framework does.\"\"\""
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 195,
+   "label": "on_llm_request",
+   "text": "async def drive_on_llm_request(plugin, event):"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 199,
+   "label": "on_llm_response",
+   "text": "async def drive_on_llm_response(plugin, event, step_index, tool_calls):"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 7,
+   "label": "on_llm_response",
+   "text": "ON_TOOL_RESULT / ON_LLM_RESPONSE。"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 15,
+   "label": "on_llm_request",
+   "text": "修法（v1.3.1）：运行中状态**只能由 ON_LLM_REQUEST 建立**；工具边界只允许刷新"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 221,
+   "label": "on_llm_response",
+   "text": "# 子代理后台任务执行工具：桩事件派发 ON_TOOL_RESULT（+ ON_LLM_RESPONSE）"
+  },
+  {
+   "file": "tests/test_phantom_run.py",
+   "line": 31,
+   "label": "on_llm_request",
+   "text": "drive_on_llm_request, drive_on_llm_response,"
+  },
+  {
+   "file": "tests/test_phantom_run.py",
+   "line": 31,
+   "label": "on_llm_response",
+   "text": "drive_on_llm_request, drive_on_llm_response,"
+  },
+  {
+   "file": "tests/test_phantom_run.py",
+   "line": 48,
+   "label": "on_llm_request",
+   "text": "await drive_on_llm_request(plugin, ev)"
+  },
+  {
+   "file": "tests/test_phantom_run.py",
+   "line": 50,
+   "label": "on_llm_response",
+   "text": "await drive_on_llm_response(plugin, ev, 1, [{\"id\": \"s1\"}])"
+  },
+  {
+   "file": "tests/test_phantom_run.py",
+   "line": 53,
+   "label": "on_llm_response",
+   "text": "await drive_on_llm_response(plugin, ev, 2, LAST_STEP_TOOL_CALLS)"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 56,
+   "label": "on_llm_request",
+   "text": "drive_on_batch_message, drive_on_llm_request,"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 57,
+   "label": "on_llm_response",
+   "text": "drive_on_llm_response, load_plugin, make_plugin)"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 151,
+   "label": "on_llm_request",
+   "text": "await drive_on_llm_request(plugin, run_ev)"
+  },
+  {
+   "file": "tests/test_restore_flush_compat.py",
+   "line": 160,
+   "label": "on_llm_response",
+   "text": "await drive_on_llm_response(plugin, run_ev, 1, [])"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 20,
+   "label": "on_llm_request",
+   "text": "drive_on_batch_message, drive_on_llm_request,"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 21,
+   "label": "on_llm_response",
+   "text": "drive_on_llm_response, drive_on_tool_result, make_plugin)"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 34,
+   "label": "on_llm_response",
+   "text": "await drive_on_llm_response(plugin, ev, 1, [{\"id\": \"t\"}])"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 64,
+   "label": "on_llm_request",
+   "text": "await drive_on_llm_request(plugin, ev1)"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 65,
+   "label": "on_llm_response",
+   "text": "await drive_on_llm_response(plugin, ev1, 2, [{\"id\": \"t\"}])   # last step, tool call"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 71,
+   "label": "on_llm_request",
+   "text": "await drive_on_llm_request(plugin, ev2)"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 78,
+   "label": "on_llm_request",
+   "text": "await drive_on_llm_request(plugin, ev)"
+  },
+  {
+   "file": "tests/test_scenarios.py",
+   "line": 79,
+   "label": "on_llm_response",
+   "text": "await drive_on_llm_response(plugin, ev, 1, [{\"id\": \"t\"}])    # step 1 of 2"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 155,
+   "label": "on_llm_request",
+   "text": "\"\"\"模拟框架跑起一轮：ON_LLM_REQUEST → ON_LLM_RESPONSE(带工具) → ON_TOOL_RESULT。\"\"\""
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 155,
+   "label": "on_llm_response",
+   "text": "\"\"\"模拟框架跑起一轮：ON_LLM_REQUEST → ON_LLM_RESPONSE(带工具) → ON_TOOL_RESULT。\"\"\""
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 185,
+   "label": "on_llm_request",
+   "text": "\"\"\"ON_LLM_REQUEST 已登记，但本轮根本没跑起来（被别的插件 stop / 异常）。"
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 325,
+   "label": "on_llm_request",
+   "text": "(\"S3 本轮没跑起来（ON_LLM_REQUEST 后被 stop / 异常）\", s3_run_dies_after_llm_request),"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 65,
+   "label": "替换框架文件",
+   "text": "# （notice_skip_stop 默认开即覆盖：见 _skip_stop_for）；仅当配置"
+  },
+  {
+   "file": "main.py",
+   "line": 72,
+   "label": "替换框架文件",
+   "text": "# 可被 overrides 覆盖的键"
+  },
+  {
+   "file": "main.py",
+   "line": 285,
+   "label": "替换框架文件",
+   "text": "# 覆盖“两次心跳之间最多夹一次 LLM 调用 + 一轮工具执行”的最长无活动窗口"
+  },
+  {
+   "file": "main.py",
+   "line": 1034,
+   "label": "替换框架文件",
+   "text": "#     常驻幽灵清扫器 + 各入口 is_stopped 即时检查覆盖，不再依赖本看门狗）；"
+  },
+  {
+   "file": "main.py",
+   "line": 1367,
+   "label": "替换框架文件",
+   "text": "# 覆盖后重算自动项"
+  },
+  {
+   "file": "schema.json",
+   "line": 232,
+   "label": "替换框架文件",
+   "text": "\"name\": \"会话级覆盖（高级）\","
+  },
+  {
+   "file": "schema.json",
+   "line": 238,
+   "label": "替换框架文件",
+   "text": "\"name\": \"按会话覆盖配置\","
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 16,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 58,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"midflight_under_test_\" + d.name, src)"
+  },
+  {
+   "file": "tests/harness.py",
+   "line": 59,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 23,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 41,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"mf_foreign_\" + Path(path).parent.name, path)"
+  },
+  {
+   "file": "tests/test_foreign_event.py",
+   "line": 42,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_inject_count.py",
+   "line": 14,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_inject_count.py",
+   "line": 31,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_inject_count.py",
+   "line": 33,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 19,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 35,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"mf_sweep_\" + Path(path).parent.name, path)"
+  },
+  {
+   "file": "tests/test_stopped_event_sweep.py",
+   "line": 36,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 9,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 27,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(\"mf_stuck_\" + Path(path).parent.name, path)"
+  },
+  {
+   "file": "tests/test_stuck_paths.py",
+   "line": 28,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_system_event.py",
+   "line": 11,
+   "label": "替换框架文件",
+   "text": "扩展：此前只覆盖系统提醒）。"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_midflight_message_plugin",
+  "head": "e66bfcf 2026-10-08 20:23:05 +0800 Merge pull request #16 from AinaLife-ai/fix/restore-flush-3.0-1.3.5",
+  "core_version": ">=2.29.7"
+ }
+}

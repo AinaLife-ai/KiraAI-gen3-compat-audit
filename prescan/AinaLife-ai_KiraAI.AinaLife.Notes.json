@@ -1,0 +1,79 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 16,
+   "label": "clear/reset会话语义",
+   "text": "| 🧹 **清空纸条** | 一键清空所有纸条 |"
+  },
+  {
+   "file": "README.md",
+   "line": 128,
+   "label": "clear/reset会话语义",
+   "text": "| `note_clear()` | 清空所有纸条 |"
+  },
+  {
+   "file": "main.py",
+   "line": 6,
+   "label": "clear/reset会话语义",
+   "text": "- 留纸条 / 看纸条 / 删纸条 / 清空（AI 可调用工具）"
+  },
+  {
+   "file": "main.py",
+   "line": 147,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"温柔纸条：留/看/删/清空 + 自动生成温柔便签，可渲染手写便条图片发送。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 265,
+   "label": "clear/reset会话语义",
+   "text": "description=\"清空所有纸条。\","
+  },
+  {
+   "file": "main.py",
+   "line": 272,
+   "label": "clear/reset会话语义",
+   "text": "return f\"已清空 {count} 张纸条\" if count else \"纸条本来就是空的\""
+  },
+  {
+   "file": "manifest.json",
+   "line": 6,
+   "label": "clear/reset会话语义",
+   "text": "\"description\": \"留纸条/看纸条/删纸条/清空，AI 自主生成温柔便签，支持随机间隔与 cron 定时，可渲染手写便条图片发送到多会话；内置寒蝉手拙开源手写字体。\","
+  },
+  {
+   "file": "schema.json",
+   "line": 5,
+   "label": "clear/reset会话语义",
+   "text": "\"hint\": \"温柔纸条：留/看/删/清空纸条，AI 按定时自动生成温柔便签，可渲染成手写便条图片发送到多个目标会话。\","
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 330,
+   "label": "默认模型读取",
+   "text": "client = self.ctx.get_default_llm_client()"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 67,
+   "label": "替换框架文件",
+   "text": "# 主打「手拙之美」，歪扭潦草的萌感手写风，GB2312 全简体覆盖，WOFF2 压缩后约 2.6MB，随插件包分发"
+  },
+  {
+   "file": "main.py",
+   "line": 510,
+   "label": "替换框架文件",
+   "text": "shutil.copyfile(cand, target)"
+  }
+ ],
+ "_meta": {
+  "repo": "AinaLife-ai_KiraAI.AinaLife.Notes",
+  "head": "cf27b3d 2026-08-21 09:10:48 +0800 v1.0.7: 同步本地文件（requirements.txt）",
+  "core_version": ">=2.29.7"
+ }
+}

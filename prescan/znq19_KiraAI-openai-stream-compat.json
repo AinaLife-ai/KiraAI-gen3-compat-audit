@@ -1,0 +1,151 @@
+{
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 504,
+   "label": "model_id使用",
+   "text": "model_id = item.get(\"id\", \"\")"
+  },
+  {
+   "file": "main.py",
+   "line": 505,
+   "label": "model_id使用",
+   "text": "if not model_id:"
+  },
+  {
+   "file": "main.py",
+   "line": 508,
+   "label": "model_id使用",
+   "text": "\"id\": model_id,"
+  },
+  {
+   "file": "main.py",
+   "line": 509,
+   "label": "model_id使用",
+   "text": "\"name\": item.get(\"name\", model_id),"
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 7,
+   "label": "OpenAICompatible",
+   "text": "导致标准 OpenAICompatibleLLMClient 解析不到任何内容（拆信封问题）。"
+  },
+  {
+   "file": "main.py",
+   "line": 32,
+   "label": "provider_mgr",
+   "text": "from core.provider.provider_manager import ProviderManager"
+  },
+  {
+   "file": "main.py",
+   "line": 34,
+   "label": "旧客户端路径",
+   "text": "from core.utils.model_clients import ("
+  },
+  {
+   "file": "main.py",
+   "line": 35,
+   "label": "OpenAICompatible",
+   "text": "OpenAICompatibleLLMClient,"
+  },
+  {
+   "file": "main.py",
+   "line": 36,
+   "label": "OpenAICompatible",
+   "text": "OpenAICompatibleTTSClient,"
+  },
+  {
+   "file": "main.py",
+   "line": 41,
+   "label": "旧客户端路径",
+   "text": "from core.utils.model_clients import OpenAICompatibleSTTClient"
+  },
+  {
+   "file": "main.py",
+   "line": 41,
+   "label": "OpenAICompatible",
+   "text": "from core.utils.model_clients import OpenAICompatibleSTTClient"
+  },
+  {
+   "file": "main.py",
+   "line": 43,
+   "label": "OpenAICompatible",
+   "text": "OpenAICompatibleSTTClient = None"
+  },
+  {
+   "file": "main.py",
+   "line": 46,
+   "label": "直接OpenAI",
+   "text": "from core.provider.src.openai.model_clients import ("
+  },
+  {
+   "file": "main.py",
+   "line": 143,
+   "label": "OpenAICompatible",
+   "text": "class OpenAIStreamCompatLLMClient(OpenAICompatibleLLMClient):"
+  },
+  {
+   "file": "main.py",
+   "line": 478,
+   "label": "OpenAICompatible",
+   "text": "ModelType.TTS: OpenAICompatibleTTSClient,"
+  },
+  {
+   "file": "main.py",
+   "line": 480,
+   "label": "OpenAICompatible",
+   "text": "if OpenAICompatibleSTTClient is not None:"
+  },
+  {
+   "file": "main.py",
+   "line": 481,
+   "label": "OpenAICompatible",
+   "text": "models[ModelType.STT] = OpenAICompatibleSTTClient"
+  },
+  {
+   "file": "main.py",
+   "line": 494,
+   "label": "直接OpenAI",
+   "text": "base_url = self.provider_config.get(\"base_url\", \"https://api.openai.com/v1\").rstrip(\"/\")"
+  },
+  {
+   "file": "main.py",
+   "line": 570,
+   "label": "provider_mgr",
+   "text": "self.ctx.provider_mgr.set_provider(pid, pcfg)"
+  },
+  {
+   "file": "provider-schema.json",
+   "line": 6,
+   "label": "直接OpenAI",
+   "text": "\"default\": \"https://api.openai.com/v1\","
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 64,
+   "label": "替换框架文件",
+   "text": "# 每个模型仍可在「桥接设置」里单独覆盖默认模式）"
+  },
+  {
+   "file": "schema.json",
+   "line": 18,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"新建模型时默认使用的桥接模式。auto：流式优先，失败自动退回信封解析（推荐）；stream：始终流式聚合；envelope：始终解析信封。单个模型可在其高级设置里单独覆盖。\","
+  },
+  {
+   "file": "schema.json",
+   "line": 22,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"新建模型时默认使用的桥接模式。auto：流式优先，失败自动退回信封解析（推荐）；stream：始终流式聚合；envelope：始终解析信封。单个模型可在其高级设置里单独覆盖。\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI-openai-stream-compat",
+  "head": "8d1169c 2026-08-30 19:06:15 +0800 Merge pull request #2 from AinaLife-ai/v1.1.0-fixes",
+  "core_version": ">=2.29.7"
+ }
+}

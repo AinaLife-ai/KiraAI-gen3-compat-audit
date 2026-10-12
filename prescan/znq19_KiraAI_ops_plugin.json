@@ -1,0 +1,1145 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "CHANGELOG.md",
+   "line": 152,
+   "label": "chat_memory直改",
+   "text": "- **修复：`ops_read` 查询不存在的会话会凭空创建会话**（读动作产生副作用，污染 `chat_memory.json`）。"
+  },
+  {
+   "file": "CHANGELOG.md",
+   "line": 152,
+   "label": "memory_json路径",
+   "text": "- **修复：`ops_read` 查询不存在的会话会凭空创建会话**（读动作产生副作用，污染 `chat_memory.json`）。"
+  },
+  {
+   "file": "CHANGELOG.md",
+   "line": 246,
+   "label": "chat_memory直改",
+   "text": "`data/memory/chat_memory.json`（全部聊天记录）读进上下文，**打码形同虚设**。"
+  },
+  {
+   "file": "CHANGELOG.md",
+   "line": 246,
+   "label": "memory_json路径",
+   "text": "`data/memory/chat_memory.json`（全部聊天记录）读进上下文，**打码形同虚设**。"
+  },
+  {
+   "file": "CHANGELOG.md",
+   "line": 252,
+   "label": "chat_memory直改",
+   "text": "- **严重 · 一个畸形 session id 能永久写坏 `chat_memory.json`**："
+  },
+  {
+   "file": "CHANGELOG.md",
+   "line": 252,
+   "label": "memory_json路径",
+   "text": "- **严重 · 一个畸形 session id 能永久写坏 `chat_memory.json`**："
+  },
+  {
+   "file": "CHANGELOG.md",
+   "line": 254,
+   "label": "get_session_info",
+   "text": "框架 `SessionManager.get_session_info()`（它按 `:` 切分并取第 3 段）会**永久抛 IndexError**，"
+  },
+  {
+   "file": "README.md",
+   "line": 182,
+   "label": "clear/reset会话语义",
+   "text": "配置写入是\"最后写入者胜\"，且框架写配置文件是\"先清空再写\"，极端情况下另一个进程会读到空文件。"
+  },
+  {
+   "file": "README.md",
+   "line": 192,
+   "label": "clear/reset会话语义",
+   "text": "credential / token / private_key` 这些字段名永远打码，就算把面板里的关键词表清空也照样生效。"
+  },
+  {
+   "file": "README.md",
+   "line": 195,
+   "label": "chat_memory直改",
+   "text": "A：说明 `data/memory/chat_memory.json` 里有格式不对的会话键（1.0.0 可能写进去过）。"
+  },
+  {
+   "file": "README.md",
+   "line": 195,
+   "label": "memory_json路径",
+   "text": "A：说明 `data/memory/chat_memory.json` 里有格式不对的会话键（1.0.0 可能写进去过）。"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 139,
+   "label": "memory_json路径",
+   "text": "\"path_deny_write\":  [\"core\",\"webui\",\"main.py\",\"data/memory\",\"data/webui.json\",\"data/.jwt_secret\"],"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 140,
+   "label": "memory_json路径",
+   "text": "\"path_deny_delete\": [\"core\",\"webui\",\"data/memory\",\"data/plugins\",\"data/skills\"],"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 377,
+   "label": "get_session_info",
+   "text": "ctx.session_mgr                        → get_session_info / update_session_info / update_session_capabilities / delete_session"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 377,
+   "label": "update_session_info",
+   "text": "ctx.session_mgr                        → get_session_info / update_session_info / update_session_capabilities / delete_session"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 377,
+   "label": "update_session_capabilities",
+   "text": "ctx.session_mgr                        → get_session_info / update_session_info / update_session_capabilities / delete_session"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 418,
+   "label": "chat_memory直改",
+   "text": "| **严重** | 畸形 session id 会写坏 `chat_memory.json`，令框架会话枚举永久 IndexError（波及内置插件） | 写入校验 + 容错枚举 + 可修复 |"
+  },
+  {
+   "file": "kira_ops_设计方案_v0.5.md",
+   "line": 418,
+   "label": "memory_json路径",
+   "text": "| **严重** | 畸形 session id 会写坏 `chat_memory.json`，令框架会话枚举永久 IndexError（波及内置插件） | 写入校验 + 容错枚举 + 可修复 |"
+  },
+  {
+   "file": "main.py",
+   "line": 274,
+   "label": "chat_memory直改",
+   "text": "\"\"\"List sessions, tolerating malformed keys in chat_memory."
+  },
+  {
+   "file": "main.py",
+   "line": 276,
+   "label": "get_session_info",
+   "text": "``SessionManager.get_session_info()`` (no argument) splits every key on"
+  },
+  {
+   "file": "main.py",
+   "line": 287,
+   "label": "get_session_info",
+   "text": "return list(sm.get_session_info() or []), []"
+  },
+  {
+   "file": "main.py",
+   "line": 290,
+   "label": "chat_memory直改",
+   "text": "raw = getattr(sm, \"chat_memory\", None)"
+  },
+  {
+   "file": "schema.json",
+   "line": 208,
+   "label": "memory_json路径",
+   "text": "\"default\": [\"core\", \"webui\", \"main.py\", \"data/memory\", \"data/webui.json\", \"data/.jwt_secret\"],"
+  },
+  {
+   "file": "schema.json",
+   "line": 214,
+   "label": "memory_json路径",
+   "text": "\"default\": [\"core\", \"webui\", \"data/memory\", \"data/plugins\", \"data/skills\"],"
+  },
+  {
+   "file": "caps/log_cap.py",
+   "line": 6,
+   "label": "chat_memory直改",
+   "text": "``memory/chat_memory.json`` (every conversation) straight into the model"
+  },
+  {
+   "file": "caps/log_cap.py",
+   "line": 6,
+   "label": "memory_json路径",
+   "text": "``memory/chat_memory.json`` (every conversation) straight into the model"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 10,
+   "label": "get_session_info",
+   "text": "# key that does not match this shape breaks SessionManager.get_session_info()"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 24,
+   "label": "clear/reset会话语义",
+   "text": "\"memory_clear\": (\"write\", True, \"清空会话记忆（不可逆）\"),"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 35,
+   "label": "get_session_info",
+   "text": "\"\"\"Existing session ids - get_session_info(sid) would otherwise create one."
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 48,
+   "label": "chat_memory直改",
+   "text": "raw = getattr(sm, \"chat_memory\", None)"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 77,
+   "label": "get_memory_count",
+   "text": "count = sm.get_memory_count(sid)"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 90,
+   "label": "chat_memory直改",
+   "text": "data[\"hint\"] = (\"these chat_memory keys are malformed and break the \""
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 105,
+   "label": "get_session_info",
+   "text": "s = sm.get_session_info(sid)"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 108,
+   "label": "get_session_capabilities",
+   "text": "merged = self.ctx.get_session_capabilities(sid) or {}"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 114,
+   "label": "get_effective_capabilities",
+   "text": "overrides = sm.get_effective_capabilities(sid, {}) or {}"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 132,
+   "label": "get_memory_count",
+   "text": "return ok(session_id=sid, memory_count=sm.get_memory_count(sid))"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 154,
+   "label": "update_session_info",
+   "text": "sm.update_session_info(sid, title=params.get(\"title\"), description=params.get(\"description\"))"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 160,
+   "label": "update_session_capabilities",
+   "text": "sm.update_session_capabilities(sid, caps)"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 161,
+   "label": "get_effective_capabilities",
+   "text": "return ok(session_id=sid, capabilities=sm.get_effective_capabilities(sid, {}) if caps else {})"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 163,
+   "label": "get_memory_count",
+   "text": "before = sm.get_memory_count(sid)"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 164,
+   "label": "write_memory",
+   "text": "sm.write_memory(sid, [])"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 170,
+   "label": "delete_session",
+   "text": "sm.delete_session(sid)"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 289,
+   "label": "chat_memory直改",
+   "text": "store = ctx.session_mgr.chat_memory"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 499,
+   "label": "write_memory",
+   "text": "ctx.session_mgr.write_memory(ev.sid, [[{\"role\": \"user\", \"content\": \"chat-canary\"}]])"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 501,
+   "label": "chat_memory直改",
+   "text": "args={\"path\": \"memory/chat_memory.json\"}))"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 501,
+   "label": "memory_json路径",
+   "text": "args={\"path\": \"memory/chat_memory.json\"}))"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 570,
+   "label": "chat_memory直改",
+   "text": "\"\"\"A junk session id used to poison chat_memory and break the framework.\"\"\""
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 571,
+   "label": "chat_memory直改",
+   "text": "store = ctx.session_mgr.chat_memory"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 581,
+   "label": "chat_memory直改",
+   "text": "check(\"malformed session ids are refused (no chat_memory poisoning)\","
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 586,
+   "label": "chat_memory直改",
+   "text": "store = ctx.session_mgr.chat_memory"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 600,
+   "label": "get_session_info",
+   "text": "_assert(ctx.session_mgr.get_session_info() is not None,"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 606,
+   "label": "get_session_info",
+   "text": "ctx.session_mgr.get_session_info()"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 621,
+   "label": "chat_memory直改",
+   "text": "_assert(\"junk_key\" not in ctx.session_mgr.chat_memory)"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 622,
+   "label": "get_session_info",
+   "text": "_assert(ctx.session_mgr.get_session_info() is not None)"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 625,
+   "label": "chat_memory直改",
+   "text": "ctx.session_mgr.chat_memory.pop(\"junk_key\", None)"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 626,
+   "label": "chat_memory直改",
+   "text": "check(\"malformed chat_memory keys degrade gracefully and can be repaired\","
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 146,
+   "label": "get_session_info",
+   "text": "get_session_info=lambda: ["
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 150,
+   "label": "get_memory_count",
+   "text": "get_memory_count=lambda sid: 3,"
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 151,
+   "label": "update_session_info",
+   "text": "update_session_info=lambda *a, **k: None,"
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 152,
+   "label": "update_session_capabilities",
+   "text": "update_session_capabilities=lambda *a, **k: None,"
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 153,
+   "label": "get_effective_capabilities",
+   "text": "get_effective_capabilities=lambda *a, **k: {},"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 225,
+   "label": "get_session_info",
+   "text": "get_session_info=lambda: [],"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 226,
+   "label": "update_session_info",
+   "text": "update_session_info=lambda *a, **k: None,"
+  },
+  {
+   "file": "tests/test_panel_contract.py",
+   "line": 124,
+   "label": "get_session_info",
+   "text": "get_session_info=lambda: [],"
+  },
+  {
+   "file": "tests/test_panel_contract.py",
+   "line": 125,
+   "label": "get_effective_capabilities",
+   "text": "get_effective_capabilities=lambda *a, **k: {},"
+  },
+  {
+   "file": "tests/test_panel_contract.py",
+   "line": 126,
+   "label": "chat_memory直改",
+   "text": "chat_memory={})"
+  }
+ ],
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 137,
+   "label": "update_model",
+   "text": "\"provider.delete_model\", \"provider.update_model\", \"provider.sync\", \"mcp.delete\","
+  },
+  {
+   "file": "main.py",
+   "line": 1306,
+   "label": "update_model",
+   "text": "\"provider(add_model/update_model/delete_model/sync/set_provider)、\""
+  },
+  {
+   "file": "schema.json",
+   "line": 69,
+   "label": "update_model",
+   "text": "\"provider.delete_model\", \"provider.update_model\", \"provider.sync\", \"mcp.delete\","
+  },
+  {
+   "file": "schema.json",
+   "line": 80,
+   "label": "update_model",
+   "text": "\"provider.delete_model\", \"provider.update_model\", \"provider.sync\", \"mcp.delete\","
+  },
+  {
+   "file": "schema.json",
+   "line": 196,
+   "label": "model_id使用",
+   "text": "\"default\": [\"base_url\", \"api_base\", \"endpoint\", \"model_id\", \"model_name\", \"models\", \"timeout\", \"temperature\", \"headers\", \"enabled\", \"remark\", \"display_name\"],"
+  },
+  {
+   "file": "schema.json",
+   "line": 196,
+   "label": "model_name使用",
+   "text": "\"default\": [\"base_url\", \"api_base\", \"endpoint\", \"model_id\", \"model_name\", \"models\", \"timeout\", \"temperature\", \"headers\", \"enabled\", \"remark\", \"display_name\"],"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 19,
+   "label": "update_model",
+   "text": "\"update_model\": (\"write\", True, \"修改一个模型配置\"),"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 31,
+   "label": "get_models",
+   "text": "``ProviderManager.get_models()`` maps every ``model_config`` key through"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 38,
+   "label": "get_models",
+   "text": "return pm.get_models(pid) or {}, \"\""
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 122,
+   "label": "model_id使用",
+   "text": "mid = str(params.get(\"model_id\") or \"\").strip()"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 126,
+   "label": "model_id使用",
+   "text": "return ok(provider_id=pid, model_type=mtype, model_id=mid, result=res)"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 154,
+   "label": "model_id使用",
+   "text": "mid = str(params.get(\"model_id\") or \"\").strip()"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 156,
+   "label": "model_id使用",
+   "text": "return fail(\"provider_id, model_type and model_id are required\")"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 161,
+   "label": "register_model",
+   "text": "res = pm.register_model(pid, mtype, mid, cfg)"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 164,
+   "label": "get_models",
+   "text": "found = mid in ((pm.get_models(pid) or {}).get(mtype) or {})"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 165,
+   "label": "model_id使用",
+   "text": "return ok(provider_id=pid, model_type=mtype, model_id=mid, registered=bool(found))"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 166,
+   "label": "update_model",
+   "text": "if action == \"update_model\":"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 168,
+   "label": "model_id使用",
+   "text": "mid = str(params.get(\"model_id\") or \"\").strip()"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 171,
+   "label": "model_id使用",
+   "text": "return fail(\"provider_id, model_type and model_id are required\")"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 175,
+   "label": "update_model",
+   "text": "res = pm.update_model(pid, mtype, mid, cfg)"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 178,
+   "label": "model_id使用",
+   "text": "return ok(provider_id=pid, model_type=mtype, model_id=mid, updated=bool(res))"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 181,
+   "label": "model_id使用",
+   "text": "mid = str(params.get(\"model_id\") or \"\").strip()"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 183,
+   "label": "model_id使用",
+   "text": "return fail(\"provider_id, model_type and model_id are required\")"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 187,
+   "label": "model_id使用",
+   "text": "return ok(provider_id=pid, model_type=mtype, model_id=mid, deleted=bool(res))"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 194,
+   "label": "sync_models",
+   "text": "res = pm.sync_models(pid, mtype, add_ids, del_ids, params.get(\"config\") or None)"
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 164,
+   "label": "model_id使用",
+   "text": "args={\"model_type\": \"llm\", \"model_id\": \"probe\"}))"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 490,
+   "label": "model_id使用",
+   "text": "\"model_config\": {\"llm\": {\"m\": {\"model_id\": \"m\"}}},"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 75,
+   "label": "model_id使用",
+   "text": "\"write_allow\": [\"base_url\", \"api_base\", \"endpoint\", \"model_id\", \"model_name\","
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 75,
+   "label": "model_name使用",
+   "text": "\"write_allow\": [\"base_url\", \"api_base\", \"endpoint\", \"model_id\", \"model_name\","
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 141,
+   "label": "model_id使用",
+   "text": "\"model_config\": {\"llm\": {\"m1\": {\"model_id\": \"m1\"}}}}},"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 54,
+   "label": "model_id使用",
+   "text": "self._models = {\"llm\": {\"m1\": {\"model_id\": \"m1\"}}}"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 65,
+   "label": "get_models",
+   "text": "def get_models(self, pid):"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 68,
+   "label": "register_model",
+   "text": "def register_model(self, pid, mtype, mid, cfg):"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 72,
+   "label": "update_model",
+   "text": "def update_model(self, pid, mtype, mid, cfg):"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 294,
+   "label": "model_id使用",
+   "text": "args={\"model_type\": \"llm\", \"model_id\": \"mx\","
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 302,
+   "label": "model_id使用",
+   "text": "args={\"model_type\": \"llm\", \"model_id\": \"mx\","
+  }
+ ],
+ "C_Provider客户端": [
+  {
+   "file": "main.py",
+   "line": 1120,
+   "label": "provider_mgr",
+   "text": "pmgr = getattr(self.ctx, \"provider_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 1530,
+   "label": "provider_mgr",
+   "text": "provs = getattr(self.ctx, \"provider_mgr\", None)"
+  },
+  {
+   "file": "caps/provider_cap.py",
+   "line": 26,
+   "label": "provider_mgr",
+   "text": "return getattr(self.ctx, \"provider_mgr\", None)"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 138,
+   "label": "provider_mgr",
+   "text": "provider_mgr=ProviderManager(db, kira_config), tool_mgr=FuncToolManager(kira_config),"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 185,
+   "label": "provider_mgr",
+   "text": "provider_mgr=ProviderManager(db, kira_config),"
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 90,
+   "label": "provider_mgr",
+   "text": "provider_mgr=ProviderManager(db, kira_config), tool_mgr=FuncToolManager(kira_config),"
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 160,
+   "label": "provider_mgr",
+   "text": "provs = getattr(ctx, \"provider_mgr\", None)"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 121,
+   "label": "provider_mgr",
+   "text": "provider_mgr=ProviderManager(db, kira_config),"
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 161,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = None"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 218,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = FakeProviderMgr()"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 305,
+   "label": "provider_mgr",
+   "text": "assert \"mx\" in ctx.provider_mgr._models[\"llm\"], ctx.provider_mgr._models"
+  },
+  {
+   "file": "tests/test_panel_contract.py",
+   "line": 122,
+   "label": "provider_mgr",
+   "text": "self.provider_mgr = types.SimpleNamespace(get_all_providers=lambda: {})"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 133,
+   "label": "provider_mgr",
+   "text": "provider_mgr=ProviderManager(db, kc), tool_mgr=FuncToolManager(kc),"
+  }
+ ],
+ "D_插件模块路径": [
+  {
+   "file": "main.py",
+   "line": 880,
+   "label": "flush_session_messages",
+   "text": "await self.ctx.flush_session_messages(sid)"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 136,
+   "label": "手建PluginContext",
+   "text": "ctx = PluginContext("
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 140,
+   "label": "sticker_manager",
+   "text": "session_mgr=SessionManager(db, kira_config), sticker_manager=None,"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 155,
+   "label": "flush_session_messages",
+   "text": "ctx.message_processor.flush_session_messages = _flush"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 181,
+   "label": "手建PluginContext",
+   "text": "ctx = PluginContext("
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 190,
+   "label": "sticker_manager",
+   "text": "sticker_manager=None,"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 216,
+   "label": "flush_session_messages",
+   "text": "ctx.message_processor.flush_session_messages = _flush"
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 88,
+   "label": "手建PluginContext",
+   "text": "ctx = PluginContext("
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 92,
+   "label": "sticker_manager",
+   "text": "session_mgr=SessionManager(db, kira_config), sticker_manager=None,"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 117,
+   "label": "手建PluginContext",
+   "text": "ctx = PluginContext("
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 126,
+   "label": "sticker_manager",
+   "text": "sticker_manager=None,"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 362,
+   "label": "旧plugin_handlers",
+   "text": "from core.plugin.plugin_handlers import EventType, event_handler_reg"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 333,
+   "label": "旧plugin_registry",
+   "text": "from core.plugin.plugin_registry import _plugin_components"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 131,
+   "label": "手建PluginContext",
+   "text": "ctx = PluginContext("
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 135,
+   "label": "sticker_manager",
+   "text": "sticker_manager=None,"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 150,
+   "label": "flush_session_messages",
+   "text": "ctx.message_processor.flush_session_messages = _flush"
+  }
+ ],
+ "E_工作流与消息处理": [
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 44,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor  # noqa: E402"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 146,
+   "label": "MessageProcessor",
+   "text": "return await MessageProcessor.send_message_chain(owner, session, chain)"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 55,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor  # noqa: E402"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 200,
+   "label": "MessageProcessor",
+   "text": "return await MessageProcessor.send_message_chain(send_owner, session, chain)"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 43,
+   "label": "MessageProcessor",
+   "text": "from core.message_manager import MessageProcessor  # noqa: E402"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 141,
+   "label": "MessageProcessor",
+   "text": "return await MessageProcessor.send_message_chain(owner, session, chain)"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 88,
+   "label": "message_types",
+   "text": "self.message_types = []"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 91,
+   "label": "send_direct_message",
+   "text": "async def send_direct_message(self, user_id, chain):"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 96,
+   "label": "send_direct_message",
+   "text": "async def send_group_message(self, group_id, chain):"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 121,
+   "label": "message_types",
+   "text": "message_types=[], timestamp=0,"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 135,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = FakeAdapterMgr()"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 139,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr=adapter_mgr, persona_mgr=PersonaManager(db),"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 143,
+   "label": "adapter_mgr",
+   "text": "owner = SimpleNamespace(adapter_mgr=adapter_mgr)"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 103,
+   "label": "message_types",
+   "text": "self.message_types = []"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 106,
+   "label": "send_direct_message",
+   "text": "async def send_direct_message(self, user_id, chain):"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 112,
+   "label": "send_direct_message",
+   "text": "async def send_group_message(self, group_id, chain):"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 139,
+   "label": "message_types",
+   "text": "message_types=[],"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 158,
+   "label": "message_types",
+   "text": "message_types=[],"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 180,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = FakeAdapterMgr()"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 187,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr=adapter_mgr,"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 197,
+   "label": "adapter_mgr",
+   "text": "send_owner = SimpleNamespace(adapter_mgr=adapter_mgr)"
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 91,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr=None, persona_mgr=PersonaManager(db),"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 123,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr=None,"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 82,
+   "label": "message_types",
+   "text": "self.message_types = []"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 86,
+   "label": "send_direct_message",
+   "text": "async def send_direct_message(self, uid, chain):"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 93,
+   "label": "send_direct_message",
+   "text": "async def send_group_message(self, gid, chain):"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 117,
+   "label": "message_types",
+   "text": "message_types=[], timestamp=0,"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 134,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr=am, persona_mgr=PersonaManager(db), session_mgr=SessionManager(db, kc),"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 138,
+   "label": "adapter_mgr",
+   "text": "owner = SimpleNamespace(adapter_mgr=am)"
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "caps/persona_cap.py",
+   "line": 22,
+   "label": "persona_mgr",
+   "text": "return getattr(self.ctx, \"persona_mgr\", None)"
+  },
+  {
+   "file": "tests/test_adversarial.py",
+   "line": 139,
+   "label": "persona_mgr",
+   "text": "adapter_mgr=adapter_mgr, persona_mgr=PersonaManager(db),"
+  },
+  {
+   "file": "tests/test_dm_confirm.py",
+   "line": 188,
+   "label": "persona_mgr",
+   "text": "persona_mgr=PersonaManager(db),"
+  },
+  {
+   "file": "tests/test_gaps.py",
+   "line": 91,
+   "label": "persona_mgr",
+   "text": "adapter_mgr=None, persona_mgr=PersonaManager(db),"
+  },
+  {
+   "file": "tests/test_integration_real.py",
+   "line": 124,
+   "label": "persona_mgr",
+   "text": "persona_mgr=PersonaManager(db),"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 219,
+   "label": "persona_mgr",
+   "text": "self.persona_mgr = FakePersonaMgr()"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 356,
+   "label": "persona_mgr",
+   "text": "assert \"newp\" in ctx.persona_mgr.personas, ctx.persona_mgr.personas"
+  },
+  {
+   "file": "tests/test_races.py",
+   "line": 134,
+   "label": "persona_mgr",
+   "text": "adapter_mgr=am, persona_mgr=PersonaManager(db), session_mgr=SessionManager(db, kc),"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 1385,
+   "label": "替换框架文件",
+   "text": "\"force\": {\"type\": \"boolean\", \"description\": \"覆盖安装\"},"
+  },
+  {
+   "file": "manifest.json",
+   "line": 19,
+   "label": "替换框架文件",
+   "text": "\"description\": \"让 bot 自己查看和管理 KiraAI：一套合并工具覆盖插件、技能、Provider、MCP、会话、人设、配置、日志与商店，带名单/档位权限与超档密码授权。写操作自动备份可回滚、全程审计，另附完整 WebUI 面板。\""
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 20,
+   "label": "替换框架文件",
+   "text": "\"info\":         (\"read\", False, \"会话详情（含能力覆盖）\"),"
+  },
+  {
+   "file": "caps/session_cap.py",
+   "line": 23,
+   "label": "替换框架文件",
+   "text": "\"caps\":         (\"write\", False, \"设置会话级能力覆盖\"),"
+  },
+  {
+   "file": "core/backup.py",
+   "line": 204,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(src, dest)"
+  },
+  {
+   "file": "core/backup.py",
+   "line": 313,
+   "label": "替换框架文件",
+   "text": "shutil.copy2(stored, target)"
+  },
+  {
+   "file": "store/installer.py",
+   "line": 92,
+   "label": "替换框架文件",
+   "text": "await _to_thread(shutil.copytree, dest, backup)"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 13,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 45,
+   "label": "读框架文件",
+   "text": "return importlib.import_module(\"plugins.kira_ops.main\")"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 54,
+   "label": "读框架文件",
+   "text": "perm_mod = importlib.import_module(\"plugins.kira_ops.core.permission\")"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 55,
+   "label": "读框架文件",
+   "text": "redact = importlib.import_module(\"plugins.kira_ops.core.redact\")"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 56,
+   "label": "读框架文件",
+   "text": "backup_mod = importlib.import_module(\"plugins.kira_ops.core.backup\")"
+  },
+  {
+   "file": "tests/test_kira_ops.py",
+   "line": 57,
+   "label": "读框架文件",
+   "text": "confirm_mod = importlib.import_module(\"plugins.kira_ops.core.confirm\")"
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 14,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/test_live_ops.py",
+   "line": 33,
+   "label": "读框架文件",
+   "text": "main_mod = importlib.import_module(\"plugins.kira_ops.main\")"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 13,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/test_live_ops2.py",
+   "line": 31,
+   "label": "读框架文件",
+   "text": "main_mod = importlib.import_module(\"plugins.kira_ops.main\")"
+  },
+  {
+   "file": "tests/test_panel_contract.py",
+   "line": 139,
+   "label": "读框架文件",
+   "text": "import importlib"
+  },
+  {
+   "file": "tests/test_panel_contract.py",
+   "line": 140,
+   "label": "读框架文件",
+   "text": "main_mod = importlib.import_module(\"plugins.kira_ops.main\")"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_ops_plugin",
+  "head": "c2ea971 2026-10-03 22:46:50 +0800 Merge pull request #4 from AinaLife-ai/feat/dm-confirm-1.2.0",
+  "core_version": ">=2.34.6"
+ }
+}

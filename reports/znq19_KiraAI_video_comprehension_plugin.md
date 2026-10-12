@@ -1,0 +1,14 @@
+# znq19_KiraAI_video_comprehension_plugin
+- 总级: SAFE-NOTE
+- 版本: manifest version 1.17.0 / core_version ">=2.33.1"（无上界，开放到 3.x，不挡 rc.1）
+- 规模: 6 个业务 py（main.py 3374、video_processor.py 981、asr.py 315、llm_proxy.py 285、bili_dl.py 470、video_host.py 153）+ tests/ 9 文件；入口 main.py（BasePlugin，@register.tool + 钩子）
+- 命中裁决（预扫描 A/B/C/D/F/G/I 全组逐一核实，**均为误报，无破坏点**）:
+  - [A] 6 命中全为注释/自有对象语义 → 误报：main.py:2500（注释「_pending 清空」）、main.py:3306（插件自有 `sess.model_tag` 更新，非框架会话 API）、tests/audit_* 断言串。全仓**零**框架会话 API 调用（grep `session_mgr/get_session/update_session/read_memory/write_memory/get_session_capabilities/...` 无命中）→ 不涉及 A 组破坏面
+  - [B] 5 命中 → 误报（无 uuid 风险）：main.py:236/2931/3255/3303 的 `default_model` 是**插件自有模型组**（section_model_1..4，含自填 api_base/api_key/model_name，见 llm_proxy.py:66-95 `ModelProfile.from_cfg`），与框架 provider 注册表的 `model_id/model_name` 无关；schema.json:18 为 string 枚举（auto/1/2/3/4），非 `source=model` 选择器 → rc.1 无「展示 UUID」风险
+  - [C] 3 命中 → 误报：llm_proxy.py:11/201/272 用**官方 `openai.AsyncOpenAI` SDK 直连**（自配 base_url/api_key），**未引用** rc.1 已删除的 `core.utils.model_clients`；模型名走 `model=profile.name`（上游真实名）→ 正确，反而规避了 C 组破坏点
+  - [D] 1 命中 → 误报：main.py:381 `plugin_registry` 仅出现在**中文注释**里，无导入。实际导入 `from core.plugin import BasePlugin, logger, on, Priority, register`（rc.1 `core/plugin/__init__.py` 全部导出，logger 亦导出）、`core.chat.message_utils`(KiraMessageEvent/KiraMessageBatchEvent)、`core.chat`(MessageChain)、`core.chat.message_elements`(Text)、`core.provider`(LLMRequest)、`core.utils.path_utils`(get_data_path)——逐符号在 rc.1 均存在
+  - [E] 无真实命中：全仓不使用 MessageProcessor 内部字段/方法、SessionBuffer、workflow_registry、message_format_to_text 等 → SAFE；仅用公开事件字段（`event.session/.message.chain/.adapter/.messages`，rc.1 message_utils.py 均存在）
+  - [F] 3 命中 → 误报/兼容：main.py:2106/2216/2314 `ctx.adapter_mgr.get_adapter(name)`（rc.1 adapter_registry.py:672 存在）；`_is_qq` 用 `event.adapter.platform` 字符串比较（版本无关）；未读 `adapter.message_types`/`emoji_dict`，未用已删的 IMAdapter/SocialMediaAdapter/LiveStreamAdapter
+  - [G] 4 命中 → 误报：tests/selfcheck.py 的 `strip_comments/strip_json_comments` 是测试自带函数名含 "comment" 字样，非 `on.comment` 钩子。实际钩子：`@on.im_message`、`@on.im_batch_message`（rc.1 decorators.py:162 存在）、`@on.llm_request`、`@register.tool`（decorators.py:242）——全部存在。优先级仅用 `Priority.HIGH/LOW`（未用 SYS_LOW/SYS_HIGH），合规
+  - [I] 23 命中 → 误报：所有「覆盖」均为中文注释/配置 hint；`_PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))` 指向**插件自身**目录；tests/selfcheck.py:299/317-319 的 `get_data_path=lambda`/`importlib.reload(main_mod)` 是测试对**插件 main.py** 的桩/重载，非框架文件。**无直读/patch/覆盖框架文件行为**
+- 备注: 唯一可疑但无害项=`reload_cfg()`(main.py:3341) 被定义却无任何调用点（rc.1/2.x 均无框架钩子调用它），属插件内死代码，不影响运行；无需修复。该插件物理模型组 + 直连 OpenAI 的设计使其天然绕开 rc.1 A/B/C 破坏面，属双世代兼容。

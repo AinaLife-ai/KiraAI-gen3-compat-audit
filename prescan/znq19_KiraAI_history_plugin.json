@@ -1,0 +1,113 @@
+{
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 270,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(name)"
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 113,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = None"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 128,
+   "label": "adapter_mgr",
+   "text": "adapter_mgr = None"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "locate.py",
+   "line": 398,
+   "label": "替换框架文件",
+   "text": "bits.append(\"覆盖=%s ~ %s\" % (fmt_ts(self.oldest_ts), fmt_ts(self.newest_ts)))"
+  },
+  {
+   "file": "main.py",
+   "line": 463,
+   "label": "替换框架文件",
+   "text": "\"then returns a scan report (命中/扫描/覆盖/到最早) so you know how far back it really \""
+  },
+  {
+   "file": "schema.json",
+   "line": 60,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"在定位结果最前面加「命中/扫描/覆盖/到最早/耗时」。强烈建议开启：没有它，模型会把「没扫到」说成「群里没人说过」。\""
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 12,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 61,
+   "label": "读框架文件",
+   "text": "_s = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 63,
+   "label": "读框架文件",
+   "text": "_m = importlib.util.module_from_spec(_s)"
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 67,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{pkg_name}.hist_main\","
+  },
+  {
+   "file": "tests/test_history_filter.py",
+   "line": 69,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 10,
+   "label": "读框架文件",
+   "text": "import importlib.util"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 57,
+   "label": "读框架文件",
+   "text": "_s = importlib.util.spec_from_file_location("
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 59,
+   "label": "读框架文件",
+   "text": "_m = importlib.util.module_from_spec(_s)"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 63,
+   "label": "读框架文件",
+   "text": "spec = importlib.util.spec_from_file_location(f\"{pkg_name}.hist_main\","
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 65,
+   "label": "读框架文件",
+   "text": "mod = importlib.util.module_from_spec(spec)"
+  },
+  {
+   "file": "tests/test_locate_path.py",
+   "line": 657,
+   "label": "替换框架文件",
+   "text": "for token in (\"【定位】\", \"session=group:123\", \"命中=\", \"扫描=\", \"覆盖=\", \"到最早=\", \"耗时=\"):"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_history_plugin",
+  "head": "e67c851 2026-09-15 18:11:14 +0800 Merge pull request #7 from AinaLife-ai/v1.4.0-locate-history",
+  "core_version": null
+ }
+}

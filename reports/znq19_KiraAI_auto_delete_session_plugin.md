@@ -1,0 +1,11 @@
+# znq19_KiraAI_auto_delete_session_plugin
+- 总级: NEEDS-FIX
+- 版本: core_version >=2.33
+- 规模: 5 py（main + compat + preprocessor + summarizer）
+- 命中裁决:
+  - [A] 与 reboot 同构：main.py:236-238 启动检查 fetch_memory/read_memory/write_memory/delete_session/get_session_info/get_memory_count → rc1 全灭 → 自我禁用
+  - [A] main.py:753 直读 `session_mgr.chat_memory`（rc1 已删此常驻缓存）→ None → 逻辑走空
+  - [A] 写穿式重开（main.py:44 注释「不 delete_session，直接 write_memory 覆写（保留会话标题等元信息）」:757）+ delete 模式（:760-763）；压缩触发 fetch_memory(:999,1200,1405,1454)、read_memory(:1120,1466)、get_memory_count(:1458,1516)
+  - 会话能力/标题保留哲学与 reboot 相同 → rc1 映射 `update_session(sid, content=...)`
+- 修复方案(NEEDS-FIX): 同 reboot 的双世代会话层；注意它还有 preprocessor（ON_LLM_REQUEST 改写链）与 CCS 互斥逻辑（compat.py），改动面集中在会话读写函数族。
+- 备注: **建议新开会话项目承接**（与 reboot 同一批做，两者共享模式与测试）。

@@ -1,0 +1,449 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 341,
+   "label": "clear/reset会话语义",
+   "text": "- 旧配置里的实例名若已失效（例如以前的 `qq` 现在叫 `QQ`），首次启动会**原子写回**清空（临时文件 + `os.replace`，失败保留原值），随后走自动探测；配置有效则原样保留。"
+  },
+  {
+   "file": "main.py",
+   "line": 312,
+   "label": "clear/reset会话语义",
+   "text": "\"\"\"旧配置里的适配器实例名若已失效，原子清空以便自动探测（首次更新时执行）。\"\"\""
+  },
+  {
+   "file": "main.py",
+   "line": 352,
+   "label": "clear/reset会话语义",
+   "text": "f\"[KiraDaily] 旧适配器名 {configured!r} 已失效，已清空并改为自动探测第一个 QQ 适配器\""
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 270,
+   "label": "adapter_mgr",
+   "text": "mgr = getattr(self.ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 288,
+   "label": "adapter_mgr",
+   "text": "mgr = getattr(self.ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 316,
+   "label": "adapter_mgr",
+   "text": "mgr = getattr(self.ctx, \"adapter_mgr\", None)"
+  },
+  {
+   "file": "main.py",
+   "line": 518,
+   "label": "send_direct_message",
+   "text": "await adapter.send_group_message(qq_group_id, MessageChain([Text(text)]))"
+  },
+  {
+   "file": "main.py",
+   "line": 1999,
+   "label": "send_direct_message",
+   "text": "await adapter.send_group_message(qq_group_id, MessageChain([Image(str(report_path))]))"
+  },
+  {
+   "file": "main.py",
+   "line": 2003,
+   "label": "send_direct_message",
+   "text": "await adapter.send_group_message(qq_group_id, MessageChain([Text(chunk)]))"
+  }
+ ],
+ "G_事件与钩子": [
+  {
+   "file": "main.py",
+   "line": 94,
+   "label": "comment钩子",
+   "text": "self.enable_sharp_comment = content.get(\"enable_sharp_comment\", True)"
+  },
+  {
+   "file": "main.py",
+   "line": 917,
+   "label": "comment钩子",
+   "text": "existing_sharp_comments: List[str] = None"
+  },
+  {
+   "file": "main.py",
+   "line": 924,
+   "label": "comment钩子",
+   "text": "4. header_comment（一句话总结）"
+  },
+  {
+   "file": "main.py",
+   "line": 925,
+   "label": "comment钩子",
+   "text": "5. sharp_comment（AI锐评）"
+  },
+  {
+   "file": "main.py",
+   "line": 941,
+   "label": "comment钩子",
+   "text": "if existing_sharp_comments:"
+  },
+  {
+   "file": "main.py",
+   "line": 942,
+   "label": "comment钩子",
+   "text": "sharp_ref = f\"\\n历史锐评风格参考（仅作风格参考，不要照抄）：{existing_sharp_comments[-1]}\""
+  },
+  {
+   "file": "main.py",
+   "line": 991,
+   "label": "comment钩子",
+   "text": "\"header_comment\": \"一句话总结\","
+  },
+  {
+   "file": "main.py",
+   "line": 992,
+   "label": "comment钩子",
+   "text": "\"sharp_comment\": \"AI锐评\""
+  },
+  {
+   "file": "main.py",
+   "line": 1035,
+   "label": "comment钩子",
+   "text": "\"\"\" if self.enable_sharp_comment else \"\""
+  },
+  {
+   "file": "main.py",
+   "line": 1054,
+   "label": "comment钩子",
+   "text": "\"header_comment\": \"一句话概括今日群聊\","
+  },
+  {
+   "file": "main.py",
+   "line": 1070,
+   "label": "comment钩子",
+   "text": "\"sharp_comment\": \"AI锐评一句话\""
+  },
+  {
+   "file": "main.py",
+   "line": 1107,
+   "label": "comment钩子",
+   "text": "\"sharp_comment\": \"...\""
+  },
+  {
+   "file": "main.py",
+   "line": 1166,
+   "label": "comment钩子",
+   "text": "sharp_comment=result.get('sharp_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1285,
+   "label": "comment钩子",
+   "text": "existing_sharp_comments=[]"
+  },
+  {
+   "file": "main.py",
+   "line": 1397,
+   "label": "comment钩子",
+   "text": "existing_sharp_comments = []"
+  },
+  {
+   "file": "main.py",
+   "line": 1398,
+   "label": "comment钩子",
+   "text": "sharp_comment = cumulative.get('sharp_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1399,
+   "label": "comment钩子",
+   "text": "if sharp_comment:"
+  },
+  {
+   "file": "main.py",
+   "line": 1400,
+   "label": "comment钩子",
+   "text": "existing_sharp_comments.append(sharp_comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 1407,
+   "label": "comment钩子",
+   "text": "existing_sharp_comments=existing_sharp_comments"
+  },
+  {
+   "file": "main.py",
+   "line": 1413,
+   "label": "comment钩子",
+   "text": "if result.get('sharp_comment'):"
+  },
+  {
+   "file": "main.py",
+   "line": 1414,
+   "label": "comment钩子",
+   "text": "sharp_comment = result.get('sharp_comment')"
+  },
+  {
+   "file": "main.py",
+   "line": 1628,
+   "label": "comment钩子",
+   "text": "sharp_comment = cumulative.get('sharp_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1629,
+   "label": "comment钩子",
+   "text": "header_comment = cumulative.get('header_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1631,
+   "label": "comment钩子",
+   "text": "# 如果累积结果中没有 header_comment 和 sharp_comment，需要重新生成"
+  },
+  {
+   "file": "main.py",
+   "line": 1632,
+   "label": "comment钩子",
+   "text": "if not header_comment or not sharp_comment:"
+  },
+  {
+   "file": "main.py",
+   "line": 1637,
+   "label": "comment钩子",
+   "text": "existing_sharp_comments=[sharp_comment] if sharp_comment else []"
+  },
+  {
+   "file": "main.py",
+   "line": 1643,
+   "label": "comment钩子",
+   "text": "header_comment = result.get('header_comment', header_comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 1644,
+   "label": "comment钩子",
+   "text": "sharp_comment = result.get('sharp_comment', sharp_comment)"
+  },
+  {
+   "file": "main.py",
+   "line": 1660,
+   "label": "comment钩子",
+   "text": "'sharp_comment': sharp_comment,"
+  },
+  {
+   "file": "main.py",
+   "line": 1661,
+   "label": "comment钩子",
+   "text": "'header_comment': header_comment"
+  },
+  {
+   "file": "main.py",
+   "line": 1745,
+   "label": "comment钩子",
+   "text": "result.setdefault('header_comment', '今日群聊，热闹非凡！')"
+  },
+  {
+   "file": "main.py",
+   "line": 1746,
+   "label": "comment钩子",
+   "text": "result.setdefault('sharp_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1933,
+   "label": "comment钩子",
+   "text": "sharp_comment = analysis_result.get('sharp_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1934,
+   "label": "comment钩子",
+   "text": "header_comment = analysis_result.get('header_comment', '')"
+  },
+  {
+   "file": "main.py",
+   "line": 1937,
+   "label": "comment钩子",
+   "text": "lines.append(f\"📊 {header_comment}\")"
+  },
+  {
+   "file": "main.py",
+   "line": 1977,
+   "label": "comment钩子",
+   "text": "if sharp_comment:"
+  },
+  {
+   "file": "main.py",
+   "line": 1978,
+   "label": "comment钩子",
+   "text": "lines.append(f\"🤖 锐评: {sharp_comment}\")"
+  },
+  {
+   "file": "schema.json",
+   "line": 123,
+   "label": "comment钩子",
+   "text": "\"enable_sharp_comment\": {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 743,
+   "label": "comment钩子",
+   "text": ".sharp-comment {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 754,
+   "label": "comment钩子",
+   "text": ".sharp-comment .avatar-trapezoid {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 764,
+   "label": "comment钩子",
+   "text": ".sharp-comment .avatar-trapezoid img {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 770,
+   "label": "comment钩子",
+   "text": ".sharp-comment .comment-body {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 777,
+   "label": "comment钩子",
+   "text": ".sharp-comment .comment-body .comment-label {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 783,
+   "label": "comment钩子",
+   "text": ".sharp-comment .comment-body .comment-content {"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 826,
+   "label": "comment钩子",
+   "text": ".sharp-comment .avatar-trapezoid { flex-basis: 80px; min-height: 70px; }"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 888,
+   "label": "comment钩子",
+   "text": "<div class=\"subtitle\">{{ analysis.header_comment | default('✨ 今天的群聊也充满欢乐 ✨') }}</div>"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 994,
+   "label": "comment钩子",
+   "text": "{% if analysis.sharp_comment %}"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 995,
+   "label": "comment钩子",
+   "text": "<div class=\"sharp-comment\">"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 999,
+   "label": "comment钩子",
+   "text": "<div class=\"comment-body\">"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 1000,
+   "label": "comment钩子",
+   "text": "<div class=\"comment-label\">@{{ bot_nickname }} 锐评</div>"
+  },
+  {
+   "file": "templates/daily_report.html",
+   "line": 1001,
+   "label": "comment钩子",
+   "text": "<div class=\"comment-content\">{{ analysis.sharp_comment }}</div>"
+  },
+  {
+   "file": "utils/db.py",
+   "line": 66,
+   "label": "comment钩子",
+   "text": "sharp_comment TEXT,"
+  },
+  {
+   "file": "utils/db.py",
+   "line": 220,
+   "label": "comment钩子",
+   "text": "sharp_comment: str = ''"
+  },
+  {
+   "file": "utils/db.py",
+   "line": 227,
+   "label": "comment钩子",
+   "text": "topics_json, quotes_json, active_users_json, sharp_comment, created_at"
+  },
+  {
+   "file": "utils/db.py",
+   "line": 239,
+   "label": "comment钩子",
+   "text": "sharp_comment,"
+  },
+  {
+   "file": "utils/db.py",
+   "line": 250,
+   "label": "comment钩子",
+   "text": "topics_json, quotes_json, active_users_json, sharp_comment, created_at"
+  },
+  {
+   "file": "utils/db.py",
+   "line": 268,
+   "label": "comment钩子",
+   "text": "'sharp_comment': r[8],"
+  }
+ ],
+ "H_人设与自拍": [
+  {
+   "file": "main.py",
+   "line": 949,
+   "label": "persona_mgr",
+   "text": "persona = await self.ctx.persona_mgr.get_persona(self.persona_id)"
+  },
+  {
+   "file": "main.py",
+   "line": 951,
+   "label": "persona_mgr",
+   "text": "personas = await self.ctx.persona_mgr.list_personas()"
+  },
+  {
+   "file": "main.py",
+   "line": 1024,
+   "label": "persona_mgr",
+   "text": "persona = await self.ctx.persona_mgr.get_persona(self.persona_id)"
+  },
+  {
+   "file": "main.py",
+   "line": 1026,
+   "label": "persona_mgr",
+   "text": "personas = await self.ctx.persona_mgr.list_personas()"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "schema.json",
+   "line": 113,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"统计最活跃时间段的窗口宽度。值越大覆盖范围越宽，值越小聚焦于爆发高峰。建议 60-120\""
+  },
+  {
+   "file": "schema.json",
+   "line": 221,
+   "label": "替换框架文件",
+   "text": "\"hint\": \"控制日报覆盖的时间范围。窗口外的批次不会参与合并，旧数据自动滑出。建议 12-24\""
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_daily_report_plugin",
+  "head": "431259a 2026-09-09 09:45:35 +0800 Merge pull request #5 from AinaLife-ai/feat/plugin-icon",
+  "core_version": null
+ }
+}

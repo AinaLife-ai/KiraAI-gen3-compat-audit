@@ -1,0 +1,55 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "main.py",
+   "line": 224,
+   "label": "clear/reset会话语义",
+   "text": "if low in (\"重置\", \"reset\", \"清空\"):"
+  },
+  {
+   "file": "mukuu_client.py",
+   "line": 118,
+   "label": "clear/reset会话语义",
+   "text": "# 简单防膨胀：超过 64 条清空"
+  }
+ ],
+ "F_适配器与能力": [
+  {
+   "file": "main.py",
+   "line": 475,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(\"qq\")"
+  },
+  {
+   "file": "main.py",
+   "line": 482,
+   "label": "adapter_mgr",
+   "text": "adapter = self.ctx.adapter_mgr.get_adapter(\"qq\")"
+  },
+  {
+   "file": "main.py",
+   "line": 494,
+   "label": "adapter_mgr",
+   "text": "adapter_inst = self.ctx.adapter_mgr.get_adapter(adapter_name)"
+  }
+ ],
+ "I_直读框架文件": [
+  {
+   "file": "main.py",
+   "line": 107,
+   "label": "替换框架文件",
+   "text": "\"换 keyword 则重新开始。count 参数可覆盖本次返回条数（默认跟随配置）。\""
+  },
+  {
+   "file": "main.py",
+   "line": 124,
+   "label": "替换框架文件",
+   "text": "\"description\": \"输出模式覆盖：空=跟随配置，image=渲染图+链接清单，text=纯文本，both=渲染图+完整文本\","
+  }
+ ],
+ "_meta": {
+  "repo": "AinaLife-ai_KiraAI_com3d2-mod-search_plugin",
+  "head": "6b4909c 2026-08-14 22:00:41 +0800 Update README.md",
+  "core_version": ">=2.29.7"
+ }
+}

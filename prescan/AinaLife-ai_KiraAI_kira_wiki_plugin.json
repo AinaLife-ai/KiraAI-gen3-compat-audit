@@ -1,0 +1,15 @@
+{
+ "B_模型名展示_uuid风险": [
+  {
+   "file": "main.py",
+   "line": 130,
+   "label": "默认模型读取",
+   "text": "client = self.ctx.get_default_llm_client()"
+  }
+ ],
+ "_meta": {
+  "repo": "AinaLife-ai_KiraAI_kira_wiki_plugin",
+  "head": "8330085 2026-09-05 05:17:49 +0800 manifest: add repo field",
+  "core_version": ">=2.33.1"
+ }
+}

@@ -1,0 +1,13 @@
+# znq19_KiraAI_midflight_message_plugin
+- 总级: NEEDS-FIX（minor，功能降级非崩溃）
+- 版本: core_version >=2.29.7
+- 规模: 17 py（主 main.py 约 2000 行）
+- 命中裁决:
+  - [E] main.py:537 `await self.ctx.message_processor.message_format_to_text(chain)` → rc1 MessageProcessor 已无此方法（迁往 MessageFormatter 服务，message_manager.py 剩余接口已核实无此名）→ 但被 try/except 包住回退 `native=text` → **buffer 路径的消息文本化质量降级（丢媒体 caption 等），不崩**
+  - [E] SessionBuffer 直操 `buffer.buffer`/`buffer.lock`（:415-504,791+）→ 两代字段一致（kira30 session_buffer.py:12-13 / 2.x 同）→ SAFE
+  - [D] `ctx.flush_session_messages(sid)`（:1021）rc1 plugin_context.py:110 在；`ctx.get_buffer` rc1:101 在 → SAFE
+  - [F] 已显式双世代字段适配（:87-98 message_types/supported_elements 双存 shim）→ 正面教材
+  - [B] get_default_llm_client（:288）rc1:124 在 → SAFE
+  - A/G/I 组命中全是注释与自有计数器——误报
+- 修复方案: :537 一处——优先 `ctx.message_formatter.format_to_text(chain)`（hasattr 探测），回退旧路径再回退 text。小改。
+- 备注: **本会话可直接修**。插件本身双世代设计已完善，仅这一个漏网点。

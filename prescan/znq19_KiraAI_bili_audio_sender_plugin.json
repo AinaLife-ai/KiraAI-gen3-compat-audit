@@ -1,0 +1,15 @@
+{
+ "A_会话API_rc1破坏": [
+  {
+   "file": "README.md",
+   "line": 110,
+   "label": "clear/reset会话语义",
+   "text": "A：配置里的 QQ号/群号白名单限定了可用范围。要么把自己的 QQ/群号加进去，要么把白名单清空（清空 = 不限制）。"
+  }
+ ],
+ "_meta": {
+  "repo": "znq19_KiraAI_bili_audio_sender_plugin",
+  "head": "62804e9 2026-10-11 08:33:32 +0800 Update manifest.json",
+  "core_version": ">=2.6.1"
+ }
+}
