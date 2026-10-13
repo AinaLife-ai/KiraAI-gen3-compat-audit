@@ -1,7 +1,19 @@
-# KiraAI v3.0.0-rc.1 插件兼容性审计手册（子代理执行版）
+# KiraAI v3.0 插件兼容性审计手册（基线：rc2；含 rc1 时期结论）
 
 > 你是插件兼容性审计员。本手册包含全部所需背景。**不要修改任何仓库代码**，你只读、分析、写报告。
 > 所有框架事实以**本地真实源码**为准，不确定就去 grep 框架，禁止凭印象下结论。
+
+## ⚠️ 基线更新（2026-10-13）：以 **rc2** 为准
+
+本手册写于 rc1 时期，**结论仍然有效**，但请把基线换成 **`v3.0.0-rc.2`（`74efac3`）**：
+
+| 事项 | 变化 |
+| --- | --- |
+| 靶子清单 | 新增 **rc2 破坏点**：`send_message_chain(..., self_id=)` → **`bot: User`**（含弃用入口转发 / `PluginContext` / `execute.py` / event 新增 `bot` 字段）⇒ 见 [docs/RC2_CHANGES.md](docs/RC2_CHANGES.md) |
+| 新增审计靶子类别 | **签名漂移**：包装框架方法却写死签名（P0，会让发送整条失败）⇒ 见 [docs/SIGNATURE_DRIFT_v3.md](docs/SIGNATURE_DRIFT_v3.md) |
+| 自动化 | 先跑 `tools/scan_signature_drift.py` 与 `tools/scan_logger_levels.py`，再人工过 P1 |
+| 覆盖范围 | 62 仓（znq19 非 fork + AinaLife-ai + Qixuan112 三个 + reboot fork 例外）⇒ 结果见 [reports/RC2_SCAN_2026-10-13.md](reports/RC2_SCAN_2026-10-13.md) |
+| 复现方式 | `tools/fetch_all_repos.py` 批量拉取 → 扫描器 → 人工核实（**"真组件 + 计数假依赖"** 是首选验证手法） |
 
 ## 0. 环境锚点（本地路径）
 

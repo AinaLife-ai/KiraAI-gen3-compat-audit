@@ -1,0 +1,1551 @@
+{
+ "acc_fix": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 1756,
+   "why": "parse_args()（factory 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_args(tc)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 44,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/measure_lock_hold.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 54,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/measure_lock_hold.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 102,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_after_xml_parse.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 121,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_after_xml_parse.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 70,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 79,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 83,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 92,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 129,
+   "why": "parse_xml() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_xml(xml_data, tag_set)",
+   "file": "tests/test_custom_tag_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 134,
+   "why": "add_message_ids() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def add_message_ids(xml_data, message_results)",
+   "file": "tests/test_custom_tag_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 84,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_dup_per_step.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 94,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_dup_per_step.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 62,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_dup_send_e2e.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 72,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_dup_send_e2e.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 74,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_early_sent_alignment.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 84,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_early_sent_alignment.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 130,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain, *, memory_message=None, self_id=None)",
+   "file": "tests/test_early_sent_alignment.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 83,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_failover_no_dup.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 92,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_failover_no_dup.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 118,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain, *, memory_message=None)",
+   "file": "tests/test_framework_signature_drift.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 254,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain)",
+   "file": "tests/test_framework_signature_drift.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 99,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_handback_guards.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 110,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_handback_guards.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 165,
+   "why": "get_model_client() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, provider_id, model_id, model_type=None)",
+   "file": "tests/test_load.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 190,
+   "why": "send_xml_messages() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_xml_messages(self, event, xml_data, tag_set)",
+   "file": "tests/test_load.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 52,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, seg, tag_set)",
+   "file": "tests/test_message_pacing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 57,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_message_pacing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 72,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_pacing_handoff.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 82,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_pacing_handoff.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 125,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain, *, memory_message=None, self_id=None)",
+   "file": "tests/test_pacing_handoff.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 82,
+   "why": "impl()（boom 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 109,
+   "why": "impl()（good 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 121,
+   "why": "impl()（boom_b 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 180,
+   "why": "impl()（boom6 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 87,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 96,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 67,
+   "why": "parse_xml() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_xml(xml_data, tag_set)",
+   "file": "tests/test_preparse_strip.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 72,
+   "why": "add_message_ids() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def add_message_ids(xml_data, message_results)",
+   "file": "tests/test_preparse_strip.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 91,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_production_emit_contract.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 100,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_production_emit_contract.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 75,
+   "why": "get_model_client() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, provider_id, model_id, model_type=None)",
+   "file": "tests/test_proxy_isinstance.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 110,
+   "why": "parse_xml() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_xml(xml_data, tag_set)",
+   "file": "tests/test_qqbot_fullmsg_compat.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 115,
+   "why": "add_message_ids() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def add_message_ids(xml_data, message_results)",
+   "file": "tests/test_qqbot_fullmsg_compat.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 60,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, seg, tag_set)",
+   "file": "tests/test_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 65,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 92,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_unparsable_handback.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 108,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_unparsable_handback.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 978,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "return await mp._parse_xml_msg(seg, tag_set)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 63,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions = await mp._parse_xml_msg(xml, None)",
+   "file": "tests/measure_lock_hold.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 169,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions0 = asyncio.run(mp0._parse_xml_msg('<msg><text>嗨</text><sticker id=\"7\"/></msg>', None))",
+   "file": "tests/test_after_xml_parse.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 156,
+   "why": "send_xml_messages(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "return asyncio.run(MessageProcessor.send_xml_messages(inst, ev, text, object()))",
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 169,
+   "why": "send_xml_messages(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "MessageProcessor.send_xml_messages(inst, ev, text, object()))",
+   "file": "tests/test_dup_per_step.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 209,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions = await mp._parse_xml_msg(seg, ctx.tag_set)",
+   "file": "tests/test_handback_guards.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 170,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions2 = asyncio.run(mp._parse_xml_msg(remaining, None))",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 200,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions = await p2.ctx.message_processor._parse_xml_msg(seg, ctx.tag_set)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 219,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions2 = asyncio.run(mp._parse_xml_msg(FULL, None))",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  }
+ ],
+ "bridge_new": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 217,
+   "why": "get_session_capabilities() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_session_capabilities(self, sid)",
+   "file": "tests/audit_chat_compat.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 166,
+   "why": "_send_message() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _send_message(self, target_id, send_message_obj, is_group)",
+   "file": "tests/test_proactive_fallback.py",
+   "test": true
+  }
+ ],
+ "KiraAI-gen3-compat-audit": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 179,
+   "why": "get_session_capabilities() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_session_capabilities(self, sid)",
+   "file": "kit/framework_stubs.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 189,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "kit/framework_stubs.py",
+   "test": false
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 93,
+   "why": "write_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "ctx.session_mgr.write_memory(sid, [[{\"role\": \"user\", \"content\": \"hi\"}]])",
+   "file": "kit/test_dualgen.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 94,
+   "why": "update_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "ctx.session_mgr.update_session_info(sid, title=\"标题\")",
+   "file": "kit/test_dualgen.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 102,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "s = ctx.session_mgr.get_session_info(sid)",
+   "file": "kit/test_dualgen.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 104,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "assert ctx.session_mgr.fetch_memory(sid) == [], \"gen2 清空后记忆非空\"",
+   "file": "kit/test_dualgen.py",
+   "test": true
+  }
+ ],
+ "KiraAI-qqbot-fullmsg-bridge-plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 4206,
+   "why": "_send_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _send_message(target_id, send_message_obj, is_group)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 217,
+   "why": "get_session_capabilities() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_session_capabilities(self, sid)",
+   "file": "tests/audit_chat_compat.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 166,
+   "why": "_send_message() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _send_message(self, target_id, send_message_obj, is_group)",
+   "file": "tests/test_proactive_fallback.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 130,
+   "why": "handle() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def handle(message, is_group, force_mention, _orig=original_handle)",
+   "file": "v3_support.py",
+   "test": false
+  }
+ ],
+ "KiraAI_Alife_memory_Z_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 439,
+   "why": "get_model_client() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, pid, mid, model_type=None)",
+   "file": "tests/test_jev_layer.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 407,
+   "why": "chat() 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(request)",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 1524,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, request)",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 1999,
+   "why": "chat() 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(request)",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 96,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_model_chains.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 49,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_model_chains_in_use.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 74,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_upgrade_path_e2e.py",
+   "test": true
+  }
+ ],
+ "KiraAI_Default-Chat-Z-": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 77,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 55,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_prefetch_scope.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 78,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_prefetch_timing.py",
+   "test": true
+  }
+ ],
+ "KiraAI_accelerator_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 682,
+   "why": "make()（factory 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def make(self)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 735,
+   "why": "get_model_client()（factory 里） 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, provider_id, model_id, model_type=None)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 1723,
+   "why": "execute_tool()（factory 里） 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def execute_tool(self, event, resp, tool_set=None)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 1750,
+   "why": "parse_args()（factory 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_args(tc)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 1890,
+   "why": "_save_memory()（factory 里） 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _save_memory(self, memory=None, path=None)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 44,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/measure_lock_hold.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 54,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/measure_lock_hold.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 102,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_after_xml_parse.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 121,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_after_xml_parse.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 70,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 79,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 83,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 92,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 129,
+   "why": "parse_xml() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_xml(xml_data, tag_set)",
+   "file": "tests/test_custom_tag_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 134,
+   "why": "add_message_ids() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def add_message_ids(xml_data, message_results)",
+   "file": "tests/test_custom_tag_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 84,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_dup_per_step.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 94,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_dup_per_step.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 62,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_dup_send_e2e.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 72,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_dup_send_e2e.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 74,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_early_sent_alignment.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 84,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_early_sent_alignment.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 130,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain, *, memory_message=None, self_id=None)",
+   "file": "tests/test_early_sent_alignment.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 83,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_failover_no_dup.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 92,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_failover_no_dup.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 118,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain, *, memory_message=None)",
+   "file": "tests/test_framework_signature_drift.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 254,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain)",
+   "file": "tests/test_framework_signature_drift.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 99,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_handback_guards.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 110,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_handback_guards.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 165,
+   "why": "get_model_client() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, provider_id, model_id, model_type=None)",
+   "file": "tests/test_load.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 190,
+   "why": "send_xml_messages() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_xml_messages(self, event, xml_data, tag_set)",
+   "file": "tests/test_load.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 52,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, seg, tag_set)",
+   "file": "tests/test_message_pacing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 57,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_message_pacing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 72,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_pacing_handoff.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 82,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_pacing_handoff.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 125,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain, *, memory_message=None, self_id=None)",
+   "file": "tests/test_pacing_handoff.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 82,
+   "why": "impl()（boom 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 109,
+   "why": "impl()（good 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 121,
+   "why": "impl()（boom_b 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 180,
+   "why": "impl()（boom6 里） 有 1 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def impl(x)",
+   "file": "tests/test_patches.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 87,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 96,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 67,
+   "why": "parse_xml() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_xml(xml_data, tag_set)",
+   "file": "tests/test_preparse_strip.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 72,
+   "why": "add_message_ids() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def add_message_ids(xml_data, message_results)",
+   "file": "tests/test_preparse_strip.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 91,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_production_emit_contract.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 100,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_production_emit_contract.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 75,
+   "why": "get_model_client() 有 4 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, provider_id, model_id, model_type=None)",
+   "file": "tests/test_proxy_isinstance.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 110,
+   "why": "parse_xml() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def parse_xml(xml_data, tag_set)",
+   "file": "tests/test_qqbot_fullmsg_compat.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 115,
+   "why": "add_message_ids() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def add_message_ids(xml_data, message_results)",
+   "file": "tests/test_qqbot_fullmsg_compat.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 60,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, seg, tag_set)",
+   "file": "tests/test_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 65,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 92,
+   "why": "_parse_xml_msg() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def _parse_xml_msg(self, xml, tag_set)",
+   "file": "tests/test_unparsable_handback.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 108,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/test_unparsable_handback.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 976,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "return await mp._parse_xml_msg(seg, tag_set)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 63,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions = await mp._parse_xml_msg(xml, None)",
+   "file": "tests/measure_lock_hold.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 169,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions0 = asyncio.run(mp0._parse_xml_msg('<msg><text>嗨</text><sticker id=\"7\"/></msg>', None))",
+   "file": "tests/test_after_xml_parse.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 156,
+   "why": "send_xml_messages(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "return asyncio.run(MessageProcessor.send_xml_messages(inst, ev, text, object()))",
+   "file": "tests/test_cross_turn_clear_safety.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 169,
+   "why": "send_xml_messages(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "MessageProcessor.send_xml_messages(inst, ev, text, object()))",
+   "file": "tests/test_dup_per_step.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 209,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions = await mp._parse_xml_msg(seg, ctx.tag_set)",
+   "file": "tests/test_handback_guards.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 170,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions2 = asyncio.run(mp._parse_xml_msg(remaining, None))",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 200,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions = await p2.ctx.message_processor._parse_xml_msg(seg, ctx.tag_set)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 219,
+   "why": "_parse_xml_msg(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "actions2 = asyncio.run(mp._parse_xml_msg(FULL, None))",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  }
+ ],
+ "KiraAI_auto_delete_session_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 204,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session=None, chain=None)",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 799,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "sm.get_session_info(sid)",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 810,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "sm.get_session_info(sid)",
+   "file": "main.py",
+   "test": false
+  }
+ ],
+ "KiraAI_forward_fix_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 141,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, sid, chain)",
+   "file": "tests/mockenv.py",
+   "test": true
+  }
+ ],
+ "KiraAI_ops_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 109,
+   "why": "send_direct_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_direct_message(self, user_id, chain)",
+   "file": "tests/test_adversarial.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 114,
+   "why": "send_group_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_group_message(self, group_id, chain)",
+   "file": "tests/test_adversarial.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 124,
+   "why": "send_direct_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_direct_message(self, user_id, chain)",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 130,
+   "why": "send_group_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_group_message(self, group_id, chain)",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 104,
+   "why": "send_direct_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_direct_message(self, uid, chain)",
+   "file": "tests/test_races.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 111,
+   "why": "send_group_message() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_group_message(self, gid, chain)",
+   "file": "tests/test_races.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 520,
+   "why": "write_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "ctx.session_mgr.write_memory(ev.sid, [[{\"role\": \"user\", \"content\": \"chat-canary\"}]])",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 621,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "_assert(ctx.session_mgr.get_session_info() is not None,",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 627,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "ctx.session_mgr.get_session_info()",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 643,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "_assert(ctx.session_mgr.get_session_info() is not None)",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  }
+ ],
+ "KiraAI_persona_progression_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 67,
+   "why": "get_model_client() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def get_model_client(self, pid, mid, *a)",
+   "file": "tests/real_loader_test.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 317,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session, chain)",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 1076,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "check(\"旧形态清空后读记忆为空\", ctx.session_mgr.fetch_memory(\"s1\") == [])",
+   "file": "tests/run_tests.py",
+   "test": true
+  }
+ ],
+ "KiraAI_session_merger_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 138,
+   "why": "send_message_chain() 有 3 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def send_message_chain(self, session=None, chain=None)",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 158,
+   "why": "get_session_info(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "sm.get_session_info(sid)  # recreate empty shell",
+   "file": "session_mirror.py",
+   "test": false
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 363,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "head1 = str(sess.fetch_memory(sid3)[0].get(\"content\", \"\"))",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 369,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "flat3 = sess.fetch_memory(sid3)",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 419,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "flat_t = sess.fetch_memory(sid_t)",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 440,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "head_d1 = str(sess.fetch_memory(sid_d1)[0].get(\"content\", \"\"))",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 463,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "head_d2 = str(sess.fetch_memory(sid_d2)[0].get(\"content\", \"\"))",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 480,
+   "why": "fetch_memory(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "head_r = str(sess.fetch_memory(sid_r)[0].get(\"content\", \"\"))",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  }
+ ],
+ "KiraAI_sustained_chat_plugin": [
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 77,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 55,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_prefetch_scope.py",
+   "test": true
+  },
+  {
+   "kind": "P0-a 包装点签名写死",
+   "sev": "P0",
+   "line": 78,
+   "why": "chat() 有 2 个位置参数、无 **kwargs ⇒ 框架加参数即 TypeError",
+   "code": "def chat(self, req)",
+   "file": "tests/test_prefetch_timing.py",
+   "test": true
+  }
+ ],
+ "kira-ai-plugin-mimo-tts": [
+  {
+   "kind": "P1 直接调用 3.0 已删/改名 API",
+   "sev": "P1",
+   "line": 298,
+   "why": "send_xml_messages(…) 在 KiraAI 3.0（含 rc2）已删/改名 ⇒ 需要能力探测或换代实现",
+   "code": "results = await self.mp.send_xml_messages(event, text.strip(), self.build_tag_set())",
+   "file": "tests/_harness.py",
+   "test": true
+  }
+ ]
+}
