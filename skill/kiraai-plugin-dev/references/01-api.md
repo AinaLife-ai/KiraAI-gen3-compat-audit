@@ -1,6 +1,6 @@
-# KiraAI Plugin API Reference (3.0 rc1)
+# KiraAI Plugin API Reference (3.0 rc2)
 
-> 对齐 `xxynet/KiraAI` `v3.0.0-rc.1`（dev-v3 顶端，commit 8a0b812）。2.x 差异见 `02-patterns.md` 附录 A。
+> 对齐 `xxynet/KiraAI` **`v3.0.0-rc.2`**（commit `74efac3`；rc1 = `8a0b812`）。rc2 的破坏性变更（`send_message_chain` 的 `self_id=` → `bot=`）见仓根 `../docs/RC2_CHANGES.md`。2.x 差异见 `02-patterns.md` 附录 A。
 
 ## Table of Contents
 
@@ -164,7 +164,7 @@ Accessed via `self.ctx`. **3.0 注入面**（比 2.x 多出 7 个新字段）：
 | Method | Description |
 |--------|-------------|
 | `ctx.get_plugin_data_dir()` | Plugin's data directory (auto-created) |
-| `ctx.send_message_chain(adapter_name, session_type, session_id, chain, is_group=...)` | Send message to a session |
+| `ctx.send_message_chain(session, chain, *, bot=None)` | Send message to a session。`session` 形如 `adapter:dm|gm:id`；**rc2 起**可传 `bot=`（记录出站历史身份），**勿传 `self_id=`** |
 | `ctx.get_llm_client(model_id, provider_id=None)` | Get LLM client by model config |
 | `ctx.flush_session_messages(session_id, filter_fn=None)` | Force-flush message buffer（3.0 支持按事件过滤，返回 bool） |
 | `ctx.publish_notice(...)` | 系统提示消息 |

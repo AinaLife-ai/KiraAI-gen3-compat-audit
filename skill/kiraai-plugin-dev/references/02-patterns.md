@@ -1,4 +1,4 @@
-# KiraAI Plugin Patterns (3.0 rc1)
+# KiraAI Plugin Patterns (3.0 rc2)
 
 Copy-paste proven patterns. Replace placeholders. Keep it simple.
 
@@ -309,7 +309,7 @@ def handle_mytag(self, content: str, **attrs) -> MessageChain:
 
 ---
 
-## rc1 陷阱清单（全生态审计实锤）
+## rc2/rc1 陷阱清单（全生态审计实锤）
 
 > 44 仓审计 + 15 仓 NEEDS-FIX 修复 + 17 PR 验证出的真坑。每条都有源码证据。
 
@@ -356,6 +356,8 @@ from core.adapter.capabilities import IMCapability, FeedCapability
 | `MessageFormatter.format_to_text` 当同步用 | 3.0 经 `mp.im_workflow.ctx.message_formatter` 可达，但要对 `inspect.isawaitable` 分流 | 双世代探测 |
 | `mp.skills_manager / mcp_manager` | 已搬 | `ctx.skills_mgr / ctx.mcp_mgr` |
 | 猴补丁包 `send_xml_messages` | 3.0 没这函数了 | 包 `MessageDeliveryService.send_message_chain`（按链对账） |
+| **接管点把签名写死** | 框架加参数即 TypeError；而"声明不回退"的接管点会**把主流程打死**（实测：发送全灭、投递 0） | 只取自己要的，其余 `*args, **kwargs` **原样透传**（模板与守卫见仓根 `../docs/SIGNATURE_DRIFT_v3.md`） |
+| 给发送 API 传 `self_id=` | **rc2 已改名 `bot=`** ⇒ TypeError | 探测式传参（`inspect.signature`），或干脆透传 |
 
 ### 🔴 适配器
 

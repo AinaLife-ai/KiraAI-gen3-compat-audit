@@ -30,6 +30,7 @@ python3 tools/scan_signature_drift.py /path/to/your_plugin
 | 🧨 **[docs/SIGNATURE_DRIFT_v3.md](docs/SIGNATURE_DRIFT_v3.md)** | **接管/包装框架方法**之前务必看（写死签名 = 线上事故） |
 | 🔀 **[docs/RC2_CHANGES.md](docs/RC2_CHANGES.md)** | rc1 → **rc2** 的破坏性变更逐条（`self_id=` → `bot=`） |
 | 📋 **[AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md)** | 要**全仓体检**或复现历史结论时看（流程 + 判据 + 坑） |
+| 🤖 **[docs/Agent插件开发指南_v3.0rc2.md](docs/Agent插件开发指南_v3.0rc2.md)** | **要动手写/改插件**时（给 AI 的单文件上下文；含 manifest/钩子/PluginContext/已删 API 对照/铁律） |
 
 ---
 
@@ -63,7 +64,8 @@ docs/
   V3_UPGRADE_CHECKLIST.md      ★ 升级清单（逐条打勾）
   SIGNATURE_DRIFT_v3.md        ★ 签名漂移：为什么、怎么查、怎么修
   RC2_CHANGES.md               ★ rc1→rc2 破坏性变更
-  Agent插件开发指南_v3.0rc1.md   开发指南（rc1 版，rc2 的差异见上面那份）
+  Agent插件开发指南_v3.0rc2.md  ★ 开发指南（rc2 版）—— 投喂给 AI 的**单文件前置上下文**
+  Agent插件开发指南_v3.0rc1.md   同上的 rc1 版（保留作历史对照）
 AUDIT_PLAYBOOK.md              ★ 全仓体检流程（判据/坑/复现方式）
 GEN3_COMPAT_PLAN.md            最初的分级方案与批次计划（历史）
 DEV_MIGRATION_DOC.md           给插件作者的迁移说明（历史）

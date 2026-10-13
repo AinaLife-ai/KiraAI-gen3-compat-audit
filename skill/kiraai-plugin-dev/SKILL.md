@@ -21,7 +21,7 @@ Production-grade guide for building KiraAI plugins that integrate cleanly with t
 
 ## The Rules (ALWAYS obey)
 
-1. **面向 3.0（rc1+）开发**——本 skill 对齐 `v3.0.0-rc.1`；需要兼容 2.x 时按 `02-patterns.md` 附录 A 的特征识别写法，**绝不写版本字符串判断**。
+1. **面向 3.0（rc1+）开发**——本 skill 对齐 **`v3.0.0-rc.2`**（rc1 亦可）；需要兼容 2.x 时按 `02-patterns.md` 附录 A 的特征识别写法，**绝不写版本字符串判断**。
 2. **`manifest.core_version` 用 `>=x.y.z` 无上界**（框架 `prereleases=True`，对 rc/alpha 放行）；**绝不写上界**（`>=2.24.3,<3.0.0` 会在 3.0 直接被拒载）。
 3. **优先 hook 注入，少修改主流程**——能用 `@on.*` / `@register.tool` 就别接管 `on_im_message`。
 4. **适配器差异必须考虑**——通用用 `@register.tag` / `IMCapability` 能力接口；需 `get_adapter(...)` 直发时能力探测 + `adapter_name` 白名单。
@@ -67,7 +67,7 @@ User wants to add plugin behavior
 }
 ```
 
-**`core_version` 陷阱（rc1 实锤）**：`>=3.0.0` **不会**匹配 rc 版（PEP440 语义），3.0rc1 环境会被拒载；要兼容 rc 就写 `>=3.0.0rc1` 或更低（如 `>=2.24.3`）。
+**`core_version` 陷阱（rc1 实锤，rc2 同理）**：`>=3.0.0` **不会**匹配 rc 版（PEP440 语义），3.0rc1 环境会被拒载；要兼容 rc 就写 `>=3.0.0rc1` 或更低（如 `>=2.24.3`）。
 
 ## Key APIs (memorize)
 
@@ -107,11 +107,21 @@ User wants to add plugin behavior
 | File | When to read |
 |------|-------------|
 | `references/01-api.md` | Hooks, PluginContext, MessageChain, Adapter ops, schema field types |
-| `references/02-patterns.md` | Copy-paste patterns, XML tag DSL, rc1 陷阱清单, 测试规范, 2.x 双世代兼容附录 |
+| `references/02-patterns.md` | Copy-paste patterns, XML tag DSL, **rc2/rc1 陷阱清单**, 测试规范, 2.x 双世代兼容附录 |
 
 ## Anti-Patterns (NEVER do these)
 
 ```python
+# ❌ 接管/包装框架方法时把签名写死（rc2 给 send_message_chain 加 bot= ⇒ 发送全灭）
+async def send_message_chain(d_self, session, chain, *, memory_message=None, self_id=None):
+    return await original(d_self, session, chain, memory_message=memory_message, self_id=self_id)
+# ✅ 只取自己要的，其余原样透传（绝不 try/except 重试：发送有副作用，重试=重发）
+async def send_message_chain(d_self, session=None, chain=None, *args, **kwargs):
+    return await original(d_self, session, chain, *args, **kwargs)
+
+# ❌ 给发送 API 传 self_id=（rc2 已改名 bot=，会 TypeError）
+await delivery.send_message_chain(sid, chain, self_id=bot_id)
+
 # ❌ 版本字符串判断（绑死 rc1，未来版本必翻车）
 if __version__.startswith("3.0"): ...
 
