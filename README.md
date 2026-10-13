@@ -30,6 +30,7 @@ python3 tools/scan_signature_drift.py /path/to/your_plugin
 | 🧨 **[docs/SIGNATURE_DRIFT_v3.md](docs/SIGNATURE_DRIFT_v3.md)** | **接管/包装框架方法**之前务必看（写死签名 = 线上事故） |
 | 🔀 **[docs/RC2_CHANGES.md](docs/RC2_CHANGES.md)** | rc1 → **rc2** 的破坏性变更逐条（`self_id=` → `bot=`） |
 | 📋 **[AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md)** | 要**全仓体检**或复现历史结论时看（流程 + 判据 + 坑） |
+| 📜 **[docs/VERSION_LOG.md](docs/VERSION_LOG.md)** | 查**某个框架版本**改了什么、当时扫了哪些仓、谁需要改（**每发新版都在这加一节**） |
 | 🤖 **[docs/Agent插件开发指南_v3.0rc2.md](docs/Agent插件开发指南_v3.0rc2.md)** | **要动手写/改插件**时（给 AI 的单文件上下文；含 manifest/钩子/PluginContext/已删 API 对照/铁律） |
 
 ---
@@ -61,6 +62,7 @@ python3 tools/scan_signature_drift.py /path/to/your_plugin
 ```
 README.md                      ← 你在这里（入口 + 最新结论）
 docs/
+  VERSION_LOG.md               ★ 框架版本沿革（每发新版追加一节：破坏性变更 + 扫描结果）
   V3_UPGRADE_CHECKLIST.md      ★ 升级清单（逐条打勾）
   SIGNATURE_DRIFT_v3.md        ★ 签名漂移：为什么、怎么查、怎么修
   RC2_CHANGES.md               ★ rc1→rc2 破坏性变更
