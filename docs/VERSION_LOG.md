@@ -67,6 +67,44 @@ bridge **v1.6.48**（[PR #55](https://github.com/znq19/KiraAI-qqbot-fullmsg-brid
 
 ---
 
+## v3.0.0 正式版 GA（2026-10-15）
+
+**基线**：`9db3d67`（= 当时 main HEAD）
+
+### ① 破坏性变更（rc2 → GA）
+
+**无**。仅 7 个提交：消息历史类型化查询（#366）、`flush_session_messages(filter_fn=)`（#367）、
+WebUI 批量更新/备份进度、telegram bot 名修复、日志去重。插件 API 面零变更。
+
+GA 的真正意义：**弃用标记正式生效**（rc 系就打了 `@deprecated`，GA 起应当清干净）：
+`MessageProcessor.{send_message_chain, flush_session_messages, handle_im_message}`、
+`AdapterManager.get_adapter_infos`、`BaseAdapter.message_types`、
+`MessageMetadata/KiraMessageEvent(message_types=)`、各适配器直调 `send_*`、
+`ConfigType.Enum/EnumField` ⇒ 对照表见 [GA_DEPRECATIONS.md](GA_DEPRECATIONS.md)。
+
+### ② 扫描复跑结果（64 仓，含上轮安全仓重扫）
+
+| 类别 | 结果 |
+| --- | --- |
+| 签名漂移（P0） | 0 真问题（acc `parse_args` 为文档化误报） |
+| 已删/改名 API（P1） | 5 条全在世代守卫的 2.x 回退分支 ⇒ 不是问题 |
+| **GA 弃用（DEP）** | **20 仓 62 处 ⇒ 全部修复**（16 个 PR + 2 个自有仓直推 + 3 个第三方补丁） |
+| DEP-7 直读 chat_memory | 1 条（acc `_save_memory` 补丁，install 有存在性守卫 ⇒ 豁免） |
+| 行为面深查 | **session_merger 7 个 GA 潜伏 bug ⇒ 已修**（PR #20，2.x 33/33 + GA 32/32） |
+
+报告：[../reports/GA_SCAN_2026-10-15.md](../reports/GA_SCAN_2026-10-15.md)。
+
+### ③ 本仓相应更新
+
+- 新增 `docs/GA_DEPRECATIONS.md`（弃用 → 最新方法对照 + 双世代改法 + 豁免判据）
+- 新增 `reports/GA_SCAN_2026-10-15.md` + `ga_signature_scan.json` / `ga_deprecated_scan.json`
+- 新增工具：`tools/scan_deprecated_ga.py`（DEP-1..7，含 chat_memory 直读规则）、
+  `tools/fetch_all_repos_ga.py`（GA 全量拉取）、`tools/run_suite_ga.py`（双世代套件运行器）
+- `kit/framework_stubs.py` 桩补 `**_`（签名透传铁律）
+- README / CHECKLIST / PLAYBOOK 基线 → GA
+
+---
+
 ## 模板（下一次发版复制这段）
 
 ```markdown

@@ -176,17 +176,17 @@ class PluginContextStub:
         self.notices = []
         self.sent = []
 
-    def get_session_capabilities(self, sid):
+    def get_session_capabilities(self, sid, **_):
         """2.x 形态：同步。注意 gen=3 时此方法会被替换成异步（见 make_ctx）。"""
         return {}
 
-    async def _get_session_capabilities_async(self, sid):
+    async def _get_session_capabilities_async(self, sid, **_):
         return {}
 
     def publish_notice(self, *a, **kw):
         self.notices.append((a, kw))
 
-    async def send_message_chain(self, sid, chain):
+    async def send_message_chain(self, sid, chain, **_):
         self.sent.append((sid, chain))
 
 

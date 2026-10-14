@@ -1,0 +1,883 @@
+{
+ "znq19__KiraAI-qqbot-fullmsg-bridge-plugin": [
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 293,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "adapter.send_group_message(\"G1\", chain))",
+   "file": "tests/audit_chat_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 310,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "adapter.send_group_message(\"G1\", MessageChain([Reply(\"qqo-display1\"), Text(\"引用测试\")])))",
+   "file": "tests/audit_chat_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 318,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "adapter.send_group_message(\"G1\", MessageChain([Text(\"普通回复，不该带引用\")])))",
+   "file": "tests/audit_chat_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 344,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "e = KiraMessageEvent(",
+   "file": "tests/audit_chat_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 145,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "loop.run_until_complete(adapter.send_group_message(\"G1\", chain))",
+   "file": "tests/audit_core_files.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 793,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "res_expire = await adapter.send_group_message(\"G_EXPIRE\", [_T22(\"到期兜底测试\")])",
+   "file": "tests/smoke_real_core.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 298,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "await adapter.send_group_message(\"G1\", md_chain)",
+   "file": "tests/smoke_v3.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 232,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = [\"text\", \"img\", \"at\", \"reply\"]",
+   "file": "tests/test_bridge.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_Alife_memory_Z_plugin": [
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 260,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "event = KiraMessageBatchEvent(",
+   "file": "tests/test_capture_hygiene.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 71,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 1304,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 1568,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 1846,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(",
+   "file": "tests/test_kira_integration.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 42,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(",
+   "file": "tests/test_passive_recall_host.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 184,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev = KiraMessageBatchEvent(messages=[msg], session=session, timestamp=100,",
+   "file": "tests/test_recall_budget.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 96,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev = C[\"KiraMessageBatchEvent\"](messages=[msg], session=session, timestamp=100, message_types=[])",
+   "file": "tests/test_ui_backend_consistency.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_Default-Chat-Z-": [
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.flush_session_messages()",
+   "sev": "DEP",
+   "line": 149,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.flush_session_messages(sid[, filter_fn])",
+   "code": "return await self.message_processor.flush_session_messages(sid, **kw)",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 169,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 199,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.flush_session_messages()",
+   "sev": "DEP",
+   "line": 99,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.flush_session_messages(sid[, filter_fn])",
+   "code": "return await self.message_processor.flush_session_messages(sid, **kw)",
+   "file": "tests/test_jev_decisions.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 83,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_logger_level_guard.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 83,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(message_types=[\"gm\"], timestamp=1786000000, message=msg, adapter=adapter)",
+   "file": "tests/test_mute_notice_perception.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 130,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_prefetch_scope.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 173,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_prefetch_scope.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_accelerator_plugin": [
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 1915,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "memory = self.chat_memory",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 95,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev = KiraMessageEvent(",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 193,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "batchA1 = KiraMessageBatchEvent(",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 197,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "batchA2 = KiraMessageBatchEvent(",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 201,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "merged = KiraMessageBatchEvent(",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 202,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "message_types=batchA2.message_types, timestamp=2,",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 209,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "batchB = KiraMessageBatchEvent(",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 213,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "bad_merge = KiraMessageBatchEvent(",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 214,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "message_types=batchB.message_types, timestamp=2,",
+   "file": "tests/test_cross_session_routing.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 176,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "self.chat_memory = {\"s\": []}",
+   "file": "tests/test_load.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 93,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "h.chat_memory = mem",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 129,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "h2.chat_memory = {}",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 141,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "sm.chat_memory = SessionManager._load_memory(h.chat_memory_path)   # 从紧凑文件加载",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 143,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "check(\"★ 框架自己的 _load_memory 能读紧凑文件\", sm.chat_memory == mem,",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 154,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "sm2.chat_memory = SessionManager._load_memory(orig_path)           # 旧格式",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 155,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "check(\"★ 新旧格式读回的对象完全相同\", sm2.chat_memory == sm.chat_memory)",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 155,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "check(\"★ 新旧格式读回的对象完全相同\", sm2.chat_memory == sm.chat_memory)",
+   "file": "tests/test_memory_dump.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.send_message_chain()",
+   "sev": "DEP",
+   "line": 207,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.send_message_chain(session, chain[, bot=…])",
+   "code": "await p2.ctx.message_processor.send_message_chain(ctx.sid, a)",
+   "file": "tests/test_plugin_takeover.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_auto_delete_session_plugin": [
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 335,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev = KiraMessageBatchEvent(message_types=[\"dm\"], timestamp=0,",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 398,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev6 = KiraMessageBatchEvent(message_types=[\"dm\"], timestamp=0,",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 437,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev9 = KiraMessageEvent(message_types=[\"dm\"], timestamp=0, message=msg9,",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 485,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev11 = KiraMessageEvent(message_types=[\"dm\"], timestamp=0, message=msg11,",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 518,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev12 = KiraMessageBatchEvent(message_types=[\"dm\"], timestamp=0,",
+   "file": "tests/run_tests.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 544,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "ev13 = KiraMessageBatchEvent(message_types=[\"dm\"], timestamp=0,",
+   "file": "tests/run_tests.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_midflight_message_plugin": [
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 113,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "\"message_types\": last_event.message_types,   # <- 2.x attribute access",
+   "file": "tests/test_restore_flush_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 201,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "mid.message_types = [\"text\"]",
+   "file": "tests/test_restore_flush_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 219,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "old_shim = types.SimpleNamespace(  # v1.3.4 _BufferedMsgShim 的访问形状",
+   "file": "tests/test_restore_flush_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 249,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "assert shim3.message_types == g3.supported_elements, \"F6 失败：shim.message_types 未同步\"",
+   "file": "tests/test_restore_flush_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 252,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "g2.message_types = [\"text\"]",
+   "file": "tests/test_restore_flush_compat.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 254,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "assert shim2.message_types == [\"text\"], \"F6 失败：2.x 批次构造 shim 丢 message_types\"",
+   "file": "tests/test_restore_flush_compat.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_ops_plugin": [
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 106,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_adversarial.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 138,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(",
+   "file": "tests/test_adversarial.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_direct_message()",
+   "sev": "DEP",
+   "line": 170,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_direct_message(…) 或统一 ctx.send_message_chain",
+   "code": "return await adapter.send_direct_message(parts[2], chain)",
+   "file": "tests/test_adversarial.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 171,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "return await adapter.send_group_message(parts[2], chain)",
+   "file": "tests/test_adversarial.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 121,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 156,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 175,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_direct_message()",
+   "sev": "DEP",
+   "line": 224,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_direct_message(…) 或统一 ctx.send_message_chain",
+   "code": "return await adapter.send_direct_message(parts[2], chain)",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-5 弃用: 适配器直调 send_group_message()",
+   "sev": "DEP",
+   "line": 225,
+   "why": "GA 标记 Deprecated wrapper ⇒ 3.0 走 adapter.get_capability(IMCapability).send_group_message(…) 或统一 ctx.send_message_chain",
+   "code": "return await adapter.send_group_message(parts[2], chain)",
+   "file": "tests/test_dm_confirm.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 307,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "store = ctx.session_mgr.chat_memory",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 592,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "store = ctx.session_mgr.chat_memory",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 607,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "store = ctx.session_mgr.chat_memory",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 642,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "_assert(\"junk_key\" not in ctx.session_mgr.chat_memory)",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 646,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "ctx.session_mgr.chat_memory.pop(\"junk_key\", None)",
+   "file": "tests/test_integration_real.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 100,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_races.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 134,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(",
+   "file": "tests/test_races.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_persona_progression_plugin": [
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.send_message_chain()",
+   "sev": "DEP",
+   "line": 389,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.send_message_chain(session, chain[, bot=…])",
+   "code": "return await self.message_processor.send_message_chain(session, chain, **kw)",
+   "file": "tests/run_tests.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_qzone_plugin": [
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 271,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = [\"text\", \"img\"]",
+   "file": "tests/_bootstrap.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_session_merger_plugin": [
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 238,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "pending = PendingBatch(",
+   "file": "group_agent_queue.py",
+   "test": false
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 1306,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "**elements_kw(KiraMessageBatchEvent, pending.message_types or []),",
+   "file": "main.py",
+   "test": false
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 333,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(",
+   "file": "tests/test_integration_framework.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 55,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_replay_stop_release.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 68,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_replay_stop_release.py",
+   "test": true
+  }
+ ],
+ "znq19__KiraAI_sustained_chat_plugin": [
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.flush_session_messages()",
+   "sev": "DEP",
+   "line": 149,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.flush_session_messages(sid[, filter_fn])",
+   "code": "return await self.message_processor.flush_session_messages(sid, **kw)",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 169,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 199,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_debounce_arrival_race.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.flush_session_messages()",
+   "sev": "DEP",
+   "line": 99,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.flush_session_messages(sid[, filter_fn])",
+   "code": "return await self.message_processor.flush_session_messages(sid, **kw)",
+   "file": "tests/test_jev_decisions.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 83,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_logger_level_guard.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 83,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageEvent(message_types=[\"gm\"], timestamp=1786000000, message=msg, adapter=adapter)",
+   "file": "tests/test_mute_notice_perception.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 130,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_prefetch_scope.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-2 弃用: .message_types 属性",
+   "sev": "DEP",
+   "line": 173,
+   "why": "GA 弃用 ⇒ 元数据用 supported_elements；适配器用 get_capability(IMCapability).get_message_metadata().supported_elements（2.x 无此属性，双世代需探测）",
+   "code": "self.message_types = []",
+   "file": "tests/test_prefetch_scope.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.flush_session_messages()",
+   "sev": "DEP",
+   "line": 99,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.flush_session_messages(sid[, filter_fn])",
+   "code": "return await self.message_processor.flush_session_messages(sid, **kw)",
+   "file": "tests/test_scenario_e2e.py",
+   "test": true
+  }
+ ],
+ "znq19__kira-ai-plugin-mimo-tts": [
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 272,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(adapter=self.adapter_info, session=self.session,",
+   "file": "tests/_harness.py",
+   "test": true
+  }
+ ],
+ "znq19__kiraai-reboot-pulgin": [
+  {
+   "kind": "DEP-4 弃用: MessageProcessor.send_message_chain()",
+   "sev": "DEP",
+   "line": 256,
+   "why": "GA 已 @deprecated ⇒ 改用 ctx.send_message_chain(session, chain[, bot=…])",
+   "code": "return await self.message_processor.send_message_chain(session, chain, **kw)",
+   "file": "tests/harness.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 322,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "sm.chat_memory = {}",
+   "file": "tests/harness.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 369,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "self.sm.chat_memory[sid][\"timestamp\"] = 1700000000",
+   "file": "tests/harness.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-7 高危: 直读 chat_memory（3.0 无此属性）",
+   "sev": "DEP",
+   "line": 376,
+   "why": "3.0 已移除常驻缓存 ⇒ 改走镜像层/异步 get_session；2.x 分支须探测并带 3.0 回退",
+   "code": "return dict(self.sm.chat_memory.get(sid) or {})",
+   "file": "tests/harness.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 421,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "event = KiraMessageEvent(",
+   "file": "tests/harness.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 444,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "return KiraMessageBatchEvent(",
+   "file": "tests/harness.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 100,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "event = KiraMessageEvent(",
+   "file": "tests/test_commands.py",
+   "test": true
+  },
+  {
+   "kind": "DEP-3 弃用: message_types= 构造参数",
+   "sev": "DEP",
+   "line": 143,
+   "why": "GA 弃用 ⇒ 改用 supported_elements=（双世代请先探测字段名）",
+   "code": "event = KiraMessageBatchEvent(message_types=[\"dm\"], timestamp=0, session=None)",
+   "file": "tests/test_tool_gate.py",
+   "test": true
+  }
+ ]
+}

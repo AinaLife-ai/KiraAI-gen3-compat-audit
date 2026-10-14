@@ -1,7 +1,8 @@
 # v3 兼容升级清单（逐条打勾）
 
 > 用法：升级一个插件时，从第 0 步开始，逐条过；每条都给了**判据**和**修法模板**。
-> 基线：**KiraAI v3.0.0-rc.2**（同时要保证 2.x 不回归）。
+> 基线：**KiraAI v3.0.0 正式版（GA，`9db3d67`）**（同时要保证 2.x 不回归）。
+> GA 与 rc2 插件面一致；GA 起弃用标记正式生效 ⇒ 第 0 步新增 GA 弃用扫描。
 
 ---
 
@@ -9,6 +10,7 @@
 
 ```bash
 python3 tools/scan_signature_drift.py /path/to/plugin     # 签名漂移（P0/P1）
+python3 tools/scan_deprecated_ga.py  /path/to/plugin      # GA 弃用方法（DEP-1..7）
 python3 tools/scan_logger_levels.py  /path/to/plugin      # 日志级别误用
 python3 kit/run.py --plugin /path/to/plugin \
     --core2x /path/to/KiraAI-2.x --core30 /path/to/KiraAI-3.0-rc2
@@ -27,6 +29,18 @@ python3 kit/run.py --plugin /path/to/plugin \
 - [ ] 仓库里加了那条静态守卫（AST：工厂内嵌套 + 调 `original` ⇒ 必须 `**kwargs`）
 
 参见：[SIGNATURE_DRIFT_v3.md](SIGNATURE_DRIFT_v3.md)
+
+---
+
+## 第 1.5 步：GA 弃用方法（3.0 正式版起生效）
+
+- [ ] `scan_deprecated_ga.py` 产品代码 0 命中（豁免判据见 `docs/GA_DEPRECATIONS.md` 第五节）
+- [ ] 命中即按对照表改：`ctx.message_processor.{send_message_chain,flush_session_messages,handle_im_message}`
+      → `ctx.send_message_chain / ctx.flush_session_chain / ctx.event_bus.publish`（**全部两代等价**）；
+      事件构造 `message_types=` → dataclasses 探测 `supported_elements`；适配器直调 → `get_capability(IMCapability)` 探测；
+      直读 `chat_memory`（DEP-7）→ 镜像层/异步 `get_session`
+- [ ] ⚠️ 扫描器管不到**行为面**：若插件有双世代镜像/缓存层，**必须双世代跑真实框架套件**
+      （session_merger 的 7 个 GA bug 全是行为面，静态扫描抓不到）
 
 ---
 

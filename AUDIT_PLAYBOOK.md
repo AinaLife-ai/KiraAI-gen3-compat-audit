@@ -1,9 +1,15 @@
-# KiraAI v3.0 插件兼容性审计手册（基线：rc2；含 rc1 时期结论）
+# KiraAI v3.0 插件兼容性审计手册（基线：**3.0.0 正式版 GA**；含 rc1/rc2 时期结论）
 
 > 你是插件兼容性审计员。本手册包含全部所需背景。**不要修改任何仓库代码**，你只读、分析、写报告。
 > 所有框架事实以**本地真实源码**为准，不确定就去 grep 框架，禁止凭印象下结论。
 
-## ⚠️ 基线更新（2026-10-13）：以 **rc2** 为准
+## ⚠️ 基线更新（2026-10-15）：以 **3.0.0 正式版 GA（`9db3d67`）** 为准
+
+- GA 与 rc2 插件 API 面**完全一致**；新增「弃用方法」维度：`tools/scan_deprecated_ga.py` + `docs/GA_DEPRECATIONS.md`；GA 报告：`reports/GA_SCAN_2026-10-15.md`。
+- ⚠️ 新教训：**静态扫描管不到行为面** —— 有双世代镜像/缓存层的插件必须**双世代跑真实框架套件**（session_merger 7 个 GA bug 的教训）。
+
+<details><summary>上一次基线更新（2026-10-13，rc2）</summary>
+
 
 本手册写于 rc1 时期，**结论仍然有效**，但请把基线换成 **`v3.0.0-rc.2`（`74efac3`）**：
 
@@ -14,6 +20,8 @@
 | 自动化 | 先跑 `tools/scan_signature_drift.py` 与 `tools/scan_logger_levels.py`，再人工过 P1 |
 | 覆盖范围 | 62 仓（znq19 非 fork + AinaLife-ai + Qixuan112 三个 + reboot fork 例外）⇒ 结果见 [reports/RC2_SCAN_2026-10-13.md](reports/RC2_SCAN_2026-10-13.md) |
 | 复现方式 | `tools/fetch_all_repos.py` 批量拉取 → 扫描器 → 人工核实（**"真组件 + 计数假依赖"** 是首选验证手法） |
+
+</details>
 
 ## 0. 环境锚点（本地路径）
 

@@ -3,7 +3,7 @@
 > **这是什么**：把 KiraAI 插件生态从 2.x 升级到 **3.0** 的全部资料 —— 结论、逐仓报告、
 > 双世代测试套件、自动扫描工具、升级清单。**以后涉及"插件升到 v3"的事，都以这个仓为准。**
 >
-> **当前基线：`KiraAI v3.0.0-rc.2`**（tag `74efac3`）。rc1 的资料保留在 `reports/`/`prescan/` 里作为历史。
+> **当前基线：`KiraAI v3.0.0` 正式版（GA）**（tag `9db3d67`）。rc 系资料保留在 `reports/`/`prescan/` 作历史；GA 与 rc2 的插件 API 面完全一致（rc2→GA 仅 7 个提交，零破坏、零新增弃用），GA 起弃用面正式生效 ⇒ 新增 **[docs/GA_DEPRECATIONS.md](docs/GA_DEPRECATIONS.md)**（弃用 → 最新方法对照）。
 
 ---
 
@@ -13,10 +13,11 @@
 # 1) 拉套件 + 把插件交给双世代跑
 git clone https://github.com/AinaLife-ai/KiraAI-gen3-compat-audit && cd KiraAI-gen3-compat-audit
 python3 kit/run.py --plugin /path/to/your_plugin \
-    --core2x /path/to/KiraAI-2.x --core30 /path/to/KiraAI-3.0-rc2
+    --core2x /path/to/KiraAI-2.x --core30 /path/to/KiraAI-3.0
 
-# 2) 跑"签名漂移"扫描（本次线上事故的那类问题，2 秒出结果）
+# 2) 跑"签名漂移"+"GA 弃用方法"扫描（2 秒出结果）
 python3 tools/scan_signature_drift.py /path/to/your_plugin
+python3 tools/scan_deprecated_ga.py /path/to/your_plugin
 
 # 3) 按清单逐条过
 #    docs/V3_UPGRADE_CHECKLIST.md
@@ -31,11 +32,23 @@ python3 tools/scan_signature_drift.py /path/to/your_plugin
 | 🔀 **[docs/RC2_CHANGES.md](docs/RC2_CHANGES.md)** | rc1 → **rc2** 的破坏性变更逐条（`self_id=` → `bot=`） |
 | 📋 **[AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md)** | 要**全仓体检**或复现历史结论时看（流程 + 判据 + 坑） |
 | 📜 **[docs/VERSION_LOG.md](docs/VERSION_LOG.md)** | 查**某个框架版本**改了什么、当时扫了哪些仓、谁需要改（**每发新版都在这加一节**） |
+| 🗑️ **[docs/GA_DEPRECATIONS.md](docs/GA_DEPRECATIONS.md)** | **GA 弃用方法 → 最新方法**对照（含双世代改法与豁免判据） |
 | 🤖 **[docs/Agent插件开发指南_v3.0rc2.md](docs/Agent插件开发指南_v3.0rc2.md)** | **要动手写/改插件**时（给 AI 的单文件上下文；含 manifest/钩子/PluginContext/已删 API 对照/铁律） |
 
 ---
 
-## 📌 最新一轮结论（2026-10-13，基线 rc2）
+## 📌 最新一轮结论（2026-10-15，基线 **3.0 正式版 GA**）
+
+**扫描范围：64 个仓库**（含上轮已判安全的全部重扫）。
+
+| 类别 | 结论 |
+| --- | --- |
+| 签名漂移（P0/P1） | 与 rc2 一致，**无新增真问题**（5 条 P1 全在世代守卫分支） |
+| **GA 弃用方法（DEP）** | **20 仓 62 处，已全部修复**（16 个 PR 全 mergeable，见 [reports/GA_SCAN_2026-10-15.md](reports/GA_SCAN_2026-10-15.md)） |
+| **深查发现** | `session_merger` 藏了 **7 个 3.0 才发作的潜伏行为 bug**（直读 `chat_memory`、defer 队列未接通、镜像刷新顺序/属性错误等）⇒ 已修（[PR #20](https://github.com/znq19/KiraAI_session_merger_plugin/pull/20)，2.x 33/33 + GA 32/32） |
+
+<details><summary>上一轮（2026-10-13，基线 rc2）</summary>
+
 
 **扫描范围：62 个仓库**（znq19 非 fork + AinaLife-ai + Qixuan112 三个 + reboot fork 例外）。
 
@@ -54,6 +67,10 @@ python3 tools/scan_signature_drift.py /path/to/your_plugin
   发送落点 `_send_message` + 旁听包装 `_handle_message` 的透传修法。
 
 详细扫描表：[reports/RC2_SCAN_2026-10-13.md](reports/RC2_SCAN_2026-10-13.md)
+
+---
+
+</details>
 
 ---
 
