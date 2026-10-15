@@ -1,23 +1,20 @@
 # KiraAI 插件开发 Agent 指南
 
-> **请求创作人：@znq19**
-> 最后修订时间：2026-10-15（对齐 KiraAI **`v3.0.0` 正式版（GA）**，提交 `9db3d67`）
-> rc2 → GA **插件 API 面零变更**（仅 7 个内部提交）；GA 的意义是**弃用标记正式生效**——
-> 凡 `@deprecated` 的入口必须改用最新方法，对照见 **附录 B（GA 基线）**；
-> **包装/接管框架方法前务必读** `SIGNATURE_DRIFT_v3.md`（铁律 2 有全文要点）。
-> （rc1/rc2 版本文档保留在 `Agent插件开发指南_v3.0rc1.md` / `_v3.0rc2.md`，作历史对照。）
-> 定位：给 AI Agent 的**单文件前置上下文**——用户只需投喂本 MD，即可开始开发/修改 KiraAI 插件
+> **请求创作人：@znq19** ｜ 最后修订：2026-10-15
+> 对齐：KiraAI **`v3.0.0`（3.0 正式版）** 正文基准 ＋ **2.x 最新版**双世代兼容写法（附录 A）。
+> 3.0 起框架把一批旧入口标了 `@deprecated`（将废弃），新插件**必须用最新方法**（附录 B.2）。
+> 定位：给 AI Agent 的**单文件前置上下文**——只需投喂本 MD，即可开发/修改 KiraAI 插件，**无需任何其他文档**。
 > **铁律（最高优先级）**：本文未写明的框架内部细节 **禁止臆造、禁止猜 API**。缺什么就向用户要什么（路径/源码/文档），要不到就停手说明，不要编造方法名、字段或 adapter action。
 
-> **铁律 2（v3.0.0-rc.2 线上事故沉淀）**：**接管/包装框架方法时，签名一律"只取自己要的 + 其余 `*args, **kwargs` 原样透传"。**
-> 框架给已有方法加参数是**常规演进**（rc2 就把 `send_message_chain` 的 `self_id=` 换成了 `bot: User`）；
+> **铁律 2**：**接管/包装框架方法时，签名一律"只取自己要的 + 其余 `*args, **kwargs` 原样透传"。**
+> 框架给已有方法加参数是**常规演进**（例如发送落点就加过 `bot: User` 参数）；
 > 把签名写死 ⇒ `TypeError`；而这类接管点通常声明"有不可撤销副作用 ⇒ 出错不回退" ⇒
 > 后果不是降级，而是**主流程被打死**（实测：消息一条都发不出去）。
 >
 > ```python
 > # ❌ 写死签名
-> async def send_message_chain(d_self, session, chain, *, memory_message=None, self_id=None):
->     return await original(d_self, session, chain, memory_message=memory_message, self_id=self_id)
+> async def send_message_chain(d_self, session, chain, *, memory_message=None, bot=None):
+>     return await original(d_self, session, chain, memory_message=memory_message, bot=bot)
 >
 > # ✅ 原样透传（需要某个参数就从 args/kwargs 里取）
 > async def send_message_chain(d_self, session=None, chain=None, *args, **kwargs):
@@ -51,7 +48,7 @@
 
 用户**无需**再单独发送「请先阅读开发指南」类说明——**打开/引用本文件即视为已下达上述指令。**
 
-> **版本说明**：本文以 `v3.0.0-rc.2` 为当前事实基准。3.0 相对 2.x 有一批破坏性变更（会话接口全异步化、模型身份分离、适配器能力架构、插件模块拆分等），正文全部按 3.0 现状书写；如果你的插件必须同时兼容 2.x 老版本，看**附录 A「2.x 差异速查」**，那里给出特征识别（不绑版本号）的双世代写法。
+> **版本说明**：本文以 `v3.0.0` 正式版为当前事实基准。3.0 相对 2.x 有一批破坏性变更（会话接口全异步化、模型身份分离、适配器能力架构、插件模块拆分等），正文全部按 3.0 现状书写；如果你的插件必须同时兼容 2.x 老版本，看**附录 A「2.x 差异速查」**，那里给出特征识别（不绑版本号）的双世代写法。
 
 ---
 
@@ -74,7 +71,7 @@ data/plugins/<plugin_id>/
 配置保存：`data/config/plugins/<plugin_id>.json`
 插件数据：`data/plugin_data/<plugin_id>/`（`ctx.get_plugin_data_dir()`）
 
-### 0.2 manifest.json（完整字段，v3.0.0-rc.2）
+### 0.2 manifest.json（完整字段，3.0）
 
 ```json
 {
@@ -105,7 +102,7 @@ data/plugins/<plugin_id>/
 - 插件状态机：`pending → installing → loading → ready | disabled | error`
 - **安装包限制**：zip ≤ 50 MiB、条目 ≤ 10000、压缩比 ≤ 100:1、中央目录 ≤ 512 KiB
 - **热重载**：框架先调 `prepare_plugin_reload(id)`（terminate → 清 class/schema/error → 清 sys.modules）再重新 import，插件无需自处理
-- **当前核心版本**见 `core/config/default.py` 的 `VERSION`（本次对齐为 `v3.0.0-rc.2`；rc1 见旧文档）
+- **当前核心版本**见 `core/config/default.py` 的 `VERSION`（本文对齐 `v3.0.0`）
 
 ### 0.3 main.py 最小模板
 
@@ -552,7 +549,7 @@ self.ctx.plugin_mgr          # PluginManager | None
 
 | 需求 | 3.0 正确入口 |
 |------|--------------|
-| 发送消息 | `await ctx.send_message_chain(sid, chain)`（经发送历史/状态）或 `ctx.message_delivery.send_message_chain(...)`。**rc2 起**这两者都可带 `bot=`（记录出站历史的身份）；**不要传 `self_id=`**（rc2 已改名） |
+| 发送消息 | `await ctx.send_message_chain(sid, chain)`（经发送历史/状态）或 `ctx.message_delivery.send_message_chain(...)`。**3.0 起**这两者都可带 `bot=`（记录出站历史的身份）；**不要传 `self_id=`**（3.0 已改名） |
 | 冲刷缓冲 | `await ctx.flush_session_messages(sid, filter_fn=...)` |
 | XML 解析 / 消息 ID 回填 | `ctx.message_delivery.parse_xml(text, tag_set)` / `.add_message_ids(...)`（静态方法） |
 | 消息链文本化 | `ctx.message_processor.im_workflow.ctx.message_formatter.format_to_text(chain, ...)`（异步）；逐层 `getattr` 探测 |
@@ -1461,8 +1458,8 @@ def is_empty_msg(xml: str) -> bool:
 | `MessageProcessor._parse_xml_msg` | `MessageDeliveryService.parse_xml(xml, tag_set)` | 3.0 已删 |
 | `fetch_memory(sid)` / `write_memory(sid, chunks)` | `await sm.get_session(sid, ensure_session=False)` / `await sm.update_session(sid, content=…)`（**异步**） | 3.0 会话 SQLite 化 |
 | `get_session_info(sid)` / `update_session_info(…)` | `sm.get_sessions()` / `await sm.update_session(sid, title=…)`（**异步**） | 3.0 改名 |
-| `send_message_chain(..., self_id=…)` | `send_message_chain(..., **`bot: User`**)` | **rc2 改名** |
-| `session_manager.get_effective_capabilities()`（同步） | `await …` + 自行缓存预热 | rc1 起异步 |
+| `send_message_chain(..., self_id=…)` | `send_message_chain(..., **`bot: User`**)` | 3.0 改名 |
+| `session_manager.get_effective_capabilities()`（同步） | `await …` + 自行缓存预热 | 3.0 起异步 |
 
 ### B.2 GA 正式 `@deprecated`（rc 系已标记，GA 起必须清干净）
 
@@ -1516,8 +1513,29 @@ python3 tools/scan_deprecated_ga.py  /path/to/plugin      # GA 弃用方法（DE
 python3 tools/scan_logger_levels.py  /path/to/plugin      # 日志级别误用（会让整条钩子中断）
 ```
 
-仓库内建议加一条静态守卫（AST：**工厂内嵌套 + 调用 `original` 的实现体必须带 `**kwargs`**），
-模板见 `SIGNATURE_DRIFT_v3.md` 第 4 节。完整弃用对照与豁免判据见 `GA_DEPRECATIONS.md`。
+仓库内建议加一条静态守卫（**签名透传铁律的 AST 版**，自包含、可直接抄进 tests/）：
+
+```python
+import ast, pathlib, sys
+
+def find_bad(path):
+    """守卫：任何调用 original(...) 的实现体（接管点）必须带 **kwargs。"""
+    tree = ast.parse(pathlib.Path(path).read_text(encoding="utf-8"))
+    bad = []
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            calls_original = any(
+                isinstance(n, ast.Call) and getattr(n.func, "id", "") == "original"
+                for n in ast.walk(node))
+            if calls_original and not node.args.kwarg:
+                bad.append(f"{path}:{node.lineno} {node.name}()")
+    return bad
+
+bad = [b for f in pathlib.Path(".").rglob("*.py") for b in find_bad(f)
+       if "tests" not in f.parts and "__pycache__" not in f.parts]
+print("\n".join(bad) if bad else "签名透传守卫全绿")
+sys.exit(1 if bad else 0)
+```
 
 ## 附录 A：2.x 差异速查（需要双世代兼容时）
 

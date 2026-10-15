@@ -11,7 +11,7 @@ Copy-paste proven patterns. Replace placeholders. Keep it simple.
 5. [Pattern 5: Scheduled Task](#pattern-5-scheduled-task)
 6. [Pattern 6: 会话能力感知钩子（3.0 异步写法）](#pattern-6-会话能力感知钩子30-异步写法)
 7. [XML Tag DSL Reference](#xml-tag-dsl-reference)
-8. [GA/rc 系陷阱清单（全生态审计实锤）](#garc-系陷阱清单全生态审计实锤)
+8. [3.0/2.x 陷阱清单（全生态审计实锤）](#302x-陷阱清单全生态审计实锤)
 9. [Testing & Debugging](#testing--debugging)
 10. [Plugin Structure Templates](#plugin-structure-templates)
 11. [附录 A：2.x 双世代兼容写法](#附录-a2x-双世代兼容写法)
@@ -309,9 +309,9 @@ def handle_mytag(self, content: str, **attrs) -> MessageChain:
 
 ---
 
-## GA/rc 系陷阱清单（全生态审计实锤）
+## 3.0/2.x 陷阱清单（全生态审计实锤）
 
-> 44 仓审计 + 15 仓 NEEDS-FIX 修复 + 17 PR 验证出的真坑；GA 轮（64 仓）再增 GA 弃用面一节。每条都有源码证据。
+> 全生态审计（60+ 仓）与实机双世代验证出的真坑，每条都有源码证据。
 
 ### 🔴 GA 弃用面（v3.0.0 正式版起生效）
 
@@ -335,7 +335,7 @@ def handle_mytag(self, content: str, **attrs) -> MessageChain:
 | 会话接口**不 await** | 拿到 coroutine，静默退化+RuntimeWarning | 全部 `await`；拿不准就 `inspect.isawaitable(res)` |
 | 用「delete+重建」清空上下文 | 误伤会话能力设置/标题等元数据 | `await sm.update_session(sid, content=[])` |
 | 直读 `sm.chat_memory` dict | 3.0 已 SQLite 化，dict 没了 | 见附录 A.5 镜像模式 |
-| 文本型模型配置当内部 ID 直传 | rc1 `resolve_model_entry` 不认显示名 | 直传失败按 `model_name` 反查（`provider_id:model_id` 引用规范化） |
+| 文本型模型配置当内部 ID 直传 | 3.0 `resolve_model_entry` 不认显示名 | 直传失败按 `model_name` 反查（`provider_id:model_id` 引用规范化） |
 
 ### 🔴 模型身份
 
@@ -370,8 +370,8 @@ from core.adapter.capabilities import IMCapability, FeedCapability
 | `MessageFormatter.format_to_text` 当同步用 | 3.0 经 `mp.im_workflow.ctx.message_formatter` 可达，但要对 `inspect.isawaitable` 分流 | 双世代探测 |
 | `mp.skills_manager / mcp_manager` | 已搬 | `ctx.skills_mgr / ctx.mcp_mgr` |
 | 猴补丁包 `send_xml_messages` | 3.0 没这函数了 | 包 `MessageDeliveryService.send_message_chain`（按链对账） |
-| **接管点把签名写死** | 框架加参数即 TypeError；而"声明不回退"的接管点会**把主流程打死**（实测：发送全灭、投递 0） | 只取自己要的，其余 `*args, **kwargs` **原样透传**（模板与守卫见仓根 `../docs/SIGNATURE_DRIFT_v3.md`） |
-| 给发送 API 传 `self_id=` | **rc2 已改名 `bot=`** ⇒ TypeError | 探测式传参（`inspect.signature`），或干脆透传 |
+| **接管点把签名写死** | 框架加参数即 TypeError；而"声明不回退"的接管点会**把主流程打死**（实测：发送全灭、投递 0） | 只取自己要的，其余 `*args, **kwargs` **原样透传** |
+| 给发送 API 传 `self_id=` | **3.0 已改名 `bot=`** ⇒ TypeError | 探测式传参（`inspect.signature`），或干脆透传 |
 
 ### 🔴 适配器
 
@@ -398,7 +398,7 @@ from core.adapter.capabilities import IMCapability, FeedCapability
 
 1. **装真框架跑**——把插件 cp 进 `data/plugins/`，从框架根当脚本跑；别只靠 mock。
 2. **PluginContext 构造**——3.0 多了 7 个必填字段（`prompt_mgr/skills_mgr/mcp_mgr/message_history/image_desc_cache/session_buffer_mgr/message_delivery`）。测试桩别模块级求值，用**懒探测**（import 期框架还不可见）。
-3. **假传输接线**——rc1 传输走 `message_delivery`，测试补假 delivery；用**实例级遮蔽**（`ctx.send_message_chain = fake`）两代通吃。
+3. **假传输接线**——3.0 传输走 `message_delivery`，测试补假 delivery；用**实例级遮蔽**（`ctx.send_message_chain = fake`）两代通吃。
 4. **dataclass 探测**——`PluginContext`/`Session`/`KiraIMMessage` 全是 dataclass；`hasattr(cls, x)` 对无默认值字段为 False，必须 `dataclasses.fields()`。
 5. **双世代全量测试**——2.x 与 3.0 各跑一遍全量套件。
 

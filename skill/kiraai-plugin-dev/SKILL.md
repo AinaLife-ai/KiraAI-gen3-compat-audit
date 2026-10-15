@@ -21,7 +21,7 @@ Production-grade guide for building KiraAI plugins that integrate cleanly with t
 
 ## The Rules (ALWAYS obey)
 
-1. **面向 3.0 正式版开发**——本 skill 对齐 **`v3.0.0`（GA，`9db3d67`）**（rc 系亦可）；需要兼容 2.x 时按 `02-patterns.md` 附录 A 的特征识别写法，**绝不写版本字符串判断**。
+1. **面向 3.0 正式版开发**——本 skill 对齐 **`v3.0.0`+**；需要兼容 2.x 最新版时按 `02-patterns.md` 附录 A 的特征识别写法，**绝不写版本字符串判断**。
 2. **`manifest.core_version` 用 `>=x.y.z` 无上界**（框架 `prereleases=True`，对 rc/alpha 放行）；**绝不写上界**（`>=2.24.3,<3.0.0` 会在 3.0 直接被拒载）。
 3. **优先 hook 注入，少修改主流程**——能用 `@on.*` / `@register.tool` 就别接管 `on_im_message`。
 4. **适配器差异必须考虑**——通用用 `@register.tag` / `IMCapability` 能力接口；需 `get_adapter(...)` 直发时能力探测 + `adapter_name` 白名单。
@@ -47,7 +47,7 @@ User wants to add plugin behavior
 ## Quick Start (2 min)
 
 1. Read `references/01-api.md` → hook signatures, ctx methods, message types
-2. Read `references/02-patterns.md` → 5 proven templates + rc 系陷阱清单
+2. Read `references/02-patterns.md` → 5 proven templates + 3.0/2.x 陷阱清单
 3. Copy nearest pattern, adapt, keep it under ~200 lines for simple plugins
 4. **Hot reload dev loop**: 修改插件代码 → WebUI 插件管理里手动"重载"，或重启框架。插件的 `manifest.json` / `schema.json` 改动**需要重启框架**才会生效
 
@@ -67,7 +67,7 @@ User wants to add plugin behavior
 }
 ```
 
-**`core_version` 陷阱（rc1 实锤，GA 同理）**：`>=3.0.0` **不会**匹配 rc 版（PEP440 语义），3.0rc1 环境会被拒载；要兼容 rc 就写 `>=3.0.0rc1` 或更低（如 `>=2.24.3`）。
+**`core_version` 陷阱**：`>=3.0.0` **不会**匹配 rc 版（PEP440 语义）——要覆盖仍在 rc 的环境写 `>=3.0.0rc1`；要双世代通吃写 `>=2.24.3`（推荐）。
 
 ## Key APIs (memorize)
 
@@ -107,22 +107,22 @@ User wants to add plugin behavior
 | File | When to read |
 |------|-------------|
 | `references/01-api.md` | Hooks, PluginContext, MessageChain, Adapter ops, schema field types |
-| `references/02-patterns.md` | Copy-paste patterns, XML tag DSL, **GA/rc 系陷阱清单**, 测试规范, 2.x 双世代兼容附录 |
+| `references/02-patterns.md` | Copy-paste patterns, XML tag DSL, **3.0/2.x 陷阱清单**, 测试规范, 2.x 双世代兼容附录 |
 
 ## Anti-Patterns (NEVER do these)
 
 ```python
-# ❌ 接管/包装框架方法时把签名写死（rc2 给 send_message_chain 加 bot= ⇒ 发送全灭）
+# ❌ 接管/包装框架方法时把签名写死（3.0 给发送落点加过 bot= ⇒ 写死签名的包装当场全灭）
 async def send_message_chain(d_self, session, chain, *, memory_message=None, self_id=None):
     return await original(d_self, session, chain, memory_message=memory_message, self_id=self_id)
 # ✅ 只取自己要的，其余原样透传（绝不 try/except 重试：发送有副作用，重试=重发）
 async def send_message_chain(d_self, session=None, chain=None, *args, **kwargs):
     return await original(d_self, session, chain, *args, **kwargs)
 
-# ❌ 给发送 API 传 self_id=（rc2 已改名 bot=，会 TypeError）
+# ❌ 给发送 API 传 self_id=（3.0 已改名 bot=，会 TypeError）
 await delivery.send_message_chain(sid, chain, self_id=bot_id)
 
-# ❌ 版本字符串判断（绑死 rc1，未来版本必翻车）
+# ❌ 版本字符串判断（绑死某个版本，框架一演进必翻车）
 if __version__.startswith("3.0"): ...
 
 # ❌ 版本号上界（3.0 直接拒载）

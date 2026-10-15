@@ -1,6 +1,6 @@
 # KiraAI Plugin API Reference (3.0 GA)
 
-> 对齐 `xxynet/KiraAI` **`v3.0.0` 正式版（GA）**（commit `9db3d67`）。rc2→GA 插件面零变更；**GA 起弃用标记正式生效**（`ctx.message_processor.{send_message_chain, flush_session_messages, handle_im_message}`、`get_adapter_infos`、适配器 `.message_types`、事件构造 `message_types=`、适配器直调 `send_*`、`ConfigType.Enum/EnumField`）——对照与双世代写法见仓根 `../docs/GA_DEPRECATIONS.md`。2.x 差异见 `02-patterns.md` 附录 A。
+> 对齐 `xxynet/KiraAI` **`v3.0.0` 正式版**。3.0 起这批入口已 `@deprecated`（将废弃，勿再用）：`ctx.message_processor.{send_message_chain, flush_session_messages, handle_im_message}`、`get_adapter_infos`、适配器 `.message_types`、事件构造 `message_types=`、适配器直调 `send_*`、`ConfigType.Enum/EnumField`——各自的最新写法见 SKILL.md Anti-Patterns 与 `02-patterns.md` 陷阱清单「GA 弃用面」节（均含双世代等价写法）。2.x 差异见 `02-patterns.md` 附录 A。
 
 ## Table of Contents
 
@@ -164,7 +164,7 @@ Accessed via `self.ctx`. **3.0 注入面**（比 2.x 多出 7 个新字段）：
 | Method | Description |
 |--------|-------------|
 | `ctx.get_plugin_data_dir()` | Plugin's data directory (auto-created) |
-| `ctx.send_message_chain(session, chain, *, bot=None)` | Send message to a session。`session` 形如 `adapter:dm|gm:id`；**rc2 起**可传 `bot=`（记录出站历史身份），**勿传 `self_id=`** |
+| `ctx.send_message_chain(session, chain, *, bot=None)` | Send message to a session。`session` 形如 `adapter:dm|gm:id`；**3.0 起**可传 `bot=`（记录出站历史身份），**勿传 `self_id=`** |
 | `ctx.get_llm_client(model_id, provider_id=None)` | Get LLM client by model config |
 | `ctx.flush_session_messages(session_id, filter_fn=None)` | Force-flush message buffer（3.0 支持按事件过滤，返回 bool） |
 | `ctx.publish_notice(...)` | 系统提示消息 |
@@ -523,7 +523,7 @@ from core.provider.openai_compatible import OpenAICompatibleLLM, OpenAICompatibl
 
 ## 13. 3.0 会话与模型身份
 
-### 会话 API（全异步，rc1 实锤）
+### 会话 API（3.0 起全异步）
 
 | 操作 | 3.0 写法 |
 |------|---------|
@@ -540,7 +540,7 @@ from core.provider.openai_compatible import OpenAICompatibleLLM, OpenAICompatibl
 
 **normalize_memory 要求**：`list[list[dict]]`，role ∈ {system, user, assistant, tool}。
 
-### 模型身份（rc1 实锤）
+### 模型身份（3.0 起分离）
 
 - `model_id` = **内部稳定 ID**（uuid 形态）——存配置、传参用它
 - `model_name` = **可读名**——面板/日志展示用它
