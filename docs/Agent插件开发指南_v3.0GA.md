@@ -1519,16 +1519,26 @@ python3 tools/scan_logger_levels.py  /path/to/plugin      # 日志级别误用�
 import ast, pathlib, sys
 
 def find_bad(path):
-    """守卫：任何调用 original(...) 的实现体（接管点）必须带 **kwargs。"""
+    """守卫：直接调用 original(...) 的实现体（接管点）必须带 **kwargs。
+    （只看函数自身一层，不深入嵌套 def —— 外层工厂只用 original 构造，不需要透传。）"""
     tree = ast.parse(pathlib.Path(path).read_text(encoding="utf-8"))
     bad = []
+
+    def direct_calls(fn):
+        calls = []
+        class V(ast.NodeVisitor):
+            def visit_FunctionDef(self, n): pass
+            def visit_AsyncFunctionDef(self, n): pass
+            def visit_Call(self, n): calls.append(n)
+        for stmt in fn.body:
+            V().visit(stmt)
+        return calls
+
     for node in ast.walk(tree):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            calls_original = any(
-                isinstance(n, ast.Call) and getattr(n.func, "id", "") == "original"
-                for n in ast.walk(node))
-            if calls_original and not node.args.kwarg:
-                bad.append(f"{path}:{node.lineno} {node.name}()")
+            if any(getattr(c.func, "id", "") == "original" for c in direct_calls(node)):
+                if not node.args.kwarg:
+                    bad.append(f"{path}:{node.lineno} {node.name}()")
     return bad
 
 bad = [b for f in pathlib.Path(".").rglob("*.py") for b in find_bad(f)
