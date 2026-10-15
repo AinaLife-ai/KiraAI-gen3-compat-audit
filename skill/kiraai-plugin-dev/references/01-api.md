@@ -1,6 +1,6 @@
-# KiraAI Plugin API Reference (3.0 rc2)
+# KiraAI Plugin API Reference (3.0 GA)
 
-> 对齐 `xxynet/KiraAI` **`v3.0.0-rc.2`**（commit `74efac3`；rc1 = `8a0b812`）。rc2 的破坏性变更（`send_message_chain` 的 `self_id=` → `bot=`）见仓根 `../docs/RC2_CHANGES.md`。2.x 差异见 `02-patterns.md` 附录 A。
+> 对齐 `xxynet/KiraAI` **`v3.0.0` 正式版（GA）**（commit `9db3d67`）。rc2→GA 插件面零变更；**GA 起弃用标记正式生效**（`ctx.message_processor.{send_message_chain, flush_session_messages, handle_im_message}`、`get_adapter_infos`、适配器 `.message_types`、事件构造 `message_types=`、适配器直调 `send_*`、`ConfigType.Enum/EnumField`）——对照与双世代写法见仓根 `../docs/GA_DEPRECATIONS.md`。2.x 差异见 `02-patterns.md` 附录 A。
 
 ## Table of Contents
 

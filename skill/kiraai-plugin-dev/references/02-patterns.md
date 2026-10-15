@@ -1,4 +1,4 @@
-# KiraAI Plugin Patterns (3.0 rc2)
+# KiraAI Plugin Patterns (3.0 GA)
 
 Copy-paste proven patterns. Replace placeholders. Keep it simple.
 
@@ -11,7 +11,7 @@ Copy-paste proven patterns. Replace placeholders. Keep it simple.
 5. [Pattern 5: Scheduled Task](#pattern-5-scheduled-task)
 6. [Pattern 6: 会话能力感知钩子（3.0 异步写法）](#pattern-6-会话能力感知钩子30-异步写法)
 7. [XML Tag DSL Reference](#xml-tag-dsl-reference)
-8. [rc1 陷阱清单（全生态审计实锤）](#rc1-陷阱清单全生态审计实锤)
+8. [GA/rc 系陷阱清单（全生态审计实锤）](#garc-系陷阱清单全生态审计实锤)
 9. [Testing & Debugging](#testing--debugging)
 10. [Plugin Structure Templates](#plugin-structure-templates)
 11. [附录 A：2.x 双世代兼容写法](#附录-a2x-双世代兼容写法)
@@ -309,9 +309,23 @@ def handle_mytag(self, content: str, **attrs) -> MessageChain:
 
 ---
 
-## rc2/rc1 陷阱清单（全生态审计实锤）
+## GA/rc 系陷阱清单（全生态审计实锤）
 
-> 44 仓审计 + 15 仓 NEEDS-FIX 修复 + 17 PR 验证出的真坑。每条都有源码证据。
+> 44 仓审计 + 15 仓 NEEDS-FIX 修复 + 17 PR 验证出的真坑；GA 轮（64 仓）再增 GA 弃用面一节。每条都有源码证据。
+
+### 🔴 GA 弃用面（v3.0.0 正式版起生效）
+
+| 坑 | 后果 | 正法 |
+|----|------|------|
+| `ctx.message_processor.send_message_chain(...)` | GA 已 @deprecated | `await ctx.send_message_chain(...)`（2.x ctx 版本就委托给它，纯改名） |
+| `ctx.message_processor.flush_session_messages(sid)` | 同上 | `await ctx.flush_session_messages(sid)`（两代都有） |
+| `ctx.message_processor.handle_im_message(event)` | 同上 | `await ctx.event_bus.publish(event)`（两代 lifecycle 都把事件订阅到管线） |
+| `get_adapter_infos()` | GA 弃用别名 | `get_adapters_info()`（2.x 已有新名，直接换） |
+| 适配器 `.message_types` 属性 | GA 弃用别名 | `adapter.get_capability(IMCapability).get_message_metadata().supported_elements`；2.x 无 get_capability ⇒ `hasattr` 探测回落 |
+| 事件构造 `message_types=` | GA 改名 `supported_elements`（旧名兼容但告警） | `dataclasses.fields` 探测后构造，不绑版本号 |
+| 适配器直调 `.send_group_message()/.send_direct_message()` | GA 标记 Deprecated wrapper | `adapter.get_capability(IMCapability).send_*`；2.x 直调是正常 API（探测回落） |
+| `ConfigType.Enum` / `EnumField` | 两代均已弃用 | StringField/IntField/FloatField + `options` |
+| `getattr(sm, "chat_memory", None)` 当会话数据源 | 3.0 无此属性 ⇒ **静默空结果**（DEP-7，扫描器管不到的行为面） | 读会话走全异步接口；双世代镜像层：入口先刷新、写后失效（订 `session_memory_updated`+`session_memory_written`）、线程区写进 defer 队列异步冲刷 |
 
 ### 🔴 会话与上下文
 

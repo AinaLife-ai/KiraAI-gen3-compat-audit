@@ -33,7 +33,7 @@ python3 tools/scan_deprecated_ga.py /path/to/your_plugin
 | 📋 **[AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md)** | 要**全仓体检**或复现历史结论时看（流程 + 判据 + 坑） |
 | 📜 **[docs/VERSION_LOG.md](docs/VERSION_LOG.md)** | 查**某个框架版本**改了什么、当时扫了哪些仓、谁需要改（**每发新版都在这加一节**） |
 | 🗑️ **[docs/GA_DEPRECATIONS.md](docs/GA_DEPRECATIONS.md)** | **GA 弃用方法 → 最新方法**对照（含双世代改法与豁免判据） |
-| 🤖 **[docs/Agent插件开发指南_v3.0rc2.md](docs/Agent插件开发指南_v3.0rc2.md)** | **要动手写/改插件**时（给 AI 的单文件上下文；含 manifest/钩子/PluginContext/已删 API 对照/铁律） |
+| 🤖 **[docs/Agent插件开发指南_v3.0GA.md](docs/Agent插件开发指南_v3.0GA.md)** | **要动手写/改插件**时（给 AI 的单文件上下文，**GA 基线**；含 manifest/钩子/PluginContext/GA 弃用对照/铁律） |
 
 ---
 
@@ -83,7 +83,7 @@ docs/
   V3_UPGRADE_CHECKLIST.md      ★ 升级清单（逐条打勾）
   SIGNATURE_DRIFT_v3.md        ★ 签名漂移：为什么、怎么查、怎么修
   RC2_CHANGES.md               ★ rc1→rc2 破坏性变更
-  Agent插件开发指南_v3.0rc2.md  ★ 开发指南（rc2 版）—— 投喂给 AI 的**单文件前置上下文**
+  Agent插件开发指南_v3.0GA.md   ★ 开发指南（**GA 版**）—— 投喂给 AI 的**单文件前置上下文**
   Agent插件开发指南_v3.0rc1.md   同上的 rc1 版（保留作历史对照）
 AUDIT_PLAYBOOK.md              ★ 全仓体检流程（判据/坑/复现方式）
 GEN3_COMPAT_PLAN.md            最初的分级方案与批次计划（历史）

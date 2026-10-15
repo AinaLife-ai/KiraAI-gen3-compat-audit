@@ -5,6 +5,7 @@
 > rc2 相对 rc1 的差异（`send_message_chain` 的 `self_id=` → `bot=`）见 [../RC2_CHANGES.md](../RC2_CHANGES.md)；
 > **包装/接管框架方法前务必读** [../SIGNATURE_DRIFT_v3.md](../SIGNATURE_DRIFT_v3.md)。
 > （rc1 版本文档保留在 `Agent插件开发指南_v3.0rc1.md`，作历史对照。）
+> ⚠️ **本版已被 `Agent插件开发指南_v3.0GA.md`（3.0 正式版基线）取代**——GA 起弃用标记正式生效，请用 GA 版。
 > 定位：给 AI Agent 的**单文件前置上下文**——用户只需投喂本 MD，即可开始开发/修改 KiraAI 插件
 > **铁律（最高优先级）**：本文未写明的框架内部细节 **禁止臆造、禁止猜 API**。缺什么就向用户要什么（路径/源码/文档），要不到就停手说明，不要编造方法名、字段或 adapter action。
 
